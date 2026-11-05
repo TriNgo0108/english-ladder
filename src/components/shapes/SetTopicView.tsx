@@ -1,3 +1,4 @@
+import { Quiz } from "@/components/quiz/Quiz";
 import type { SetTopic } from "@/content/schema";
 import { renderRichText } from "@/lib/rich-text";
 import { TopicHeader } from "./TopicHeader";
@@ -44,6 +45,8 @@ export function SetTopicView({ topic }: { topic: SetTopic }) {
           </table>
         </div>
       </section>
+
+      <Quiz questions={topic.quiz} />
     </article>
   );
 }

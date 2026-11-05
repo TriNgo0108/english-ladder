@@ -1,3 +1,4 @@
+import { Quiz } from "@/components/quiz/Quiz";
 import type { RuleTopic } from "@/content/schema";
 import { renderRichText } from "@/lib/rich-text";
 import { TopicHeader } from "./TopicHeader";
@@ -63,6 +64,8 @@ export function RuleTopicView({ topic }: { topic: RuleTopic }) {
           <p className="mt-3 text-base">{renderRichText(topic.pitfall.why)}</p>
         </section>
       )}
+
+      <Quiz questions={topic.quiz} />
     </article>
   );
 }

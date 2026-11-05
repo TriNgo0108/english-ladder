@@ -1,3 +1,4 @@
+import { Quiz } from "@/components/quiz/Quiz";
 import type { PhraseTopic } from "@/content/schema";
 import { renderRichText } from "@/lib/rich-text";
 import { TopicHeader } from "./TopicHeader";
@@ -35,6 +36,8 @@ export function PhraseTopicView({ topic }: { topic: PhraseTopic }) {
           );
         })}
       </div>
+
+      <Quiz questions={topic.quiz} />
     </article>
   );
 }
