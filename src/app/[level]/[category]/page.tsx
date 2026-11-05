@@ -11,12 +11,7 @@ import { SITE_NAME } from "@/lib/site";
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  const pairs = populatedCategoryPairs();
-  // Next rejects an empty result under output: "export". While the corpus has no
-  // topics, emit one pair that the page turns into a 404 (see notFound below).
-  // Unreachable once any topic exists; remove when the first topic lands.
-  if (pairs.length === 0) return [{ level: "a1", category: "grammar" }];
-  return pairs.map(({ level, category }) => ({ level, category }));
+  return populatedCategoryPairs().map(({ level, category }) => ({ level, category }));
 }
 
 export async function generateMetadata({
