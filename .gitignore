@@ -1,0 +1,31 @@
+# Brainstorming scratch (mockups, server state)
+.superpowers/
+
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+next-env.d.ts
+
+# Env
+.env
+.env.local
+.env*.local
+
+# Build / cache
+*.tsbuildinfo
+.turbo/
+.cache/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+
+# Python bytecode (from the ui-ux-pro-max skill scripts)
+__pycache__/
+*.pyc
+
+# Local-only Claude Code settings
+.claude/settings.local.json
