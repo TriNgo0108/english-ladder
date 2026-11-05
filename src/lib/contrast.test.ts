@@ -21,6 +21,10 @@ describe("spec palette meets WCAG AA", () => {
     ["dark text on ground", dark.text, dark.ground],
     ["dark text on surface", dark.text, dark.surface],
     ["dark muted on ground", dark.muted, dark.ground],
+    ["light muted on surface", light.muted, light.surface],
+    ["light accent on surface", light.accent, light.surface],
+    ["dark muted on surface", dark.muted, dark.surface],
+    ["dark accent on surface", dark.accent, dark.surface],
     ["dark accent on ground", dark.accent, dark.ground],
   ])("%s is at least 4.5:1", (_label, fg, bg) => {
     expect(contrastRatio(fg, bg)).toBeGreaterThanOrEqual(4.5);
