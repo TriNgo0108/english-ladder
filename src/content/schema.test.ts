@@ -62,60 +62,62 @@ const validPhraseTopic = (o: Record<string, unknown> = {}) =>
   base({ shape: "phrases", category: "speaking", situations: [situation(), situation(), situation()], ...o });
 const sixEntries = (o: Record<string, unknown>) => Array.from({ length: 6 }, () => ({ ...entry(), ...o }));
 
+// Pad with three valid questions so the quiz min(4) floor is met and only the
+// question under test can cause a rejection; each test names the failing path.
+const quizWith = (q: unknown) => [q, choice(), choice(), choice()];
+const rejects = (q: unknown, path: RegExp) =>
+  expect(() => parseTopic(validRuleTopic({ quiz: quizWith(q) }))).toThrow(path);
+
 describe("question validation", () => {
   it("rejects a choice whose answer index is out of range", () => {
-    expect(() => parseTopic(validRuleTopic({ quiz: [choice({ options: ["a", "b"], answer: 2 })] }))).toThrow();
+    rejects(choice({ options: ["a", "b"], answer: 2 }), /quiz\.0\.answer/);
   });
   it("rejects a choice with a negative answer index", () => {
-    expect(() => parseTopic(validRuleTopic({ quiz: [choice({ options: ["a", "b"], answer: -1 })] }))).toThrow();
+    rejects(choice({ options: ["a", "b"], answer: -1 }), /quiz\.0\.answer/);
   });
   it("rejects a non-integer choice answer", () => {
-    expect(() => parseTopic(validRuleTopic({ quiz: [choice({ answer: 0.5 })] }))).toThrow();
+    rejects(choice({ answer: 0.5 }), /quiz\.0\.answer/);
   });
   it("rejects a choice with fewer than two options", () => {
-    expect(() => parseTopic(validRuleTopic({ quiz: [choice({ options: ["a"], answer: 0 })] }))).toThrow();
+    rejects(choice({ options: ["a"], answer: 0 }), /quiz\.0\.options/);
   });
   it("rejects a choice with a blank option", () => {
-    expect(() => parseTopic(validRuleTopic({ quiz: [choice({ options: ["a", " "] })] }))).toThrow();
+    rejects(choice({ options: ["a", " "] }), /quiz\.0\.options\.1/);
   });
   it("rejects a gap with an empty answers array", () => {
-    expect(() => parseTopic(validRuleTopic({ quiz: [gap({ answers: [] })] }))).toThrow();
+    rejects(gap({ answers: [] }), /quiz\.0\.answers/);
   });
   it("rejects a gap whose answer is blank", () => {
-    expect(() => parseTopic(validRuleTopic({ quiz: [gap({ answers: ["  "] })] }))).toThrow();
+    rejects(gap({ answers: ["  "] }), /quiz\.0\.answers\.0/);
   });
   it("rejects a wordbank whose words cannot form the answer", () => {
-    expect(() =>
-      parseTopic(validRuleTopic({ quiz: [wordbank({ words: ["a", "small"], answer: "a small box" })] })),
-    ).toThrow();
+    rejects(wordbank({ words: ["a", "small"], answer: "a small box" }), /quiz\.0\.answer/);
   });
   it("accepts a wordbank whose words do form the answer", () => {
     expect(() =>
-      parseTopic(validRuleTopic({ quiz: [wordbank({ words: ["box", "a", "small"], answer: "a small box" }), choice(), choice(), choice()] })),
+      parseTopic(validRuleTopic({ quiz: quizWith(wordbank({ words: ["box", "a", "small"], answer: "a small box" })) })),
     ).not.toThrow();
   });
   it("rejects a wordbank with fewer than two words", () => {
-    expect(() => parseTopic(validRuleTopic({ quiz: [wordbank({ words: ["hi"], answer: "hi" })] }))).toThrow();
+    rejects(wordbank({ words: ["hi"], answer: "hi" }), /quiz\.0\.words/);
   });
   it("rejects a mistake whose wrongIndex is out of range", () => {
-    expect(() =>
-      parseTopic(validRuleTopic({ quiz: [mistake({ tokens: ["She", "have"], wrongIndex: 5 })] })),
-    ).toThrow();
+    rejects(mistake({ tokens: ["She", "have"], wrongIndex: 5 }), /quiz\.0\.wrongIndex/);
   });
   it("rejects a mistake with a negative or fractional wrongIndex", () => {
-    expect(() => parseTopic(validRuleTopic({ quiz: [mistake({ wrongIndex: -1 })] }))).toThrow();
-    expect(() => parseTopic(validRuleTopic({ quiz: [mistake({ wrongIndex: 1.5 })] }))).toThrow();
+    rejects(mistake({ wrongIndex: -1 }), /quiz\.0\.wrongIndex/);
+    rejects(mistake({ wrongIndex: 1.5 }), /quiz\.0\.wrongIndex/);
   });
   it("rejects a mistake with a blank correction or token", () => {
-    expect(() => parseTopic(validRuleTopic({ quiz: [mistake({ correction: " " })] }))).toThrow();
-    expect(() => parseTopic(validRuleTopic({ quiz: [mistake({ tokens: ["She", ""] })] }))).toThrow();
+    rejects(mistake({ correction: " " }), /quiz\.0\.correction/);
+    rejects(mistake({ tokens: ["She", ""] }), /quiz\.0\.tokens\.1/);
   });
   it("rejects a question with empty or blank feedback", () => {
-    expect(() => parseTopic(validRuleTopic({ quiz: [choice({ feedback: "" })] }))).toThrow();
-    expect(() => parseTopic(validRuleTopic({ quiz: [choice({ feedback: "   " })] }))).toThrow();
+    rejects(choice({ feedback: "" }), /quiz\.0\.feedback/);
+    rejects(choice({ feedback: "   " }), /quiz\.0\.feedback/);
   });
   it("rejects unknown keys on a question", () => {
-    expect(() => parseTopic(validRuleTopic({ quiz: [choice({ extra: 1 })] }))).toThrow();
+    rejects(choice({ extra: 1 }), /quiz\.0: .*extra/);
   });
 });
 
@@ -234,7 +236,7 @@ describe("error messages", () => {
     } catch (e) {
       const msg = (e as Error).message;
       expect(msg).toContain("my-topic");
-      expect(msg).toContain("quiz.0");
+      expect(msg).toContain("quiz.0.answer");
     }
   });
 });
