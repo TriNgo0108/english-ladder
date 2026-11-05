@@ -50,7 +50,7 @@ describe("A1 grammar, part 1", () => {
   });
 
   it("accepts its but not it's, and the 's form with either apostrophe", () => {
-    const its = gap(possessiveAdjectivesAndS.quiz, "hotel");
+    const its = gap(possessiveAdjectivesAndS.quiz, "shop window");
     expect(matchesGap("its", its)).toBe(true);
     expect(matchesGap("it's", its)).toBe(false);
     const sisters = gap(possessiveAdjectivesAndS.quiz, "sister");

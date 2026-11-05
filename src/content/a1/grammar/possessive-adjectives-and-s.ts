@@ -81,10 +81,10 @@ export const possessiveAdjectivesAndS: RuleTopic = {
     },
     {
       kind: "gap",
-      stem: "This hotel is very nice. ___ rooms are big. (Use my, your, his, her, its, our or their.)",
+      stem: "Look at that old phone in the shop window. ___ screen is very small. (Use my, your, his, her, its, our or their.)",
       answers: ["Its"],
       feedback:
-        "The hotel has got the rooms, and a hotel is a thing, so we use its: Its rooms are big. Its has no '. It's means it is or it has.",
+        "The phone has got the screen, and a phone is a thing, so we use its: Its screen is very small. Its has no '. It's means it is or it has.",
     },
     {
       kind: "gap",
