@@ -12,7 +12,7 @@ export const verbToBe: RuleTopic = {
     "A verb is a word like go, eat or have. <b>Be</b> is a very important verb. We use it all the time. To talk about now, it has three forms: <b>am</b>, <b>is</b> and <b>are</b>.",
     "We use be to give a name or a job: I am Ana. She is a doctor. We also use it to say where someone is, how they feel and how old they are: We are at home. I am happy. He is ten.",
     "The subject is the person or thing that the sentence is about. It usually comes before the verb. The subject tells you which form to use. Use <b>am</b> with I. Use <b>is</b> with he, she and it, and with one person or thing: my sister is, the car is. Use <b>are</b> with we and they, and with two or more people or things: my parents are. With you, always use <b>are</b>, for one person or for many.",
-    "When we speak, we often use short forms: I'm, you're, he's, she's, it's, we're, they're. The sign ' shows that a letter is not there: I'm = I am. The short form and the long form mean the same.",
+    "When we speak, and when we write messages or emails to friends, we often use short forms: I'm, you're, he's, she's, it's, we're, they're. The sign ' shows that a letter is not there: I'm = I am. The short form and the long form mean the same.",
     "To say that something is not true, put <b>not</b> after am, is or are: I am not, she is not, they are not. The short forms are I'm not, she isn't or she's not, and they aren't or they're not. We do not say amn't. Say I'm not.",
     "To ask a question, put am, is or are before the subject. She is at work. → <b>Is</b> she at work? You are a student. → <b>Are</b> you a student?",
   ].join("\n\n"),
@@ -20,7 +20,7 @@ export const verbToBe: RuleTopic = {
   form: [
     "I am · you/we/they are · he/she/it is",
     "I'm · you're · we're · they're · he's · she's · it's",
-    "I'm not · you/we/they aren't · he/she/it isn't",
+    "I'm not · you/we/they aren't or 're not · he/she/it isn't or 's not",
     "Am I …? · Are you/we/they …? · Is he/she/it …?",
   ].join("\n"),
 
