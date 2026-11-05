@@ -16,7 +16,7 @@ export const presentContinuous: RuleTopic = {
     "Most verbs just add -ing: read → reading, play → playing. When a verb ends in an e that we do not say, drop the e: make → making, write → writing, come → coming.",
     "Some short verbs have only one vowel, and they end in that vowel and then one consonant. Remember: a vowel is one of the letters a, e, i, o and u. A consonant is any other letter, like b, t or m. For these verbs, write the last letter two times: sit → sitting, run → running, swim → swimming, stop → stopping. We do not do this with w, x or y at the end: play → playing, fix → fixing.",
     "To say no, put <b>not</b> after am, is or are: I'm not working. She isn't working. They aren't working.",
-    "To ask a question, put am, is or are before the subject: She is working. → <b>Is</b> she working? <b>Are</b> you listening? In short answers, use am, is or are with no -ing verb: Yes, I am. No, she isn't. Do not use a short form at the end: Yes, I am, not Yes, I'm.",
+    "To ask a question, put am, is or are before the subject: She is working. → <b>Is</b> she working? <b>Are</b> you listening? In short answers, use am, is or are with no -ing verb: Yes, I am. No, she isn't. In yes answers, do not use a short form at the end: Yes, I am, not Yes, I'm.",
     "Now, or again and again? Use the present continuous for now: I'm working now. Use the present simple for things that are true for a long time, or that we do again and again: I work every day. Words like now and at the moment often go with the present continuous. Words like every day and on Mondays often go with the present simple.",
     "Some verbs, like know, like, love and want, are not usually in the present continuous, also when we talk about now: I want a coffee now, not I am wanting a coffee. I know the answer, not I am knowing the answer.",
   ].join("\n\n"),
@@ -102,11 +102,11 @@ export const presentContinuous: RuleTopic = {
     },
     {
       kind: "mistake",
-      tokens: ["She", "is", "write", "a", "letter", "now."],
+      tokens: ["She", "is", "writeing", "a", "letter", "now."],
       wrongIndex: 2,
       correction: "writing",
       feedback:
-        "After is, we need the verb with -ing: She is writing a letter now. Write ends in an e that we do not say, so we drop the e: writing, not writeing.",
+        "Write ends in an e that we do not say, so we drop the e before -ing: writing, not writeing. She is writing a letter now.",
     },
     {
       kind: "choice",

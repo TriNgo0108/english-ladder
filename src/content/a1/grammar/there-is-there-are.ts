@@ -15,7 +15,7 @@ export const thereIsThereAre: RuleTopic = {
     "With a plural noun, we often use a number or <b>some</b>: There are two cafés. There are some shops near my house.",
     "When you say two or more things together, look at the first noun: There is a table and four chairs in the kitchen. (The first noun, a table, is singular.) There are four chairs and a table.",
     "To say no, use <b>there isn't</b> (there is not) and <b>there aren't</b> (there are not): There isn't a lift in this building. With a plural noun, we usually use <b>any</b> after there aren't: There aren't any shops in my village.",
-    "To ask a question, put is or are before there: <b>Is there</b> a bank near here? <b>Are there</b> any shops? With a plural noun, we usually use any in a question. In short answers, say: Yes, there is. No, there isn't. Yes, there are. No, there aren't. Do not use a short form at the end: Yes, there is, not Yes, there's.",
+    "To ask a question, put is or are before there: <b>Is there</b> a bank near here? <b>Are there</b> any shops? With a plural noun, we usually use any in a question. In short answers, say: Yes, there is. No, there isn't. Yes, there are. No, there aren't. In yes answers, do not use a short form at the end: Yes, there is, not Yes, there's.",
     "Do not use have or it has for this. In some languages, the verb for have does this job, but not in English: There is a book on the table, not It has a book on the table, and not Have a book on the table.",
     "After we say there is, we often talk about the same thing again with it: There's a new café in my street. It's very nice.",
   ].join("\n\n"),
