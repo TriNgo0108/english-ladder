@@ -65,16 +65,16 @@ export const verbToBe: RuleTopic = {
     {
       kind: "choice",
       stem: "My brother ___ a doctor.",
-      options: ["is", "are", "am", "be"],
-      answer: 0,
+      options: ["are", "am", "be", "is"],
+      answer: 3,
       feedback:
         "The subject, my brother, is one person (he), so we use is: My brother is a doctor. Are is for you, we, they and for two or more. Am is only for I. We do not say My brother be.",
     },
     {
       kind: "choice",
       stem: "Which sentence is correct?",
-      options: ["I am 25 years old.", "I have 25 years.", "I 25 years old."],
-      answer: 0,
+      options: ["I have 25 years.", "I am 25 years old.", "I 25 years old."],
+      answer: 1,
       feedback:
         "For age, English uses be: I am 25, or I am 25 years old. We do not use have for age. We also cannot leave out the verb, so I 25 years old is wrong.",
     },

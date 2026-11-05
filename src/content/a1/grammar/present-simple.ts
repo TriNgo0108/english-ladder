@@ -69,8 +69,8 @@ export const presentSimple: RuleTopic = {
     {
       kind: "choice",
       stem: "My son ___ English at school.",
-      options: ["studies", "studys", "study", "is study"],
-      answer: 0,
+      options: ["studys", "studies", "study", "is study"],
+      answer: 1,
       feedback:
         "My son is one person (he), so the verb needs -s. Study ends in -y, and the letter before the y is d, so the y changes to -ies: studies. We do not use is with another verb, so is study is wrong.",
     },
@@ -107,8 +107,8 @@ export const presentSimple: RuleTopic = {
     {
       kind: "choice",
       stem: "Which sentence is correct?",
-      options: ["I work in an office.", "I am work in an office.", "I works in an office."],
-      answer: 0,
+      options: ["I am work in an office.", "I works in an office.", "I work in an office."],
+      answer: 2,
       feedback:
         "With I, we use the base form: I work in an office. We do not put am before another verb in the present simple. The -s is only for he, she and it, so I works is wrong.",
     },

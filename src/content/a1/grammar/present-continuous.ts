@@ -73,8 +73,8 @@ export const presentContinuous: RuleTopic = {
     {
       kind: "choice",
       stem: "Where's Anna? She ___ in the garden.",
-      options: ["working", "is work", "is working", "works"],
-      answer: 2,
+      options: ["working", "is work", "works", "is working"],
+      answer: 3,
       feedback:
         "We are talking about now, so we use the present continuous, with two parts: is working. We cannot leave out is (She working), and we cannot leave out -ing (She is work). She works is the present simple. It is for every day, not for now.",
     },
@@ -111,8 +111,8 @@ export const presentContinuous: RuleTopic = {
     {
       kind: "choice",
       stem: "Are you listening to me? Yes, ___",
-      options: ["I'm.", "I am.", "I do.", "I listening."],
-      answer: 1,
+      options: ["I am.", "I'm.", "I do.", "I listening."],
+      answer: 0,
       feedback:
         "The question starts with are, so the short answer uses am: Yes, I am. We cannot use the short form 'm at the end, so Yes, I'm is wrong. Do is for questions with do, like Do you work here?",
     },

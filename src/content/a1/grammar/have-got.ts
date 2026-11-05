@@ -66,16 +66,16 @@ export const haveGot: RuleTopic = {
     {
       kind: "choice",
       stem: "My sister ___ long hair.",
-      options: ["has got", "have got", "is got"],
-      answer: 0,
+      options: ["have got", "is got", "has got"],
+      answer: 2,
       feedback:
         "My sister is one person (she), so we use has got: My sister has got long hair. Have got is for I, you, we and they. We do not say is got. My sister has long hair, without got, is also right.",
     },
     {
       kind: "choice",
       stem: "Have you got a pen? Yes, ___",
-      options: ["I have.", "I have got.", "I've.", "I got."],
-      answer: 0,
+      options: ["I have got.", "I've.", "I got.", "I have."],
+      answer: 3,
       feedback:
         "In a short answer, we use only have or has, without got: Yes, I have. We cannot use the short form 've at the end, so Yes, I've is wrong. I got is not a short answer to Have you got.",
     },

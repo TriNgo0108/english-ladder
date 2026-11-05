@@ -65,16 +65,16 @@ export const personalPronouns: RuleTopic = {
     {
       kind: "choice",
       stem: "My sister is fifteen. ___ is at school.",
-      options: ["She", "He", "It", "They"],
-      answer: 0,
+      options: ["He", "She", "It", "They"],
+      answer: 1,
       feedback:
         "My sister is a girl, so we use she: She is at school. He is for a man or a boy, it is for a thing, and they is for two or more.",
     },
     {
       kind: "choice",
       stem: "Which sentence is correct?",
-      options: ["It is cold today.", "Is cold today.", "It cold today."],
-      answer: 0,
+      options: ["Is cold today.", "It cold today.", "It is cold today."],
+      answer: 2,
       feedback:
         "An English sentence needs a subject. For the weather, the subject is it: It is cold today. We cannot leave out it, and we cannot leave out the verb is.",
     },

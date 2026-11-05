@@ -66,16 +66,16 @@ export const possessiveAdjectivesAndS: RuleTopic = {
     {
       kind: "choice",
       stem: "Anna is at the cinema with ___ brother.",
-      options: ["her", "his", "she", "its"],
-      answer: 0,
+      options: ["his", "she", "its", "her"],
+      answer: 3,
       feedback:
         "Anna is a woman, so we use her: Anna is with her brother. We look at the person who has the brother, Anna, not at the brother. She can only be a subject. It cannot come before a noun like this. Its is for a thing or an animal.",
     },
     {
       kind: "choice",
       stem: "Which sentence is correct?",
-      options: ["Peter's car is new.", "The car of Peter is new.", "Peters car is new."],
-      answer: 0,
+      options: ["The car of Peter is new.", "Peter's car is new.", "Peters car is new."],
+      answer: 1,
       feedback:
         "With a person, we add 's to the name: Peter's car is new. We do not say the car of Peter. Without the sign ', Peters car is wrong.",
     },

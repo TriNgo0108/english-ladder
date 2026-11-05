@@ -61,8 +61,8 @@ export const adjectivesBeforeTheNoun: RuleTopic = {
     {
       kind: "choice",
       stem: "There are three ___ in the street.",
-      options: ["bigs cars", "cars big", "big cars", "big car"],
-      answer: 2,
+      options: ["bigs cars", "cars big", "big car", "big cars"],
+      answer: 3,
       feedback:
         "The adjective comes before the noun, and it has no -s: three big cars. Only the noun has -s for the plural. Big car is wrong here, because three is more than one, so the noun must be plural: cars.",
     },
@@ -92,8 +92,8 @@ export const adjectivesBeforeTheNoun: RuleTopic = {
     {
       kind: "choice",
       stem: "Which sentence is correct?",
-      options: ["It's a car very fast.", "It's a very fast car.", "It's a fast very car."],
-      answer: 1,
+      options: ["It's a car very fast.", "It's a fast very car.", "It's a very fast car."],
+      answer: 2,
       feedback:
         "Very comes before the adjective, and the adjective comes before the noun: a very fast car. The noun, car, comes last.",
     },

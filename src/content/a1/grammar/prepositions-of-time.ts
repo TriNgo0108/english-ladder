@@ -74,8 +74,8 @@ export const prepositionsOfTime: RuleTopic = {
     {
       kind: "choice",
       stem: "The film starts ___ 8 o'clock.",
-      options: ["on", "at", "in"],
-      answer: 1,
+      options: ["on", "in", "at"],
+      answer: 2,
       feedback:
         "8 o'clock is a clock time, so we use at: The film starts at 8 o'clock. On is for days and dates. In is for months, years, seasons and parts of the day.",
     },
@@ -103,8 +103,8 @@ export const prepositionsOfTime: RuleTopic = {
     {
       kind: "choice",
       stem: "I see my grandmother ___ Sunday afternoon.",
-      options: ["in", "at", "on"],
-      answer: 2,
+      options: ["on", "in", "at"],
+      answer: 0,
       feedback:
         "Sunday afternoon is a day and a part of the day together. The day decides, so we use on: on Sunday afternoon. Alone, the part of the day takes in: in the afternoon.",
     },

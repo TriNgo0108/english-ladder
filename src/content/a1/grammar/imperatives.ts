@@ -64,8 +64,8 @@ export const imperatives: RuleTopic = {
     {
       kind: "choice",
       stem: "The floor is wet. ___ here, please.",
-      options: ["Not run", "No run", "Don't run", "Don't running"],
-      answer: 2,
+      options: ["Don't run", "Not run", "No run", "Don't running"],
+      answer: 0,
       feedback:
         "To tell someone not to do something, we put don't before the base form: Don't run here, please. Not run and No run are wrong, because they have no don't. After don't, the verb has no -ing.",
     },
@@ -94,8 +94,8 @@ export const imperatives: RuleTopic = {
     {
       kind: "choice",
       stem: "Which sentence is correct?",
-      options: ["Sits down, please.", "Please sit down.", "Please to sit down.", "Please sitting down."],
-      answer: 1,
+      options: ["Sits down, please.", "Please to sit down.", "Please sitting down.", "Please sit down."],
+      answer: 3,
       feedback:
         "The imperative is the base form: sit. Please can come before it: Please sit down. The verb has no -s, no to before it, and no -ing.",
     },

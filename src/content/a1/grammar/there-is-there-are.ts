@@ -69,8 +69,8 @@ export const thereIsThereAre: RuleTopic = {
     {
       kind: "choice",
       stem: "___ two banks in my street.",
-      options: ["It has", "There are", "There is", "Have"],
-      answer: 1,
+      options: ["It has", "There is", "Have", "There are"],
+      answer: 3,
       feedback:
         "Banks is plural (two banks), so we use there are: There are two banks in my street. There is is for one thing. English does not use it has or have to say that something is in a place.",
     },

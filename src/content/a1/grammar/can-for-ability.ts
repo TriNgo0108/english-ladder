@@ -61,8 +61,8 @@ export const canForAbility: RuleTopic = {
     {
       kind: "choice",
       stem: "My brother ___ very fast.",
-      options: ["can runs", "can run", "cans run", "can to run"],
-      answer: 1,
+      options: ["can runs", "cans run", "can to run", "can run"],
+      answer: 3,
       feedback:
         "After can, we use the base form, with no -s and no to: My brother can run very fast. Can is the same for every subject, so it never has -s: not cans.",
     },
@@ -100,8 +100,8 @@ export const canForAbility: RuleTopic = {
     {
       kind: "choice",
       stem: "Which question is correct?",
-      options: ["Do you can swim?", "Can you swim?", "Can you to swim?"],
-      answer: 1,
+      options: ["Can you swim?", "Do you can swim?", "Can you to swim?"],
+      answer: 0,
       feedback:
         "To make a question, we put can before the subject: Can you swim? We do not use do with can, and there is no to after can.",
     },

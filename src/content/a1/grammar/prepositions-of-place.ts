@@ -71,8 +71,8 @@ export const prepositionsOfPlace: RuleTopic = {
     {
       kind: "choice",
       stem: "Your phone is ___ the table, next to your keys.",
-      options: ["in", "on", "between"],
-      answer: 1,
+      options: ["on", "in", "between"],
+      answer: 0,
       feedback:
         "The phone is touching the top of the table, so we use on: on the table. In is for inside something, like a bag or a box. Between needs two things, one on each side.",
     },

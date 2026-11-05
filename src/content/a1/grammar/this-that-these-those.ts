@@ -62,16 +62,16 @@ export const thisThatTheseThose: RuleTopic = {
     {
       kind: "choice",
       stem: "___ books are very old. (The books are here, in my hands.)",
-      options: ["These", "This", "Those", "That"],
-      answer: 0,
+      options: ["This", "Those", "These", "That"],
+      answer: 2,
       feedback:
         "Books is plural, and the books are near me, so we use these: These books are very old. This is only for one thing, and we do not say this books. Those and that are for things that are not near.",
     },
     {
       kind: "choice",
       stem: "Look at ___ bird in the tree over there!",
-      options: ["that", "this", "those", "these"],
-      answer: 0,
+      options: ["this", "that", "those", "these"],
+      answer: 1,
       feedback:
         "It is one bird, and it is not near: it is over there. So we use that: that bird. This is for one thing near you. Those and these are for two or more.",
     },

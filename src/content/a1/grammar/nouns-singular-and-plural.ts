@@ -65,8 +65,8 @@ export const nounsSingularAndPlural: RuleTopic = {
     {
       kind: "choice",
       stem: "My ___ are in the car. (box)",
-      options: ["boxes", "boxs", "boxies", "box"],
-      answer: 0,
+      options: ["boxs", "boxies", "boxes", "box"],
+      answer: 2,
       feedback:
         "Box ends in -x, so the plural adds -es: one box, two boxes. Boxs is a common mistake: after -s, -sh, -ch and -x, we add -es. We need the plural here because the verb is are.",
     },

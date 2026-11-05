@@ -65,16 +65,16 @@ export const articlesAAn: RuleTopic = {
     {
       kind: "choice",
       stem: "My mother is ___ engineer.",
-      options: ["an", "a", "(no word)"],
-      answer: 0,
+      options: ["a", "(no word)", "an"],
+      answer: 2,
       feedback:
         "Engineer starts with a vowel sound, so we use an: My mother is an engineer. For a job we need a or an, so we cannot leave it out.",
     },
     {
       kind: "choice",
       stem: "The lesson is ___ hour long.",
-      options: ["an", "a"],
-      answer: 0,
+      options: ["a", "an"],
+      answer: 1,
       feedback:
         "Hour starts with the letter h, but we do not say the h. The first sound is a vowel sound, so we use an: an hour. Listen to the sound, not the letter.",
     },
