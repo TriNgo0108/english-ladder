@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans, Newsreader } from "next/font/google";
 import { Search } from "@/components/Search";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { SITE_NAME } from "@/lib/site";
+import { BASE_PATH, SITE_NAME, SITE_ORIGIN } from "@/lib/site";
 import "./globals.css";
 
 const newsreader = Newsreader({
@@ -23,8 +23,11 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: SITE_NAME,
-  description: "A CEFR English-learning site",
+  metadataBase: new URL(`${SITE_ORIGIN}${BASE_PATH}/`),
+  title: { default: SITE_NAME, template: `%s - ${SITE_NAME}` },
+  description:
+    "Free English lessons for every CEFR level, from A1 to C1. Clear explanations, examples, and quizzes with instant feedback.",
+  openGraph: { siteName: SITE_NAME, type: "website", locale: "en" },
 };
 
 // Runs before first paint: stamps data-theme only for a valid stored value.

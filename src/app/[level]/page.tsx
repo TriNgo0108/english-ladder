@@ -5,7 +5,6 @@ import { populatedCategoryPairs, topicsByLevelAndCategory } from "@/content/regi
 import { LevelSchema, type Level } from "@/content/schema";
 import { categoryMeta } from "@/lib/categories";
 import { LEVELS, levelMeta } from "@/lib/levels";
-import { SITE_NAME } from "@/lib/site";
 
 export const dynamicParams = false;
 
@@ -16,7 +15,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/[level]">): Promise<Metadata> {
   const { level } = await params;
   const meta = levelMeta(LevelSchema.parse(level));
-  return { title: `${meta.label} - ${SITE_NAME}`, description: meta.blurb };
+  return { title: meta.label, description: meta.blurb };
 }
 
 export default async function LevelPage({ params }: PageProps<"/[level]">) {

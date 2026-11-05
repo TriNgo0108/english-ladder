@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { LevelBadge } from "@/components/LevelBadge";
 import { LEVELS } from "@/lib/levels";
-import { SITE_NAME } from "@/lib/site";
 
-export const metadata: Metadata = { title: `Page not found - ${SITE_NAME}` };
+export const metadata: Metadata = { title: "Page not found" };
 
 const link =
   "inline-flex min-h-11 items-center text-base text-accent underline transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";

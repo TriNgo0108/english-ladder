@@ -8,7 +8,6 @@ import { TopicNav } from "@/components/TopicNav";
 import { adjacentTopics, allTopics, findTopic } from "@/content/registry";
 import { CategorySlugSchema, LevelSchema, type Topic } from "@/content/schema";
 import { metaDescription, serialiseJsonLd, topicJsonLd, topicUrl } from "@/lib/seo";
-import { SITE_NAME } from "@/lib/site";
 
 export const dynamicParams = false;
 
@@ -31,7 +30,7 @@ export async function generateMetadata({
   const topic = await resolveTopic(params);
   if (!topic) return {};
   return {
-    title: `${topic.title} - ${SITE_NAME}`,
+    title: topic.title,
     description: metaDescription(topic.explanation),
     alternates: { canonical: topicUrl(topic) },
   };
