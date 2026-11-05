@@ -279,7 +279,7 @@ Derived from the project's `ui-ux-pro-max` design database (styles: *Swiss Moder
 | Muted text | `#5A6173` | `#8B93A5` |
 | Accent | `#1D4ED8` | `#60A5FA` |
 
-Semantic colours for quiz feedback are **separate from the accent**: correct `#16A34A`, incorrect `#DC2626`.
+Semantic colours for quiz feedback are **separate from the accent**, and themed because no single hex reaches 4.5:1 on both a near-white and a near-black ground: correct `#15803D` light / `#16A34A` dark, incorrect `#DC2626` light / `#F87171` dark.
 
 **The level ramp** is one hue deepening across the scale — `#DBEAFE` → `#BFDBFE` → `#93C5FD` → `#60A5FA` → `#2563EB` — because A1→C1 is a genuine ordered progression. It is not six unrelated brand colours, and the ordering carries real information. Level is never signalled by colour alone; the badge always reads "A1".
 
