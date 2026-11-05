@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans, Newsreader } from "next/font/google";
+import { Search } from "@/components/Search";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { SITE_NAME } from "@/lib/site";
 import "./globals.css";
@@ -40,7 +41,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="min-h-full flex flex-col font-sans">
-        <header className="flex justify-end p-2">
+        <header className="flex items-center justify-end gap-2 p-2">
+          <Search />
           <ThemeToggle />
         </header>
         {children}

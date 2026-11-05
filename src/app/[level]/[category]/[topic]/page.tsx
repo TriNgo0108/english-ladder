@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
+import { CrossLevelLinks } from "@/components/CrossLevelLinks";
 import { PhraseTopicView } from "@/components/shapes/PhraseTopicView";
 import { RuleTopicView } from "@/components/shapes/RuleTopicView";
 import { SetTopicView } from "@/components/shapes/SetTopicView";
+import { TopicNav } from "@/components/TopicNav";
 import { adjacentTopics, allTopics, findTopic } from "@/content/registry";
 import { CategorySlugSchema, LevelSchema, type Topic } from "@/content/schema";
-import { metaDescription, serialiseJsonLd, topicJsonLd, topicPath, topicUrl } from "@/lib/seo";
+import { metaDescription, serialiseJsonLd, topicJsonLd, topicUrl } from "@/lib/seo";
 import { SITE_NAME } from "@/lib/site";
 
 export const dynamicParams = false;
@@ -47,9 +48,6 @@ function TopicBody({ topic }: { topic: Topic }) {
   }
 }
 
-const navLink =
-  "flex min-h-11 flex-col justify-center rounded border border-border bg-surface p-3 transition-colors duration-200 hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
-
 export default async function TopicPage({ params }: PageProps<"/[level]/[category]/[topic]">) {
   const topic = await resolveTopic(params);
   if (!topic) notFound();
@@ -62,22 +60,8 @@ export default async function TopicPage({ params }: PageProps<"/[level]/[categor
         dangerouslySetInnerHTML={{ __html: serialiseJsonLd(topicJsonLd(topic)) }}
       />
       <TopicBody topic={topic} />
-      {(prev || next) && (
-        <nav aria-label="More topics" className="mt-12 grid gap-4 sm:grid-cols-2">
-          {prev && (
-            <Link href={topicPath(prev)} className={navLink}>
-              <span className="text-sm text-muted">Previous</span>
-              <span className="text-base font-semibold">{prev.title}</span>
-            </Link>
-          )}
-          {next && (
-            <Link href={topicPath(next)} className={`${navLink} sm:col-start-2 sm:text-right`}>
-              <span className="text-sm text-muted">Next</span>
-              <span className="text-base font-semibold">{next.title}</span>
-            </Link>
-          )}
-        </nav>
-      )}
+      <TopicNav prev={prev} next={next} />
+      <CrossLevelLinks topic={topic} />
     </main>
   );
 }
