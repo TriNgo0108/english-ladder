@@ -29,3 +29,6 @@ __pycache__/
 
 # Local-only Claude Code settings
 .claude/settings.local.json
+
+# Harness-managed worktrees
+.claude/worktrees/
