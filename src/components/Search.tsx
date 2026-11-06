@@ -56,7 +56,7 @@ export function Search() {
 
   return (
     <div
-      className="relative font-sans"
+      className="font-sans sm:relative"
       onBlur={(e) => {
         // Close when focus leaves the whole combobox (input + results).
         if (!e.currentTarget.contains(e.relatedTarget)) setDismissed(true);

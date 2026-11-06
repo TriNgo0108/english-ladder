@@ -46,4 +46,12 @@ describe("SetTopicView", () => {
     expect(screen.getByText("My bag is blue.")).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Fixture colours");
   });
+
+  it("gives the scrollable table container its own visible keyboard focus ring", () => {
+    const { container } = render(<SetTopicView topic={topic} />);
+    const scroller = container.querySelector("table")!.parentElement!;
+    expect(scroller.className).toContain("overflow-x-auto");
+    expect(scroller.className).toContain("focus-visible:outline-2");
+    expect(scroller.className).toContain("focus-visible:outline-accent");
+  });
 });

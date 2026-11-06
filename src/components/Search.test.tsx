@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Search } from "@/components/Search";
 import type { SearchEntry } from "@/lib/search-index";
@@ -88,15 +88,27 @@ describe("Search", () => {
     expect(await screen.findByRole("listbox")).toBeInTheDocument();
     expect(input).toHaveAttribute("aria-expanded", "true");
   });
-  it("does not close on mousedown of a result, so the click still navigates", async () => {
+  it("mousedown on a result is default-prevented, so Safari never blurs the input before the click lands", async () => {
     const user = userEvent.setup();
     render(<Search />);
     const input = screen.getByLabelText("Search topics");
     await user.type(input, "articles");
     const opts = await screen.findAllByRole("option");
+    // Safari does not focus links on mousedown: unless the default is
+    // prevented, the input blurs with relatedTarget null. Model that.
+    const proceeded = fireEvent.mouseDown(opts[0]);
+    if (proceeded) fireEvent.blur(input, { relatedTarget: null });
+    expect(screen.getByRole("listbox")).toBeInTheDocument();
+    expect(input).toHaveAttribute("aria-expanded", "true");
     const click = vi.fn((ev: Event) => ev.preventDefault());
     opts[0].addEventListener("click", click);
-    await user.click(opts[0]);
+    fireEvent.click(opts[0]);
     expect(click).toHaveBeenCalledTimes(1);
+  });
+  it("anchors the dropdown to the header below sm, so it cannot overflow the viewport on mobile", () => {
+    const { container } = render(<Search />);
+    const wrapper = container.firstElementChild as HTMLElement;
+    expect(wrapper.className).toContain("sm:relative");
+    expect(wrapper.className.split(" ")).not.toContain("relative");
   });
 });

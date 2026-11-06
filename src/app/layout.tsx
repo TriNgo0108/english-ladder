@@ -44,7 +44,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="min-h-full flex flex-col font-sans">
-        <header className="flex items-center justify-end gap-2 p-2">
+        <header className="relative flex items-center justify-end gap-2 p-2">
           <Search />
           <ThemeToggle />
         </header>
