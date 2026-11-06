@@ -18,7 +18,7 @@ export const presentContinuous: RuleTopic = {
     "To say no, put <b>not</b> after am, is or are: I'm not working. She isn't working. They aren't working.",
     "To ask a question, put am, is or are before the subject: She is working. → <b>Is</b> she working? <b>Are</b> you listening? In short answers, use am, is or are with no -ing verb: Yes, I am. No, she isn't. In yes answers, do not use a short form at the end: Yes, I am, not Yes, I'm.",
     "Now, or again and again? Use the present continuous for now: I'm working now. Use the present simple for things that are true for a long time, or that we do again and again: I work every day. Words like now and at the moment often go with the present continuous. Words like every day and on Mondays often go with the present simple.",
-    "Some verbs, like know, like, love and want, are not usually in the present continuous, also when we talk about now: I want a coffee now, not I am wanting a coffee. I know the answer, not I am knowing the answer.",
+    "Some verbs, like know, like, love and want, are not usually in the present continuous, even when we talk about now: I want a coffee now, not I am wanting a coffee. I know the answer, not I am knowing the answer.",
   ].join("\n\n"),
 
   form: [

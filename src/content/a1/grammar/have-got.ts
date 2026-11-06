@@ -10,7 +10,7 @@ export const haveGot: RuleTopic = {
 
   explanation: [
     "We use <b>have got</b> to say what things a person has: I have got a car. We also use it for family, and to say what a person looks like: She has got two sisters. He has got blue eyes.",
-    "Use <b>have got</b> with I, you, we and they, and with two or more people or things: my parents have got. Use <b>has got</b> with he, she and it, and with one person or thing: my brother has got. It is like be: he is, and he has got.",
+    "Use <b>have got</b> with I, you, we and they, and with two or more people or things: my parents have got. Use <b>has got</b> with he, she and it, and with one person or thing: my brother has got. Like be, the subject decides: he is, he has got.",
     "We often use short forms: I've got, you've got, we've got, they've got, he's got, she's got, it's got. Remember: the sign ' shows that letters are not there. Careful: he's can be he is or he has. He's got a dog = he has got a dog. He's a doctor = he is a doctor.",
     "To say no, put <b>not</b> after have or has: I have not got a car. She has not got a car. The short forms are <b>haven't got</b> and <b>hasn't got</b>: I haven't got a car. She hasn't got a car.",
     "To ask a question, put have or has before the subject. Got comes after the subject. You have got a pen. → <b>Have</b> you <b>got</b> a pen? She has got a car. → <b>Has</b> she <b>got</b> a car?",
@@ -112,7 +112,7 @@ export const haveGot: RuleTopic = {
   ],
 
   levelRationale:
-    "English Grammar Profile, A1: have got and has got for things we own, family and how people look, in statements, negatives and questions, is an A1 point. It comes after pronouns because the choice between have and has depends on the subject pronoun, in the same way as be.",
+    "English Grammar Profile, A1: have got and has got for things we own, family and how people look is an A1 point. The Profile may place some negative and question forms at A2. They are taught here too, because the British Council and EAQUALS Core Inventory puts have got at A1, and learners need to say no and ask questions from the start. It comes after pronouns because the choice between have and has depends on the subject pronoun, in the same way as be.",
 
   sourceNotes:
     "english_grammar.txt, # Have got: 'We use have got and has got [to] talk about things we own and talk about family or appearance' agrees with Swan. Its first example, 'I have got two brother and a sister', has an error: it should be two brothers. Its example 'Have you got any change...' uses any, which this topic does not teach yet, so it is not used here. # Modal verb 5, ### Have got (possessions and descriptions; contracted forms common) also agrees. From Swan, Practical English Usage (have got): have got is informal and more common in British English; have without got means the same and is correct; short answers use have/has without got; 've cannot end a sentence, so Yes, I've is wrong. The note does not say that he's can mean he is or he has; added.",

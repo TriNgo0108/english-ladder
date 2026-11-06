@@ -14,7 +14,7 @@ export const personalPronouns: RuleTopic = {
     "Use <b>I</b> for yourself. Always write I as a capital letter (I, not i), also in the middle of a sentence: My friend and I are students.",
     "Use <b>you</b> for the person you are talking to. You is for one person or for many people. It is the same word.",
     "Use <b>he</b> for a man or a boy. Use <b>she</b> for a woman or a girl. Use <b>it</b> for a thing, and usually for an animal: My car is old. It is slow. We also use it for the weather and the time: It is cold. It is five o'clock.",
-    "Use <b>we</b> for you and one or more other people together: Tom and I are brothers. We are twins. Use <b>they</b> for two or more people or things: My parents are at home. They are tired. My keys are not here. They are in the car.",
+    "Use <b>we</b> for yourself (I) and one or more other people together: Tom and I are brothers. We are twins. Use <b>they</b> for two or more people or things: My parents are at home. They are tired. My keys are not here. They are in the car.",
     "An English sentence needs a subject. Do not leave it out: It is cold today, not Is cold today. But do not use a noun and a pronoun together for the same subject: My sister is a doctor, not My sister she is a doctor.",
   ].join("\n\n"),
 

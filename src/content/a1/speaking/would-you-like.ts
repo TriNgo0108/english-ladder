@@ -107,7 +107,7 @@ export const wouldYouLike: PhraseTopic = {
       wrongIndex: 3,
       correction: "like",
       feedback:
-        "After would, the verb has no -s, also with he and she: Would your brother like a drink? It is the same after can: She can swim, not She can swims.",
+        "After would, the verb has no -s, even with he and she: Would your brother like a drink? It is the same after can: She can swim, not She can swims.",
     },
   ],
 

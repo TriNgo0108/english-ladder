@@ -14,7 +14,7 @@ export const presentSimple: RuleTopic = {
     "With he, she and it, and with one person or thing, add <b>-s</b> to the verb: she works, he lives, my brother plays tennis, it rains a lot here.",
     "Verbs that end in -s, -sh, -ch, -x or -o add <b>-es</b>: he misses, she washes, he watches, it fixes, she goes, he does. When a verb ends in -y and the letter before the y is a, e, o or u, just add -s: play → plays, buy → buys. When it is a different letter, change the y to <b>-ies</b>: study → studies, carry → carries. Have is different: he <b>has</b>, not he haves.",
     "To say no, put <b>don't</b> (do not) or <b>doesn't</b> (does not) before the base form. Use doesn't with he, she and it: I don't work on Sundays. She doesn't work on Sundays. The -s is now in doesn't, so the verb has no -s: She doesn't work, not She doesn't works.",
-    "To ask a question, put <b>do</b> or <b>does</b> before the subject: <b>Do</b> you live here? <b>Does</b> she work here? Again, after does the verb has no -s: Does she work?, not Does she works? In short answers, use do or does: Yes, I do. No, she doesn't.",
+    "To ask a question, put <b>do</b> or <b>does</b> before the subject: <b>Do</b> you live here? <b>Does</b> she work here? Again, after does the verb has no -s. Say Does she work? Do not say Does she works? In short answers, use do or does: Yes, I do. No, she doesn't.",
     "Do not use am, is or are with another verb in the present simple: I work in an office, not I am work in an office.",
     "Have works in the same way: Do you have a car? I don't have a car. This means the same as Have you got a car? I haven't got a car.",
   ].join("\n\n"),

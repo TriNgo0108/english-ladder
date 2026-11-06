@@ -22,7 +22,7 @@ export const possessiveAdjectivesAndS: RuleTopic = {
     "I → my · you → your · he → his · she → her · it → its · we → our · they → their",
     "name or noun + 's · Tom's car · my sister's room",
     "plural noun ending in -s + ' · my parents' house",
-    "its = of it · it's = it is or it has",
+    "its = for a thing or an animal (the dog → its bed) · it's = it is or it has",
   ].join("\n"),
 
   examples: [
@@ -69,7 +69,7 @@ export const possessiveAdjectivesAndS: RuleTopic = {
       options: ["his", "she", "its", "her"],
       answer: 3,
       feedback:
-        "Anna is a woman, so we use her: Anna is with her brother. We look at the person who has the brother, Anna, not at the brother. She can only be a subject. It cannot come before a noun like this. Its is for a thing or an animal.",
+        "Anna is a woman, so we use her: Anna is with her brother. We look at the person who has the brother, Anna, not at the brother. She can only be a subject. She cannot come before a noun. Its is for a thing or an animal.",
     },
     {
       kind: "choice",
@@ -84,7 +84,7 @@ export const possessiveAdjectivesAndS: RuleTopic = {
       stem: "Look at that old phone in the shop window. ___ screen is very small. (Use my, your, his, her, its, our or their.)",
       answers: ["Its"],
       feedback:
-        "The phone has got the screen, and a phone is a thing, so we use its: Its screen is very small. Its has no '. It's means it is or it has.",
+        "The phone has a screen, and a phone is a thing, so we use its: Its screen is very small. Its has no '. It's means it is or it has.",
     },
     {
       kind: "gap",

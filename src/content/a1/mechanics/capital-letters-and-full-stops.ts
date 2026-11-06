@@ -103,11 +103,12 @@ export const capitalLettersAndFullStops: RuleTopic = {
         "English is a language, so it starts with a capital letter, the same as French: She speaks English and French. Many languages use a small letter here, but English does not.",
     },
     {
-      kind: "gap",
-      stem: "One word in this sentence needs a capital letter. Write that word. — We go swimming in summer and on sundays.",
-      answers: ["Sundays"],
+      kind: "mistake",
+      tokens: ["We", "go", "swimming", "in", "summer", "and", "on", "sundays."],
+      wrongIndex: 7,
+      correction: "Sundays.",
       feedback:
-        "Sundays needs a capital S, because it is a day of the week. Summer is a season, and seasons usually have a small letter, so summer is correct. We is the first word, and it already has a capital letter.",
+        "Sundays needs a capital S, because it is a day of the week: on Sundays. Summer is a season, and seasons usually have a small letter, so summer is correct. We is the first word, and it already has a capital letter.",
     },
   ],
 

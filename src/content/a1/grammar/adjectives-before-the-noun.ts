@@ -31,7 +31,7 @@ export const adjectivesBeforeTheNoun: RuleTopic = {
     },
     {
       sentence: "I've got two <b>black</b> cats.",
-      why: "<b>Black</b> has no -s, also with a plural noun. Only the noun, cats, has -s.",
+      why: "<b>Black</b> has no -s, even with a plural noun. Only the noun, cats, has -s.",
     },
     {
       sentence: "Paris is a <b>beautiful</b> city.",
@@ -43,7 +43,7 @@ export const adjectivesBeforeTheNoun: RuleTopic = {
     },
     {
       sentence: "My parents are <b>happy</b>.",
-      why: "After be, the adjective can be alone, with no noun. <b>Happy</b> has no -s, also when the subject is plural.",
+      why: "After be, the adjective can be alone, with no noun. <b>Happy</b> has no -s, even when the subject is plural.",
     },
     {
       sentence: "This is a <b>very good</b> book.",
@@ -79,7 +79,7 @@ export const adjectivesBeforeTheNoun: RuleTopic = {
       stem: "I've got two ___ dogs. (black)",
       answers: ["black"],
       feedback:
-        "Adjectives never add -s, also with a plural noun: two black dogs, not two blacks dogs. Only the noun, dogs, has -s.",
+        "Adjectives never add -s, even with a plural noun: two black dogs, not two blacks dogs. Only the noun, dogs, has -s.",
     },
     {
       kind: "mistake",

@@ -55,9 +55,9 @@ export const tellingTheTime: SetTopic = {
     {
       kind: "gap",
       stem: "It's 7:15. It's ___ past seven.",
-      answers: ["quarter", "a quarter", "fifteen minutes"],
+      answers: ["quarter", "a quarter", "fifteen", "fifteen minutes"],
       feedback:
-        "15 minutes is a quarter of an hour, so 7:15 is quarter past seven, or a quarter past seven. Both are correct. Fifteen minutes past seven is also right, but quarter past is much more usual. You can also say seven fifteen.",
+        "15 minutes is a quarter of an hour, so 7:15 is quarter past seven, or a quarter past seven. Both are correct. Fifteen past seven and fifteen minutes past seven are right too, but quarter past is much more usual. You can also say seven fifteen.",
     },
     {
       kind: "gap",

@@ -92,7 +92,7 @@ export const wasWere: RuleTopic = {
       stem: "Tom, you ___ very quiet in class today. Are you OK? (be, past)",
       answers: ["were"],
       feedback:
-        "The subject is you, so the past of be is were: You were very quiet. With you, it is always were, also when we talk to one person, like Tom. We do not say you was.",
+        "The subject is you, so the past of be is were: You were very quiet. With you, it is always were, even when we talk to one person, like Tom. We do not say you was.",
     },
     {
       kind: "gap",

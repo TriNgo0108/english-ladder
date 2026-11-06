@@ -47,7 +47,7 @@ export const thereIsThereAre: RuleTopic = {
     },
     {
       sentence: "<b>Is there</b> a bank near here?",
-      why: "In a question, <b>is</b> comes before there. It is is because a bank is singular.",
+      why: "In a question, <b>is</b> comes before there. We use is because a bank is singular.",
     },
     {
       sentence: "<b>Are there</b> any eggs in the fridge?",

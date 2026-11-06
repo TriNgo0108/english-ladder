@@ -110,9 +110,9 @@ export const greetingsAndIntroducingYourself: PhraseTopic = {
       kind: "mistake",
       tokens: ["Good", "night,", "Mr", "Brown.", "How", "are", "you", "today?"],
       wrongIndex: 1,
-      correction: "morning, (or afternoon, or evening,)",
+      correction: "morning,",
       feedback:
-        "You are saying hello and asking How are you?, so this is a greeting. Good night is not a greeting. We say it only when we leave at night or go to bed. Use Good morning, Good afternoon or Good evening, for the time of day.",
+        "You are saying hello and asking How are you?, so this is a greeting. Good night is not a greeting. We say it only when we leave at night or go to bed. Use Good morning here. Good afternoon and Good evening are right too, later in the day.",
     },
   ],
 

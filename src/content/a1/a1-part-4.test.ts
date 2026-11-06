@@ -102,8 +102,8 @@ describe("A1 vocabulary, speaking and mechanics (part 4)", () => {
     }
     for (const typed of ["three and a half", "half to four", "half past four"]) expect(matchesGap(typed, t)).toBe(false);
     const quarter = gap(tellingTheTime.quiz, "7:15");
-    for (const typed of ["quarter", "a quarter"]) expect(matchesGap(typed, quarter)).toBe(true);
-    expect(matchesGap("fifteen", quarter)).toBe(false);
+    for (const typed of ["quarter", "a quarter", "fifteen", "fifteen minutes"]) expect(matchesGap(typed, quarter)).toBe(true);
+    for (const typed of ["half", "five", "quarter to"]) expect(matchesGap(typed, quarter)).toBe(false);
   });
 
   it("accepts the informal words for grandmother", () => {
@@ -129,12 +129,15 @@ describe("A1 vocabulary, speaking and mechanics (part 4)", () => {
     expect(matchesGap("menu", bill)).toBe(false);
   });
 
-  it("tests capitals only with choice, mistake or a find-the-word gap, never by typed case", () => {
+  it("tests capitals only with choice or mistake items, never by typed case", () => {
     const q = capitalLettersAndFullStops.quiz;
-    expect(q.filter((x) => x.kind === "mistake")).toHaveLength(2);
-    const sundays = gap(q, "needs a capital letter");
-    expect(matchesGap("sundays", sundays)).toBe(true);
-    expect(matchesGap("summer", sundays)).toBe(false);
+    expect(q.filter((x) => x.kind === "gap")).toHaveLength(0);
+    expect(q.filter((x) => x.kind === "mistake")).toHaveLength(3);
+    const sundays = q.find((x) => x.kind === "mistake" && x.tokens.includes("sundays."));
+    if (sundays?.kind !== "mistake") throw new Error("Sundays mistake item missing");
+    expect(sundays.tokens[sundays.wrongIndex]).toBe("sundays.");
+    expect(sundays.tokens).toContain("summer");
+    expect(sundays.correction).toBe("Sundays.");
   });
 
   it("marks the register of each phrase group as the rulings require", () => {

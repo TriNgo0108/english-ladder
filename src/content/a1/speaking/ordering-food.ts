@@ -70,7 +70,7 @@ export const orderingFood: PhraseTopic = {
       options: ["I want the fish.", "Give me the fish.", "I'd like the fish, please.", "I like the fish, please."],
       answer: 2,
       feedback:
-        "I'd like the fish, please is polite: I'd like means I want, but it is softer, and please makes it kind. I want the fish and Give me the fish can sound rude to a waiter. I like the fish, please is wrong: without 'd, it says you enjoy fish in general.",
+        "I'd like the fish, please is polite: I'd like means I want, but it is softer, and please makes it kind. I want the fish and Give me the fish can sound rude to a waiter. I like the fish, please is wrong: without 'd, it does not ask for the fish. It only says you enjoy it.",
     },
     {
       kind: "gap",

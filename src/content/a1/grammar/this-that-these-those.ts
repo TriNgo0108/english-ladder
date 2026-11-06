@@ -95,7 +95,7 @@ export const thisThatTheseThose: RuleTopic = {
       wrongIndex: 0,
       correction: "This",
       feedback:
-        "We are introducing one person, my brother, so we use this: This is my brother, Sam. These is for two or more, and it needs are: These are my brothers.",
+        "We are introducing one person, my brother, so we use this: This is my brother, Sam. The word these is for two or more, and it needs are: These are my brothers.",
     },
   ],
 

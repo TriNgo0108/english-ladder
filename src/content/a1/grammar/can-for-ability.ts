@@ -87,7 +87,7 @@ export const canForAbility: RuleTopic = {
       wrongIndex: 1,
       correction: "can",
       feedback:
-        "Can is the same with every subject, so it has no -s, also with she: She can speak Spanish.",
+        "Can is the same with every subject, so it has no -s, even with she: She can speak Spanish.",
     },
     {
       kind: "choice",
