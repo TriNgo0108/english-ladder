@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Search } from "@/components/Search";
 import type { SearchEntry } from "@/lib/search-index";
@@ -12,11 +12,68 @@ const e = (slug: string, title: string, level: "a1" | "a2"): SearchEntry => ({
   haystack: title.toLowerCase(),
 });
 
-vi.mock("@/lib/search-data", () => ({
-  loadIndex: () => [e("verb-to-be", "The verb be", "a1"), e("articles", "Articles", "a1"), e("articles", "Articles", "a2")],
-}));
+const INDEX = [e("verb-to-be", "The verb be", "a1"), e("articles", "Articles", "a1"), e("articles", "Articles", "a2")];
+const okResponse = () => Promise.resolve({ ok: true, json: () => Promise.resolve(INDEX) });
+let fetchMock: ReturnType<typeof vi.fn>;
+
+beforeEach(() => {
+  fetchMock = vi.fn(okResponse);
+  vi.stubGlobal("fetch", fetchMock);
+});
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
 
 describe("Search", () => {
+  it("fetches the index from the base-pathed static file once", async () => {
+    const user = userEvent.setup();
+    render(<Search />);
+    const input = screen.getByLabelText("Search topics");
+    await user.type(input, "ver");
+    await screen.findByRole("option");
+    await user.type(input, "b");
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(fetchMock).toHaveBeenCalledWith("/english-ladder/search-index.json");
+  });
+  it("shows results typed before the fetch resolved, once it resolves", async () => {
+    let resolve!: (v: unknown) => void;
+    fetchMock.mockImplementation(() => new Promise((r) => (resolve = r)));
+    const user = userEvent.setup();
+    render(<Search />);
+    await user.type(screen.getByLabelText("Search topics"), "verb");
+    expect(screen.queryByText("No topics match")).toBeNull();
+    expect(screen.queryByRole("option")).toBeNull();
+    resolve({ ok: true, json: () => Promise.resolve(INDEX) });
+    expect(await screen.findByRole("option", { name: /The verb be/ })).toBeInTheDocument();
+  });
+  it("stays usable and shows no false empty state when the fetch fails; a later focus retries", async () => {
+    fetchMock.mockImplementationOnce(() => Promise.reject(new Error("offline")));
+    const user = userEvent.setup();
+    render(<Search />);
+    const input = screen.getByLabelText("Search topics");
+    await user.click(input);
+    await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1));
+    await new Promise((r) => setTimeout(r, 0));
+    expect(screen.queryByText("No topics match")).toBeNull();
+    await user.tab();
+    await user.click(input);
+    await user.keyboard("verb");
+    expect(await screen.findByRole("option", { name: /The verb be/ })).toBeInTheDocument();
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+  it("treats a non-ok response as a failure and retries later", async () => {
+    fetchMock.mockImplementationOnce(() => Promise.resolve({ ok: false, json: () => Promise.resolve(null) }));
+    const user = userEvent.setup();
+    render(<Search />);
+    const input = screen.getByLabelText("Search topics");
+    await user.click(input);
+    await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1));
+    await new Promise((r) => setTimeout(r, 0));
+    expect(screen.queryByText("No topics match")).toBeNull();
+    await user.keyboard("v");
+    await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(2));
+    expect(await screen.findByRole("option", { name: /The verb be/ })).toBeInTheDocument();
+  });
   it("has a labelled search input", () => {
     render(<Search />);
     expect(screen.getByLabelText("Search topics")).toHaveAttribute("type", "search");

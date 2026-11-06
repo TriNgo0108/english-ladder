@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useId, useRef, useState } from "react";
 import { LevelBadge } from "@/components/LevelBadge";
 import { categoryMeta } from "@/lib/categories";
+import { BASE_PATH } from "@/lib/site";
 import { searchTopics, type SearchEntry } from "@/lib/search-index";
 
 export function Search() {
@@ -16,16 +17,19 @@ export function Search() {
   const loading = useRef(false);
   const listRef = useRef<HTMLUListElement>(null);
 
-  // First focus or input pulls the corpus text in as a separate chunk.
+  // First focus or input fetches the prebuilt index; a failure allows a later retry.
   function ensureIndex() {
     if (index || loading.current) return;
     loading.current = true;
-    import("@/lib/search-data").then(
-      (m) => setIndex(m.loadIndex()),
-      () => {
+    fetch(`${BASE_PATH}/search-index.json`)
+      .then((res) => {
+        if (!res.ok) throw new Error(`search index: ${res.status}`);
+        return res.json() as Promise<SearchEntry[]>;
+      })
+      .then(setIndex)
+      .catch(() => {
         loading.current = false;
-      },
-    );
+      });
   }
 
   const results = index ? searchTopics(index, query) : [];
