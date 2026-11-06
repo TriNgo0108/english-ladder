@@ -27,6 +27,20 @@ function groupByLevel(topics: Topic[]): Map<Level, Topic[]> {
 function corpusProblems(topics: Topic[]): string[] {
   const problems: string[] = [];
   const groups = groupByLevel(topics);
+
+  // A slug-fallback topic must not silently join a family declared under a different slug.
+  const declared = new Map<string, Topic>();
+  for (const t of topics) {
+    if (t.family !== undefined && t.family !== t.slug && !declared.has(t.family)) declared.set(t.family, t);
+  }
+  for (const t of topics) {
+    const owner = t.family === undefined ? declared.get(t.slug) : undefined;
+    if (owner) {
+      problems.push(
+        `Topic "${t.slug}" at ${t.level} has no family but its slug matches family "${t.slug}" declared by "${owner.slug}" at ${owner.level}; set family explicitly`,
+      );
+    }
+  }
   for (const level of LEVELS) {
     const inLevel = groups.get(level) ?? [];
     if (inLevel.length === 0) continue;

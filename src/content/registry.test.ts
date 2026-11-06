@@ -4,6 +4,7 @@ import {
   loadCorpus,
   validateCorpus,
 } from "./registry";
+import { FAMILY_KEYS } from "./families";
 import type { CategorySlug, Level, Topic } from "./schema";
 
 const quizItem = {
@@ -229,10 +230,22 @@ describe("topic families", () => {
     expect(reg.siblingsAcrossLevels(x)).toEqual([]);
     expect(reg.siblingsAcrossLevels(y)).toEqual([]);
   });
-  it("treats a family key equal to another topic's slug as a match", () => {
+  it("rejects a slug-fallback topic whose slug equals another topic's family key", () => {
     const x = topic({ slug: "articles-a-an", family: "articles", level: "a1", order: 1 });
+    const y = topic({ slug: "articles", level: "a2", order: 1, category: "vocabulary" });
+    const message = captureError(() => validateCorpus([x, y]));
+    expect(message).toContain('"articles"');
+    expect(message).toMatch(/set family explicitly/i);
+  });
+  it("allows a topic to declare family equal to its own slug", () => {
+    const x = topic({ slug: "articles", family: "articles", level: "a1", order: 1 });
     const y = topic({ slug: "articles", level: "a2", order: 1 });
-    expect(createRegistry([x, y]).siblingsAcrossLevels(x)).toEqual([y]);
+    expect(() => validateCorpus([x, y])).not.toThrow();
+  });
+  it("uses only family keys from the shared vocabulary in the A1 corpus", () => {
+    for (const t of allTopics) {
+      if (t.family !== undefined) expect(FAMILY_KEYS).toContain(t.family);
+    }
   });
   it("rejects a duplicate family within a level", () => {
     const one = topic({ slug: "one", family: "fam", order: 1 });
