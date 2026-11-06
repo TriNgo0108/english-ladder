@@ -4,6 +4,7 @@ export const presentSimple: RuleTopic = {
   slug: "present-simple",
   family: "present-simple",
   title: "Present simple: I work, she works",
+  summary: "Talk about your life and daily habits: I work, she works. Add -s correctly, say no with don't and doesn't, and ask questions.",
   level: "a1",
   category: "grammar",
   shape: "rule",

@@ -3,6 +3,7 @@ import type { RuleTopic } from "../../schema";
 export const objectAndPossessivePronouns: RuleTopic = {
   slug: "object-and-possessive-pronouns",
   title: "Object and possessive pronouns: me, him, mine, his",
+  summary: "Use me, him, her, us and them after verbs and prepositions, and say that a thing is yours with mine, yours, his and hers.",
   level: "a1",
   category: "grammar",
   shape: "rule",

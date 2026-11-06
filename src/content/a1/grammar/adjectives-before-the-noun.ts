@@ -4,6 +4,7 @@ export const adjectivesBeforeTheNoun: RuleTopic = {
   slug: "adjectives-before-the-noun",
   family: "adjective-order",
   title: "Adjectives: a big house, red cars",
+  summary: "Put adjectives in the right place: a big house, red cars, and The house is big. Learn why adjectives never take -s.",
   level: "a1",
   category: "grammar",
   shape: "rule",

@@ -13,6 +13,7 @@ const question = {
 const topic: PhraseTopic = {
   slug: "fixture-greetings",
   title: "Fixture greetings",
+  summary: "A short summary.",
   level: "a1",
   category: "speaking",
   order: 1,

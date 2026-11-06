@@ -3,6 +3,7 @@ import type { SetTopic } from "../../schema";
 export const daysMonthsFamilyFoodAndColours: SetTopic = {
   slug: "days-months-family-food-and-colours",
   title: "Days, months, family, food and colours",
+  summary: "Learn everyday words for the days, months, family, food and colours, and use them in short sentences.",
   level: "a1",
   category: "vocabulary",
   shape: "set",

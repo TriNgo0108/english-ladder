@@ -4,6 +4,7 @@ export const capitalLettersAndFullStops: RuleTopic = {
   slug: "capital-letters-and-full-stops",
   family: "punctuation",
   title: "Capital letters and full stops",
+  summary: "Know when to use capital letters and full stops, so your sentences, names, days and months look right in writing.",
   level: "a1",
   category: "mechanics",
   shape: "rule",
@@ -12,7 +13,7 @@ export const capitalLettersAndFullStops: RuleTopic = {
   explanation: [
     "A <b>capital letter</b> is a big letter: A, B, C. A small letter is a, b, c. A <b>full stop</b> is the small dot (.) at the end of a sentence. In American English, it is called a period.",
     "Start every sentence with a capital letter: <b>M</b>y name is Sara. <b>W</b>e are students.",
-    "The word <b>I</b> is always a capital letter, also in the middle of a sentence: My friend and I play tennis. Not i.",
+    "The word <b>I</b> is always a capital letter, even in the middle of a sentence: My friend and I play tennis. Not i.",
     "Names of people and places start with a capital letter: Anna, Carlos, London, Japan, Oxford Street.",
     "Days and months start with a capital letter: Monday, Friday, May, December. But the seasons usually have a small letter: spring, summer, autumn, winter.",
     "Languages and nationality words also start with a capital letter. A nationality word says which country a person or thing is from: She is Italian. I speak English and French. Many languages write these words with a small letter, so be careful: in English, it is English, not english.",
@@ -36,7 +37,7 @@ export const capitalLettersAndFullStops: RuleTopic = {
     },
     {
       sentence: "On Saturday, my brother and <b>I</b> play football.",
-      why: "<b>I</b> is always a capital letter, also in the middle of a sentence. Saturday is a day, so it has a capital S.",
+      why: "<b>I</b> is always a capital letter, even in the middle of a sentence. Saturday is a day, so it has a capital S.",
     },
     {
       sentence: "My birthday is in <b>J</b>une.",

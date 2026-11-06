@@ -4,6 +4,7 @@ export const thisThatTheseThose: RuleTopic = {
   slug: "this-that-these-those",
   family: "determiners",
   title: "This, that, these, those",
+  summary: "Point to people and things, near or far, one or many: This is my bag. Those are my shoes. Introduce people with This is Sam.",
   level: "a1",
   category: "grammar",
   shape: "rule",

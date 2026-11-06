@@ -4,6 +4,7 @@ export const canForAbility: RuleTopic = {
   slug: "can-for-ability",
   family: "modal-ability",
   title: "Can for ability: I can swim",
+  summary: "Say what you can and can't do, ask Can you swim?, and give short answers like Yes, I can.",
   level: "a1",
   category: "grammar",
   shape: "rule",

@@ -3,6 +3,7 @@ import type { RuleTopic } from "../../schema";
 export const possessiveAdjectivesAndS: RuleTopic = {
   slug: "possessive-adjectives-and-s",
   title: "Possessives: my, your, his, her and 's",
+  summary: "Say who things belong to with my, your, his, her, our, their and 's: Tom's car, my sister's room. Learn its and it's.",
   level: "a1",
   category: "grammar",
   shape: "rule",

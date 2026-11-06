@@ -7,7 +7,7 @@ import { SetTopicView } from "@/components/shapes/SetTopicView";
 import { TopicNav } from "@/components/TopicNav";
 import { adjacentTopics, allTopics, findTopic } from "@/content/registry";
 import { CategorySlugSchema, LevelSchema, type Topic } from "@/content/schema";
-import { metaDescription, serialiseJsonLd, topicJsonLd, topicUrl } from "@/lib/seo";
+import { serialiseJsonLd, topicDescription, topicJsonLd, topicUrl } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -31,7 +31,7 @@ export async function generateMetadata({
   if (!topic) return {};
   return {
     title: topic.title,
-    description: metaDescription(topic.explanation),
+    description: topicDescription(topic),
     alternates: { canonical: topicUrl(topic) },
   };
 }

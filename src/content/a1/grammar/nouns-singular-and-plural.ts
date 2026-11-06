@@ -4,6 +4,7 @@ export const nounsSingularAndPlural: RuleTopic = {
   slug: "nouns-singular-and-plural",
   family: "nouns",
   title: "Nouns: singular and plural",
+  summary: "Make plural nouns correctly: books, buses, cities, and irregular ones like men, women and children.",
   level: "a1",
   category: "grammar",
   shape: "rule",

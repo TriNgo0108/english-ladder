@@ -1,10 +1,11 @@
 import type { RuleTopic } from "@/content/schema";
-import { metaDescription, serialiseJsonLd, topicJsonLd, topicUrl } from "./seo";
+import { serialiseJsonLd, topicDescription, topicJsonLd, topicUrl } from "./seo";
 
 const q = { kind: "choice" as const, stem: "s", options: ["a", "b"], answer: 0, feedback: "f" };
 const topic: RuleTopic = {
   slug: "verb-to-be",
   title: "The verb be",
+  summary: "How to use am, is and are.",
   level: "a1",
   category: "grammar",
   order: 1,
@@ -19,24 +20,9 @@ const topic: RuleTopic = {
   levelRationale: "r",
 };
 
-describe("metaDescription", () => {
-  it("strips <b> and joins paragraphs with a space", () => {
-    expect(metaDescription("Use <b>am</b> with I.\n\nSecond.")).toBe("Use am with I. Second.");
-  });
-  it("cuts long text at a word boundary, within the limit, with an ellipsis", () => {
-    const long = "word ".repeat(80).trim();
-    const d = metaDescription(long);
-    expect(d.length).toBeLessThanOrEqual(150);
-    expect(d.endsWith("…")).toBe(true);
-    expect(d.slice(0, -1).endsWith("word")).toBe(true);
-  });
-  it("prefers ending on a whole sentence when one fits", () => {
-    const first = "This sentence is long enough to count as most of the summary text we want to keep for search.";
-    const d = metaDescription(`${first} And this second sentence pushes the total well past the limit.`);
-    expect(d).toBe(first);
-  });
-  it("leaves short text alone", () => {
-    expect(metaDescription("Short.")).toBe("Short.");
+describe("topicDescription", () => {
+  it("is the summary, not the explanation", () => {
+    expect(topicDescription(topic)).toBe("How to use am, is and are.");
   });
 });
 
@@ -52,7 +38,7 @@ describe("topicJsonLd", () => {
       "@context": "https://schema.org",
       "@type": "LearningResource",
       name: "The verb be",
-      description: "Use am with I. Second paragraph.",
+      description: "How to use am, is and are.",
       url: "https://tringo.github.io/english-ladder/a1/grammar/verb-to-be/",
       educationalLevel: "A1",
       inLanguage: "en",

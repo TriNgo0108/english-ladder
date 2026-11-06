@@ -3,6 +3,7 @@ import type { SetTopic } from "../../schema";
 export const tellingTheTime: SetTopic = {
   slug: "telling-the-time",
   title: "Telling the time",
+  summary: "Ask and tell the time in English: It's three o'clock, ten past three, quarter to four, half past five.",
   level: "a1",
   category: "vocabulary",
   shape: "set",

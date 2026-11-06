@@ -3,6 +3,7 @@ import type { RuleTopic } from "../../schema";
 export const thereIsThereAre: RuleTopic = {
   slug: "there-is-there-are",
   title: "There is and there are",
+  summary: "Say what is in a place with there is and there are: There is a bank near my house. Ask and answer questions about it.",
   level: "a1",
   category: "grammar",
   shape: "rule",

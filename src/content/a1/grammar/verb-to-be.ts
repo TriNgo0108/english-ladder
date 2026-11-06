@@ -3,6 +3,7 @@ import type { RuleTopic } from "../../schema";
 export const verbToBe: RuleTopic = {
   slug: "verb-to-be",
   title: "The verb be: am, is, are",
+  summary: "Learn when to use am, is and are, how to make short forms, and how to ask questions with be.",
   level: "a1",
   category: "grammar",
   shape: "rule",

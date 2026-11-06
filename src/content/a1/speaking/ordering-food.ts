@@ -3,6 +3,7 @@ import type { PhraseTopic } from "../../schema";
 export const orderingFood: PhraseTopic = {
   slug: "ordering-food",
   title: "Ordering food in a café or restaurant",
+  summary: "Order food and drink in a café or restaurant politely: A table for two, please. I'd like the chicken, please.",
   level: "a1",
   category: "speaking",
   shape: "phrases",

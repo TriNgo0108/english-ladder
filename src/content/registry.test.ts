@@ -40,6 +40,7 @@ function raw(o: { slug: string; order: number; level?: Level; category?: Categor
   return {
     slug: o.slug,
     title: o.slug,
+    summary: `About ${o.slug}.`,
     level: o.level ?? "a1",
     category,
     order: o.order,
@@ -269,5 +270,12 @@ describe("topic families", () => {
     );
     expect(message).toMatch(/duplicate family 'fam' at a1/);
     expect(message).toMatch(/gap/i);
+  });
+});
+
+describe("real corpus summaries", () => {
+  it("gives every real topic a distinct summary", () => {
+    const summaries = allTopics.map((t) => t.summary);
+    expect(new Set(summaries).size).toBe(summaries.length);
   });
 });

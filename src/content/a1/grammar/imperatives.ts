@@ -3,6 +3,7 @@ import type { RuleTopic } from "../../schema";
 export const imperatives: RuleTopic = {
   slug: "imperatives",
   title: "Imperatives: Sit down. Don't run.",
+  summary: "Tell people what to do and what not to do: Sit down. Don't run. Be quiet. Add please to sound polite.",
   level: "a1",
   category: "grammar",
   shape: "rule",

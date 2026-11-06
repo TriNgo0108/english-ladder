@@ -4,6 +4,7 @@ export const wasWere: RuleTopic = {
   slug: "was-were",
   family: "past-simple",
   title: "Was and were: the past of be",
+  summary: "Talk about the past with was and were: I was at work yesterday. We were at home. Say no and ask questions.",
   level: "a1",
   category: "grammar",
   shape: "rule",
@@ -38,7 +39,7 @@ export const wasWere: RuleTopic = {
     },
     {
       sentence: "You <b>were</b> late this morning, Sam.",
-      why: "The subject is you, so we use <b>were</b>. With you, it is always were, also for one person.",
+      why: "The subject is you, so we use <b>were</b>. With you, it is always were, even for one person.",
     },
     {
       sentence: "The film <b>wasn't</b> very good.",

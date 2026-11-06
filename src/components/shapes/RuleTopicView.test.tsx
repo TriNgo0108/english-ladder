@@ -14,6 +14,7 @@ const question = {
 const base: RuleTopic = {
   slug: "fixture-be",
   title: "Fixture: am, is, are",
+  summary: "A short summary.",
   level: "a1",
   category: "grammar",
   order: 1,

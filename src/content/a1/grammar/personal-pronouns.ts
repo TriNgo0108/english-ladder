@@ -3,6 +3,7 @@ import type { RuleTopic } from "../../schema";
 export const personalPronouns: RuleTopic = {
   slug: "personal-pronouns",
   title: "Personal pronouns: I, you, he, she, it, we, they",
+  summary: "Choose I, you, he, she, it, we or they so you do not repeat names, and use the right form of be with each one.",
   level: "a1",
   category: "grammar",
   shape: "rule",
@@ -11,7 +12,7 @@ export const personalPronouns: RuleTopic = {
   explanation: [
     "A pronoun is a short word that we use in place of a noun. Remember: a noun is a word for a person, a thing, an animal or a place. With a pronoun, we do not need to say the same noun again: Anna is a teacher. <b>She</b> is from Spain.",
     "In this topic, the pronoun is the subject of the sentence. Remember: the subject is the person or thing that the sentence is about. These pronouns are <b>I</b>, <b>you</b>, <b>he</b>, <b>she</b>, <b>it</b>, <b>we</b> and <b>they</b>.",
-    "Use <b>I</b> for yourself. Always write I as a capital letter (I, not i), also in the middle of a sentence: My friend and I are students.",
+    "Use <b>I</b> for yourself. Always write I as a capital letter (I, not i), even in the middle of a sentence: My friend and I are students.",
     "Use <b>you</b> for the person you are talking to. You is for one person or for many people. It is the same word.",
     "Use <b>he</b> for a man or a boy. Use <b>she</b> for a woman or a girl. Use <b>it</b> for a thing, and usually for an animal: My car is old. It is slow. We also use it for the weather and the time: It is cold. It is five o'clock.",
     "Use <b>we</b> for yourself (I) and one or more other people together: Tom and I are brothers. We are twins. Use <b>they</b> for two or more people or things: My parents are at home. They are tired. My keys are not here. They are in the car.",
@@ -27,7 +28,7 @@ export const personalPronouns: RuleTopic = {
   examples: [
     {
       sentence: "My name is Sam and <b>I</b> am a student.",
-      why: "We use <b>I</b> to talk about ourselves. It is always a capital letter, also in the middle of a sentence.",
+      why: "We use <b>I</b> to talk about ourselves. It is always a capital letter, even in the middle of a sentence.",
     },
     {
       sentence: "My father is a cook. <b>He</b> is at work now.",
@@ -106,7 +107,7 @@ export const personalPronouns: RuleTopic = {
       wrongIndex: 3,
       correction: "I",
       feedback:
-        "The pronoun I is always a capital letter, also in the middle of a sentence: My friend and I are students.",
+        "The pronoun I is always a capital letter, even in the middle of a sentence: My friend and I are students.",
     },
   ],
 

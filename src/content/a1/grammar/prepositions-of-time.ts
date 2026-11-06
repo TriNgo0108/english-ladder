@@ -4,6 +4,7 @@ export const prepositionsOfTime: RuleTopic = {
   slug: "prepositions-of-time",
   family: "prepositions-of-time",
   title: "Prepositions of time: at, on, in",
+  summary: "Choose at, on or in to say when things happen: at 7 o'clock, on Monday, in May. Learn which words need no preposition.",
   level: "a1",
   category: "grammar",
   shape: "rule",

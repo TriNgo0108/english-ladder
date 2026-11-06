@@ -4,6 +4,7 @@ export const articlesAAn: RuleTopic = {
   slug: "articles-a-an",
   family: "articles",
   title: "Articles: a and an",
+  summary: "Choose between a and an by the sound of the next word, and say jobs and singular things correctly: a book, an apple, an hour.",
   level: "a1",
   category: "grammar",
   shape: "rule",

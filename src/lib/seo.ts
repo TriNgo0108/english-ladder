@@ -1,22 +1,11 @@
 import type { Topic } from "@/content/schema";
 import { categoryMeta } from "@/lib/categories";
 import { levelMeta } from "@/lib/levels";
-import { plainText } from "@/lib/rich-text";
 import { BASE_PATH, SITE_NAME, SITE_ORIGIN } from "@/lib/site";
 
-const DESCRIPTION_MAX = 150;
-
-/** Plain-text summary of authored rich text, at most 150 characters, cut on a word. */
-export function metaDescription(rich: string, max = DESCRIPTION_MAX): string {
-  const text = plainText(rich).replace(/\s+/g, " ").trim();
-  if (text.length <= max) return text;
-  // A whole sentence reads better than a cut one, if it keeps at least half the room.
-  const fits = text.slice(0, max + 1);
-  const sentenceEnd = Math.max(fits.lastIndexOf(". "), fits.lastIndexOf("? "), fits.lastIndexOf("! "));
-  if (sentenceEnd >= max / 2) return text.slice(0, sentenceEnd + 1);
-  const room = text.slice(0, max - 1);
-  const cut = room.lastIndexOf(" ");
-  return `${(cut > 0 ? room.slice(0, cut) : room).replace(/[\s,;:.]+$/, "")}…`;
+/** The topic's meta and JSON-LD description: its authored plain-text summary. */
+export function topicDescription(topic: Topic): string {
+  return topic.summary;
 }
 
 /** Absolute URL for a site path such as `/a1/`; always ends with a slash. */
@@ -38,7 +27,7 @@ export function topicJsonLd(topic: Topic) {
     "@context": "https://schema.org",
     "@type": "LearningResource",
     name: topic.title,
-    description: metaDescription(topic.explanation),
+    description: topicDescription(topic),
     url: topicUrl(topic),
     educationalLevel: levelMeta(topic.level).label,
     inLanguage: "en",

@@ -3,6 +3,7 @@ import type { SetTopic } from "../../schema";
 export const numbers: SetTopic = {
   slug: "numbers",
   title: "Numbers: one, two, three…",
+  summary: "Learn the numbers from 0 to a million, say them clearly, and tell thirteen from thirty.",
   level: "a1",
   category: "vocabulary",
   shape: "set",

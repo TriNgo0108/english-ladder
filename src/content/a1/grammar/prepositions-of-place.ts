@@ -4,6 +4,7 @@ export const prepositionsOfPlace: RuleTopic = {
   slug: "prepositions-of-place",
   family: "prepositions-of-place",
   title: "Prepositions of place: in, on, under, next to",
+  summary: "Say where things are with in, on, under, next to, between, behind and in front of: The keys are in my bag.",
   level: "a1",
   category: "grammar",
   shape: "rule",

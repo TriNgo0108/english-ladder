@@ -15,6 +15,7 @@ const headwords = ["red", "blue", "green", "yellow", "black", "white"];
 const topic: SetTopic = {
   slug: "fixture-colours",
   title: "Fixture colours",
+  summary: "A short summary.",
   level: "a1",
   category: "vocabulary",
   order: 1,

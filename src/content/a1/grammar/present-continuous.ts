@@ -4,6 +4,7 @@ export const presentContinuous: RuleTopic = {
   slug: "present-continuous",
   family: "present-continuous",
   title: "Present continuous: I am working",
+  summary: "Talk about what is happening now: I am reading. She is cooking. Make -ing forms, say no, and ask questions.",
   level: "a1",
   category: "grammar",
   shape: "rule",

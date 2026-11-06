@@ -3,6 +3,7 @@ import type { RuleTopic } from "../../schema";
 export const haveGot: RuleTopic = {
   slug: "have-got",
   title: "Have got: I've got, she's got",
+  summary: "Say what you have with have got and has got, use short forms like I've got and she's got, and ask and answer questions.",
   level: "a1",
   category: "grammar",
   shape: "rule",

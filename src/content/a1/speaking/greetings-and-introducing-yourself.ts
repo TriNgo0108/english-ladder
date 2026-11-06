@@ -4,6 +4,7 @@ export const greetingsAndIntroducingYourself: PhraseTopic = {
   slug: "greetings-and-introducing-yourself",
   family: "introductions",
   title: "Greetings and introducing yourself",
+  summary: "Say hello, ask How are you?, give your name and say goodbye, in the right way for friends, teachers and work.",
   level: "a1",
   category: "speaking",
   shape: "phrases",

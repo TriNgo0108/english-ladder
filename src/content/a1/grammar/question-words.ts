@@ -4,6 +4,7 @@ export const questionWords: RuleTopic = {
   slug: "question-words",
   family: "question-forms",
   title: "Question words: what, where, who, how…",
+  summary: "Ask for information with what, where, when, who, why and how: Where do you live? How old is your sister?",
   level: "a1",
   category: "grammar",
   shape: "rule",

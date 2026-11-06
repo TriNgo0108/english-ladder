@@ -3,6 +3,7 @@ import type { RuleTopic } from "../../schema";
 export const yesNoQuestionsAndShortAnswers: RuleTopic = {
   slug: "yes-no-questions-and-short-answers",
   title: "Yes/no questions and short answers",
+  summary: "Ask questions you can answer with yes or no, and give short answers like Yes, I do and No, she isn't.",
   level: "a1",
   category: "grammar",
   shape: "rule",

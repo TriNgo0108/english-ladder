@@ -51,6 +51,7 @@ const situation = () => ({
 const base = (o: Record<string, unknown>) => ({
   slug: "verb-to-be",
   title: "Verb to be",
+  summary: "Learn when to use am, is and are.",
   level: "a1",
   order: 1,
   explanation: "Explains it.",
@@ -271,5 +272,26 @@ describe("rich-text markup validation", () => {
   });
   it("rejects malformed markup in the explanation", () => {
     expect(() => parseTopic(validRuleTopic({ explanation: "Use <b>am</B>." }))).toThrow(/explanation/);
+  });
+});
+
+describe("summary", () => {
+  it("rejects a topic with no summary", () => {
+    const noSummary: Record<string, unknown> = validRuleTopic();
+    delete noSummary.summary;
+    expect(() => parseTopic(noSummary)).toThrow(/summary/);
+  });
+  it("rejects a blank summary", () => {
+    expect(() => parseTopic(validRuleTopic({ summary: "  " }))).toThrow(/summary/);
+  });
+  it("rejects a summary over 155 characters", () => {
+    expect(() => parseTopic(validRuleTopic({ summary: "a".repeat(156) }))).toThrow(/summary/);
+  });
+  it("accepts a summary of exactly 155 characters", () => {
+    expect(() => parseTopic(validRuleTopic({ summary: "a".repeat(155) }))).not.toThrow();
+  });
+  it("rejects markup in a summary", () => {
+    expect(() => parseTopic(validRuleTopic({ summary: "Use <b>am</b> with I." }))).toThrow(/summary/);
+    expect(() => parseTopic(validRuleTopic({ summary: "Use am > is." }))).toThrow(/summary/);
   });
 });

@@ -21,6 +21,13 @@ const text = z
     if (problem) ctx.addIssue({ code: "custom", message: problem });
   });
 
+/** Plain-text one-liner for meta descriptions: non-blank, no markup at all, at most 155 characters. */
+const summary = z
+  .string()
+  .refine((s) => s.trim().length > 0, { error: "must not be blank" })
+  .refine((s) => !/[<>]/.test(s), { error: "must be plain text (no < or >)" })
+  .refine((s) => s.length <= 155, { error: "must be at most 155 characters" });
+
 const index = z.number().int().min(0);
 
 const ExampleSchema = z.strictObject({ sentence: text, why: text });
@@ -100,6 +107,7 @@ const baseFields = {
   /** Cross-level topic family; defaults to the slug when absent. */
   family: kebab.optional(),
   title: text,
+  summary,
   level: LevelSchema,
   order: z.number().int().positive(),
   explanation: text,

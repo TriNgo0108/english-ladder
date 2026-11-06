@@ -4,6 +4,7 @@ export const wouldYouLike: PhraseTopic = {
   slug: "would-you-like",
   family: "polite-requests",
   title: "Would you like…? Offers and invitations",
+  summary: "Offer things and invite people politely with Would you like...?, and say yes or no with Yes, please and No, thank you.",
   level: "a1",
   category: "speaking",
   shape: "phrases",
