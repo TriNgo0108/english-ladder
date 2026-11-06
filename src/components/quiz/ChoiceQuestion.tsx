@@ -42,8 +42,8 @@ export function ChoiceQuestion({
               }`}
             >
               {opt}
-              {isAnswer && <span className="ml-2 text-sm text-correct"> Correct answer</span>}
-              {isWrongPick && <span className="ml-2 text-sm text-incorrect"> Your answer</span>}
+              {isAnswer && <span className="ml-2 text-base text-correct"> Correct answer</span>}
+              {isWrongPick && <span className="ml-2 text-base text-incorrect"> Your answer</span>}
             </button>
           );
         })}

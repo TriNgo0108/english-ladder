@@ -12,6 +12,7 @@ export function Search() {
   const [query, setQuery] = useState("");
   const [index, setIndex] = useState<SearchEntry[] | null>(null);
   const [active, setActive] = useState(-1);
+  const [dismissed, setDismissed] = useState(false);
   const loading = useRef(false);
   const listRef = useRef<HTMLUListElement>(null);
 
@@ -29,7 +30,7 @@ export function Search() {
 
   const results = index ? searchTopics(index, query) : [];
   const hasQuery = query.trim() !== "";
-  const open = hasQuery && index !== null;
+  const open = hasQuery && index !== null && !dismissed;
   const optionId = (i: number) => `${uid}-opt-${i}`;
 
   function onKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
@@ -54,7 +55,13 @@ export function Search() {
   }
 
   return (
-    <div className="relative font-sans">
+    <div
+      className="relative font-sans"
+      onBlur={(e) => {
+        // Close when focus leaves the whole combobox (input + results).
+        if (!e.currentTarget.contains(e.relatedTarget)) setDismissed(true);
+      }}
+    >
       <label htmlFor={`${uid}-input`} className="sr-only">
         Search topics
       </label>
@@ -69,9 +76,13 @@ export function Search() {
         autoComplete="off"
         placeholder="Search topics"
         value={query}
-        onFocus={ensureIndex}
+        onFocus={() => {
+          ensureIndex();
+          setDismissed(false);
+        }}
         onChange={(e) => {
           ensureIndex();
+          setDismissed(false);
           setQuery(e.target.value);
           setActive(-1);
         }}
@@ -86,6 +97,8 @@ export function Search() {
             role="listbox"
             aria-label="Search results"
             className="rounded border border-border bg-surface shadow-lg"
+            // Keep focus on the input so blur never fires before the click lands.
+            onMouseDown={(e) => e.preventDefault()}
           >
             {results.map((r, i) => (
               <li key={r.href} role="presentation">
@@ -102,7 +115,7 @@ export function Search() {
                 >
                   <span className="grow">{r.title}</span>
                   <LevelBadge level={r.level} />
-                  <span className="text-sm text-muted">{categoryMeta(r.category).label}</span>
+                  <span className="text-base text-muted">{categoryMeta(r.category).label}</span>
                 </Link>
               </li>
             ))}
@@ -111,7 +124,7 @@ export function Search() {
         {open && results.length === 0 && (
           <p
             role="status"
-            className="rounded border border-border bg-surface px-3 py-2 text-sm text-muted shadow-lg"
+            className="rounded border border-border bg-surface px-3 py-2 text-base text-muted shadow-lg"
           >
             No topics match
           </p>

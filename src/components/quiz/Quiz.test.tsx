@@ -94,4 +94,20 @@ describe("Quiz", () => {
     }
     expect(screen.getByText(`You got ${n} of ${n}`)).toBeInTheDocument();
   });
+
+  it("keeps an always-present empty status region that is filled when done", async () => {
+    render(<Quiz questions={questions} />);
+    const status = screen.getByRole("status");
+    expect(status).toBeEmptyDOMElement();
+    await answerAll([true, true, true]);
+    expect(screen.getByRole("status")).toBe(status);
+    expect(status).toHaveTextContent("You got 3 of 3");
+  });
+
+  it("moves focus to the quiz heading when Try again runs", async () => {
+    render(<Quiz questions={questions} />);
+    await answerAll([true, true, true]);
+    await userEvent.click(screen.getByRole("button", { name: "Try again" }));
+    expect(screen.getByRole("heading", { name: "Quiz" })).toHaveFocus();
+  });
 });

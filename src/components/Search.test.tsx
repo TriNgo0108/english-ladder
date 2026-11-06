@@ -69,4 +69,34 @@ describe("Search", () => {
     expect(click).toHaveBeenCalledTimes(1);
     expect(opts[1].getAttribute("href")).toMatch(new RegExp("^/a2/grammar/articles/?$"));
   });
+  it("closes the results when focus leaves the combobox, and reopens on focus", async () => {
+    const user = userEvent.setup();
+    render(
+      <div>
+        <Search />
+        <button type="button">elsewhere</button>
+      </div>,
+    );
+    const input = screen.getByLabelText("Search topics");
+    await user.type(input, "articles");
+    expect(await screen.findByRole("listbox")).toBeInTheDocument();
+    expect(input).toHaveAttribute("aria-expanded", "true");
+    await user.click(screen.getByRole("button", { name: "elsewhere" }));
+    expect(screen.queryByRole("listbox")).toBeNull();
+    expect(input).toHaveAttribute("aria-expanded", "false");
+    await user.click(input);
+    expect(await screen.findByRole("listbox")).toBeInTheDocument();
+    expect(input).toHaveAttribute("aria-expanded", "true");
+  });
+  it("does not close on mousedown of a result, so the click still navigates", async () => {
+    const user = userEvent.setup();
+    render(<Search />);
+    const input = screen.getByLabelText("Search topics");
+    await user.type(input, "articles");
+    const opts = await screen.findAllByRole("option");
+    const click = vi.fn((ev: Event) => ev.preventDefault());
+    opts[0].addEventListener("click", click);
+    await user.click(opts[0]);
+    expect(click).toHaveBeenCalledTimes(1);
+  });
 });

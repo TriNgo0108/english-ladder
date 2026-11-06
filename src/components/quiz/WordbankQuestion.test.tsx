@@ -93,4 +93,24 @@ describe("WordbankQuestion", () => {
     expect(onAnswered).toHaveBeenCalledTimes(1);
     expect(within(line()).getAllByRole("button")).toHaveLength(4);
   });
+
+  it("keeps keyboard focus inside the question as chips move between bank and answer", async () => {
+    const user = userEvent.setup();
+    render(<WordbankQuestion question={q} onAnswered={vi.fn()} />);
+    within(bank()).getAllByRole("button")[0].focus();
+    for (let n = 0; n < 4; n++) {
+      await user.keyboard(" ");
+      expect(document.activeElement).not.toBe(document.body);
+    }
+    // all placed: focus lands on the now-enabled Check button
+    expect(screen.getByRole("button", { name: "Check" })).toHaveFocus();
+    // returning a chip to the bank keeps focus on that chip
+    const placedBtn = within(line()).getAllByRole("button")[0];
+    placedBtn.focus();
+    const word = placedBtn.textContent;
+    await user.keyboard("{Enter}");
+    expect(document.activeElement).toBe(
+      within(bank()).getByRole("button", { name: word! }),
+    );
+  });
 });

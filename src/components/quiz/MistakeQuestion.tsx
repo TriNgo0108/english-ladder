@@ -41,8 +41,8 @@ export function MistakeQuestion({
               }`}
             >
               {tok}
-              {isMistake && <span className="ml-2 font-sans text-sm text-incorrect"> The mistake</span>}
-              {isWrongPick && <span className="ml-2 font-sans text-sm text-muted"> Your answer</span>}
+              {isMistake && <span className="ml-2 font-sans text-base text-incorrect"> The mistake</span>}
+              {isWrongPick && <span className="ml-2 font-sans text-base text-muted"> Your answer</span>}
             </button>
           );
         })}

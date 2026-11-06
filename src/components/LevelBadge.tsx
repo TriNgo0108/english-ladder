@@ -5,7 +5,7 @@ export function LevelBadge({ level }: { level: Level }) {
   const { label, ramp, fg } = levelMeta(level);
   return (
     <span
-      className="inline-block rounded px-2 py-0.5 text-sm font-semibold"
+      className="inline-block rounded px-2 py-0.5 text-base font-semibold"
       style={{ backgroundColor: ramp, color: fg }}
     >
       {label}

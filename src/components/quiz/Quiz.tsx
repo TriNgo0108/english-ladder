@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import type { Question } from "@/content/schema";
 import { ChoiceQuestion } from "./ChoiceQuestion";
 import { GapQuestion } from "./GapQuestion";
@@ -26,6 +26,7 @@ export function Quiz({ questions }: { questions: Question[] }) {
   const [run, setRun] = useState(0);
   const [answered, setAnswered] = useState(0);
   const [correct, setCorrect] = useState(0);
+  const headingRef = useRef<HTMLHeadingElement>(null);
 
   if (questions.length === 0) return null;
   const done = answered === questions.length;
@@ -39,11 +40,17 @@ export function Quiz({ questions }: { questions: Question[] }) {
     setAnswered(0);
     setCorrect(0);
     setRun((r) => r + 1);
+    headingRef.current?.focus();
   }
 
   return (
     <section aria-labelledby="quiz-heading" className="mt-12">
-      <h2 id="quiz-heading" className="font-serif text-2xl">
+      <h2
+        id="quiz-heading"
+        ref={headingRef}
+        tabIndex={-1}
+        className="font-serif text-2xl focus:outline-none"
+      >
         Quiz
       </h2>
       <ol key={run} className="mt-4 grid max-w-[65ch] list-decimal gap-8 pl-6">
@@ -51,18 +58,22 @@ export function Quiz({ questions }: { questions: Question[] }) {
           <li key={i}>{renderQuestion(q, record)}</li>
         ))}
       </ol>
-      {done && (
-        <div
-          role="status"
-          className="mt-8 max-w-[65ch] rounded border border-border bg-surface p-4"
-        >
+      <div
+        role="status"
+        className={
+          done ? "mt-8 max-w-[65ch] rounded border border-border bg-surface p-4" : undefined
+        }
+      >
+        {done && (
           <p className="font-serif text-xl">
             You got {correct} of {questions.length}
           </p>
-          <button type="button" onClick={retry} className={`mt-3 ${PRIMARY_BUTTON}`}>
-            Try again
-          </button>
-        </div>
+        )}
+      </div>
+      {done && (
+        <button type="button" onClick={retry} className={`mt-3 ${PRIMARY_BUTTON}`}>
+          Try again
+        </button>
       )}
     </section>
   );

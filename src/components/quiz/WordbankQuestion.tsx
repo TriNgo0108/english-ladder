@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Question } from "@/content/schema";
 import { normaliseAnswer } from "@/lib/gap-match";
 import { renderRichText } from "@/lib/rich-text";
@@ -32,13 +32,29 @@ export function WordbankQuestion({
   const locked = result !== null;
 
   const inBank = question.words.map((_, i) => i).filter((i) => !placed.includes(i));
+  const root = useRef<HTMLFieldSetElement>(null);
+  // Chips remount when they move between the bank and the answer line, which
+  // would drop keyboard focus to <body>. Remember where focus should land.
+  const focusNext = useRef<{ chip: number | "check" } | null>(null);
+
+  useEffect(() => {
+    const target = focusNext.current;
+    if (!target) return;
+    focusNext.current = null;
+    const sel = target.chip === "check" ? "[data-check]" : `[data-chip="${target.chip}"]`;
+    root.current?.querySelector<HTMLElement>(sel)?.focus();
+  }, [placed]);
 
   function place(i: number) {
     if (locked) return;
+    const rest = inBank.filter((x) => x !== i);
+    const after = rest.find((x) => x > i) ?? rest[rest.length - 1];
+    focusNext.current = { chip: after === undefined ? "check" : after };
     setPlaced((p) => [...p, i]);
   }
   function unplace(i: number) {
     if (locked) return;
+    focusNext.current = { chip: i };
     setPlaced((p) => p.filter((x) => x !== i));
   }
   function check() {
@@ -52,7 +68,7 @@ export function WordbankQuestion({
   }
 
   return (
-    <fieldset>
+    <fieldset ref={root}>
       <legend className="font-serif text-xl">{renderRichText(question.prompt)}</legend>
       <div
         role="group"
@@ -60,12 +76,13 @@ export function WordbankQuestion({
         className="mt-3 flex min-h-14 flex-wrap items-center gap-2 rounded border border-dashed border-border p-2"
       >
         {placed.length === 0 && (
-          <span className="text-sm text-muted">Tap the words below in order.</span>
+          <span className="text-base text-muted">Tap the words below in order.</span>
         )}
         {placed.map((i) => (
           <button
             key={i}
             type="button"
+            data-chip={i}
             aria-disabled={locked}
             onClick={() => unplace(i)}
             className={`${BUTTON_BASE} font-serif text-xl`}
@@ -79,6 +96,7 @@ export function WordbankQuestion({
           <button
             key={i}
             type="button"
+            data-chip={i}
             aria-disabled={locked}
             onClick={() => place(i)}
             className={`${BUTTON_BASE} font-serif text-xl`}
@@ -90,6 +108,7 @@ export function WordbankQuestion({
       <div className="mt-3">
         <button
           type="button"
+          data-check
           onClick={check}
           disabled={locked || placed.length !== question.words.length}
           className={PRIMARY_BUTTON}

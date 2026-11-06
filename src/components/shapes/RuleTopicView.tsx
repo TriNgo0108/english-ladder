@@ -13,7 +13,7 @@ export function RuleTopicView({ topic }: { topic: RuleTopic }) {
           <h2 id="form-heading" className="font-serif text-2xl">
             Form
           </h2>
-          <div className="mt-3 rounded border border-border bg-surface p-4">
+          <div className="mt-3 max-w-[65ch] rounded border border-border bg-surface p-4">
             {topic.form.split("\n").map((line, i) => (
               <p key={i} className="font-mono text-base leading-relaxed">
                 {line}
@@ -47,7 +47,7 @@ export function RuleTopicView({ topic }: { topic: RuleTopic }) {
           </h2>
           <dl className="mt-3 grid gap-3">
             <div>
-              <dt className="text-sm font-semibold text-incorrect">Not this</dt>
+              <dt className="text-base font-semibold text-incorrect">Not this</dt>
               <dd>
                 <p className="font-serif text-xl line-through decoration-incorrect">
                   {renderRichText(topic.pitfall.wrong)}
@@ -55,7 +55,7 @@ export function RuleTopicView({ topic }: { topic: RuleTopic }) {
               </dd>
             </div>
             <div>
-              <dt className="text-sm font-semibold text-correct">Say this</dt>
+              <dt className="text-base font-semibold text-correct">Say this</dt>
               <dd>
                 <p className="font-serif text-xl">{renderRichText(topic.pitfall.right)}</p>
               </dd>

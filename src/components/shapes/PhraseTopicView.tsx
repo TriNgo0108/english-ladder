@@ -21,7 +21,7 @@ export function PhraseTopicView({ topic }: { topic: PhraseTopic }) {
                   {s.situation}
                 </h2>
                 {/* Register is spelled out, never signalled by colour alone. */}
-                <span className="rounded border border-border px-2 py-0.5 text-sm text-muted">
+                <span className="rounded border border-border px-2 py-0.5 text-base text-muted">
                   Register: {s.register}
                 </span>
               </div>

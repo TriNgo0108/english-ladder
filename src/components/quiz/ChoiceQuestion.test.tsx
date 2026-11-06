@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { ChoiceQuestion } from "./ChoiceQuestion";
+import { BUTTON_BASE } from "./shared";
 
 const q = {
   kind: "choice" as const,
@@ -68,5 +69,12 @@ describe("ChoiceQuestion", () => {
     expect(live).toBeEmptyDOMElement();
     await userEvent.click(screen.getByRole("button", { name: /^is/ }));
     expect(live).toHaveTextContent(/Brother is one person/);
+  });
+});
+
+describe("ChoiceQuestion answered styling", () => {
+  it("answered buttons carry aria-disabled style variants so they stop looking clickable", () => {
+    expect(BUTTON_BASE).toContain("aria-disabled:cursor-default");
+    expect(BUTTON_BASE).toContain("not-aria-disabled:hover:border-accent");
   });
 });

@@ -15,7 +15,7 @@ export function SetTopicView({ topic }: { topic: SetTopic }) {
         <div className="mt-3 overflow-x-auto rounded border border-border bg-surface">
           <table className="w-full min-w-[36rem] border-collapse text-left text-base">
             <thead>
-              <tr className="border-b border-border text-sm text-muted">
+              <tr className="border-b border-border text-base text-muted">
                 <th scope="col" className="p-3 font-semibold">
                   Word
                 </th>
