@@ -277,7 +277,7 @@ describe("topic families", () => {
 describe("A2 barrel and family keys", () => {
   it("loads A2 topics into the corpus", () => {
     expect(Array.isArray(a2Topics)).toBe(true);
-    for (const t of a2Topics) expect(allTopics).toContain(t);
+    for (const t of a2Topics) expect(allTopics).toContainEqual(t);
   });
   it("links an A2 topic to its A1 sibling both ways through a shared family", () => {
     const a1 = topic({ slug: "articles-a-an", family: "articles", level: "a1", order: 1 });
