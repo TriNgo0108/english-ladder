@@ -84,9 +84,9 @@ describe("A2 grammar, part 2", () => {
     const leaves = gap(presentSimpleForFuture.quiz, "Our bus");
     expect(leaves).toEqual(["leaves"]);
     expectGap(leaves, ["leaves", "Leaves."], ["leave", "is leaving", "will leave", "leaving"]);
-    const open = gap(presentSimpleForFuture.quiz, "open + not");
-    expect(open).toEqual(["doesn't open", "does not open"]);
-    expectGap(open, ["doesn't open", "does not open", "doesn’t open"], ["don't open", "doesn't opens", "isn't opening", "won't open"]);
+    const start = gap(presentSimpleForFuture.quiz, "start + not");
+    expect(start).toEqual(["doesn't start", "does not start"]);
+    expectGap(start, ["doesn't start", "does not start", "doesn’t start"], ["don't start", "doesn't starts", "isn't starting", "won't start", "isn't start"]);
   });
 
   it("pins the adverb of manner gaps", () => {
@@ -127,10 +127,10 @@ describe("A2 grammar, part 2", () => {
 
   it("pins the used to gaps, teaching didn't use to and accepting didn't used to", () => {
     const like = gap(usedToAndWould.quiz, "like + not");
-    expect(like).toEqual(["didn't use to like", "did not use to like", "didn't used to like", "used not to like"]);
+    expect(like).toEqual(["didn't use to like", "did not use to like", "didn't used to like", "did not used to like", "used not to like"]);
     expectGap(
       like,
-      ["didn't use to like", "did not use to like", "didn’t used to like", "used not to like"],
+      ["didn't use to like", "did not use to like", "didn’t used to like", "did not used to like", "used not to like"],
       ["didn't use to liked", "don't use to like", "wouldn't like", "not used to like", "didn't like"],
     );
     const be = gap(usedToAndWould.quiz, "a farmer");

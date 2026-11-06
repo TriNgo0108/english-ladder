@@ -72,9 +72,9 @@ export const usedToAndWould: RuleTopic = {
     {
       kind: "gap",
       stem: "I ___ coffee, but now I drink three cups a day. (like + not, used to)",
-      answers: ["didn't use to like", "did not use to like", "didn't used to like", "used not to like"],
+      answers: ["didn't use to like", "did not use to like", "didn't used to like", "did not used to like", "used not to like"],
       feedback:
-        "To say no, use didn't use to and the base form: I didn't use to like coffee. After didn't, use has no -d, because the past is already in didn't. Many people also write didn't used to.",
+        "To say no, use didn't use to and the base form: I didn't use to like coffee. After didn't, use has no -d, because the past is already in didn't. Many people also write didn't used to. Used not to like is also correct, but it is formal and not common.",
     },
     {
       kind: "gap",
@@ -117,5 +117,5 @@ export const usedToAndWould: RuleTopic = {
     "English Grammar Profile: used to for past habits and states is an A2 point, and would for past habits is placed later, at B1. This site's spec puts the two together at A2, so would is taught here only for the main rule, actions and not states, and the quiz tests it only by choice, never by asking learners to produce it. The topic comes last in this part of A2, after the past simple, because it contrasts with it (I went to Paris last year, not I used to go).",
 
   sourceNotes:
-    "english_grammar.txt, # Used to and would: two patterns for past habits that are not true now, used to for a long-lasting action or a state, and would for a habit, agree with Swan. The note's wording that would is for 'a habit rather than a definite repeated action' is not clear, so this topic gives Swan's rule instead: would for repeated actions, not for states. The note says 'infinitive'; this topic says the base form, as A1 does. Didn't use to and Did you use to …? are authored from Swan, Practical English Usage. Swan notes that didn't used to is also common, and some dictionaries accept it, so the negative gap accepts it, and used not to (formal, British) too; the explanation teaches didn't use to. # Be used to (be used to + -ing, get used to) is a different structure, above A2, and left out.",
+    "english_grammar.txt, # Used to and would: two patterns for past habits that are not true now, used to for a long-lasting action or a state, and would for a habit, agree with Swan. The note's wording that would is for 'a habit rather than a definite repeated action' is not clear, so this topic gives Swan's rule instead: would for repeated actions, not for states. The note says 'infinitive'; this topic says the base form, as A1 does. Didn't use to and Did you use to …? are authored from Swan, Practical English Usage. Swan notes that didn't used to is also common, and some dictionaries accept it, so the negative gap accepts it in its short and full forms (didn't used to, did not used to), and used not to (formal, British) too; the explanation teaches didn't use to. # Be used to (be used to + -ing, get used to) is a different structure, above A2, and left out.",
 };

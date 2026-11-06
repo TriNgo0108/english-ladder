@@ -12,7 +12,7 @@ export const adverbsOfManner: RuleTopic = {
   explanation: [
     "Remember: an adjective is a word that tells us more about a noun: a <b>careful</b> driver, a <b>slow</b> bus. An <b>adverb of manner</b> tells us more about a verb. It says how someone does something: She drives <b>carefully</b>. The bus moves <b>slowly</b>. Remember: a verb is a word like go, eat or have.",
     "To make most adverbs of manner, add <b>-ly</b> to the adjective: slow → slowly, quick → quickly, quiet → quietly, bad → badly, careful → carefully. When the adjective ends in an e, we usually keep the e: nice → nicely, polite → politely, safe → safely. But true → truly.",
-    "When the adjective ends in a consonant and then -y, we usually change the y to <b>-ily</b>: happy → happily, easy → easily, angry → angrily. When it ends in -le, change the e to y: gentle → gently, terrible → terribly. Remember: a vowel is one of the letters a, e, i, o and u. A consonant is any other letter, like b, t or m.",
+    "When the adjective ends in a consonant and then -y, we usually change the y to <b>-ily</b>: happy → happily, easy → easily, angry → angrily. When it ends in a consonant and then -le, change the e to y: gentle → gently, terrible → terribly. Remember: a vowel is one of the letters a, e, i, o and u. A consonant is any other letter, like b, t or m.",
     "Some adverbs are different. The adverb from good is <b>well</b>: She is a good singer. She sings well. Fast, hard, late and early do not change: He drives <b>fast</b>, not fastly. She works <b>hard</b>. The train arrived <b>late</b>. Hardly and lately are words too, but they have a different meaning. I hardly slept means I almost did not sleep. So do not use hardly for hard or lately for late.",
     "An adverb of manner usually goes after the verb: He speaks quietly. When the verb has an object, the adverb usually goes after the object, not between the verb and the object: She speaks English <b>well</b>, not She speaks well English. He drives his car <b>carefully</b>. Remember: the object is the person or thing that the action goes to.",
     "After be, we use an adjective, not an adverb, because we are talking about the person or thing: She is quiet, not She is quietly. It is the same with look when it means how someone seems: You look tired.",
@@ -21,7 +21,7 @@ export const adverbsOfManner: RuleTopic = {
   form: [
     "adjective + -ly: slow → slowly · quiet → quietly · careful → carefully · polite → politely",
     "consonant + -y → -ily: happy → happily · easy → easily",
-    "-le → -ly: gentle → gently · terrible → terribly",
+    "consonant + -le → -ly: gentle → gently · terrible → terribly",
     "good → well · fast → fast · hard → hard · late → late · early → early",
     "verb + adverb: He speaks quietly. · verb + object + adverb: She speaks English well.",
   ].join("\n"),

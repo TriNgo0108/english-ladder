@@ -89,10 +89,10 @@ export const presentSimpleForFuture: RuleTopic = {
     },
     {
       kind: "gap",
-      stem: "The supermarket ___ until ten tomorrow, because it's a holiday. (open + not, present simple)",
-      answers: ["doesn't open", "does not open"],
+      stem: "The film ___ until nine tonight, so we have time for dinner first. (start + not, present simple)",
+      answers: ["doesn't start", "does not start"],
       feedback:
-        "Opening times are fixed, so we use the present simple. The supermarket is one thing (it), so to say no we use doesn't, or does not, and the base form: The supermarket doesn't open until ten tomorrow.",
+        "The film time is fixed by the cinema, so we use the present simple. The film is one thing (it), so to say no we use doesn't, or does not, and the base form: The film doesn't start until nine tonight.",
     },
     {
       kind: "wordbank",
