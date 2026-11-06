@@ -56,4 +56,21 @@ describe("GapQuestion", () => {
     expect(onAnswered).not.toHaveBeenCalled();
     expect(screen.queryByText("Not quite")).not.toBeInTheDocument();
   });
+
+  it("accepts a correct answer typed with a trailing full stop", async () => {
+    const onAnswered = vi.fn();
+    render(<GapQuestion question={q} onAnswered={onAnswered} />);
+    await submit("is not.");
+    expect(onAnswered).toHaveBeenCalledWith(true);
+  });
+
+  it("does not submit when the input is only punctuation", async () => {
+    const onAnswered = vi.fn();
+    render(<GapQuestion question={q} onAnswered={onAnswered} />);
+    await submit(" .");
+    expect(onAnswered).not.toHaveBeenCalled();
+    await userEvent.clear(screen.getByRole("textbox"));
+    await submit("-");
+    expect(onAnswered).not.toHaveBeenCalled();
+  });
 });

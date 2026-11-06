@@ -2,7 +2,7 @@
 
 import { useId, useState } from "react";
 import type { Question } from "@/content/schema";
-import { matchesGap, normaliseAnswer } from "@/lib/gap-match";
+import { matchesGap, normaliseGap } from "@/lib/gap-match";
 import { renderRichText } from "@/lib/rich-text";
 import { FOCUS, FeedbackRegion, PRIMARY_BUTTON } from "./shared";
 
@@ -21,7 +21,7 @@ export function GapQuestion({
 
   function submit() {
     if (result !== null) return;
-    if (normaliseAnswer(value) === "") return;
+    if (normaliseGap(value) === "") return;
     const ok = matchesGap(value, question.answers);
     setResult(ok);
     onAnswered(ok);
