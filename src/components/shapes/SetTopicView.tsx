@@ -12,7 +12,12 @@ export function SetTopicView({ topic }: { topic: SetTopic }) {
           Words
         </h2>
         {/* The table may be wider than a phone; only this box scrolls, never the page. */}
-        <div className="mt-3 overflow-x-auto rounded border border-border bg-surface focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent">
+        <div
+          tabIndex={0}
+          role="region"
+          aria-label="Word list, scrolls sideways"
+          className="mt-3 overflow-x-auto rounded border border-border bg-surface focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent"
+        >
           <table className="w-full min-w-[36rem] border-collapse text-left text-base">
             <thead>
               <tr className="border-b border-border text-base text-muted">

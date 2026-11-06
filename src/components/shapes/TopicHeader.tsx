@@ -49,9 +49,9 @@ export function TopicHeader({ topic }: { topic: Topic }) {
           </li>
         </ol>
       </nav>
-      <h1 className="mt-4 flex flex-wrap items-center gap-3 font-serif text-4xl">
-        <LevelBadge level={topic.level} /> <span>{topic.title}</span>
-      </h1>
+      <div className="mt-4 flex flex-wrap items-center gap-3">
+        <LevelBadge level={topic.level} /> <h1 className="font-serif text-4xl">{topic.title}</h1>
+      </div>
       <div className="mt-4 grid max-w-[65ch] gap-3 text-base leading-relaxed">
         {paragraphs.map((p, i) => (
           <p key={i}>{renderRichText(p)}</p>

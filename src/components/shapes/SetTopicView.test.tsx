@@ -54,4 +54,12 @@ describe("SetTopicView", () => {
     expect(scroller.className).toContain("focus-visible:outline-2");
     expect(scroller.className).toContain("focus-visible:outline-accent");
   });
+
+  it("makes the scrollable table a named, keyboard-focusable region", () => {
+    render(<SetTopicView topic={topic} />);
+    const region = screen.getByRole("region", { name: "Word list, scrolls sideways" });
+    expect(region).toHaveAttribute("tabindex", "0");
+    expect(region).toContainElement(screen.getByRole("table"));
+    expect(region.className).toContain("overflow-x-auto");
+  });
 });

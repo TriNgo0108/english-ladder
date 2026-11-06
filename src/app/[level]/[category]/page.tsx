@@ -38,14 +38,14 @@ export default async function CategoryPage({ params }: PageProps<"/[level]/[cate
       >
         Back to level {levelMeta(level).label}
       </Link>
-      <h1 className="flex items-center gap-2 font-serif text-4xl">
-        <LevelBadge level={level} /> <span>{cat.label}</span>
-      </h1>
+      <div className="flex items-center gap-2">
+        <LevelBadge level={level} /> <h1 className="font-serif text-4xl">{cat.label}</h1>
+      </div>
       <ol className="mt-6 grid gap-4">
         {topics.map((t) => (
           <li key={t.slug}>
             <Link href={`/${level}/${category}/${t.slug}/`} className="rounded border border-border bg-surface p-4 min-h-11 block transition-colors duration-200 hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
-              <span className="mr-2 font-mono text-base text-muted">{t.order}.</span>
+              <span className="mr-2 font-sans tabular-nums text-base text-muted">{t.order}.</span>
               <span className="text-base font-semibold">{t.title}</span>
             </Link>
           </li>

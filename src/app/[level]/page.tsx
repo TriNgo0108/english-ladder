@@ -46,7 +46,7 @@ export default async function LevelPage({ params }: PageProps<"/[level]">) {
       ) : (
         <>
           <h1 className="flex items-center gap-2 font-serif text-4xl">
-            <LevelBadge level={level} /> <span>Level {meta.label}</span>
+            <LevelBadge level={level} decorative /> <span>Level {meta.label}</span>
           </h1>
           <p className="mt-2 max-w-[65ch] text-base text-muted">{meta.blurb}</p>
           <ul className="mt-6 grid gap-4 sm:grid-cols-2">

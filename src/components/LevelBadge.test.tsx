@@ -11,4 +11,14 @@ describe("LevelBadge", () => {
     const el = screen.getByText("C1");
     expect(el).toHaveStyle({ backgroundColor: "#2563EB", color: "#FFFFFF" });
   });
+  it("is announced by default", () => {
+    render(<LevelBadge level="a1" />);
+    expect(screen.getByText("A1")).not.toHaveAttribute("aria-hidden");
+  });
+  it("hides itself from screen readers but keeps the visible text when decorative", () => {
+    render(<LevelBadge level="a2" decorative />);
+    const el = screen.getByText("A2");
+    expect(el).toBeVisible();
+    expect(el).toHaveAttribute("aria-hidden", "true");
+  });
 });

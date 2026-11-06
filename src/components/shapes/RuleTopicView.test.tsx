@@ -42,7 +42,12 @@ describe("RuleTopicView", () => {
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Fixture: am, is, are");
     expect(screen.getByText(/with I\./)).toHaveTextContent("Use am with I.");
     expect(screen.getByText("Use is with one person.")).toBeInTheDocument();
-    expect(within(screen.getByRole("heading", { level: 1 })).getByText("A1")).toBeInTheDocument();
+    // The badge sits beside the heading, so the heading reads only the title and the badge is still read once.
+    const heading = screen.getByRole("heading", { level: 1 });
+    expect(heading).toHaveAccessibleName("Fixture: am, is, are");
+    const badge = screen.getByText("A1");
+    expect(heading).not.toContainElement(badge);
+    expect(badge).not.toHaveAttribute("aria-hidden");
   });
 
   it("renders a breadcrumb from the chooser down to the topic", () => {
