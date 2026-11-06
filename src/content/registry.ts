@@ -11,6 +11,9 @@ import {
 const LEVELS = LevelSchema.options;
 const CATEGORIES = CategorySlugSchema.options;
 
+/** The key that links a topic to its counterparts at other levels. */
+const familyKey = (t: Topic): string => t.family ?? t.slug;
+
 function groupByLevel(topics: Topic[]): Map<Level, Topic[]> {
   const groups = new Map<Level, Topic[]>();
   for (const t of topics) {
@@ -31,13 +34,24 @@ function corpusProblems(topics: Topic[]): string[] {
     const seenSlugs = new Set<string>();
     const reportedSlugs = new Set<string>();
     const orderCounts = new Map<number, number>();
+    const byFamily = new Map<string, Topic[]>();
     for (const t of inLevel) {
+      const members = byFamily.get(familyKey(t));
+      if (members) members.push(t);
+      else byFamily.set(familyKey(t), [t]);
       if (seenSlugs.has(t.slug) && !reportedSlugs.has(t.slug)) {
         reportedSlugs.add(t.slug);
         problems.push(`Level ${level}: duplicate slug "${t.slug}"`);
       }
       seenSlugs.add(t.slug);
       orderCounts.set(t.order, (orderCounts.get(t.order) ?? 0) + 1);
+    }
+    for (const [key, members] of byFamily) {
+      if (members.length > 1) {
+        problems.push(
+          `Level ${level}: duplicate family '${key}' at ${level}: ${members.map((t) => t.slug).join(", ")}`,
+        );
+      }
     }
     for (const [order, count] of orderCounts) {
       if (count > 1) {
@@ -97,9 +111,12 @@ export function createRegistry(topics: Topic[]) {
   function findTopic(level: Level, category: CategorySlug, slug: string): Topic | undefined {
     return allTopics.find((t) => t.level === level && t.category === category && t.slug === slug);
   }
-  /** Same-slug topics at other levels; the argument itself is excluded. */
+  /** Same-family topics (family, else slug) at other levels, in CEFR order; excludes the argument. */
   function siblingsAcrossLevels(topic: Topic): Topic[] {
-    return allTopics.filter((t) => t.slug === topic.slug && t !== topic);
+    const key = familyKey(topic);
+    return allTopics
+      .filter((t) => familyKey(t) === key && t !== topic)
+      .sort((a, b) => LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level));
   }
   function adjacentTopics(topic: Topic): { prev?: Topic; next?: Topic } {
     const ordered = topicsByLevel(topic.level);

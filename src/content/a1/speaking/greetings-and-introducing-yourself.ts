@@ -2,6 +2,7 @@ import type { PhraseTopic } from "../../schema";
 
 export const greetingsAndIntroducingYourself: PhraseTopic = {
   slug: "greetings-and-introducing-yourself",
+  family: "introductions",
   title: "Greetings and introducing yourself",
   level: "a1",
   category: "speaking",

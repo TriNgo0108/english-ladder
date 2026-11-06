@@ -2,6 +2,7 @@ import type { RuleTopic } from "../../schema";
 
 export const thisThatTheseThose: RuleTopic = {
   slug: "this-that-these-those",
+  family: "determiners",
   title: "This, that, these, those",
   level: "a1",
   category: "grammar",

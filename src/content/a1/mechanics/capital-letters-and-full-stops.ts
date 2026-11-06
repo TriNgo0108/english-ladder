@@ -2,6 +2,7 @@ import type { RuleTopic } from "../../schema";
 
 export const capitalLettersAndFullStops: RuleTopic = {
   slug: "capital-letters-and-full-stops",
+  family: "punctuation",
   title: "Capital letters and full stops",
   level: "a1",
   category: "mechanics",

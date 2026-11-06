@@ -2,6 +2,7 @@ import type { RuleTopic } from "../../schema";
 
 export const articlesAAn: RuleTopic = {
   slug: "articles-a-an",
+  family: "articles",
   title: "Articles: a and an",
   level: "a1",
   category: "grammar",

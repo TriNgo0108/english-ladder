@@ -2,6 +2,7 @@ import type { RuleTopic } from "../../schema";
 
 export const questionWords: RuleTopic = {
   slug: "question-words",
+  family: "question-forms",
   title: "Question words: what, where, who, how…",
   level: "a1",
   category: "grammar",

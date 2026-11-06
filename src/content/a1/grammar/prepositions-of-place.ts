@@ -2,6 +2,7 @@ import type { RuleTopic } from "../../schema";
 
 export const prepositionsOfPlace: RuleTopic = {
   slug: "prepositions-of-place",
+  family: "prepositions-of-place",
   title: "Prepositions of place: in, on, under, next to",
   level: "a1",
   category: "grammar",

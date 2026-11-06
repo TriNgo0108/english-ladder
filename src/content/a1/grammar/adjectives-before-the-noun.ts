@@ -2,6 +2,7 @@ import type { RuleTopic } from "../../schema";
 
 export const adjectivesBeforeTheNoun: RuleTopic = {
   slug: "adjectives-before-the-noun",
+  family: "adjective-order",
   title: "Adjectives: a big house, red cars",
   level: "a1",
   category: "grammar",

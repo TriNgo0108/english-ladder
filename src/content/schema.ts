@@ -86,8 +86,12 @@ export const QuestionSchema = z.discriminatedUnion("kind", [
   MistakeSchema,
 ]);
 
+const kebab = z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, { error: "must be lowercase kebab-case" });
+
 const baseFields = {
-  slug: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, { error: "must be lowercase kebab-case" }),
+  slug: kebab,
+  /** Cross-level topic family; defaults to the slug when absent. */
+  family: kebab.optional(),
   title: text,
   level: LevelSchema,
   order: z.number().int().positive(),

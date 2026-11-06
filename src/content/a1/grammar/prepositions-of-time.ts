@@ -2,6 +2,7 @@ import type { RuleTopic } from "../../schema";
 
 export const prepositionsOfTime: RuleTopic = {
   slug: "prepositions-of-time",
+  family: "prepositions-of-time",
   title: "Prepositions of time: at, on, in",
   level: "a1",
   category: "grammar",

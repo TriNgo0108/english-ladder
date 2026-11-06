@@ -33,7 +33,7 @@ const extras: Record<string, Record<string, unknown>> = {
   },
 };
 
-function raw(o: { slug: string; order: number; level?: Level; category?: CategorySlug }) {
+function raw(o: { slug: string; order: number; level?: Level; category?: CategorySlug; family?: string }) {
   const category = o.category ?? "grammar";
   const shape = shapeFor[category];
   return {
@@ -47,6 +47,7 @@ function raw(o: { slug: string; order: number; level?: Level; category?: Categor
     levelRationale: "Because.",
     shape,
     ...extras[shape],
+    ...(o.family === undefined ? {} : { family: o.family }),
   };
 }
 const topic = (o: Parameters<typeof raw>[0]) => raw(o) as unknown as Topic;
@@ -201,5 +202,59 @@ describe("populatedCategoryPairs", () => {
 describe("the real corpus", () => {
   it("passes validation", () => {
     expect(() => validateCorpus(allTopics)).not.toThrow();
+  });
+});
+
+describe("topic families", () => {
+  const a1 = topic({ slug: "articles-a-an", family: "articles", level: "a1", order: 1 });
+  const a2 = topic({ slug: "the-and-zero-article", family: "articles", level: "a2", order: 1 });
+  const b2 = topic({ slug: "abstract-nouns", family: "articles", level: "b2", order: 1 });
+
+  it("links same-family topics with different slugs, in level order, excluding self", () => {
+    const reg = createRegistry([b2, a1, a2]);
+    expect(reg.siblingsAcrossLevels(a1)).toEqual([a2, b2]);
+    expect(reg.siblingsAcrossLevels(a2)).toEqual([a1, b2]);
+    expect(reg.siblingsAcrossLevels(b2)).toEqual([a1, a2]);
+  });
+  it("falls back to the slug when there is no family", () => {
+    const x = topic({ slug: "modals", level: "a1", order: 1 });
+    const y = topic({ slug: "modals", level: "b1", order: 1 });
+    const reg = createRegistry([y, x]);
+    expect(reg.siblingsAcrossLevels(x)).toEqual([y]);
+  });
+  it("lets family override slug equality", () => {
+    const x = topic({ slug: "articles", family: "determiners", level: "a1", order: 1 });
+    const y = topic({ slug: "articles", level: "a2", order: 1 });
+    const reg = createRegistry([x, y]);
+    expect(reg.siblingsAcrossLevels(x)).toEqual([]);
+    expect(reg.siblingsAcrossLevels(y)).toEqual([]);
+  });
+  it("treats a family key equal to another topic's slug as a match", () => {
+    const x = topic({ slug: "articles-a-an", family: "articles", level: "a1", order: 1 });
+    const y = topic({ slug: "articles", level: "a2", order: 1 });
+    expect(createRegistry([x, y]).siblingsAcrossLevels(x)).toEqual([y]);
+  });
+  it("rejects a duplicate family within a level", () => {
+    const one = topic({ slug: "one", family: "fam", order: 1 });
+    const two = topic({ slug: "two", family: "fam", order: 2 });
+    expect(captureError(() => validateCorpus([one, two]))).toContain("duplicate family 'fam' at a1: one, two");
+  });
+  it("rejects a family colliding with another topic's slug in the same level", () => {
+    const one = topic({ slug: "one", order: 1 });
+    const two = topic({ slug: "two", family: "one", order: 2 });
+    expect(captureError(() => validateCorpus([one, two]))).toContain("duplicate family 'one' at a1: one, two");
+  });
+  it("accepts the same family across levels", () => {
+    expect(() => validateCorpus([a1, a2, b2])).not.toThrow();
+  });
+  it("reports family problems alongside other problems", () => {
+    const message = captureError(() =>
+      validateCorpus([
+        topic({ slug: "one", family: "fam", order: 1 }),
+        topic({ slug: "two", family: "fam", order: 3 }),
+      ]),
+    );
+    expect(message).toMatch(/duplicate family 'fam' at a1/);
+    expect(message).toMatch(/gap/i);
   });
 });

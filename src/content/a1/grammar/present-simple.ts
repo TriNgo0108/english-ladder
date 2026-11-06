@@ -2,6 +2,7 @@ import type { RuleTopic } from "../../schema";
 
 export const presentSimple: RuleTopic = {
   slug: "present-simple",
+  family: "present-simple",
   title: "Present simple: I work, she works",
   level: "a1",
   category: "grammar",

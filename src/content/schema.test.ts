@@ -240,3 +240,16 @@ describe("error messages", () => {
     }
   });
 });
+
+describe("family", () => {
+  it("accepts a valid family key and its absence", () => {
+    expect(() => parseTopic(validRuleTopic({ family: "articles" }))).not.toThrow();
+    expect(() => parseTopic(validSetTopic({ family: "house-and-home" }))).not.toThrow();
+    expect(() => parseTopic(validPhraseTopic({ family: "polite-requests" }))).not.toThrow();
+  });
+  it("rejects a non-slug or blank family", () => {
+    expect(() => parseTopic(validRuleTopic({ family: "Articles!" }))).toThrow(/family/);
+    expect(() => parseTopic(validRuleTopic({ family: "  " }))).toThrow(/family/);
+    expect(() => parseTopic(validRuleTopic({ family: "" }))).toThrow(/family/);
+  });
+});

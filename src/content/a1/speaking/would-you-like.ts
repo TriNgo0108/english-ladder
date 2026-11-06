@@ -2,6 +2,7 @@ import type { PhraseTopic } from "../../schema";
 
 export const wouldYouLike: PhraseTopic = {
   slug: "would-you-like",
+  family: "polite-requests",
   title: "Would you like…? Offers and invitations",
   level: "a1",
   category: "speaking",

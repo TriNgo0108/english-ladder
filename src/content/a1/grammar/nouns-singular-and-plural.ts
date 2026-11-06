@@ -2,6 +2,7 @@ import type { RuleTopic } from "../../schema";
 
 export const nounsSingularAndPlural: RuleTopic = {
   slug: "nouns-singular-and-plural",
+  family: "nouns",
   title: "Nouns: singular and plural",
   level: "a1",
   category: "grammar",

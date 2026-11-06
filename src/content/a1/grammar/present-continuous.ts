@@ -2,6 +2,7 @@ import type { RuleTopic } from "../../schema";
 
 export const presentContinuous: RuleTopic = {
   slug: "present-continuous",
+  family: "present-continuous",
   title: "Present continuous: I am working",
   level: "a1",
   category: "grammar",

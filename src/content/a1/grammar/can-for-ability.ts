@@ -2,6 +2,7 @@ import type { RuleTopic } from "../../schema";
 
 export const canForAbility: RuleTopic = {
   slug: "can-for-ability",
+  family: "modal-verbs",
   title: "Can for ability: I can swim",
   level: "a1",
   category: "grammar",

@@ -2,6 +2,7 @@ import type { RuleTopic } from "../../schema";
 
 export const wasWere: RuleTopic = {
   slug: "was-were",
+  family: "past-simple",
   title: "Was and were: the past of be",
   level: "a1",
   category: "grammar",
