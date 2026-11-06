@@ -88,10 +88,10 @@ export const wouldYouLike: PhraseTopic = {
     },
     {
       kind: "gap",
-      stem: "A: Would you like to have lunch with me tomorrow? B: Yes, I'd ___ to.",
-      answers: ["love", "like", "be happy", "be glad"],
+      stem: "A: Would you like to have lunch with me tomorrow? B: Yes, I'd ___ to. (one word)",
+      answers: ["love", "like"],
       feedback:
-        "Yes, I'd love to is the usual way to say yes to an invitation. Yes, I'd like to is also correct, and so is Yes, I'd be happy to. I'd is the short form of I would.",
+        "Yes, I'd love to is the usual way to say yes to an invitation. Yes, I'd like to is also correct. Yes, I'd be happy to is correct too, but it has two words. I'd is the short form of I would.",
     },
     {
       kind: "wordbank",

@@ -62,9 +62,9 @@ export const tellingTheTime: SetTopic = {
     {
       kind: "gap",
       stem: "Write the time 3:30 in words. It's ___.",
-      answers: ["half past three", "three thirty", "three-thirty", "half three"],
+      answers: ["half past three", "half-past three", "three thirty", "three-thirty", "half three"],
       feedback:
-        "3:30 is half past three. Three thirty is also correct and very common. In British English, half three means the same. All of these are right. We do not say three and a half or half to four.",
+        "3:30 is half past three (also written half-past three). Three thirty is also correct and very common. In British English, half three means the same. All of these are right. We do not say three and a half or half to four.",
     },
     {
       kind: "mistake",
@@ -88,5 +88,5 @@ export const tellingTheTime: SetTopic = {
     "The CEFR's A1 descriptors include handling numbers, quantities, cost and time, and the English Vocabulary Profile places o'clock, past, half, quarter, minute and hour at A1. This topic comes straight after numbers, because every time is said with number words.",
 
   sourceNotes:
-    "english_grammar.txt, # Telling the time, has four short points: 'ten thirty' when morning or evening is clear, a.m. and p.m. when it is not, midday for 12 p.m. and midnight for 12 a.m. All four agree with Swan, Practical English Usage, and are used here. The note does not cover past, to, quarter or half; those, the o'clock rule, half three, and a quarter of (American) are from Swan. IPA is from CMUdict (public domain), converted from ARPAbet and checked by hand; nothing from the notes.",
+    "english_grammar.txt, # Telling the time, has four short points: 'ten thirty' when morning or evening is clear, a.m. and p.m. when it is not, midday for 12 p.m. and midnight for 12 a.m. All four agree with Swan, Practical English Usage, and are used here. The note does not cover past, to, quarter or half; those, the o'clock rule, half three, and a quarter of (American) are from Swan. IPA is from CMUdict (BSD-style licence, see LICENSES.md), converted ARPAbet→IPA and checked by hand; nothing from the notes.",
 };

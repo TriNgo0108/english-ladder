@@ -120,5 +120,5 @@ export const daysMonthsFamilyFoodAndColours: SetTopic = {
     "The English Vocabulary Profile places the days, the months, the main family words, basic food words and the basic colours at A1. They are the words a beginner needs to talk about their week, their family and what they eat. The topic is one list with five groups, so that these everyday words are all in one place.",
 
   sourceNotes:
-    "New topic: english_grammar.txt has no list of days, months, family words or colours, and its # Vocabulary block is third-party dictionary text, which is not used. Glosses are new. The capital letters for days and months, on + days and in + months, the uncountable food words and grey/gray checked against Swan, Practical English Usage. IPA is from CMUdict (public domain), converted from ARPAbet and checked by hand; nothing from the notes.",
+    "New topic: english_grammar.txt has no list of days, months, family words or colours, and its # Vocabulary block is third-party dictionary text, which is not used. Glosses are new. The capital letters for days and months, on + days and in + months, the uncountable food words and grey/gray checked against Swan, Practical English Usage. IPA is from CMUdict (BSD-style licence, see LICENSES.md), converted ARPAbet→IPA and checked by hand; nothing from the notes.",
 };

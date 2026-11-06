@@ -97,7 +97,7 @@ describe("A1 vocabulary, speaking and mechanics (part 4)", () => {
 
   it("accepts the British and the digital reading of 3:30, but not three and a half", () => {
     const t = gap(tellingTheTime.quiz, "3:30");
-    for (const typed of ["half past three", "three thirty", "three-thirty", "half three"]) {
+    for (const typed of ["half past three", "half-past three", "three thirty", "three-thirty", "half three"]) {
       expect(matchesGap(typed, t)).toBe(true);
     }
     for (const typed of ["three and a half", "half to four", "half past four"]) expect(matchesGap(typed, t)).toBe(false);
@@ -122,7 +122,8 @@ describe("A1 vocabulary, speaking and mechanics (part 4)", () => {
   it("accepts love and like for the invitation answer, and bill and check for paying", () => {
     const love = gap(wouldYouLike.quiz, "Yes, I'd ___ to");
     for (const typed of ["love", "like"]) expect(matchesGap(typed, love)).toBe(true);
-    expect(matchesGap("want", love)).toBe(false);
+    for (const typed of ["want", "be happy"]) expect(matchesGap(typed, love)).toBe(false);
+    expect(love).toEqual(["love", "like"]);
     const bill = gap(orderingFood.quiz, "the ___, please");
     for (const typed of ["bill", "check"]) expect(matchesGap(typed, bill)).toBe(true);
     expect(matchesGap("menu", bill)).toBe(false);
