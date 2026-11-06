@@ -31,7 +31,11 @@ const mistake = (o: Record<string, unknown> = {}) => ({
   feedback: "Third person.",
   ...o,
 });
-const example = () => ({ sentence: "She <b>is</b> a nurse.", why: "Third person singular." });
+const example = (o: Record<string, unknown> = {}) => ({
+  sentence: "She <b>is</b> a nurse.",
+  why: "Third person singular.",
+  ...o,
+});
 const entry = () => ({
   headword: "knowledge",
   ipa: "/ˈnɒlɪdʒ/",
@@ -251,5 +255,21 @@ describe("family", () => {
     expect(() => parseTopic(validRuleTopic({ family: "Articles!" }))).toThrow(/family/);
     expect(() => parseTopic(validRuleTopic({ family: "  " }))).toThrow(/family/);
     expect(() => parseTopic(validRuleTopic({ family: "" }))).toThrow(/family/);
+  });
+});
+
+describe("rich-text markup validation", () => {
+  it("rejects malformed markup in an example sentence", () => {
+    expect(() =>
+      parseTopic(validRuleTopic({ examples: [example({ sentence: "I <b>am here." }), example(), example()] })),
+    ).toThrow(/examples\.0\.sentence/);
+  });
+  it("rejects malformed markup in a question stem", () => {
+    expect(() => parseTopic(validRuleTopic({ quiz: quizWith(choice({ stem: "Pick <i>one</i>" })) }))).toThrow(
+      /quiz\.0\.stem/,
+    );
+  });
+  it("rejects malformed markup in the explanation", () => {
+    expect(() => parseTopic(validRuleTopic({ explanation: "Use <b>am</B>." }))).toThrow(/explanation/);
   });
 });

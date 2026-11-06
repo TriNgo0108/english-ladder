@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import { plainText, renderRichText } from "./rich-text";
+import { plainText, renderRichText, richTextProblem } from "./rich-text";
 
 describe("renderRichText", () => {
   it("renders plain text unchanged", () => {
@@ -38,4 +38,30 @@ describe("plainText", () => {
     expect(plainText("<b>I</b> am <b>here</b>.")).toBe("I am here.");
     expect(plainText("I <b>am here.")).toBe("I <b>am here.");
   });
+});
+
+describe("richTextProblem", () => {
+  it.each([
+    ["plain text", "I am here."],
+    ["one bold pair", "I <b>am</b> here."],
+    ["two adjacent pairs", "<b>I</b><b>am</b>"],
+    ["an arrow character", "the dog → its bed"],
+  ])("accepts %s", (_l, s) => expect(richTextProblem(s)).toBeNull());
+
+  it.each([
+    ["an unclosed b", "I <b>am here."],
+    ["a stray closing b", "I am</b> here."],
+    ["an uppercase B", "I <B>am</B> here."],
+    ["a b with attributes", 'I <b class="x">am</b> here.'],
+    ["nested b", "<b>a <b>b</b> c</b>"],
+    ["any other tag", "a <i>b</i> c"],
+    ["a bare angle bracket", "x < y"],
+    ["an empty pair", "I <b></b> am"],
+  ])("rejects %s", (_l, s) => expect(richTextProblem(s)).not.toBeNull());
+});
+
+// pin the renderer's escaping for the same edge cases
+it("renders <B> and <b class> as text, never as elements", () => {
+  const { container } = render(<>{renderRichText('a <B>x</B> <b class="y">z</b>')}</>);
+  expect(container.querySelector("b")).toBeNull();
 });

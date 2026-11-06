@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { richTextProblem } from "@/lib/rich-text";
 import { canFormAnswer } from "@/lib/wordbank";
 
 export const LevelSchema = z.enum(["a1", "a2", "b1", "b2", "c1"]);
@@ -11,8 +12,14 @@ export const CategorySlugSchema = z.enum([
   "mechanics",
 ]);
 
-/** A required string that must contain something other than whitespace. */
-const text = z.string().refine((s) => s.trim().length > 0, { error: "must not be blank" });
+/** A required string that is non-blank and uses only well-formed `<b>…</b>` markup. */
+const text = z
+  .string()
+  .refine((s) => s.trim().length > 0, { error: "must not be blank" })
+  .superRefine((s, ctx) => {
+    const problem = richTextProblem(s);
+    if (problem) ctx.addIssue({ code: "custom", message: problem });
+  });
 
 const index = z.number().int().min(0);
 

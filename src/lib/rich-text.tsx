@@ -26,3 +26,16 @@ export function renderRichText(s: string): ReactNode {
 export function plainText(s: string): string {
   return s.replace(BOLD, "$1");
 }
+
+/**
+ * Build-time check that authored text uses only well-formed `<b>…</b>` markup.
+ * Returns null when valid, otherwise a short description of the problem.
+ */
+export function richTextProblem(s: string): string | null {
+  if (s.includes("<b></b>")) return "empty <b></b> pair";
+  const rest = s.replace(/<b>([^<>]+)<\/b>/g, "$1");
+  if (/[<>]/.test(rest)) {
+    return "contains a stray < or > (only exact <b>…</b> pairs are allowed)";
+  }
+  return null;
+}
