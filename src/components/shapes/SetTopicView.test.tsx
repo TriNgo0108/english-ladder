@@ -40,6 +40,9 @@ describe("SetTopicView", () => {
       expect(scroller).toContainElement(cell);
     }
     expect(screen.getByText("/red/")).toBeInTheDocument();
+    // Plex Mono is reserved for grammatical forms; IPA is set in the sans face.
+    expect(screen.getByText("/red/")).toHaveClass("font-sans");
+    expect(screen.getByText("/red/")).not.toHaveClass("font-mono");
     expect(screen.getByText("My bag is blue.")).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Fixture colours");
   });

@@ -36,7 +36,7 @@ export function SetTopicView({ topic }: { topic: SetTopic }) {
                   <th scope="row" className="p-3 font-serif text-lg font-semibold">
                     {e.headword}
                   </th>
-                  <td className="p-3 font-mono text-muted">{e.ipa ?? ""}</td>
+                  <td className="p-3 font-sans text-muted">{e.ipa ?? ""}</td>
                   <td className="p-3">{e.gloss}</td>
                   <td className="p-3 font-serif">{renderRichText(e.inUse)}</td>
                 </tr>

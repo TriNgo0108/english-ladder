@@ -18,6 +18,13 @@ import { thisThatTheseThose } from "./grammar/this-that-these-those";
 import { verbToBe } from "./grammar/verb-to-be";
 import { wasWere } from "./grammar/was-were";
 import { yesNoQuestionsAndShortAnswers } from "./grammar/yes-no-questions-and-short-answers";
+import { capitalLettersAndFullStops } from "./mechanics/capital-letters-and-full-stops";
+import { greetingsAndIntroducingYourself } from "./speaking/greetings-and-introducing-yourself";
+import { orderingFood } from "./speaking/ordering-food";
+import { wouldYouLike } from "./speaking/would-you-like";
+import { daysMonthsFamilyFoodAndColours } from "./vocabulary/days-months-family-food-and-colours";
+import { numbers } from "./vocabulary/numbers";
+import { tellingTheTime } from "./vocabulary/telling-the-time";
 
 export const a1Topics: Topic[] = [
   verbToBe,
@@ -39,4 +46,11 @@ export const a1Topics: Topic[] = [
   yesNoQuestionsAndShortAnswers,
   wasWere,
   objectAndPossessivePronouns,
+  numbers,
+  tellingTheTime,
+  daysMonthsFamilyFoodAndColours,
+  greetingsAndIntroducingYourself,
+  wouldYouLike,
+  orderingFood,
+  capitalLettersAndFullStops,
 ];
