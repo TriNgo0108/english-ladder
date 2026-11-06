@@ -9,7 +9,7 @@
  *   nouns                  A1 nouns-singular-and-plural -> A2 countable and uncountable nouns
  *   determiners            A1 this-that-these-those -> B1 determiners
  *   modal-ability          A1 can-for-ability -> later ability / permission forms
- *   modal-obligation       (reserved) A2 should and must
+ *   modal-obligation       A2 should and must (Task 7); later obligation forms reuse this key
  *   modal-deduction        (reserved) B1 possibility and deduction; B2 must have / can't have / needn't have
  *   present-simple         A1 present-simple -> A2 present simple for future
  *   present-continuous     A1 present-continuous -> A2 present continuous for future
@@ -20,6 +20,12 @@
  *   question-forms         A1 question-words -> B1 question tags; B2 declarative and rhetorical questions
  *   polite-requests        A1 would-you-like -> A2 asking for things politely; B1 indirect and polite questions
  *   introductions          A1 greetings-and-introducing-yourself -> B1 introducing yourself at work
+ *   conditionals           A2 first conditional -> B1 second conditional -> B2 third and mixed conditionals
+ *   gerunds-and-infinitives A2 verb + gerund / verb + infinitive (introductory) -> B1 gerunds vs infinitives
+ *   linking-words          A2 conjunctions and, but, so, because -> B1 linking words -> B2 advanced linkers
+ *   comparison             A2 comparatives and superlatives -> C1 advanced comparison structures
+ *   future-forms           A2 will -> B1 future continuous and future perfect -> B2 future in the past
+ *   emails                 A2 an informal email -> B1 a professional email -> B2 follow-up emails
  *   punctuation            A1 capital-letters-and-full-stops -> B1 commas; C1 punctuation for rhetorical effect
  */
 export const FAMILY_KEYS = [
@@ -39,4 +45,10 @@ export const FAMILY_KEYS = [
   "polite-requests",
   "introductions",
   "punctuation",
+  "conditionals",
+  "gerunds-and-infinitives",
+  "linking-words",
+  "comparison",
+  "future-forms",
+  "emails",
 ] as const;

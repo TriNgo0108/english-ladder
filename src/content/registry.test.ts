@@ -5,6 +5,7 @@ import {
   validateCorpus,
 } from "./registry";
 import { FAMILY_KEYS } from "./families";
+import { a2Topics } from "./a2";
 import type { CategorySlug, Level, Topic } from "./schema";
 
 const quizItem = {
@@ -270,6 +271,29 @@ describe("topic families", () => {
     );
     expect(message).toMatch(/duplicate family 'fam' at a1/);
     expect(message).toMatch(/gap/i);
+  });
+});
+
+describe("A2 barrel and family keys", () => {
+  it("loads A2 topics into the corpus", () => {
+    expect(Array.isArray(a2Topics)).toBe(true);
+    for (const t of a2Topics) expect(allTopics).toContain(t);
+  });
+  it("links an A2 topic to its A1 sibling both ways through a shared family", () => {
+    const a1 = topic({ slug: "articles-a-an", family: "articles", level: "a1", order: 1 });
+    const a2 = topic({ slug: "the-and-zero-article", family: "articles", level: "a2", order: 1 });
+    const reg = createRegistry([a2, a1]);
+    expect(reg.siblingsAcrossLevels(a1)).toEqual([a2]);
+    expect(reg.siblingsAcrossLevels(a2)).toEqual([a1]);
+  });
+  it("has only unique, slug-pattern family keys", () => {
+    expect(new Set(FAMILY_KEYS).size).toBe(FAMILY_KEYS.length);
+    for (const key of FAMILY_KEYS) expect(key).toMatch(/^[a-z0-9]+(-[a-z0-9]+)*$/);
+  });
+  it("includes the A2-first family keys", () => {
+    for (const key of ["conditionals", "gerunds-and-infinitives", "linking-words", "comparison", "future-forms", "emails"]) {
+      expect(FAMILY_KEYS).toContain(key);
+    }
   });
 });
 
