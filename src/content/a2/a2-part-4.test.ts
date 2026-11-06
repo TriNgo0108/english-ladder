@@ -122,7 +122,7 @@ describe("A2 grammar, part 4", () => {
 
   it("pins every mistake item's wrong token and correction", () => {
     expect(wrongToken(andButSoBecause.quiz)).toEqual(["So", "Because"]);
-    expect(wrongToken(firstConditional.quiz)).toEqual(["it'll", "it's"]);
+    expect(wrongToken(firstConditional.quiz)).toEqual(["snow", "snows"]);
     expect(wrongToken(edAndIngAdjectives.quiz)).toEqual(["interesting", "interested"]);
     expect(wrongToken(verbPlusGerundOrInfinitive.quiz)).toEqual(["seeing", "see"]);
   });

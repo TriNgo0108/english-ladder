@@ -109,11 +109,11 @@ export const firstConditional: RuleTopic = {
     },
     {
       kind: "mistake",
-      tokens: ["If", "it'll", "be", "sunny", "tomorrow,", "we'll", "have", "a", "picnic."],
-      wrongIndex: 1,
-      correction: "it's",
+      tokens: ["If", "it", "snow", "tonight,", "the", "schools", "will", "close", "tomorrow."],
+      wrongIndex: 2,
+      correction: "snows",
       feedback:
-        "In the if part, use the present simple, not will: If it's (it is) sunny tomorrow, we'll have a picnic. Will goes in the result part: we'll have a picnic.",
+        "The if part uses the present simple, and with it the verb needs -s: If it snows tonight, the schools will close tomorrow. Will goes in the result part: the schools will close.",
     },
   ],
 
