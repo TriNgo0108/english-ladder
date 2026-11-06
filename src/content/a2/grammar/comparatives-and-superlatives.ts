@@ -15,7 +15,7 @@ export const comparativesAndSuperlatives: RuleTopic = {
     "To compare two people or things, use the <b>comparative</b> and then <b>than</b>. The comparative is the form of an adjective that we use to compare two: old → older, expensive → more expensive. My brother is <b>older than</b> me. The train is <b>more expensive than</b> the bus.",
     "To say that one person or thing is number one in a group of three or more, use <b>the</b> and the <b>superlative</b>. The superlative is the form of an adjective for number one in a group: old → the oldest, expensive → the most expensive. She is <b>the oldest</b> person in my family. We often use <b>in</b> before a place or a group: the biggest city <b>in</b> the world.",
     "Which form do you use? It depends on how long the adjective is. A syllable is a part of a word with one vowel sound: big has one syllable, hap-py has two, and ex-pen-sive has three.",
-    "Adjectives with one syllable add <b>-er</b> and <b>-est</b>: cheap → cheaper → the cheapest, old → older → the oldest. If the adjective ends in e, add only -r and -st: nice → nicer → the nicest. If it ends in one vowel and then one consonant, write the last letter two times: big → bigger → the biggest, hot → hotter → the hottest. We do not do this with w: new → newer. Remember: a vowel is one of the letters a, e, i, o and u. A consonant is any other letter.",
+    "Adjectives with one syllable add <b>-er</b> and <b>-est</b>: cheap → cheaper → the cheapest, old → older → the oldest. If the adjective ends in e, add only -r and -st: nice → nicer → the nicest. If it ends in one vowel and then one consonant, write the last letter two times: big → bigger → the biggest, hot → hotter → the hottest. We do not do this with w, x or y at the end: new → newer, grey → greyer. Remember: a vowel is one of the letters a, e, i, o and u. A consonant is any other letter.",
     "Adjectives with two syllables that end in -y also use -er and -est, and the y changes to i: happy → happier → the happiest, easy → easier → the easiest, busy → busier → the busiest.",
     "Most other adjectives with two syllables, and all adjectives with three or more, use <b>more</b> and <b>the most</b>: boring → more boring → the most boring, expensive → more expensive → the most expensive. A few adjectives with two syllables, like quiet and simple, can use both: quieter or more quiet. Both are correct.",
     "Two common adjectives are irregular: good → <b>better</b> → <b>the best</b>, and bad → <b>worse</b> → <b>the worst</b>.",
@@ -78,10 +78,10 @@ export const comparativesAndSuperlatives: RuleTopic = {
     },
     {
       kind: "gap",
-      stem: "My new phone is ___ than my old one. It cost £200 more. (expensive)",
-      answers: ["more expensive", "much more expensive", "a lot more expensive", "far more expensive"],
+      stem: "My new phone is much ___ than my old one. It cost £200 more. (expensive)",
+      answers: ["more expensive"],
       feedback:
-        "Expensive has three syllables, so the comparative uses more: My new phone is more expensive than my old one. We do not say expensiver. It cost more, so less expensive does not fit here.",
+        "Expensive has three syllables, so the comparative uses more: My new phone is much more expensive than my old one. Much before the comparative shows that the difference is big. We do not say expensiver. It cost more, so less expensive does not fit here.",
     },
     {
       kind: "gap",

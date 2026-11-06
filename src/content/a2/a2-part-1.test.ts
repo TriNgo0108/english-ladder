@@ -100,8 +100,8 @@ describe("A2 grammar, part 1", () => {
 
   it("pins the comparative and superlative gaps", () => {
     const expensive = gap(comparativesAndSuperlatives.quiz, "My new phone");
-    expect(expensive).toEqual(["more expensive", "much more expensive", "a lot more expensive", "far more expensive"]);
-    expectGap(expensive, ["more expensive", "MORE EXPENSIVE"], ["expensiver", "most expensive", "less expensive", "more expensiver"]);
+    expect(expensive).toEqual(["more expensive"]);
+    expectGap(expensive, ["more expensive", "MORE EXPENSIVE"], ["expensiver", "most expensive", "less expensive", "more expensiver", "much more expensive"]);
     const easiest = gap(comparativesAndSuperlatives.quiz, "question 1");
     expect(easiest).toEqual(["easiest"]);
     expectGap(easiest, ["easiest"], ["easyest", "most easy", "easier"]);
