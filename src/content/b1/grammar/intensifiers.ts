@@ -12,7 +12,7 @@ export const intensifiers: RuleTopic = {
   explanation: [
     "Words like <b>very</b> are called <b>intensifiers</b>. An intensifier goes before an adjective or an adverb and makes it stronger or weaker: <b>very</b> cold, <b>extremely</b> fast, <b>a bit</b> late. Remember: an adjective is a word that tells us more about a noun: what the person or thing is like.",
     "From weaker to stronger: <b>a bit</b> → <b>quite</b> → <b>rather</b> → <b>very</b>, <b>really</b>, <b>so</b> → <b>extremely</b>. So a bit cold is not very cold, and extremely cold is colder than very cold.",
-    "<b>Very</b> and <b>really</b> make a word stronger. Really is more common in speech. <b>Extremely</b> is stronger than very: The exam was <b>extremely</b> difficult. Don't use very or extremely with extreme adjectives, like freezing or exhausted (order 22), but really goes with all adjectives: really cold, really freezing.",
+    "<b>Very</b> and <b>really</b> make a word stronger. Really is more common in speech. <b>Extremely</b> is stronger than very: The exam was <b>extremely</b> difficult. We don't usually use very or extremely with extreme adjectives, like freezing or exhausted (order 22), but really goes with both kinds: really cold, really freezing.",
     "<b>So</b> is like very, and it is common in speech, especially for feelings: I'm <b>so</b> happy! It goes before an adjective or an adverb, and there is no noun after the adjective: The day was <b>so</b> nice. Don't put so between a and an adjective and a noun: a very nice day, not a so nice day.",
     "<b>A bit</b> makes a word weaker. We usually use it for things we don't like, and it is common in speech: It's <b>a bit</b> cold. I'm <b>a bit</b> tired. We don't usually say a bit nice or a bit good.",
     "<b>Quite</b> is not easy. In British English, quite with most adjectives means fairly, less than very: The film was <b>quite</b> good. (Good, but not great.) With all-or-nothing adjectives, it means completely: You're <b>quite</b> right. The meaning can also change with how you say it, and in American English quite often means very. <b>Rather</b> is a bit stronger than quite. We often use it for things we don't like, or that surprise us: It's <b>rather</b> cold today.",
@@ -25,7 +25,7 @@ export const intensifiers: RuleTopic = {
     "intensifier + adverb: really carefully · extremely well",
     "a / an + intensifier + adjective + noun: an extremely long journey",
     "so + adjective, no noun after it: I'm so happy! · not a so nice day",
-    "really goes with all adjectives · not very or extremely with extreme adjectives",
+    "really goes with both kinds · not usually very or extremely with extreme adjectives",
   ].join("\n"),
 
   examples: [
@@ -58,7 +58,7 @@ export const intensifiers: RuleTopic = {
   pitfall: {
     wrong: "The water in the lake was extremely freezing.",
     right: "The water in the lake was <b>absolutely</b> freezing.",
-    why: "Freezing already means very cold, so it is an extreme adjective. Use <b>absolutely</b> or <b>really</b>, not extremely or very.",
+    why: "Freezing already means very cold, so it is an extreme adjective. We don't usually use extremely or very with it, so use <b>absolutely</b> or <b>really</b>.",
   },
 
   quiz: [
@@ -76,7 +76,7 @@ export const intensifiers: RuleTopic = {
       options: ["extremely", "really", "very"],
       answer: 1,
       feedback:
-        "Freezing is an extreme adjective: it already means very cold. Really goes with all adjectives, so It's really freezing is correct. We don't use very or extremely with extreme adjectives.",
+        "Freezing is an extreme adjective: it already means very cold. Really goes with both kinds of adjective, so It's really freezing is correct. We don't usually use very or extremely with extreme adjectives.",
     },
     {
       kind: "choice",

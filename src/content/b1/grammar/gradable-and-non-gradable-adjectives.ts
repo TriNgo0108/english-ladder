@@ -13,7 +13,7 @@ export const gradableAndNonGradableAdjectives: RuleTopic = {
     "Remember: an adjective is a word that tells us more about a noun: what the person or thing is like. Most adjectives can be a little or a lot: a bit cold, very cold. These are <b>gradable</b> adjectives. Cold, hot, big, small, tired, hungry, angry, good, bad and interesting are all gradable.",
     "Some adjectives already have a very strong meaning. <b>Freezing</b> means very cold, and <b>exhausted</b> means very tired. We call these <b>extreme</b> adjectives. Other adjectives are all or nothing, like <b>impossible</b>, <b>perfect</b> and <b>dead</b>: something is impossible, or it isn't. Extreme and all-or-nothing adjectives are <b>non-gradable</b>. They can't be a bit more or a bit less.",
     "Use <b>very</b> with gradable adjectives: very cold, very tired, very good. With non-gradable adjectives, use <b>absolutely</b>: absolutely freezing, absolutely exhausted, absolutely perfect. We can also use <b>completely</b> or <b>totally</b>, especially with all-or-nothing adjectives: completely impossible, totally exhausted.",
-    "Don't use very with a non-gradable adjective: absolutely freezing, not very freezing. And we don't usually use absolutely with a gradable adjective: very cold, not absolutely cold.",
+    "We don't usually use very with a non-gradable adjective: absolutely freezing, not very freezing. And we don't usually use absolutely with a gradable adjective: very cold, not absolutely cold.",
     "<b>Really</b> is different. It goes with both kinds, so really cold and really freezing are both correct. Really is very common in speech.",
     "Some common pairs, gradable → extreme: cold → freezing · hot → boiling · big → huge, enormous · small → tiny · tired → exhausted · hungry → starving · angry → furious · frightened → terrified · interesting → fascinating · good → brilliant, fantastic, wonderful · bad → terrible, awful.",
   ].join("\n\n"),
@@ -23,7 +23,7 @@ export const gradableAndNonGradableAdjectives: RuleTopic = {
     "absolutely + non-gradable adjective: absolutely freezing · absolutely exhausted · absolutely perfect",
     "completely / totally, especially with all-or-nothing adjectives: completely impossible",
     "really + both kinds: really cold · really freezing",
-    "not very freezing · not usually absolutely cold",
+    "not usually very freezing · not usually absolutely cold",
   ].join("\n"),
 
   examples: [
@@ -56,7 +56,7 @@ export const gradableAndNonGradableAdjectives: RuleTopic = {
   pitfall: {
     wrong: "The view from the top was very amazing.",
     right: "The view from the top was <b>absolutely</b> amazing.",
-    why: "Amazing already means very good, so it is non-gradable. Use <b>absolutely</b> (or really), not very.",
+    why: "Amazing already means very good, so it is non-gradable. We don't usually use very with it, so use <b>absolutely</b> (or really).",
   },
 
   quiz: [
@@ -86,7 +86,7 @@ export const gradableAndNonGradableAdjectives: RuleTopic = {
       ],
       answer: 0,
       feedback:
-        "Wonderful means very good, so it is non-gradable and takes absolutely: The weather was absolutely wonderful. Very doesn't go with wonderful, and warm is gradable, so it takes very, not absolutely.",
+        "Wonderful means very good, so it is non-gradable and takes absolutely: The weather was absolutely wonderful. We don't usually use very with wonderful, and warm is gradable, so it takes very, not absolutely.",
     },
     {
       kind: "gap",
