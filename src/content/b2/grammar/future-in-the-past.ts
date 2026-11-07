@@ -17,7 +17,7 @@ export const futureInThePast: RuleTopic = {
     "This would is different from would for <b>past habits</b> (A2): When I was a child, we <b>would go</b> to the beach every summer. That would is for something that happened again and again. The future-in-the-past would looks forward from one time in the past.",
     "Was going to or would? After verbs like knew, thought and said, <b>both are often correct</b>: I thought it <b>would</b> rain, or I thought it <b>was going to</b> rain. For a plan that didn't happen, we usually use was going to: I was going to call you, but I forgot. Would alone doesn't usually mean a past plan.",
     "<b>Was / were about to</b> and the base form means that something was going to happen <b>very soon</b> after that time. It often goes with when and a past simple action that stopped it: I <b>was about to go</b> to bed when you called. We often add just: I was just about to go to bed.",
-    "In A2, we used the present continuous for an arrangement: a plan that is already fixed. Remember: the past continuous is was or were and the verb with -ing. We use it for an arrangement in the past, too: I couldn't come to the party. I <b>was flying</b> to Rome early the next morning.",
+    "In A2, we used the present continuous for an arrangement: a plan that is already fixed. Remember: the past continuous has two parts: was or were, and then the verb with -ing. We use it for an arrangement in the past, too: I couldn't come to the party. I <b>was flying</b> to Rome early the next morning.",
   ].join("\n\n"),
 
   form: [

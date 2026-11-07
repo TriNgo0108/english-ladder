@@ -15,7 +15,7 @@ export const reportedCommandsAdviceAndRequests: RuleTopic = {
     "Choose the reporting verb that fits what the speaker was doing. For a <b>command</b> or an order, use <b>tell</b>: \"Wait here.\" → The guard <b>told us to wait</b> there. For a polite <b>request</b>, use <b>ask</b>: \"Could you help me, please?\" → Ana <b>asked me to help</b> her. For <b>advice</b>, use <b>advise</b>: \"You should see a doctor.\" → My friend <b>advised me to see</b> a doctor. For a <b>warning</b> about danger, use <b>warn</b>: \"Be careful. The road is icy.\" → He <b>warned me to be</b> careful. Other verbs like this are <b>remind</b>, <b>invite</b>, <b>encourage</b> and <b>order</b>: She <b>reminded me to call</b> my mother.",
     "For a negative command or warning, put <b>not</b> before to: \"Don't touch it!\" → She <b>told me not to touch</b> it. \"Don't walk on the ice.\" → They <b>warned us not to walk</b> on the ice. Not usually goes before to. We don't use don't in the reported sentence: She told me not to touch it, not She told me don't touch it.",
     "The infinitive doesn't change with the tense, so there is no tense to move back. But pronouns and words for time and place still change, as in B1 reported speech: \"Call me tomorrow.\" → Ana told me to call <b>her the next day</b>.",
-    "<b>Say</b> doesn't take this pattern. In B1 (say and tell), we learned that we don't put the person just after say. So we say She <b>told me to wait</b>, not She said me to wait. To use say, report it as a statement: She <b>said</b> (that) I <b>should</b> wait. In informal speech, people sometimes say She said to wait, with no person, but we never put the person after said.",
+    "<b>Say</b> doesn't take this pattern. In B1 (say and tell), we learned that we don't put the person just after say. So we say She <b>told me to wait</b>, not She said me to wait. To use say, report it as a statement: She <b>said</b> (that) I <b>should</b> wait. In informal speech, people sometimes say She said to wait, with no person, but we never put the person just after said.",
     "Be careful with <b>ask</b>. Ask + person + to is for a request: She asked me <b>to close</b> the door. Ask + question word or if is for a question: She asked me <b>where</b> I lived.",
   ].join("\n\n"),
 
@@ -68,17 +68,17 @@ export const reportedCommandsAdviceAndRequests: RuleTopic = {
     },
     {
       kind: "gap",
-      stem: "\"Keep your seat belts on,\" the pilot said to us. → The pilot ___ our seat belts on. (tell)",
+      stem: "\"Keep your seat belts on,\" the pilot said to us. → The pilot ___ our seat belts on. (tell + to)",
       answers: ["told us to keep"],
       feedback:
-        "This is a command, so we use tell + person + to and the base form: The pilot told us to keep our seat belts on. Your changes to our, because we are now reporting about ourselves.",
+        "This is a command, so we use tell + person + to and the base form: The pilot told us to keep our seat belts on. Your changes to our, because we are now reporting about ourselves. The pilot told us (that) we should keep our seat belts on is also correct, but it is a statement, without to.",
     },
     {
       kind: "gap",
-      stem: "\"Please open the window,\" Tom said to me. → Tom ___ the window. (ask)",
+      stem: "\"Please open the window,\" Tom said to me. → Tom ___ the window. (ask + to)",
       answers: ["asked me to open"],
       feedback:
-        "This is a request, so we use ask + person + to and the base form: Tom asked me to open the window. There is no to after asked before the person: asked me, not asked to me.",
+        "This is a request, so we use ask + person + to and the base form: Tom asked me to open the window. There is no to after asked before the person: asked me, not asked to me. Tom asked me if I could open the window is also correct, but it reports the request as a question, without to.",
     },
     {
       kind: "gap",

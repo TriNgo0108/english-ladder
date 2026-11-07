@@ -130,10 +130,10 @@ describe("B2 grammar, part 2 (future in the past, passives, the causative, repor
     expect(choiceAnswer(reportedCommandsAdviceAndRequests.quiz, "If I were you")).toBe("Mark advised me to take a taxi.");
     const keep = gap(reportedCommandsAdviceAndRequests.quiz, "the pilot said to us");
     expect(keep).toEqual(["told us to keep"]);
-    expectGap(keep, ["told us to keep", "Told us to keep."], ["told us keep", "said us to keep", "told to us to keep", "told us keeping", "told we to keep"]);
+    expectGap(keep, ["told us to keep", "Told us to keep."], ["told us keep", "said us to keep", "told to us to keep", "told us keeping", "told we to keep", "told us that we should keep", "told us we had to keep"]);
     const open = gap(reportedCommandsAdviceAndRequests.quiz, "Please open the window");
     expect(open).toEqual(["asked me to open"]);
-    expectGap(open, ["asked me to open"], ["asked me open", "asked to me to open", "said me to open", "asked me opening", "told me to open"]);
+    expectGap(open, ["asked me to open"], ["asked me open", "asked to me to open", "said me to open", "asked me opening", "told me to open", "asked me if I could open"]);
     const swim = gap(reportedCommandsAdviceAndRequests.quiz, "The water is dangerous");
     expect(swim).toEqual(["not to swim", "to not swim"]);
     expectGap(swim, ["not to swim", "to not swim"], ["don't swim", "not swim", "not to swimming", "to don't swim", "not swimming"]);
@@ -192,6 +192,10 @@ describe("B2 grammar, part 2 (future in the past, passives, the causative, repor
     expect(theCausative.explanation).toContain("a little more informal");
     expect(reportedCommandsAdviceAndRequests.explanation).toContain("Remember: a reporting verb is a verb that we use to report what people say or think");
     expect(reportedCommandsAdviceAndRequests.explanation).toContain("usually");
+    expect(reportedCommandsAdviceAndRequests.explanation).toContain("never put the person just after said");
+    expect(reportedCommandsAdviceAndRequests.explanation).not.toContain("never put the person after said");
+    expect(futureInThePast.explanation).toContain("Remember: the past continuous has two parts: was or were, and then the verb with -ing.");
+    expect(gap(reportedCommandsAdviceAndRequests.quiz, "the pilot said to us")).toEqual(["told us to keep"]);
     expect(reportedCommandsAdviceAndRequests.sourceNotes).toContain("Commands, advice or requests");
   });
 });
