@@ -28,14 +28,16 @@ describe("cross-level family links between A1 and A2", () => {
     }
   });
 
-  it("pins A1 articles-a-an and A2 articles-the-and-zero-article as siblings both ways", () => {
+  it("pins the articles chain A1 articles-a-an -> A2 articles-the-and-zero-article -> B2 articles with abstract and general nouns, in CEFR order", () => {
     const a1Articles = findTopic("a1", "grammar", "articles-a-an");
     const a2Articles = findTopic("a2", "grammar", "articles-the-and-zero-article");
-    if (!a1Articles || !a2Articles) throw new Error("articles topics missing");
+    const b2Articles = findTopic("b2", "grammar", "articles-with-abstract-and-general-nouns");
+    if (!a1Articles || !a2Articles || !b2Articles) throw new Error("articles topics missing");
     expect(key(a1Articles)).toBe("articles");
     expect(key(a2Articles)).toBe("articles");
-    expect(siblingsAcrossLevels(a1Articles)).toEqual([a2Articles]);
-    expect(siblingsAcrossLevels(a2Articles)).toEqual([a1Articles]);
+    expect(siblingsAcrossLevels(a1Articles)).toEqual([a2Articles, b2Articles]);
+    expect(siblingsAcrossLevels(a2Articles)).toEqual([a1Articles, b2Articles]);
+    expect(siblingsAcrossLevels(b2Articles)).toEqual([a1Articles, a2Articles]);
   });
 
   it("pins Would you like…?, asking for things politely and B1 indirect questions as one polite-requests chain, in CEFR order", () => {

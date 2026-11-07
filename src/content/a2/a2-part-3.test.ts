@@ -45,14 +45,14 @@ describe("A2 grammar, part 3", () => {
     expect(articlesTheAndZeroArticle.family).toBe("articles");
   });
 
-  it("links the articles topics across A1 and A2, both ways, and should and must only to B2", () => {
+  it("links the articles chain A1 <-> A2 <-> B2 both ways, in CEFR order, and should and must only to B2", () => {
     const siblings = (level: Level, slug: string) => {
       const found = findTopic(level, "grammar", slug);
       if (!found) throw new Error(`${slug} missing`);
       return siblingsAcrossLevels(found).map((t) => `${t.level}/${t.slug}`);
     };
-    expect(siblings("a2", "articles-the-and-zero-article")).toEqual(["a1/articles-a-an"]);
-    expect(siblings("a1", "articles-a-an")).toEqual(["a2/articles-the-and-zero-article"]);
+    expect(siblings("a2", "articles-the-and-zero-article")).toEqual(["a1/articles-a-an", "b2/articles-with-abstract-and-general-nouns"]);
+    expect(siblings("a1", "articles-a-an")).toEqual(["a2/articles-the-and-zero-article", "b2/articles-with-abstract-and-general-nouns"]);
     expect(siblings("a2", "should-and-must")).toEqual(["b2/neednt-have-and-didnt-need-to"]);
   });
 

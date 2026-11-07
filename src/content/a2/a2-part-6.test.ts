@@ -37,11 +37,11 @@ describe("A2 grammar, part 6: subject questions (order 22)", () => {
     expect(adjacentTopics(byOrder(22)).next?.slug).toBe("holidays-and-outdoor-activities");
   });
 
-  it("joins the question-forms family between A1 question words and B1 question tags", () => {
+  it("joins the question-forms family between A1 question words and B1 question tags, before B2 declarative and rhetorical questions", () => {
     expect(subjectQuestions.family).toBe("question-forms");
     expect(ids("a1", "grammar", "question-words")).toContain("a2/subject-questions");
-    expect(ids("a1", "grammar", "question-words")).toEqual(["a2/subject-questions", "b1/question-tags"]);
-    expect(ids("a2", "grammar", "subject-questions")).toEqual(["a1/question-words", "b1/question-tags"]);
+    expect(ids("a1", "grammar", "question-words")).toEqual(["a2/subject-questions", "b1/question-tags", "b2/declarative-and-rhetorical-questions"]);
+    expect(ids("a2", "grammar", "subject-questions")).toEqual(["a1/question-words", "b1/question-tags", "b2/declarative-and-rhetorical-questions"]);
   });
 
   it("agrees with A1 question words: Who lives here? has no do, and A1 still promises a later level", () => {

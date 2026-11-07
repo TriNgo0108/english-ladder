@@ -1,10 +1,16 @@
 // Family keys used by these topics live in ../families.ts (the shared vocabulary).
 import type { Topic } from "../schema";
 import { adjectiveAndVerbPhrases } from "./grammar/adjective-and-verb-phrases";
+import { advancedLinkers } from "./grammar/advanced-linkers";
 import { advancedPassiveAndReportingVerbs } from "./grammar/advanced-passive-and-reporting-verbs";
+import { articlesWithAbstractAndGeneralNouns } from "./grammar/articles-with-abstract-and-general-nouns";
+import { cleftSentences } from "./grammar/cleft-sentences";
 import { couldWasAbleToAndCouldHave } from "./grammar/could-was-able-to-and-could-have";
+import { declarativeAndRhetoricalQuestions } from "./grammar/declarative-and-rhetorical-questions";
 import { describingCertaintyInThePast } from "./grammar/describing-certainty-in-the-past";
 import { futureInThePast } from "./grammar/future-in-the-past";
+import { hedgingAndDegreesOfCertainty } from "./grammar/hedging-and-degrees-of-certainty";
+import { inversionAfterNegativeAdverbials } from "./grammar/inversion-after-negative-adverbials";
 import { mixedConditionals } from "./grammar/mixed-conditionals";
 import { needntHaveAndDidntNeedTo } from "./grammar/neednt-have-and-didnt-need-to";
 import { nonDefiningRelativeClauses } from "./grammar/non-defining-relative-clauses";
@@ -32,4 +38,10 @@ export const b2Topics: Topic[] = [
   participleClauses,
   verbObjectInfinitiveAndGerundPatterns,
   adjectiveAndVerbPhrases,
+  articlesWithAbstractAndGeneralNouns,
+  advancedLinkers,
+  declarativeAndRhetoricalQuestions,
+  cleftSentences,
+  inversionAfterNegativeAdverbials,
+  hedgingAndDegreesOfCertainty,
 ];

@@ -41,7 +41,7 @@ describe("A2 grammar, part 4", () => {
     expect(verbPlusGerundOrInfinitive.family).toBe("gerunds-and-infinitives");
   });
 
-  it("has no A1 siblings for the A2-first families, and links first conditional, verb + gerund or infinitive, and and-but-so-because to B1 (first conditional and verb + gerund or infinitive also to B2)", () => {
+  it("has no A1 siblings for the A2-first families, and links first conditional, verb + gerund or infinitive, and and-but-so-because to B1 and B2", () => {
     const siblings = (level: Level, slug: string) => {
       const found = findTopic(level, "grammar", slug);
       if (!found) throw new Error(`${slug} missing`);
@@ -49,7 +49,7 @@ describe("A2 grammar, part 4", () => {
     };
     expect(siblings("a2", "first-conditional")).toEqual(["b1/second-conditional", "b2/third-conditional"]);
     expect(siblings("a2", "verb-plus-gerund-or-infinitive")).toEqual(["b1/gerunds-vs-infinitives", "b2/verb-object-infinitive-and-gerund-patterns"]);
-    expect(siblings("a2", "and-but-so-because")).toEqual(["b1/linking-words"]);
+    expect(siblings("a2", "and-but-so-because")).toEqual(["b1/linking-words", "b2/advanced-linkers"]);
     const linked = ["first-conditional", "verb-plus-gerund-or-infinitive", "and-but-so-because"];
     for (const slug of orderedSlugs.filter((s) => !linked.includes(s))) {
       expect(siblings("a2", slug)).toEqual([]);
