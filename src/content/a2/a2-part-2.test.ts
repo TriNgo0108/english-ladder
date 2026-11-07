@@ -50,13 +50,13 @@ describe("A2 grammar, part 2", () => {
     expect(a2Topics.slice(6, 12).map((t) => t.slug)).toEqual(orderedSlugs);
   });
 
-  it("pins the families, and leaves the adverbs, quantifiers and used to without one", () => {
+  it("pins the families, and leaves the adverbs and quantifiers without one, and keys used to", () => {
     expect(presentSimpleForFuture.family).toBe("present-simple");
     expect(adverbsOfManner.family).toBeUndefined();
     expect(adverbsOfFrequency.family).toBeUndefined();
     expect(someAnyMuchMany.family).toBeUndefined();
     expect(countableAndUncountableNouns.family).toBe("nouns");
-    expect(usedToAndWould.family).toBeUndefined();
+    expect(usedToAndWould.family).toBe("used-to");
   });
 
   it("links present simple for future and countable nouns to their A1 siblings, both ways", () => {

@@ -62,6 +62,7 @@ describe("cross-level family links between A1 and A2", () => {
         "gerunds-and-infinitives",
         "linking-words",
         "modal-obligation",
+        "used-to",
       ].sort(),
     );
   });

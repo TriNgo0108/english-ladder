@@ -8,6 +8,7 @@ export const usedToAndWould: RuleTopic = {
   category: "grammar",
   shape: "rule",
   order: 12,
+  family: "used-to",
 
   explanation: [
     "We use <b>used to</b> and the base form of a verb for things that happened again and again in the past, or were true for a long time in the past, but are <b>not true now</b>: I <b>used to play</b> football. (I don't play now.) She <b>used to live</b> in Rome. (She lives in a different place now.) Remember: the base form is the verb as you see it in a dictionary, with nothing added.",

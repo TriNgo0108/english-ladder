@@ -10,7 +10,7 @@
  *   determiners            A1 this-that-these-those -> B1 determiners
  *   modal-ability          A1 can-for-ability -> later ability / permission forms
  *   modal-obligation       A2 should and must (Task 7); later obligation forms reuse this key
- *   modal-deduction        (reserved) B1 possibility and deduction; B2 must have / can't have / needn't have
+ *   modal-deduction        B1 modals of possibility and deduction; B2 must have / can't have / needn't have
  *   present-simple         A1 present-simple -> A2 present simple for future
  *   present-continuous     A1 present-continuous -> A2 present continuous for future
  *   past-simple            A1 was-were -> A2 past simple; B1 present perfect vs past simple
@@ -27,6 +27,16 @@
  *   future-forms           A2 will -> B1 future continuous and future perfect -> B2 future in the past
  *   emails                 A2 an informal email -> B1 a professional email -> B2 follow-up emails
  *   punctuation            A1 capital-letters-and-full-stops -> B1 commas; C1 punctuation for rhetorical effect
+ *   used-to                A2 used-to-and-would -> B1 be used to and get used to
+ *   wish                   B1 wish and if only -> B2 wish for past regrets
+ *   passive                B1 the passive -> B2 advanced passive
+ *   reported-speech        B1 reported speech -> B2 reported commands
+ *   relative-clauses       B1 defining relative clauses -> B2 non-defining
+ *   collocations           B1 collocations -> B2 workplace collocations -> C1 collocational precision
+ *   idioms                 B1 idioms -> C1 advanced idioms
+ *   register               B1 formal and informal register -> C1 register and formality shifts
+ *   agreeing-and-disagreeing B1 agreeing and disagreeing -> C1 handling pushback
+ *   intonation             B1 question intonation -> C1 stress and intonation for emphasis
  */
 export const FAMILY_KEYS = [
   "articles",
@@ -51,4 +61,14 @@ export const FAMILY_KEYS = [
   "comparison",
   "future-forms",
   "emails",
+  "used-to",
+  "wish",
+  "passive",
+  "reported-speech",
+  "relative-clauses",
+  "collocations",
+  "idioms",
+  "register",
+  "agreeing-and-disagreeing",
+  "intonation",
 ] as const;

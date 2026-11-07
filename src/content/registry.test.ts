@@ -1,11 +1,13 @@
 import {
   allTopics,
   createRegistry,
+  findTopic,
   loadCorpus,
   validateCorpus,
 } from "./registry";
 import { FAMILY_KEYS } from "./families";
 import { a2Topics } from "./a2";
+import { b1Topics } from "./b1";
 import type { CategorySlug, Level, Topic } from "./schema";
 
 const quizItem = {
@@ -301,5 +303,26 @@ describe("real corpus summaries", () => {
   it("gives every real topic a distinct summary", () => {
     const summaries = allTopics.map((t) => t.summary);
     expect(new Set(summaries).size).toBe(summaries.length);
+  });
+});
+
+describe("B1 barrel and family keys", () => {
+  it("gives A2 used-to-and-would the used-to family", () => {
+    expect(findTopic("a2", "grammar", "used-to-and-would")?.family).toBe("used-to");
+  });
+  it("loads B1 topics into the corpus", () => {
+    const a2 = topic({ slug: "used-to-and-would", family: "used-to", level: "a2", order: 1 });
+    const b1 = topic({ slug: "be-used-to-and-get-used-to", family: "used-to", level: "b1", order: 1 });
+    const reg = createRegistry([b1, a2]);
+    expect(reg.siblingsAcrossLevels(a2)).toEqual([b1]);
+    expect(reg.siblingsAcrossLevels(b1)).toEqual([a2]);
+    expect(Array.isArray(b1Topics)).toBe(true);
+    for (const t of b1Topics) expect(allTopics).toContainEqual(t);
+  });
+  it("lists the new B1 family keys", () => {
+    for (const key of ["used-to", "wish", "passive", "reported-speech", "relative-clauses", "collocations", "idioms", "register", "agreeing-and-disagreeing", "intonation"]) {
+      expect(FAMILY_KEYS).toContain(key);
+    }
+    expect(new Set(FAMILY_KEYS).size).toBe(FAMILY_KEYS.length);
   });
 });

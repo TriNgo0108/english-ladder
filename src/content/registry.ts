@@ -1,5 +1,6 @@
 import { a1Topics } from "./a1";
 import { a2Topics } from "./a2";
+import { b1Topics } from "./b1";
 import {
   CategorySlugSchema,
   LevelSchema,
@@ -162,7 +163,7 @@ export function createRegistry(topics: Topic[]) {
   };
 }
 
-const registry = createRegistry(loadCorpus([...a1Topics, ...a2Topics]));
+const registry = createRegistry(loadCorpus([...a1Topics, ...a2Topics, ...b1Topics]));
 
 export const {
   allTopics,
