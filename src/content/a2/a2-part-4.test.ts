@@ -53,13 +53,14 @@ describe("A2 grammar, part 4", () => {
     expect(verbPlusGerundOrInfinitive.family).toBe("gerunds-and-infinitives");
   });
 
-  it("has no A1 siblings yet for the A2-first families", () => {
+  it("has no A1 siblings for the A2-first families, and links first conditional to B1 second conditional", () => {
     const siblings = (level: Level, slug: string) => {
       const found = findTopic(level, "grammar", slug);
       if (!found) throw new Error(`${slug} missing`);
       return siblingsAcrossLevels(found).map((t) => `${t.level}/${t.slug}`);
     };
-    for (const slug of orderedSlugs) expect(siblings("a2", slug)).toEqual([]);
+    expect(siblings("a2", "first-conditional")).toEqual(["b1/second-conditional"]);
+    for (const slug of orderedSlugs.filter((s) => s !== "first-conditional")) expect(siblings("a2", slug)).toEqual([]);
   });
 
   it("gives each topic about five questions, and scrambles every wordbank", () => {
