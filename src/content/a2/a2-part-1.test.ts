@@ -65,10 +65,13 @@ describe("A2 grammar, part 1", () => {
       if (!found) throw new Error(`${slug} missing`);
       return siblingsAcrossLevels(found).map((t) => `${t.level}/${t.slug}`);
     };
-    expect(siblings("past-simple-regular-and-irregular")).toEqual(["a1/was-were"]);
+    expect(siblings("past-simple-regular-and-irregular")).toEqual(["a1/was-were", "b1/present-perfect-and-past-simple"]);
     expect(siblings("present-continuous-for-future")).toEqual(["a1/present-continuous"]);
     const wasWere = findTopic("a1", "grammar", "was-were");
-    expect(wasWere && siblingsAcrossLevels(wasWere).map((t) => t.slug)).toEqual(["past-simple-regular-and-irregular"]);
+    expect(wasWere && siblingsAcrossLevels(wasWere).map((t) => t.slug)).toEqual([
+      "past-simple-regular-and-irregular",
+      "present-perfect-and-past-simple",
+    ]);
   });
 
   it("gives each topic about five questions, and scrambles every wordbank", () => {
