@@ -61,7 +61,7 @@ describe("B1 grammar, part 3 (modals and verb patterns)", () => {
     expect(ids("b1", "grammar", "gerunds-vs-infinitives")).toEqual(["a2/verb-plus-gerund-or-infinitive"]);
     expect(ids("b1", "grammar", "modals-of-possibility-and-deduction")).toEqual(["b2/describing-certainty-in-the-past"]);
     expect(ids("b1", "grammar", "transitive-and-intransitive-verbs")).toEqual([]);
-    expect(ids("b1", "grammar", "the-passive")).toEqual([]);
+    expect(ids("b1", "grammar", "the-passive")).toEqual(["b2/advanced-passive-and-reporting-verbs"]);
   });
 
   it("gives each topic about five questions, at least 3 examples, a summary, and scrambles every wordbank", () => {

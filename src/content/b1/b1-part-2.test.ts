@@ -49,8 +49,8 @@ describe("B1 grammar, part 2 (narrative and future)", () => {
   });
 
   it("links the future-forms and conditionals chains A2 <-> B1 both ways (conditionals also to B2), wish to B2, and gives the rest no siblings", () => {
-    expect(ids("a2", "grammar", "will")).toEqual(["b1/future-continuous-and-future-perfect"]);
-    expect(ids("b1", "grammar", "future-continuous-and-future-perfect")).toEqual(["a2/will"]);
+    expect(ids("a2", "grammar", "will")).toEqual(["b1/future-continuous-and-future-perfect", "b2/future-in-the-past"]);
+    expect(ids("b1", "grammar", "future-continuous-and-future-perfect")).toEqual(["a2/will", "b2/future-in-the-past"]);
     expect(ids("a2", "grammar", "first-conditional")).toEqual(["b1/second-conditional", "b2/third-conditional"]);
     expect(ids("b1", "grammar", "second-conditional")).toEqual(["a2/first-conditional", "b2/third-conditional"]);
     expect(ids("b1", "grammar", "wish-and-if-only")).toEqual(["b2/wish-for-past-regrets"]);

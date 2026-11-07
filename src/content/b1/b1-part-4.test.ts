@@ -59,7 +59,7 @@ describe("B1 grammar, part 4 (reporting, clauses, questions, noun phrases)", () 
     expect(ids("b1", "grammar", "question-tags")).toEqual(["a1/question-words", "a2/subject-questions"]);
     expect(ids("a1", "grammar", "adjectives-before-the-noun")).toEqual(["b1/adjective-order"]);
     expect(ids("b1", "grammar", "adjective-order")).toEqual(["a1/adjectives-before-the-noun"]);
-    expect(ids("b1", "grammar", "reported-speech")).toEqual([]);
+    expect(ids("b1", "grammar", "reported-speech")).toEqual(["b2/reported-commands-advice-and-requests"]);
     expect(ids("b1", "grammar", "say-and-tell")).toEqual([]);
     expect(ids("b1", "grammar", "defining-relative-clauses")).toEqual([]);
   });
