@@ -63,9 +63,9 @@ export const theBodyAndSymptoms: SetTopic = {
     {
       kind: "gap",
       stem: "There is a pain in my head. I've got a ___.",
-      answers: ["headache", "migraine"],
+      answers: ["headache", "migraine", "sore head", "bad headache"],
       feedback:
-        "A pain in your head is a headache: I've got a headache. A migraine is a very bad headache, so it is also correct here.",
+        "A pain in your head is a headache: I've got a headache. A migraine is a very bad headache, so it is also correct here. A sore head and a bad headache are also possible.",
     },
     {
       kind: "choice",

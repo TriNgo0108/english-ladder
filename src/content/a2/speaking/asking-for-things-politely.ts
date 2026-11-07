@@ -64,9 +64,9 @@ export const askingForThingsPolitely: PhraseTopic = {
     {
       kind: "gap",
       stem: "You need to write something, but you haven't got a pen. You ask a friend: Could I ___ your pen for a minute?",
-      answers: ["borrow", "use", "have", "take", "get"],
+      answers: ["borrow", "use", "have", "take", "get", "grab", "steal"],
       feedback:
-        "Could I borrow your pen? is the usual question: borrow means use a thing and then give it back. Could I use, have, take or get your pen? are also correct. Lend is wrong here: the other person lends, so say Could you lend me your pen?",
+        "Could I borrow your pen? is the usual question: borrow means use a thing and then give it back. Could I use, have, take, get or grab your pen? are also correct, and steal is possible as a joke between friends, but it is not polite. Lend is wrong here: the other person lends, so say Could you lend me your pen?",
     },
     {
       kind: "choice",

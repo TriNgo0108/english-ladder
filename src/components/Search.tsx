@@ -26,7 +26,10 @@ export function Search() {
         if (!res.ok) throw new Error(`search index: ${res.status}`);
         return res.json() as Promise<SearchEntry[]>;
       })
-      .then(setIndex)
+      .then((data) => {
+        if (!Array.isArray(data)) throw new Error("search index: not an array");
+        setIndex(data);
+      })
       .catch(() => {
         loading.current = false;
       });

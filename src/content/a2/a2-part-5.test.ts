@@ -123,8 +123,8 @@ describe("A2 vocabulary, writing and speaking (part 5)", () => {
     expectGap(picnic, ["picnic"], ["barbecue", "picknick", "lunch"]);
 
     const headache = gap(theBodyAndSymptoms.quiz, "pain in my head");
-    expect(headache).toEqual(["headache", "migraine"]);
-    expectGap(headache, ["headache", "migraine"], ["head ache", "pain", "cold", "headaches"]);
+    expect(headache).toEqual(["headache", "migraine", "sore head", "bad headache"]);
+    expectGap(headache, ["headache", "migraine", "sore head", "bad headache"], ["head ache", "pain", "cold", "headaches"]);
     const thumb = gap(theBodyAndSymptoms.quiz, "four fingers and one");
     expect(thumb).toEqual(["thumb"]);
     expectGap(thumb, ["thumb"], ["finger", "thumbs", "thum"]);
@@ -155,8 +155,8 @@ describe("A2 vocabulary, writing and speaking (part 5)", () => {
 
   it("pins the polite request gaps, rejecting lend for borrow", () => {
     const borrow = gap(askingForThingsPolitely.quiz, "Could I ___ your pen");
-    expect(borrow).toEqual(["borrow", "use", "have", "take", "get"]);
-    expectGap(borrow, ["borrow", "use", "have", "take", "get"], ["lend", "borrowed", "borrowing", "to borrow"]);
+    expect(borrow).toEqual(["borrow", "use", "have", "take", "get", "grab", "steal"]);
+    expectGap(borrow, ["borrow", "use", "have", "take", "get", "grab", "steal"], ["lend", "borrowed", "borrowing", "to borrow"]);
     const course = gap(askingForThingsPolitely.quiz, "Yes, of ___");
     expect(course).toEqual(["course"]);
     expectGap(course, ["course", "course."], ["coarse", "cause", "sure"]);

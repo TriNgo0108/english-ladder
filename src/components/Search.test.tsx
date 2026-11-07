@@ -74,6 +74,19 @@ describe("Search", () => {
     await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(2));
     expect(await screen.findByRole("option", { name: /The verb be/ })).toBeInTheDocument();
   });
+  it("treats a non-array JSON response as a failure and retries later", async () => {
+    fetchMock.mockImplementationOnce(() => Promise.resolve({ ok: true, json: () => Promise.resolve({ error: "bad" }) }));
+    const user = userEvent.setup();
+    render(<Search />);
+    const input = screen.getByLabelText("Search topics");
+    await user.click(input);
+    await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1));
+    await new Promise((r) => setTimeout(r, 0));
+    expect(screen.queryByText("No topics match")).toBeNull();
+    await user.keyboard("v");
+    await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(2));
+    expect(await screen.findByRole("option", { name: /The verb be/ })).toBeInTheDocument();
+  });
   it("has a labelled search input", () => {
     render(<Search />);
     expect(screen.getByLabelText("Search topics")).toHaveAttribute("type", "search");

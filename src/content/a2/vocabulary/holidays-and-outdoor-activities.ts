@@ -28,7 +28,7 @@ export const holidaysAndOutdoorActivities: SetTopic = {
     { headword: "swimming", ipa: "/ˈswɪmɪŋ/", gloss: "moving through water with your arms and legs", inUse: "Let's go <b>swimming</b> in the sea." },
     { headword: "sailing", ipa: "/ˈseɪlɪŋ/", gloss: "travelling on water in a boat that the wind moves", inUse: "They go <b>sailing</b> every weekend in summer." },
     { headword: "snorkelling", ipa: "/ˈsnɔrkəlɪŋ/", gloss: "swimming just under the water with a tube in your mouth for air, to look at fish. American English writes snorkeling.", inUse: "We saw beautiful fish when we went <b>snorkelling</b>." },
-    { headword: "surfing", ipa: "/ˈsɝfɪŋ/", gloss: "standing on a long board and riding on big waves in the sea", inUse: "He learned <b>surfing</b> in Australia." },
+    { headword: "surfing", ipa: "/ˈsɝfɪŋ/", gloss: "standing on a long board and riding on big waves in the sea", inUse: "He went <b>surfing</b> in Australia." },
     { headword: "fishing", ipa: "/ˈfɪʃɪŋ/", gloss: "trying to catch fish, for food or for fun", inUse: "My grandfather goes <b>fishing</b> on the river." },
 
     { headword: "cycling", ipa: "/ˈsaɪklɪŋ/", gloss: "riding a bike", inUse: "We went <b>cycling</b> along the coast." },

@@ -85,7 +85,7 @@ describe("A2 grammar, part 4", () => {
     expect(is).toEqual(["is", "'s"]);
     expectGap(is, ["is", "’s"], ["will be", "'ll be", "be", "was", "are"]);
     const miss = gap(firstConditional.quiz, "miss, will");
-    expect(miss).toEqual(["'ll miss", "will miss"]);
+    expect(miss).toEqual(["will miss", "'ll miss"]);
     expectGap(miss, ["'ll miss", "’ll miss", "will miss"], ["miss", "missed", "will missed", "will to miss", "won't miss"]);
     const go = gap(firstConditional.quiz, "go + not, will");
     expect(go).toEqual(["won't go", "will not go"]);

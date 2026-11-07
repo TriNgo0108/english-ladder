@@ -75,7 +75,7 @@ export const firstConditional: RuleTopic = {
     {
       kind: "gap",
       stem: "If you don't hurry, you ___ the bus. (miss, will)",
-      answers: ["'ll miss", "will miss"],
+      answers: ["will miss", "'ll miss"],
       feedback:
         "This is the result part, so we use will and the base form: If you don't hurry, you'll miss the bus. You will miss is also correct.",
     },
