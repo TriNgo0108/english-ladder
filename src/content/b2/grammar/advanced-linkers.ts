@@ -101,11 +101,11 @@ export const advancedLinkers: RuleTopic = {
     },
     {
       kind: "mistake",
-      tokens: ["My", "brother", "loves", "football,", "nevertheless", "I", "hate", "it."],
-      wrongIndex: 4,
-      correction: "whereas",
+      tokens: ["Nevertheless", "my", "brother", "loves", "football,", "I", "hate", "it."],
+      wrongIndex: 0,
+      correction: "Whereas",
       feedback:
-        "The sentence compares two different facts in one sentence, so we use whereas (or while): My brother loves football, whereas I hate it. Nevertheless usually starts a new sentence, and it is for a surprising idea, not for a comparison.",
+        "The sentence compares two different facts in one sentence, so we use whereas (or while): Whereas my brother loves football, I hate it. Although is also correct. Nevertheless can't join two clauses, and it needs an idea before it, in the sentence before.",
     },
     {
       kind: "mistake",
@@ -118,7 +118,7 @@ export const advancedLinkers: RuleTopic = {
   ],
 
   levelRationale:
-    "English Grammar Profile: formal linkers for a reason, a result and a contrast, like whereas, nevertheless and consequently, are B2 points, and the spec (section 8) places advanced linkers at B2. This is the linking-words family's B2 topic after A2 and-but-so-because and B1 linking-words. It keeps B1's rules: however, therefore and as a result usually start a new sentence, because of goes before a noun, and despite before a noun or an -ing form, never before a clause; owing to is taught with both rules, and the classic owing to he was ill is a choice distractor. The contrast definition reuses B1's wording. Every gap names the two words to choose from, and accepts each defensible equivalent: while and whilst for whereas, and however, even so, nonetheless, still, yet, all the same, despite this and in spite of this for nevertheless. The whereas mistake item is fixed only at the linker, and but is also correct there, at the same token. On the contrary, notwithstanding and hence are left to C1.",
+    "English Grammar Profile: formal linkers for a reason, a result and a contrast, like whereas, nevertheless and consequently, are B2 points, and the spec (section 8) places advanced linkers at B2. This is the linking-words family's B2 topic after A2 and-but-so-because and B1 linking-words. It keeps B1's rules: however, therefore and as a result usually start a new sentence, because of goes before a noun, and despite before a noun or an -ing form, never before a clause; owing to is taught with both rules, and the classic owing to he was ill is a choice distractor. The contrast definition reuses B1's wording. Every gap names the two words to choose from, and accepts each defensible equivalent: while and whilst for whereas, and however, even so, nonetheless, still, yet, all the same, despite this and in spite of this for nevertheless. The whereas mistake item puts the linker first, so it is fixed only at the linker (whereas, while or although, all at the same token): taking nevertheless out would leave two clauses joined by a comma, and a full stop after football would leave nevertheless with no idea before it. On the contrary, notwithstanding and hence are left to C1.",
 
   sourceNotes:
     "english_grammar.txt, # Linking words, ## Contrasting ideas: however and nevertheless at the start of a new sentence, and whereas between two clauses, agree with Swan; 'Her husband vote' should be voted. ## Reason and result: owing to before a noun phrase (the large number of candidates) agrees with Swan; 'will be release' should be will be released. Thus and consequently are listed with no examples; this topic writes its own. # Linking expression lists consequently, however and on the other hand, which are used here; its causes and effects phrases (This was caused by, An outcome of this was) are left to the B2 writing topics. As a consequence, as a consequence of, owing to the fact that, while and whilst, even so, and on the other hand for two sides are authored from Swan, Practical English Usage.",

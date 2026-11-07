@@ -105,11 +105,11 @@ export const articlesWithAbstractAndGeneralNouns: RuleTopic = {
     },
     {
       kind: "mistake",
-      tokens: ["An", "elderly", "was", "waiting", "at", "the", "bus", "stop."],
-      wrongIndex: 1,
-      correction: "elderly man",
+      tokens: ["The", "unemployed", "is", "people", "who", "are", "looking", "for", "work."],
+      wrongIndex: 2,
+      correction: "are",
       feedback:
-        "The elderly means elderly people as a group. For one person, we use a noun after the adjective: An elderly man was waiting at the bus stop. An elderly woman or an elderly person is also correct.",
+        "The unemployed means unemployed people, a group, so the verb is plural: The unemployed are people who are looking for work. For one person, we use a noun: an unemployed person.",
     },
     {
       kind: "mistake",
@@ -122,7 +122,7 @@ export const articlesWithAbstractAndGeneralNouns: RuleTopic = {
   ],
 
   levelRationale:
-    "English Grammar Profile: the zero article with abstract and general uncountable nouns, the with a noun made specific by of or a relative clause, the + adjective for a group of people, and the + singular noun for a whole kind are B1 to B2 points. This is the articles family's B2 topic after A1 articles-a-an and A2 articles-the-and-zero-article, and it keeps A2's two rules in A2's own words: the when the listener knows which one, and no article for plural and uncountable nouns in general. The + singular noun for a kind, which A2 left to a later level, is taught here, and the topic says that it doesn't change A2's plural rule. A + singular noun for any one of a kind (A tiger can swim) is left out, so that a gap never has a and the both correct. No article is tested only in choice items, because a gap can't be left empty, as in the A2 topic. Each gap names a, an or the, so that our or a possessive does not fit. The two the + adjective mistake items follow Swan: the adjective takes no -s, and one person needs a noun (an elderly man); in the second item, an elderly can't become the elderly, because the verb is was.",
+    "English Grammar Profile: the zero article with abstract and general uncountable nouns, the with a noun made specific by of or a relative clause, the + adjective for a group of people, and the + singular noun for a whole kind are B1 to B2 points. This is the articles family's B2 topic after A1 articles-a-an and A2 articles-the-and-zero-article, and it keeps A2's two rules in A2's own words: the when the listener knows which one, and no article for plural and uncountable nouns in general. The + singular noun for a kind, which A2 left to a later level, is taught here, and the topic says that it doesn't change A2's plural rule. A + singular noun for any one of a kind (A tiger can swim) is left out, so that a gap never has a and the both correct. No article is tested only in choice items, because a gap can't be left empty, as in the A2 topic. Each gap names a, an or the, so that our or a possessive does not fit. The two the + adjective mistake items follow Swan: the adjective takes no -s, and the verb is plural (the unemployed are). The second item has the plural people after the verb, so only are fixes it: someone unemployed is people is still wrong.",
 
   sourceNotes:
     "english_grammar.txt, # Article: no article for appendices and tumours in general, and the for the appendix when it is specific, agree with Swan, but the medical examples are above B2 and are not used. The note's 'if it is too general, we don't need to use the article' is true for abstract, plural and uncountable nouns, not for singular countable nouns, as the A2 topic already says. ## Zero article ('when we talk about something in general', 'plural nouns') is the rule used here. The note has nothing on the + adjective or the + singular noun for a kind; these, the word abstract noun, an adjective before a general noun (modern art), and the formal register of the tiger are authored from Swan, Practical English Usage.",

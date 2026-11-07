@@ -206,11 +206,11 @@ describe("B2 grammar, part 4 (articles, linkers, questions, emphasis and hedging
   it("pins every mistake item's wrong token and correction", () => {
     expect(mistakes(articlesWithAbstractAndGeneralNouns.quiz)).toEqual([
       ["poors", "poor"],
-      ["elderly", "elderly man"],
+      ["is", "are"],
       ["a", "the"],
     ]);
     expect(mistakes(advancedLinkers.quiz)).toEqual([
-      ["nevertheless", "whereas"],
+      ["Nevertheless", "Whereas"],
       ["consequently,", "consequence,"],
     ]);
     expect(mistakes(declarativeAndRhetoricalQuestions.quiz)).toEqual([
@@ -235,11 +235,11 @@ describe("B2 grammar, part 4 (articles, linkers, questions, emphasis and hedging
     const sentences = (t: (typeof topics)[number]) => t.quiz.flatMap((q) => (q.kind === "mistake" ? [q.tokens.join(" ")] : []));
     expect(sentences(articlesWithAbstractAndGeneralNouns)).toEqual([
       "The rich are getting richer and the poors are getting poorer.",
-      "An elderly was waiting at the bus stop.",
+      "The unemployed is people who are looking for work.",
       "My grandfather told me about a life of a soldier in the war.",
     ]);
     expect(sentences(advancedLinkers)).toEqual([
-      "My brother loves football, nevertheless I hate it.",
+      "Nevertheless my brother loves football, I hate it.",
       "The price of oil went up. As a consequently, many airlines raised their fares.",
     ]);
     expect(sentences(declarativeAndRhetoricalQuestions)).toEqual([
