@@ -79,14 +79,14 @@ export const introducingYourselfAndInterruptingAtWork: PhraseTopic = {
       kind: "choice",
       stem: "You are in a meeting. Your manager is speaking, and you need to ask a question now. What do you say?",
       options: [
-        "Sorry to interrupt, but could I ask a question?",
+        "I'm sorry to interrupt, but could I ask a question?",
         "Stop talking. I have a question.",
         "Hey! Wait!",
         "Nice to meet you. I have a question.",
       ],
       answer: 0,
       feedback:
-        "Sorry to interrupt, but… is the polite way to start speaking when someone else is speaking. Stop talking and Hey! Wait! are rude to a manager. Nice to meet you is only for the first time you meet someone.",
+        "I'm sorry to interrupt, but… is the polite way to start speaking when your manager is speaking: with a manager or a client, I'm makes it a little more polite. Stop talking and Hey! Wait! are rude to a manager. Nice to meet you is only for the first time you meet someone.",
     },
     {
       kind: "gap",

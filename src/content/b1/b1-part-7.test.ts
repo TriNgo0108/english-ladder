@@ -227,8 +227,10 @@ describe("B1 Writing and Speaking (part 7)", () => {
     expect(choiceAnswer(t.quiz, "client")).toBe("Dear Mr Hassan,");
     expect(choiceAnswer(t.quiz, "colleague")).toBe("Kind regards,");
     const attached = gap(t.quiz, "Please find ___");
-    expect(attached).toEqual(["attached", "enclosed"]);
-    expectGap(attached, ["attached", "enclosed", "Attached"], ["attach", "attaching", "attachment", "attach to"]);
+    expect(attached).toEqual(["attached", "enclosed", "below"]);
+    expectGap(attached, ["attached", "enclosed", "below", "Attached"], ["attach", "attaching", "attachment", "attach to"]);
+    expect(reg(t, "Thank you for your help.")).toBe("neutral");
+    for (const s of t.situations) for (const p of s.phrases) if (/^Thanks/.test(p)) expect(s.register, p).toBe("informal");
     const inform = gap(t.quiz, "a formal word for tell");
     expect(inform).toEqual(["inform", "notify", "advise"]);
     expectGap(inform, ["inform", "notify", "advise", "Inform"], ["tell", "informing", "say", "informed"]);
@@ -249,6 +251,7 @@ describe("B1 Writing and Speaking (part 7)", () => {
     expect(wrongToken(t.quiz)).toEqual(["turn", "turning"]);
     expect(formalPhrases(t)).toEqual(["We recommend booking a table in advance.", "Guests are advised to arrive before 6 p.m."]);
     expect(reg(t, "You'd better hurry, or you'll miss the bus.")).toBe("informal");
+    expect(t.explanation).toContain("About yourself, I'd better… is fine with anyone");
   });
 
   it("pins likes and dislikes, with keen on and into informal", () => {
@@ -292,7 +295,13 @@ describe("B1 Writing and Speaking (part 7)", () => {
 
   it("pins indirect questions: statement order in a wordbank, and agreement with A1 and A2", () => {
     const t = indirectAndPoliteQuestions;
-    expect(wordbankAnswers(t.quiz)).toEqual(["Could you tell me where the nearest cash machine is?"]);
+    expect(wordbankAnswers(t.quiz)).toEqual(["Could you tell me where this train is going?"]);
+    const wb = t.quiz.find((q) => q.kind === "wordbank");
+    if (wb?.kind !== "wordbank") throw new Error("wordbank missing");
+    // The verb chip carries no punctuation, so the direct-order error (where is this train going) can still be built.
+    expect(wb.words).toContain("is");
+    expect(wb.words.filter((w) => /[?.!]$/.test(w))).toEqual(["going?"]);
+    expect(reg(t, "What time's the film?")).toBe("informal");
     const leaves = gap(t.quiz, "what time the train ___");
     expect(leaves).toEqual(["leaves"]);
     expectGap(leaves, ["leaves", "Leaves"], ["leave", "does leave", "left", "leaving"]);
@@ -315,7 +324,7 @@ describe("B1 Writing and Speaking (part 7)", () => {
 
   it("pins introductions at work, agreeing with A1 greetings", () => {
     const t = introducingYourselfAndInterruptingAtWork;
-    expect(choiceAnswer(t.quiz, "Your manager is speaking")).toBe("Sorry to interrupt, but could I ask a question?");
+    expect(choiceAnswer(t.quiz, "Your manager is speaking")).toBe("I'm sorry to interrupt, but could I ask a question?");
     expect(choiceAnswer(t.quiz, "coffee machine")).toBe("Well, I'd better get back to work. See you later.");
     const is = gap(t.quiz, "this ___ Daniel");
     expect(is).toEqual(["is"]);

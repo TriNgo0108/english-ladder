@@ -64,7 +64,7 @@ export const aProfessionalEmail: PhraseTopic = {
     },
     {
       situation: "Ending the email",
-      phrases: ["Let me know if you need anything else.", "Thanks for your help.", "See you on Monday."],
+      phrases: ["Let me know if you need anything else.", "Thank you for your help.", "See you on Monday."],
       register: "neutral",
     },
     {
@@ -109,9 +109,9 @@ export const aProfessionalEmail: PhraseTopic = {
     {
       kind: "gap",
       stem: "Please find ___ the report you asked for.",
-      answers: ["attached", "enclosed"],
+      answers: ["attached", "enclosed", "below"],
       feedback:
-        "Please find attached… is a formal way to say I've attached… Please find enclosed is also correct, but it is more usual in paper letters, where the document is in the envelope.",
+        "Please find attached… is a formal way to say I've attached…, for a file that you send with the email. Please find enclosed is also correct, but it is more usual in paper letters, where the document is in the envelope. Please find below is correct when the report is written in the email itself, under this line.",
     },
     {
       kind: "gap",

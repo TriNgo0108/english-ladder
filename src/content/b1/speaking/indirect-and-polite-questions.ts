@@ -58,7 +58,7 @@ export const indirectAndPoliteQuestions: PhraseTopic = {
     },
     {
       situation: "Asking family and friends",
-      phrases: ["Where's the remote?", "What time does the film start?", "Got a pen?"],
+      phrases: ["Where's the remote?", "What time's the film?", "Got a pen?"],
       register: "informal",
     },
   ],
@@ -66,11 +66,11 @@ export const indirectAndPoliteQuestions: PhraseTopic = {
   quiz: [
     {
       kind: "wordbank",
-      prompt: "The direct question is: Where is the nearest cash machine? Put the words in order to ask it politely.",
-      words: ["machine", "the", "is?", "nearest", "where", "Could", "cash", "you", "tell", "me"],
-      answer: "Could you tell me where the nearest cash machine is?",
+      prompt: "The direct question is: Where is this train going? Put the words in order to ask it politely.",
+      words: ["train", "is", "going?", "where", "Could", "this", "you", "tell", "me"],
+      answer: "Could you tell me where this train is going?",
       feedback:
-        "After Could you tell me, use the order of a normal sentence: the subject (the nearest cash machine), then the verb (is). So the verb goes at the end: where the nearest cash machine is, not where is the nearest cash machine.",
+        "After Could you tell me, use the order of a normal sentence: the subject (this train), then is, then going. So is comes after the subject: where this train is going, not where is this train going, which is the order of a direct question.",
     },
     {
       kind: "gap",
