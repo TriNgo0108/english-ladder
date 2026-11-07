@@ -26,6 +26,12 @@ import { timeClauses } from "./grammar/time-clauses";
 import { transitiveAndIntransitiveVerbs } from "./grammar/transitive-and-intransitive-verbs";
 import { wishAndIfOnly } from "./grammar/wish-and-if-only";
 import { wordBuildingSuffixes } from "./grammar/word-building-suffixes";
+import { collocations } from "./phrases/collocations";
+import { idioms } from "./phrases/idioms";
+import { inTimeAndOnTime } from "./phrases/in-time-and-on-time";
+import { phrasalVerbsInseparable } from "./phrases/phrasal-verbs-inseparable";
+import { phrasalVerbsSeparable } from "./phrases/phrasal-verbs-separable";
+import { prepositionsOfMovement } from "./phrases/prepositions-of-movement";
 
 export const b1Topics: Topic[] = [
   presentPerfectAndPastSimple,
@@ -54,4 +60,10 @@ export const b1Topics: Topic[] = [
   soAndSuch,
   linkingWords,
   wordBuildingSuffixes,
+  phrasalVerbsSeparable,
+  phrasalVerbsInseparable,
+  collocations,
+  idioms,
+  prepositionsOfMovement,
+  inTimeAndOnTime,
 ];
