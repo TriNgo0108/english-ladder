@@ -1,48 +1,15 @@
-import { findTopic, siblingsAcrossLevels } from "@/content/registry";
-import { parseTopic, type CategorySlug, type Level, type Question, type RuleTopic } from "@/content/schema";
-import { matchesGap } from "@/lib/gap-match";
+import { findTopic } from "@/content/registry";
+import { parseTopic, type Question, type RuleTopic } from "@/content/schema";
 import { b1Topics } from ".";
 import { abbreviations } from "./mechanics/abbreviations";
 import { colonsAndSemicolons } from "./mechanics/colons-and-semicolons";
 import { commas } from "./mechanics/commas";
 import { questionIntonation } from "./mechanics/question-intonation";
 import { questionTags } from "./grammar/question-tags";
-
-function mistakes(questions: Question[]) {
-  return questions.flatMap((x) => (x.kind === "mistake" ? [[x.tokens[x.wrongIndex], x.correction]] : []));
-}
-
-function choiceAnswer(questions: Question[], stemPart: string, optionPart?: string) {
-  const q = questions.find(
-    (x) => x.kind === "choice" && x.stem.includes(stemPart) && (optionPart === undefined || x.options.some((o) => o.includes(optionPart))),
-  );
-  if (q?.kind !== "choice") throw new Error(`choice containing "${stemPart}" missing`);
-  return q.options[q.answer];
-}
+import { choiceAnswer, expectGap, gap, ids, mistakes, quizLengths, stringsIn } from "@/content/test-helpers";
 
 function distractors(t: { quiz: Question[] }) {
   return t.quiz.flatMap((x) => (x.kind === "choice" ? x.options.filter((_, i) => i !== x.answer) : []));
-}
-
-function gap(questions: Question[], stemPart: string) {
-  const q = questions.find((x) => x.kind === "gap" && x.stem.includes(stemPart));
-  if (q?.kind !== "gap") throw new Error(`gap containing "${stemPart}" missing`);
-  return q.answers;
-}
-
-function expectGap(accepted: string[], right: string[], wrong: string[]) {
-  for (const typed of right) expect(matchesGap(typed, accepted), `accepts "${typed}"`).toBe(true);
-  for (const typed of wrong) expect(matchesGap(typed, accepted), `rejects "${typed}"`).toBe(false);
-}
-
-/** Every string anywhere inside a value, with its path, walking objects and arrays recursively. */
-function stringsIn(value: unknown, path: string): Array<[string, string]> {
-  if (typeof value === "string") return [[path, value]];
-  if (Array.isArray(value)) return value.flatMap((v, i) => stringsIn(v, `${path}[${i}]`));
-  if (value !== null && typeof value === "object") {
-    return Object.entries(value).flatMap(([k, v]) => stringsIn(v, `${path}.${k}`));
-  }
-  return [];
 }
 
 /** U+2197 (north east arrow) or U+2198 (south east arrow). A screen reader reads them by those names, so each must be named in words. */
@@ -51,12 +18,6 @@ const ARROW = /[\u2197\u2198]/;
 function unnamedArrows(strings: Array<[string, string]>) {
   return strings.filter(([, s]) => ARROW.test(s) && !/rising|falling/i.test(s)).map(([path]) => path);
 }
-
-const ids = (level: Level, category: CategorySlug, slug: string) => {
-  const found = findTopic(level, category, slug);
-  if (!found) throw new Error(`${level}/${slug} missing`);
-  return siblingsAcrossLevels(found).map((t) => `${t.level}/${t.slug}`);
-};
 
 describe("B1 Mechanics, orders 41-43 (commas, colons and semicolons, abbreviations)", () => {
   const orderedSlugs = ["commas", "colons-and-semicolons", "abbreviations"];
@@ -71,6 +32,15 @@ describe("B1 Mechanics, orders 41-43 (commas, colons and semicolons, abbreviatio
       expect(() => parseTopic(found)).not.toThrow();
     });
     expect(b1Topics.slice(40, 43).map((t) => t.slug)).toEqual(orderedSlugs);
+  });
+
+  it("pins each topic's quiz length", () => {
+    expect(quizLengths([...topics, questionIntonation])).toEqual({
+      "commas": 5,
+      "colons-and-semicolons": 5,
+      "abbreviations": 5,
+      "question-intonation": 7,
+    });
   });
 
   it("pins the families: punctuation for commas, none for the other two", () => {

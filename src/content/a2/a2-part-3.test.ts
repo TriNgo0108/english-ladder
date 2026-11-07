@@ -1,12 +1,12 @@
 import { findTopic, siblingsAcrossLevels } from "@/content/registry";
-import { parseTopic, type Level, type Question } from "@/content/schema";
-import { matchesGap } from "@/lib/gap-match";
+import { parseTopic, type Level } from "@/content/schema";
 import { a2Topics } from ".";
 import { articlesTheAndZeroArticle } from "./grammar/articles-the-and-zero-article";
 import { haveTo } from "./grammar/have-to";
 import { infinitiveOfPurpose } from "./grammar/infinitive-of-purpose";
 import { shouldAndMust } from "./grammar/should-and-must";
 import { tooAndEnough } from "./grammar/too-and-enough";
+import { expectGap, gap, quizLengths, wordbankAnswer, wrongToken } from "@/content/test-helpers";
 
 const orderedSlugs = [
   "should-and-must",
@@ -15,27 +15,6 @@ const orderedSlugs = [
   "too-and-enough",
   "articles-the-and-zero-article",
 ];
-
-function gap(questions: Question[], stemPart: string) {
-  const q = questions.find((x) => x.kind === "gap" && x.stem.includes(stemPart));
-  if (q?.kind !== "gap") throw new Error(`gap containing "${stemPart}" missing`);
-  return q.answers;
-}
-
-function wordbankAnswer(questions: Question[]) {
-  const q = questions.find((x) => x.kind === "wordbank");
-  return q?.kind === "wordbank" ? q.answer : undefined;
-}
-
-function wrongToken(questions: Question[]) {
-  const q = questions.find((x) => x.kind === "mistake");
-  return q?.kind === "mistake" ? [q.tokens[q.wrongIndex], q.correction] : undefined;
-}
-
-function expectGap(accepted: string[], right: string[], wrong: string[]) {
-  for (const typed of right) expect(matchesGap(typed, accepted), `accepts "${typed}"`).toBe(true);
-  for (const typed of wrong) expect(matchesGap(typed, accepted), `rejects "${typed}"`).toBe(false);
-}
 
 describe("A2 grammar, part 3", () => {
   it("registers orders 13-17 in sequence, each passing the schema", () => {
@@ -46,6 +25,16 @@ describe("A2 grammar, part 3", () => {
       expect(() => parseTopic(found)).not.toThrow();
     });
     expect(a2Topics.slice(12, 17).map((t) => t.slug)).toEqual(orderedSlugs);
+  });
+
+  it("pins each topic's quiz length", () => {
+    expect(quizLengths([articlesTheAndZeroArticle, haveTo, infinitiveOfPurpose, shouldAndMust, tooAndEnough])).toEqual({
+      "articles-the-and-zero-article": 6,
+      "have-to": 7,
+      "infinitive-of-purpose": 6,
+      "should-and-must": 6,
+      "too-and-enough": 6,
+    });
   });
 
   it("pins the families, and leaves have to, purpose and too/enough without one", () => {

@@ -1,12 +1,12 @@
-import { findTopic, siblingsAcrossLevels } from "@/content/registry";
-import { parseTopic, type Level, type Question } from "@/content/schema";
-import { matchesGap } from "@/lib/gap-match";
+import { findTopic } from "@/content/registry";
+import { parseTopic } from "@/content/schema";
 import { b1Topics } from ".";
 import { gradableAndNonGradableAdjectives } from "./grammar/gradable-and-non-gradable-adjectives";
 import { intensifiers } from "./grammar/intensifiers";
 import { linkingWords } from "./grammar/linking-words";
 import { soAndSuch } from "./grammar/so-and-such";
 import { wordBuildingSuffixes } from "./grammar/word-building-suffixes";
+import { choiceAnswer, distractors, expectGap, gap, ids, quizLengths, wordbankAnswers, wrongToken } from "@/content/test-helpers";
 
 const orderedSlugs = [
   "gradable-and-non-gradable-adjectives",
@@ -17,42 +17,6 @@ const orderedSlugs = [
 ];
 
 const topics = [gradableAndNonGradableAdjectives, intensifiers, soAndSuch, linkingWords, wordBuildingSuffixes];
-
-function gap(questions: Question[], stemPart: string) {
-  const q = questions.find((x) => x.kind === "gap" && x.stem.includes(stemPart));
-  if (q?.kind !== "gap") throw new Error(`gap containing "${stemPart}" missing`);
-  return q.answers;
-}
-
-function wordbankAnswers(questions: Question[]) {
-  return questions.flatMap((x) => (x.kind === "wordbank" ? [x.answer] : []));
-}
-
-function wrongToken(questions: Question[]) {
-  const q = questions.find((x) => x.kind === "mistake");
-  return q?.kind === "mistake" ? [q.tokens[q.wrongIndex], q.correction] : undefined;
-}
-
-function choiceAnswer(questions: Question[], stemPart: string) {
-  const q = questions.find((x) => x.kind === "choice" && x.stem.includes(stemPart));
-  if (q?.kind !== "choice") throw new Error(`choice containing "${stemPart}" missing`);
-  return q.options[q.answer];
-}
-
-function choiceOptions(t: { quiz: Question[] }) {
-  return t.quiz.flatMap((x) => (x.kind === "choice" ? x.options.filter((_, i) => i !== x.answer) : []));
-}
-
-function expectGap(accepted: string[], right: string[], wrong: string[]) {
-  for (const typed of right) expect(matchesGap(typed, accepted), `accepts "${typed}"`).toBe(true);
-  for (const typed of wrong) expect(matchesGap(typed, accepted), `rejects "${typed}"`).toBe(false);
-}
-
-const ids = (level: Level, slug: string) => {
-  const found = findTopic(level, "grammar", slug);
-  if (!found) throw new Error(`${level}/${slug} missing`);
-  return siblingsAcrossLevels(found).map((t) => `${t.level}/${t.slug}`);
-};
 
 describe("B1 grammar, part 5 (adjectives, emphasis, linking, word building)", () => {
   it("registers orders 22-26 in sequence, each a grammar rule topic passing the schema", () => {
@@ -66,6 +30,16 @@ describe("B1 grammar, part 5 (adjectives, emphasis, linking, word building)", ()
     expect(b1Topics.slice(21, 26).map((t) => t.slug)).toEqual(orderedSlugs);
   });
 
+  it("pins each topic's quiz length", () => {
+    expect(quizLengths(topics)).toEqual({
+      "gradable-and-non-gradable-adjectives": 5,
+      "intensifiers": 6,
+      "so-and-such": 6,
+      "linking-words": 7,
+      "word-building-suffixes": 7,
+    });
+  });
+
   it("pins the families: linking-words set explicitly, none for the other four", () => {
     expect(gradableAndNonGradableAdjectives.family).toBeUndefined();
     expect(intensifiers.family).toBeUndefined();
@@ -75,9 +49,9 @@ describe("B1 grammar, part 5 (adjectives, emphasis, linking, word building)", ()
   });
 
   it("links the linking-words chain A2 <-> B1 both ways, and gives the rest no siblings", () => {
-    expect(ids("a2", "and-but-so-because")).toEqual(["b1/linking-words"]);
-    expect(ids("b1", "linking-words")).toEqual(["a2/and-but-so-because"]);
-    for (const slug of orderedSlugs.filter((s) => s !== "linking-words")) expect(ids("b1", slug), slug).toEqual([]);
+    expect(ids("a2", "grammar", "and-but-so-because")).toEqual(["b1/linking-words"]);
+    expect(ids("b1", "grammar", "linking-words")).toEqual(["a2/and-but-so-because"]);
+    for (const slug of orderedSlugs.filter((s) => s !== "linking-words")) expect(ids("b1", "grammar", slug), slug).toEqual([]);
   });
 
   it("gives each topic about five questions, at least 3 examples, a summary, and scrambles every wordbank", () => {
@@ -93,7 +67,7 @@ describe("B1 grammar, part 5 (adjectives, emphasis, linking, word building)", ()
 
   it("never makes really a wrong option, and keeps quite out of every quiz", () => {
     for (const t of topics) {
-      for (const option of choiceOptions(t)) expect(option, t.slug).not.toMatch(/\breally\b/i);
+      for (const option of distractors(t)) expect(option, t.slug).not.toMatch(/\breally\b/i);
       expect(JSON.stringify(t.quiz), t.slug).not.toMatch(/\bquite\b/i);
     }
   });

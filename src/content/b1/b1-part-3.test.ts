@@ -1,12 +1,12 @@
-import { findTopic, siblingsAcrossLevels } from "@/content/registry";
-import { parseTopic, type Level, type Question } from "@/content/schema";
-import { matchesGap } from "@/lib/gap-match";
+import { findTopic } from "@/content/registry";
+import { parseTopic } from "@/content/schema";
 import { b1Topics } from ".";
 import { beUsedToAndGetUsedTo } from "./grammar/be-used-to-and-get-used-to";
 import { gerundsVsInfinitives } from "./grammar/gerunds-vs-infinitives";
 import { modalsOfPossibilityAndDeduction } from "./grammar/modals-of-possibility-and-deduction";
 import { thePassive } from "./grammar/the-passive";
 import { transitiveAndIntransitiveVerbs } from "./grammar/transitive-and-intransitive-verbs";
+import { choiceAnswer, expectGap, gap, ids, quizLengths, wordbankAnswer, wrongToken } from "@/content/test-helpers";
 
 const orderedSlugs = [
   "modals-of-possibility-and-deduction",
@@ -24,39 +24,6 @@ const topics = [
   thePassive,
 ];
 
-function gap(questions: Question[], stemPart: string) {
-  const q = questions.find((x) => x.kind === "gap" && x.stem.includes(stemPart));
-  if (q?.kind !== "gap") throw new Error(`gap containing "${stemPart}" missing`);
-  return q.answers;
-}
-
-function wordbankAnswer(questions: Question[]) {
-  const q = questions.find((x) => x.kind === "wordbank");
-  return q?.kind === "wordbank" ? q.answer : undefined;
-}
-
-function wrongToken(questions: Question[]) {
-  const q = questions.find((x) => x.kind === "mistake");
-  return q?.kind === "mistake" ? [q.tokens[q.wrongIndex], q.correction] : undefined;
-}
-
-function choiceAnswer(questions: Question[], stemPart: string) {
-  const q = questions.find((x) => x.kind === "choice" && x.stem.includes(stemPart));
-  if (q?.kind !== "choice") throw new Error(`choice containing "${stemPart}" missing`);
-  return q.options[q.answer];
-}
-
-function expectGap(accepted: string[], right: string[], wrong: string[]) {
-  for (const typed of right) expect(matchesGap(typed, accepted), `accepts "${typed}"`).toBe(true);
-  for (const typed of wrong) expect(matchesGap(typed, accepted), `rejects "${typed}"`).toBe(false);
-}
-
-const ids = (level: Level, slug: string) => {
-  const found = findTopic(level, "grammar", slug);
-  if (!found) throw new Error(`${level}/${slug} missing`);
-  return siblingsAcrossLevels(found).map((t) => `${t.level}/${t.slug}`);
-};
-
 describe("B1 grammar, part 3 (modals and verb patterns)", () => {
   it("registers orders 11-15 in sequence, each a grammar rule topic passing the schema", () => {
     orderedSlugs.forEach((slug, i) => {
@@ -69,6 +36,16 @@ describe("B1 grammar, part 3 (modals and verb patterns)", () => {
     expect(b1Topics.slice(10, 15).map((t) => t.slug)).toEqual(orderedSlugs);
   });
 
+  it("pins each topic's quiz length", () => {
+    expect(quizLengths(topics)).toEqual({
+      "modals-of-possibility-and-deduction": 6,
+      "be-used-to-and-get-used-to": 7,
+      "gerunds-vs-infinitives": 8,
+      "transitive-and-intransitive-verbs": 6,
+      "the-passive": 8,
+    });
+  });
+
   it("pins the families: modal-deduction, used-to, gerunds-and-infinitives, none for order 14, passive", () => {
     expect(modalsOfPossibilityAndDeduction.family).toBe("modal-deduction");
     expect(beUsedToAndGetUsedTo.family).toBe("used-to");
@@ -78,13 +55,13 @@ describe("B1 grammar, part 3 (modals and verb patterns)", () => {
   });
 
   it("links the used-to and gerunds-and-infinitives chains A2 <-> B1 both ways, and gives the rest no siblings", () => {
-    expect(ids("a2", "used-to-and-would")).toEqual(["b1/be-used-to-and-get-used-to"]);
-    expect(ids("b1", "be-used-to-and-get-used-to")).toEqual(["a2/used-to-and-would"]);
-    expect(ids("a2", "verb-plus-gerund-or-infinitive")).toEqual(["b1/gerunds-vs-infinitives"]);
-    expect(ids("b1", "gerunds-vs-infinitives")).toEqual(["a2/verb-plus-gerund-or-infinitive"]);
-    expect(ids("b1", "modals-of-possibility-and-deduction")).toEqual([]);
-    expect(ids("b1", "transitive-and-intransitive-verbs")).toEqual([]);
-    expect(ids("b1", "the-passive")).toEqual([]);
+    expect(ids("a2", "grammar", "used-to-and-would")).toEqual(["b1/be-used-to-and-get-used-to"]);
+    expect(ids("b1", "grammar", "be-used-to-and-get-used-to")).toEqual(["a2/used-to-and-would"]);
+    expect(ids("a2", "grammar", "verb-plus-gerund-or-infinitive")).toEqual(["b1/gerunds-vs-infinitives"]);
+    expect(ids("b1", "grammar", "gerunds-vs-infinitives")).toEqual(["a2/verb-plus-gerund-or-infinitive"]);
+    expect(ids("b1", "grammar", "modals-of-possibility-and-deduction")).toEqual([]);
+    expect(ids("b1", "grammar", "transitive-and-intransitive-verbs")).toEqual([]);
+    expect(ids("b1", "grammar", "the-passive")).toEqual([]);
   });
 
   it("gives each topic about five questions, at least 3 examples, a summary, and scrambles every wordbank", () => {

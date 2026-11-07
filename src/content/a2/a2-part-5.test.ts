@@ -1,6 +1,5 @@
 import { findTopic, topicsByLevel } from "@/content/registry";
-import { parseTopic, type Question } from "@/content/schema";
-import { matchesGap } from "@/lib/gap-match";
+import { parseTopic } from "@/content/schema";
 import { a2Topics } from ".";
 import { askingForThingsPolitely } from "./speaking/asking-for-things-politely";
 import { holidaysAndOutdoorActivities } from "./vocabulary/holidays-and-outdoor-activities";
@@ -8,6 +7,7 @@ import { houseAndHome } from "./vocabulary/house-and-home";
 import { theBodyAndSymptoms } from "./vocabulary/the-body-and-symptoms";
 import { travelAndFirstAidItems } from "./vocabulary/travel-and-first-aid-items";
 import { anInformalEmail } from "./writing/an-informal-email";
+import { expectGap, gap, quizLengths, wordbankAnswer, wrongToken } from "@/content/test-helpers";
 
 const ordered = [
   ["vocabulary", "holidays-and-outdoor-activities"],
@@ -21,27 +21,6 @@ const ordered = [
 const setTopics = [holidaysAndOutdoorActivities, theBodyAndSymptoms, travelAndFirstAidItems, houseAndHome];
 const phraseTopics = [anInformalEmail, askingForThingsPolitely];
 
-function gap(questions: Question[], stemPart: string) {
-  const q = questions.find((x) => x.kind === "gap" && x.stem.includes(stemPart));
-  if (q?.kind !== "gap") throw new Error(`gap containing "${stemPart}" missing`);
-  return q.answers;
-}
-
-function wordbankAnswer(questions: Question[]) {
-  const q = questions.find((x) => x.kind === "wordbank");
-  return q?.kind === "wordbank" ? q.answer : undefined;
-}
-
-function wrongToken(questions: Question[]) {
-  const q = questions.find((x) => x.kind === "mistake");
-  return q?.kind === "mistake" ? [q.tokens[q.wrongIndex], q.correction] : undefined;
-}
-
-function expectGap(accepted: string[], right: string[], wrong: string[]) {
-  for (const typed of right) expect(matchesGap(typed, accepted), `accepts "${typed}"`).toBe(true);
-  for (const typed of wrong) expect(matchesGap(typed, accepted), `rejects "${typed}"`).toBe(false);
-}
-
 describe("A2 vocabulary, writing and speaking (part 5)", () => {
   it("registers orders 22-27 in sequence, each passing the schema", () => {
     ordered.forEach(([category, slug], i) => {
@@ -50,6 +29,17 @@ describe("A2 vocabulary, writing and speaking (part 5)", () => {
       expect(() => parseTopic(found)).not.toThrow();
     });
     expect(a2Topics.slice(21).map((t) => t.slug)).toEqual(ordered.map(([, slug]) => slug));
+  });
+
+  it("pins each topic's quiz length", () => {
+    expect(quizLengths([...setTopics, ...phraseTopics])).toEqual({
+      "holidays-and-outdoor-activities": 5,
+      "the-body-and-symptoms": 5,
+      "travel-and-first-aid-items": 5,
+      "house-and-home": 5,
+      "an-informal-email": 6,
+      "asking-for-things-politely": 6,
+    });
   });
 
   it("completes A2 at 27 topics: 21 grammar, 4 vocabulary, 1 writing, 1 speaking", () => {

@@ -1,11 +1,11 @@
 import { findTopic, siblingsAcrossLevels } from "@/content/registry";
-import { parseTopic, type Level, type Question } from "@/content/schema";
-import { matchesGap } from "@/lib/gap-match";
+import { parseTopic, type Level } from "@/content/schema";
 import { a2Topics } from ".";
 import { andButSoBecause } from "./grammar/and-but-so-because";
 import { edAndIngAdjectives } from "./grammar/ed-and-ing-adjectives";
 import { firstConditional } from "./grammar/first-conditional";
 import { verbPlusGerundOrInfinitive } from "./grammar/verb-plus-gerund-or-infinitive";
+import { expectGap, gap, quizLengths, wordbankAnswer, wrongToken } from "@/content/test-helpers";
 
 const orderedSlugs = [
   "and-but-so-because",
@@ -13,27 +13,6 @@ const orderedSlugs = [
   "ed-and-ing-adjectives",
   "verb-plus-gerund-or-infinitive",
 ];
-
-function gap(questions: Question[], stemPart: string) {
-  const q = questions.find((x) => x.kind === "gap" && x.stem.includes(stemPart));
-  if (q?.kind !== "gap") throw new Error(`gap containing "${stemPart}" missing`);
-  return q.answers;
-}
-
-function wordbankAnswer(questions: Question[]) {
-  const q = questions.find((x) => x.kind === "wordbank");
-  return q?.kind === "wordbank" ? q.answer : undefined;
-}
-
-function wrongToken(questions: Question[]) {
-  const q = questions.find((x) => x.kind === "mistake");
-  return q?.kind === "mistake" ? [q.tokens[q.wrongIndex], q.correction] : undefined;
-}
-
-function expectGap(accepted: string[], right: string[], wrong: string[]) {
-  for (const typed of right) expect(matchesGap(typed, accepted), `accepts "${typed}"`).toBe(true);
-  for (const typed of wrong) expect(matchesGap(typed, accepted), `rejects "${typed}"`).toBe(false);
-}
 
 describe("A2 grammar, part 4", () => {
   it("registers orders 18-21 in sequence, each passing the schema", () => {
@@ -44,6 +23,15 @@ describe("A2 grammar, part 4", () => {
       expect(() => parseTopic(found)).not.toThrow();
     });
     expect(a2Topics.slice(17, 21).map((t) => t.slug)).toEqual(orderedSlugs);
+  });
+
+  it("pins each topic's quiz length", () => {
+    expect(quizLengths([andButSoBecause, edAndIngAdjectives, firstConditional, verbPlusGerundOrInfinitive])).toEqual({
+      "and-but-so-because": 7,
+      "ed-and-ing-adjectives": 6,
+      "first-conditional": 7,
+      "verb-plus-gerund-or-infinitive": 6,
+    });
   });
 
   it("pins the families, and leaves -ed and -ing adjectives without one", () => {

@@ -1,12 +1,12 @@
 import { findTopic, siblingsAcrossLevels } from "@/content/registry";
-import { parseTopic, type Question } from "@/content/schema";
-import { matchesGap } from "@/lib/gap-match";
+import { parseTopic } from "@/content/schema";
 import { b1Topics } from ".";
 import { alreadyYetAndJust } from "./grammar/already-yet-and-just";
 import { presentPerfectAndPastSimple } from "./grammar/present-perfect-and-past-simple";
 import { presentPerfectContinuous } from "./grammar/present-perfect-continuous";
 import { sinceAndFor } from "./grammar/since-and-for";
 import { stativeVerbs } from "./grammar/stative-verbs";
+import { expectGap, gap, mistakeSentence, quizLengths, wordbankAnswer, wrongToken } from "@/content/test-helpers";
 
 const orderedSlugs = [
   "present-perfect-and-past-simple",
@@ -18,32 +18,6 @@ const orderedSlugs = [
 
 const topics = [presentPerfectAndPastSimple, sinceAndFor, alreadyYetAndJust, stativeVerbs, presentPerfectContinuous];
 
-function gap(questions: Question[], stemPart: string) {
-  const q = questions.find((x) => x.kind === "gap" && x.stem.includes(stemPart));
-  if (q?.kind !== "gap") throw new Error(`gap containing "${stemPart}" missing`);
-  return q.answers;
-}
-
-function wordbankAnswer(questions: Question[]) {
-  const q = questions.find((x) => x.kind === "wordbank");
-  return q?.kind === "wordbank" ? q.answer : undefined;
-}
-
-function mistakeSentence(questions: Question[]) {
-  const q = questions.find((x) => x.kind === "mistake");
-  return q?.kind === "mistake" ? q.tokens.join(" ") : undefined;
-}
-
-function wrongToken(questions: Question[]) {
-  const q = questions.find((x) => x.kind === "mistake");
-  return q?.kind === "mistake" ? [q.tokens[q.wrongIndex], q.correction] : undefined;
-}
-
-function expectGap(accepted: string[], right: string[], wrong: string[]) {
-  for (const typed of right) expect(matchesGap(typed, accepted), `accepts "${typed}"`).toBe(true);
-  for (const typed of wrong) expect(matchesGap(typed, accepted), `rejects "${typed}"`).toBe(false);
-}
-
 describe("B1 grammar, part 1 (the present perfect group)", () => {
   it("registers orders 1-5 in sequence, each a grammar rule topic passing the schema", () => {
     orderedSlugs.forEach((slug, i) => {
@@ -54,6 +28,16 @@ describe("B1 grammar, part 1 (the present perfect group)", () => {
       expect(() => parseTopic(found)).not.toThrow();
     });
     expect(b1Topics.slice(0, 5).map((t) => t.slug)).toEqual(orderedSlugs);
+  });
+
+  it("pins each topic's quiz length", () => {
+    expect(quizLengths(topics)).toEqual({
+      "present-perfect-and-past-simple": 7,
+      "since-and-for": 6,
+      "already-yet-and-just": 6,
+      "stative-verbs": 6,
+      "present-perfect-continuous": 6,
+    });
   });
 
   it("pins the families: past-simple for order 1, none for orders 2-5", () => {

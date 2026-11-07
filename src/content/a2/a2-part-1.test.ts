@@ -1,6 +1,5 @@
 import { findTopic, siblingsAcrossLevels } from "@/content/registry";
-import { parseTopic, type Question } from "@/content/schema";
-import { matchesGap } from "@/lib/gap-match";
+import { parseTopic } from "@/content/schema";
 import { a2Topics } from ".";
 import { comparativesAndSuperlatives } from "./grammar/comparatives-and-superlatives";
 import { goingTo } from "./grammar/going-to";
@@ -8,6 +7,7 @@ import { pastContinuous } from "./grammar/past-continuous";
 import { pastSimpleRegularAndIrregular } from "./grammar/past-simple-regular-and-irregular";
 import { presentContinuousForFuture } from "./grammar/present-continuous-for-future";
 import { will } from "./grammar/will";
+import { expectGap, gap, quizLengths, wordbankAnswer, wrongToken } from "@/content/test-helpers";
 
 const orderedSlugs = [
   "past-simple-regular-and-irregular",
@@ -18,27 +18,6 @@ const orderedSlugs = [
   "present-continuous-for-future",
 ];
 
-function gap(questions: Question[], stemPart: string) {
-  const q = questions.find((x) => x.kind === "gap" && x.stem.includes(stemPart));
-  if (q?.kind !== "gap") throw new Error(`gap containing "${stemPart}" missing`);
-  return q.answers;
-}
-
-function wordbankAnswer(questions: Question[]) {
-  const q = questions.find((x) => x.kind === "wordbank");
-  return q?.kind === "wordbank" ? q.answer : undefined;
-}
-
-function wrongToken(questions: Question[]) {
-  const q = questions.find((x) => x.kind === "mistake");
-  return q?.kind === "mistake" ? [q.tokens[q.wrongIndex], q.correction] : undefined;
-}
-
-function expectGap(accepted: string[], right: string[], wrong: string[]) {
-  for (const typed of right) expect(matchesGap(typed, accepted), `accepts "${typed}"`).toBe(true);
-  for (const typed of wrong) expect(matchesGap(typed, accepted), `rejects "${typed}"`).toBe(false);
-}
-
 describe("A2 grammar, part 1", () => {
   it("registers orders 1-6 in sequence, each passing the schema", () => {
     orderedSlugs.forEach((slug, i) => {
@@ -48,6 +27,17 @@ describe("A2 grammar, part 1", () => {
       expect(() => parseTopic(found)).not.toThrow();
     });
     expect(a2Topics.slice(0, 6).map((t) => t.slug)).toEqual(orderedSlugs);
+  });
+
+  it("pins each topic's quiz length", () => {
+    expect(quizLengths([pastSimpleRegularAndIrregular, pastContinuous, comparativesAndSuperlatives, goingTo, will, presentContinuousForFuture])).toEqual({
+      "past-simple-regular-and-irregular": 6,
+      "past-continuous": 6,
+      "comparatives-and-superlatives": 6,
+      "going-to": 6,
+      "will": 6,
+      "present-continuous-for-future": 6,
+    });
   });
 
   it("pins the families, and leaves past continuous and going to without one", () => {

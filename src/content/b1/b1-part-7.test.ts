@@ -1,6 +1,5 @@
-import { allTopics, findTopic, siblingsAcrossLevels } from "@/content/registry";
-import { parseTopic, type CategorySlug, type Level, type PhraseTopic, type Question } from "@/content/schema";
-import { matchesGap } from "@/lib/gap-match";
+import { allTopics, findTopic } from "@/content/registry";
+import { parseTopic, type PhraseTopic } from "@/content/schema";
 import { b1Topics } from ".";
 import { agreeingAndDisagreeing } from "./speaking/agreeing-and-disagreeing";
 import { givingAdvice } from "./speaking/giving-advice";
@@ -10,6 +9,7 @@ import { likesAndDislikes } from "./speaking/likes-and-dislikes";
 import { aProfessionalEmail } from "./writing/a-professional-email";
 import { formalAndInformalRegister } from "./writing/formal-and-informal-register";
 import { letterStructure } from "./writing/letter-structure";
+import { answerSentences, choiceAnswer, expectGap, gap, ids, plain, quizLengths, wordbankAnswers, wrongToken } from "@/content/test-helpers";
 
 const ordered = [
   ["writing", "formal-and-informal-register"],
@@ -33,52 +33,8 @@ const topics: PhraseTopic[] = [
   introducingYourselfAndInterruptingAtWork,
 ];
 
-function gap(questions: Question[], stemPart: string) {
-  const q = questions.find((x) => x.kind === "gap" && x.stem.includes(stemPart));
-  if (q?.kind !== "gap") throw new Error(`gap containing "${stemPart}" missing`);
-  return q.answers;
-}
-
-function wordbankAnswers(questions: Question[]) {
-  return questions.flatMap((x) => (x.kind === "wordbank" ? [x.answer] : []));
-}
-
-function wrongToken(questions: Question[]) {
-  const q = questions.find((x) => x.kind === "mistake");
-  return q?.kind === "mistake" ? [q.tokens[q.wrongIndex], q.correction] : undefined;
-}
-
-function choiceAnswer(questions: Question[], stemPart: string) {
-  const q = questions.find((x) => x.kind === "choice" && x.stem.includes(stemPart));
-  if (q?.kind !== "choice") throw new Error(`choice containing "${stemPart}" missing`);
-  return q.options[q.answer];
-}
-
-function expectGap(accepted: string[], right: string[], wrong: string[]) {
-  for (const typed of right) expect(matchesGap(typed, accepted), `accepts "${typed}"`).toBe(true);
-  for (const typed of wrong) expect(matchesGap(typed, accepted), `rejects "${typed}"`).toBe(false);
-}
-
-const ids = (level: Level, category: CategorySlug, slug: string) => {
-  const found = findTopic(level, category, slug);
-  if (!found) throw new Error(`${level}/${slug} missing`);
-  return siblingsAcrossLevels(found).map((t) => `${t.level}/${t.slug}`);
-};
-
 const reg = (t: PhraseTopic, phrase: string) => t.situations.find((s) => s.phrases.includes(phrase))?.register;
 const formalPhrases = (t: PhraseTopic) => t.situations.filter((s) => s.register === "formal").flatMap((s) => s.phrases);
-
-const plain = (s: string) => s.replace(/<\/?b>/g, "").replace(/\s+/g, " ").trim().toLowerCase();
-
-/** Every finished answer sentence of a topic: gaps filled with their first answer, wordbank answers, corrected mistakes. */
-function answerSentences(t: PhraseTopic) {
-  return t.quiz.flatMap((q) => {
-    if (q.kind === "gap") return [q.stem.replace(/\s*\([^)]*\)\s*$/, "").replace("___", q.answers[0])];
-    if (q.kind === "wordbank") return [q.answer];
-    if (q.kind === "mistake") return [q.tokens.map((tok, i) => (i === q.wrongIndex ? q.correction : tok)).join(" ")];
-    return [];
-  });
-}
 
 describe("B1 Writing and Speaking (part 7)", () => {
   it("registers orders 33-40 in sequence, each a phrases topic passing the schema", () => {
@@ -90,6 +46,19 @@ describe("B1 Writing and Speaking (part 7)", () => {
       expect(() => parseTopic(found)).not.toThrow();
     });
     expect(b1Topics.slice(32, 40).map((t) => t.slug)).toEqual(ordered.map(([, slug]) => slug));
+  });
+
+  it("pins each topic's quiz length", () => {
+    expect(quizLengths(topics)).toEqual({
+      "formal-and-informal-register": 6,
+      "letter-structure": 6,
+      "a-professional-email": 6,
+      "giving-advice": 5,
+      "likes-and-dislikes": 6,
+      "agreeing-and-disagreeing": 6,
+      "indirect-and-polite-questions": 7,
+      "introducing-yourself-and-interrupting-at-work": 6,
+    });
   });
 
   it("pins the families: register, emails, agreeing-and-disagreeing, polite-requests and introductions explicit, none for the rest", () => {

@@ -1,12 +1,12 @@
-import { findTopic, siblingsAcrossLevels } from "@/content/registry";
-import { parseTopic, type Level, type Question } from "@/content/schema";
-import { matchesGap } from "@/lib/gap-match";
+import { findTopic } from "@/content/registry";
+import { parseTopic } from "@/content/schema";
 import { b1Topics } from ".";
 import { futureContinuousAndFuturePerfect } from "./grammar/future-continuous-and-future-perfect";
 import { pastPerfectAndNarrativeTenses } from "./grammar/past-perfect-and-narrative-tenses";
 import { secondConditional } from "./grammar/second-conditional";
 import { timeClauses } from "./grammar/time-clauses";
 import { wishAndIfOnly } from "./grammar/wish-and-if-only";
+import { choiceAnswer, expectGap, gap, ids, quizLengths, wordbankAnswer, wrongToken } from "@/content/test-helpers";
 
 const orderedSlugs = [
   "past-perfect-and-narrative-tenses",
@@ -17,39 +17,6 @@ const orderedSlugs = [
 ];
 
 const topics = [pastPerfectAndNarrativeTenses, timeClauses, futureContinuousAndFuturePerfect, secondConditional, wishAndIfOnly];
-
-function gap(questions: Question[], stemPart: string) {
-  const q = questions.find((x) => x.kind === "gap" && x.stem.includes(stemPart));
-  if (q?.kind !== "gap") throw new Error(`gap containing "${stemPart}" missing`);
-  return q.answers;
-}
-
-function wordbankAnswer(questions: Question[]) {
-  const q = questions.find((x) => x.kind === "wordbank");
-  return q?.kind === "wordbank" ? q.answer : undefined;
-}
-
-function wrongToken(questions: Question[]) {
-  const q = questions.find((x) => x.kind === "mistake");
-  return q?.kind === "mistake" ? [q.tokens[q.wrongIndex], q.correction] : undefined;
-}
-
-function choiceAnswer(questions: Question[], stemPart: string) {
-  const q = questions.find((x) => x.kind === "choice" && x.stem.includes(stemPart));
-  if (q?.kind !== "choice") throw new Error(`choice containing "${stemPart}" missing`);
-  return q.options[q.answer];
-}
-
-function expectGap(accepted: string[], right: string[], wrong: string[]) {
-  for (const typed of right) expect(matchesGap(typed, accepted), `accepts "${typed}"`).toBe(true);
-  for (const typed of wrong) expect(matchesGap(typed, accepted), `rejects "${typed}"`).toBe(false);
-}
-
-const ids = (level: Level, slug: string) => {
-  const found = findTopic(level, "grammar", slug);
-  if (!found) throw new Error(`${level}/${slug} missing`);
-  return siblingsAcrossLevels(found).map((t) => `${t.level}/${t.slug}`);
-};
 
 describe("B1 grammar, part 2 (narrative and future)", () => {
   it("registers orders 6-10 in sequence, each a grammar rule topic passing the schema", () => {
@@ -63,6 +30,16 @@ describe("B1 grammar, part 2 (narrative and future)", () => {
     expect(b1Topics.slice(5, 10).map((t) => t.slug)).toEqual(orderedSlugs);
   });
 
+  it("pins each topic's quiz length", () => {
+    expect(quizLengths(topics)).toEqual({
+      "past-perfect-and-narrative-tenses": 6,
+      "time-clauses": 6,
+      "future-continuous-and-future-perfect": 6,
+      "second-conditional": 7,
+      "wish-and-if-only": 7,
+    });
+  });
+
   it("pins the families: none for orders 6-7, future-forms, conditionals and wish for orders 8-10", () => {
     expect(pastPerfectAndNarrativeTenses.family).toBeUndefined();
     expect(timeClauses.family).toBeUndefined();
@@ -72,13 +49,13 @@ describe("B1 grammar, part 2 (narrative and future)", () => {
   });
 
   it("links the future-forms and conditionals chains A2 <-> B1 both ways, and gives the rest no siblings", () => {
-    expect(ids("a2", "will")).toEqual(["b1/future-continuous-and-future-perfect"]);
-    expect(ids("b1", "future-continuous-and-future-perfect")).toEqual(["a2/will"]);
-    expect(ids("a2", "first-conditional")).toEqual(["b1/second-conditional"]);
-    expect(ids("b1", "second-conditional")).toEqual(["a2/first-conditional"]);
-    expect(ids("b1", "wish-and-if-only")).toEqual([]);
-    expect(ids("b1", "past-perfect-and-narrative-tenses")).toEqual([]);
-    expect(ids("b1", "time-clauses")).toEqual([]);
+    expect(ids("a2", "grammar", "will")).toEqual(["b1/future-continuous-and-future-perfect"]);
+    expect(ids("b1", "grammar", "future-continuous-and-future-perfect")).toEqual(["a2/will"]);
+    expect(ids("a2", "grammar", "first-conditional")).toEqual(["b1/second-conditional"]);
+    expect(ids("b1", "grammar", "second-conditional")).toEqual(["a2/first-conditional"]);
+    expect(ids("b1", "grammar", "wish-and-if-only")).toEqual([]);
+    expect(ids("b1", "grammar", "past-perfect-and-narrative-tenses")).toEqual([]);
+    expect(ids("b1", "grammar", "time-clauses")).toEqual([]);
   });
 
   it("gives each topic about five questions, at least 3 examples, a summary, and scrambles every wordbank", () => {

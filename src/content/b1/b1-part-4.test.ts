@@ -1,6 +1,5 @@
-import { findTopic, siblingsAcrossLevels } from "@/content/registry";
-import { parseTopic, type Level, type Question } from "@/content/schema";
-import { matchesGap } from "@/lib/gap-match";
+import { findTopic } from "@/content/registry";
+import { parseTopic } from "@/content/schema";
 import { b1Topics } from ".";
 import { adjectiveOrder } from "./grammar/adjective-order";
 import { definingRelativeClauses } from "./grammar/defining-relative-clauses";
@@ -8,6 +7,7 @@ import { determiners } from "./grammar/determiners";
 import { questionTags } from "./grammar/question-tags";
 import { reportedSpeech } from "./grammar/reported-speech";
 import { sayAndTell } from "./grammar/say-and-tell";
+import { choiceAnswer, expectGap, gap, ids, mistakeSentence, quizLengths, wordbankAnswers, wrongToken } from "@/content/test-helpers";
 
 const orderedSlugs = [
   "reported-speech",
@@ -19,43 +19,6 @@ const orderedSlugs = [
 ];
 
 const topics = [reportedSpeech, sayAndTell, definingRelativeClauses, questionTags, determiners, adjectiveOrder];
-
-function gap(questions: Question[], stemPart: string) {
-  const q = questions.find((x) => x.kind === "gap" && x.stem.includes(stemPart));
-  if (q?.kind !== "gap") throw new Error(`gap containing "${stemPart}" missing`);
-  return q.answers;
-}
-
-function wordbankAnswers(questions: Question[]) {
-  return questions.flatMap((x) => (x.kind === "wordbank" ? [x.answer] : []));
-}
-
-function mistakeSentence(questions: Question[]) {
-  const q = questions.find((x) => x.kind === "mistake");
-  return q?.kind === "mistake" ? q.tokens.join(" ") : undefined;
-}
-
-function wrongToken(questions: Question[]) {
-  const q = questions.find((x) => x.kind === "mistake");
-  return q?.kind === "mistake" ? [q.tokens[q.wrongIndex], q.correction] : undefined;
-}
-
-function choiceAnswer(questions: Question[], stemPart: string) {
-  const q = questions.find((x) => x.kind === "choice" && x.stem.includes(stemPart));
-  if (q?.kind !== "choice") throw new Error(`choice containing "${stemPart}" missing`);
-  return q.options[q.answer];
-}
-
-function expectGap(accepted: string[], right: string[], wrong: string[]) {
-  for (const typed of right) expect(matchesGap(typed, accepted), `accepts "${typed}"`).toBe(true);
-  for (const typed of wrong) expect(matchesGap(typed, accepted), `rejects "${typed}"`).toBe(false);
-}
-
-const ids = (level: Level, slug: string) => {
-  const found = findTopic(level, "grammar", slug);
-  if (!found) throw new Error(`${level}/${slug} missing`);
-  return siblingsAcrossLevels(found).map((t) => `${t.level}/${t.slug}`);
-};
 
 describe("B1 grammar, part 4 (reporting, clauses, questions, noun phrases)", () => {
   it("registers orders 16-21 in sequence, each a grammar rule topic passing the schema", () => {
@@ -69,6 +32,17 @@ describe("B1 grammar, part 4 (reporting, clauses, questions, noun phrases)", () 
     expect(b1Topics.slice(15, 21).map((t) => t.slug)).toEqual(orderedSlugs);
   });
 
+  it("pins each topic's quiz length", () => {
+    expect(quizLengths(topics)).toEqual({
+      "reported-speech": 6,
+      "say-and-tell": 6,
+      "defining-relative-clauses": 8,
+      "question-tags": 7,
+      "determiners": 7,
+      "adjective-order": 5,
+    });
+  });
+
   it("pins the families, set explicitly even where the slug equals the key, and none for say-and-tell", () => {
     expect(reportedSpeech.family).toBe("reported-speech");
     expect(sayAndTell.family).toBeUndefined();
@@ -79,15 +53,15 @@ describe("B1 grammar, part 4 (reporting, clauses, questions, noun phrases)", () 
   });
 
   it("links the determiners, question-forms and adjective-order chains A1 <-> B1 both ways, and gives the rest no siblings", () => {
-    expect(ids("a1", "this-that-these-those")).toEqual(["b1/determiners"]);
-    expect(ids("b1", "determiners")).toEqual(["a1/this-that-these-those"]);
-    expect(ids("a1", "question-words")).toEqual(["b1/question-tags"]);
-    expect(ids("b1", "question-tags")).toEqual(["a1/question-words"]);
-    expect(ids("a1", "adjectives-before-the-noun")).toEqual(["b1/adjective-order"]);
-    expect(ids("b1", "adjective-order")).toEqual(["a1/adjectives-before-the-noun"]);
-    expect(ids("b1", "reported-speech")).toEqual([]);
-    expect(ids("b1", "say-and-tell")).toEqual([]);
-    expect(ids("b1", "defining-relative-clauses")).toEqual([]);
+    expect(ids("a1", "grammar", "this-that-these-those")).toEqual(["b1/determiners"]);
+    expect(ids("b1", "grammar", "determiners")).toEqual(["a1/this-that-these-those"]);
+    expect(ids("a1", "grammar", "question-words")).toEqual(["b1/question-tags"]);
+    expect(ids("b1", "grammar", "question-tags")).toEqual(["a1/question-words"]);
+    expect(ids("a1", "grammar", "adjectives-before-the-noun")).toEqual(["b1/adjective-order"]);
+    expect(ids("b1", "grammar", "adjective-order")).toEqual(["a1/adjectives-before-the-noun"]);
+    expect(ids("b1", "grammar", "reported-speech")).toEqual([]);
+    expect(ids("b1", "grammar", "say-and-tell")).toEqual([]);
+    expect(ids("b1", "grammar", "defining-relative-clauses")).toEqual([]);
   });
 
   it("gives each topic about five questions, at least 3 examples, a summary, and scrambles every wordbank", () => {

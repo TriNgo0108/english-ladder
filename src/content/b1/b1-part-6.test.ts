@@ -1,6 +1,5 @@
-import { allTopics, findTopic, siblingsAcrossLevels, topicsByLevelAndCategory } from "@/content/registry";
-import { parseTopic, type CategorySlug, type Level, type Question, type SetTopic } from "@/content/schema";
-import { matchesGap } from "@/lib/gap-match";
+import { allTopics, findTopic, topicsByLevelAndCategory } from "@/content/registry";
+import { parseTopic, type SetTopic } from "@/content/schema";
 import { b1Topics } from ".";
 import { collocations } from "./phrases/collocations";
 import { idioms } from "./phrases/idioms";
@@ -8,6 +7,7 @@ import { inTimeAndOnTime } from "./phrases/in-time-and-on-time";
 import { phrasalVerbsInseparable } from "./phrases/phrasal-verbs-inseparable";
 import { phrasalVerbsSeparable } from "./phrases/phrasal-verbs-separable";
 import { prepositionsOfMovement } from "./phrases/prepositions-of-movement";
+import { answerSentences, choiceAnswer, expectGap, gap, ids, plain, quizLengths, wordbankAnswers, wrongToken } from "@/content/test-helpers";
 
 const orderedSlugs = [
   "phrasal-verbs-separable",
@@ -27,50 +27,6 @@ const topics: SetTopic[] = [
   inTimeAndOnTime,
 ];
 
-function gap(questions: Question[], stemPart: string) {
-  const q = questions.find((x) => x.kind === "gap" && x.stem.includes(stemPart));
-  if (q?.kind !== "gap") throw new Error(`gap containing "${stemPart}" missing`);
-  return q.answers;
-}
-
-function wordbankAnswers(questions: Question[]) {
-  return questions.flatMap((x) => (x.kind === "wordbank" ? [x.answer] : []));
-}
-
-function wrongToken(questions: Question[]) {
-  const q = questions.find((x) => x.kind === "mistake");
-  return q?.kind === "mistake" ? [q.tokens[q.wrongIndex], q.correction] : undefined;
-}
-
-function choiceAnswer(questions: Question[], stemPart: string) {
-  const q = questions.find((x) => x.kind === "choice" && x.stem.includes(stemPart));
-  if (q?.kind !== "choice") throw new Error(`choice containing "${stemPart}" missing`);
-  return q.options[q.answer];
-}
-
-function expectGap(accepted: string[], right: string[], wrong: string[]) {
-  for (const typed of right) expect(matchesGap(typed, accepted), `accepts "${typed}"`).toBe(true);
-  for (const typed of wrong) expect(matchesGap(typed, accepted), `rejects "${typed}"`).toBe(false);
-}
-
-const ids = (level: Level, category: CategorySlug, slug: string) => {
-  const found = findTopic(level, category, slug);
-  if (!found) throw new Error(`${level}/${slug} missing`);
-  return siblingsAcrossLevels(found).map((t) => `${t.level}/${t.slug}`);
-};
-
-const plain = (s: string) => s.replace(/<\/?b>/g, "").replace(/\s+/g, " ").trim().toLowerCase();
-
-/** Every finished answer sentence of a topic: gaps filled with their first answer, wordbank answers, corrected mistakes. */
-function answerSentences(t: SetTopic) {
-  return t.quiz.flatMap((q) => {
-    if (q.kind === "gap") return [q.stem.replace(/\s*\([^)]*\)\s*$/, "").replace("___", q.answers[0])];
-    if (q.kind === "wordbank") return [q.answer];
-    if (q.kind === "mistake") return [q.tokens.map((tok, i) => (i === q.wrongIndex ? q.correction : tok)).join(" ")];
-    return [];
-  });
-}
-
 describe("B1 Phrases & Expressions (part 6)", () => {
   it("registers orders 27-32 in sequence, each a phrases set topic passing the schema", () => {
     orderedSlugs.forEach((slug, i) => {
@@ -82,6 +38,17 @@ describe("B1 Phrases & Expressions (part 6)", () => {
     });
     expect(b1Topics.slice(26, 32).map((t) => t.slug)).toEqual(orderedSlugs);
     expect(topicsByLevelAndCategory("b1", "phrases").map((t) => t.slug)).toEqual(orderedSlugs);
+  });
+
+  it("pins each topic's quiz length", () => {
+    expect(quizLengths(topics)).toEqual({
+      "phrasal-verbs-separable": 6,
+      "phrasal-verbs-inseparable": 6,
+      "collocations": 6,
+      "idioms": 6,
+      "prepositions-of-movement": 6,
+      "in-time-and-on-time": 6,
+    });
   });
 
   it("holds exactly these six slugs in the B1 phrases category", () => {
