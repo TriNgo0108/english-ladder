@@ -29,6 +29,7 @@ import { wordBuildingSuffixes } from "./grammar/word-building-suffixes";
 import { abbreviations } from "./mechanics/abbreviations";
 import { colonsAndSemicolons } from "./mechanics/colons-and-semicolons";
 import { commas } from "./mechanics/commas";
+import { questionIntonation } from "./mechanics/question-intonation";
 import { collocations } from "./phrases/collocations";
 import { idioms } from "./phrases/idioms";
 import { inTimeAndOnTime } from "./phrases/in-time-and-on-time";
@@ -88,4 +89,5 @@ export const b1Topics: Topic[] = [
   commas,
   colonsAndSemicolons,
   abbreviations,
+  questionIntonation,
 ];

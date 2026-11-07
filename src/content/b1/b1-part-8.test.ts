@@ -1,9 +1,12 @@
 import { findTopic, siblingsAcrossLevels } from "@/content/registry";
 import { parseTopic, type CategorySlug, type Level, type Question, type RuleTopic } from "@/content/schema";
+import { matchesGap } from "@/lib/gap-match";
 import { b1Topics } from ".";
 import { abbreviations } from "./mechanics/abbreviations";
 import { colonsAndSemicolons } from "./mechanics/colons-and-semicolons";
 import { commas } from "./mechanics/commas";
+import { questionIntonation } from "./mechanics/question-intonation";
+import { questionTags } from "./grammar/question-tags";
 
 function mistakes(questions: Question[]) {
   return questions.flatMap((x) => (x.kind === "mistake" ? [[x.tokens[x.wrongIndex], x.correction]] : []));
@@ -19,6 +22,34 @@ function choiceAnswer(questions: Question[], stemPart: string, optionPart?: stri
 
 function distractors(t: { quiz: Question[] }) {
   return t.quiz.flatMap((x) => (x.kind === "choice" ? x.options.filter((_, i) => i !== x.answer) : []));
+}
+
+function gap(questions: Question[], stemPart: string) {
+  const q = questions.find((x) => x.kind === "gap" && x.stem.includes(stemPart));
+  if (q?.kind !== "gap") throw new Error(`gap containing "${stemPart}" missing`);
+  return q.answers;
+}
+
+function expectGap(accepted: string[], right: string[], wrong: string[]) {
+  for (const typed of right) expect(matchesGap(typed, accepted), `accepts "${typed}"`).toBe(true);
+  for (const typed of wrong) expect(matchesGap(typed, accepted), `rejects "${typed}"`).toBe(false);
+}
+
+/** Every string anywhere inside a value, with its path, walking objects and arrays recursively. */
+function stringsIn(value: unknown, path: string): Array<[string, string]> {
+  if (typeof value === "string") return [[path, value]];
+  if (Array.isArray(value)) return value.flatMap((v, i) => stringsIn(v, `${path}[${i}]`));
+  if (value !== null && typeof value === "object") {
+    return Object.entries(value).flatMap(([k, v]) => stringsIn(v, `${path}.${k}`));
+  }
+  return [];
+}
+
+/** U+2197 (north east arrow) or U+2198 (south east arrow). A screen reader reads them by those names, so each must be named in words. */
+const ARROW = /[\u2197\u2198]/;
+
+function unnamedArrows(strings: Array<[string, string]>) {
+  return strings.filter(([, s]) => ARROW.test(s) && !/rising|falling/i.test(s)).map(([path]) => path);
 }
 
 const ids = (level: Level, category: CategorySlug, slug: string) => {
@@ -126,5 +157,81 @@ describe("B1 Mechanics, orders 41-43 (commas, colons and semicolons, abbreviatio
       ["FYI.", "ASAP."],
       ["etc..", "etc."],
     ]);
+  });
+});
+
+describe("B1 Mechanics, order 44 (question intonation)", () => {
+  const t = questionIntonation;
+  const all = JSON.stringify(t);
+
+  it("registers order 44 as the last B1 topic, a mechanics rule topic passing the schema", () => {
+    const found = findTopic("b1", "mechanics", "question-intonation");
+    expect(found?.order).toBe(44);
+    expect(found?.shape).toBe("rule");
+    expect(found?.level).toBe("b1");
+    expect(() => parseTopic(found)).not.toThrow();
+    expect(b1Topics).toHaveLength(44);
+    expect(b1Topics[43].slug).toBe("question-intonation");
+    expect(b1Topics.map((x) => x.order)).toEqual(Array.from({ length: 44 }, (_, i) => i + 1));
+  });
+
+  it("pins the intonation family, with no A1 or A2 sibling yet", () => {
+    expect(t.family).toBe("intonation");
+    expect(ids("b1", "mechanics", "question-intonation")).toEqual([]);
+  });
+
+  it("gives the topic about five questions, at least 3 examples and a short summary", () => {
+    expect(t.quiz.length).toBeGreaterThanOrEqual(5);
+    expect(t.examples.length).toBeGreaterThanOrEqual(3);
+    expect(t.summary.length).toBeLessThanOrEqual(155);
+  });
+
+  it("hedges every rule with usually, and teaches tag intonation that order 19 leaves out", () => {
+    const text = t.explanation.replace(/<\/?b>/g, "");
+    expect(text).toMatch(/yes\/no question[^.]*usually goes up/);
+    expect(text).toMatch(/wh- question[^.]*usually goes down/);
+    expect(text).toContain("many exceptions");
+    expect(t.explanation).toContain("order 19");
+    expect(questionTags.levelRationale).toContain("taught in order 44");
+    expect(t.form?.split("\n").filter((l) => l.includes("usually")).length).toBeGreaterThanOrEqual(4);
+  });
+
+  it("writes rising and falling as words, with no arrow glyphs, because the served fonts have no U+2197 or U+2198", () => {
+    expect(all).not.toMatch(ARROW);
+    for (const ex of t.examples) expect(ex.sentence, ex.sentence).toMatch(/\((rising|falling)\)$/);
+    for (const ex of t.examples) expect(ex.why, ex.sentence).toMatch(/ris|fall|goes (up|down)/i);
+  });
+
+  it("pins the choice answers: rise for a real question, fall for checking, fall for a wh- question", () => {
+    expect(choiceAnswer(t.quiz, "Is there a bank near here?")).toBe("It usually goes up (rising).");
+    expect(choiceAnswer(t.quiz, "really want to know")).toBe("Rising");
+    expect(choiceAnswer(t.quiz, "want your friend to agree")).toBe("Falling");
+    expect(choiceAnswer(t.quiz, "usually has falling")).toBe("What time do you finish work?");
+    expect(choiceAnswer(t.quiz, "You've sold your car?")).toBe("Her voice rises at the end.");
+    expect(choiceAnswer(t.quiz, "aren't you? (falling)")).toBe("He is almost sure, and he expects you to agree.");
+  });
+
+  it("pins the gap: falling for wh- questions", () => {
+    const accepted = gap(t.quiz, "Write rising or falling");
+    expect(accepted).toEqual(["falling"]);
+    expectGap(accepted, ["falling", "Falling", " falling. "], ["rising", "fall", "down"]);
+  });
+
+  it("tests only the rule, never a sound: no mistake or wordbank items, and nothing asks the learner to listen", () => {
+    expect(t.quiz.some((q) => q.kind === "mistake" || q.kind === "wordbank")).toBe(false);
+    expect(all).not.toMatch(/\b(listen|audio|recording|play the)\b/i);
+  });
+});
+
+describe("B1 arrows corpus (Review Focus 5)", () => {
+  it("names every rising or falling arrow in words in the same string, in every field of every B1 topic", () => {
+    const strings = b1Topics.flatMap((topic) => stringsIn(topic, topic.slug));
+    expect(strings.length).toBeGreaterThan(1000);
+    expect(unnamedArrows(strings)).toEqual([]);
+  });
+
+  it("walks nested fields, so an unnamed arrow in a quiz option would be caught and a named one would not", () => {
+    const fake = { quiz: [{ options: ["fine", "Ready \u2197", "Ready? rising \u2197"] }] };
+    expect(unnamedArrows(stringsIn(fake, "fake"))).toEqual(["fake.quiz[0].options[1]"]);
   });
 });

@@ -7,6 +7,7 @@ const id = (t: Topic) => `${t.level}/${t.category}/${t.slug}`;
 
 const a1 = topicsByLevel("a1");
 const a2 = topicsByLevel("a2");
+const b1 = topicsByLevel("b1");
 const a2WithFamily = a2.filter((t) => t.family !== undefined);
 const a1Counterpart = (t: Topic) => a1.find((x) => key(x) === key(t));
 
@@ -81,5 +82,75 @@ describe("cross-level family links between A1 and A2", () => {
       const keys = allTopics.filter((t) => t.level === level).map(key);
       expect(new Set(keys).size, level).toBe(keys.length);
     }
+  });
+});
+
+describe("cross-level family links from B1 to A1 and A2", () => {
+  const b1WithFamily = b1.filter((t) => t.family !== undefined);
+  const lowerSiblings = (t: Topic) => [...a1, ...a2].filter((x) => key(x) === key(t));
+  const get = (level: "a1" | "a2" | "b1", category: Topic["category"], slug: string) => {
+    const found = findTopic(level, category, slug);
+    if (!found) throw new Error(`${level}/${slug} missing`);
+    return found;
+  };
+
+  it("links every B1 topic with a family to every A1 and A2 topic sharing its key, and each of those back", () => {
+    for (const t of b1WithFamily) {
+      const below = siblingsAcrossLevels(t).filter((s) => s.level === "a1" || s.level === "a2");
+      expect(below.map(id), id(t)).toEqual(lowerSiblings(t).map(id));
+      for (const s of below) expect(siblingsAcrossLevels(s).map(id), id(s)).toContain(id(t));
+    }
+  });
+
+  it("shares exactly these families with A1 and A2", () => {
+    const shared = b1WithFamily.filter((t) => lowerSiblings(t).length > 0).map(key).sort();
+    expect(shared).toEqual(
+      [
+        "past-simple",
+        "future-forms",
+        "conditionals",
+        "used-to",
+        "gerunds-and-infinitives",
+        "question-forms",
+        "determiners",
+        "adjective-order",
+        "linking-words",
+        "prepositions-of-place",
+        "prepositions-of-time",
+        "emails",
+        "polite-requests",
+        "introductions",
+        "punctuation",
+      ].sort(),
+    );
+  });
+
+  it("pins the past-simple chain A1 was-were -> A2 past simple -> B1 present perfect vs past simple, in CEFR order", () => {
+    const wasWere = get("a1", "grammar", "was-were");
+    const pastSimple = get("a2", "grammar", "past-simple-regular-and-irregular");
+    const b1Past = get("b1", "grammar", "present-perfect-and-past-simple");
+    expect(siblingsAcrossLevels(pastSimple)).toEqual([wasWere, b1Past]);
+    expect(siblingsAcrossLevels(b1Past)).toEqual([wasWere, pastSimple]);
+    expect(siblingsAcrossLevels(wasWere)).toEqual([pastSimple, b1Past]);
+  });
+
+  it("pins A2 used-to-and-would and B1 be-used-to-and-get-used-to as siblings both ways", () => {
+    const usedTo = get("a2", "grammar", "used-to-and-would");
+    const beUsedTo = get("b1", "grammar", "be-used-to-and-get-used-to");
+    expect(siblingsAcrossLevels(usedTo)).toEqual([beUsedTo]);
+    expect(siblingsAcrossLevels(beUsedTo)).toEqual([usedTo]);
+  });
+
+  it("keeps every B1 family in FAMILY_KEYS, and gives B1 topics without a family no siblings", () => {
+    for (const t of b1WithFamily) expect(FAMILY_KEYS as readonly string[], t.slug).toContain(t.family);
+    for (const t of b1.filter((x) => x.family === undefined)) {
+      expect(FAMILY_KEYS as readonly string[], t.slug).not.toContain(t.slug);
+      expect(siblingsAcrossLevels(t), id(t)).toEqual([]);
+    }
+  });
+
+  it("has at most one topic per family in B1", () => {
+    const keys = b1.map(key);
+    expect(new Set(keys).size).toBe(keys.length);
   });
 });
