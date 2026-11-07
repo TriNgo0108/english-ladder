@@ -120,7 +120,7 @@ describe("B1 grammar, part 3 (modals and verb patterns)", () => {
     expectGap(using, ["using", "Using."], ["use", "to use", "used", "uses"]);
     const got = gap(beUsedToAndGetUsedTo.quiz, "the food");
     expect(got).toEqual(["'ve got", "have got", "'ve gotten", "have gotten"]);
-    expectGap(got, ["'ve got", "have got", "’ve gotten", "have gotten"], ["got", "are", "'re", "have get", "'ve getting"]);
+    expectGap(got, ["'ve got", "have got", "’ve gotten", "have gotten"], ["got", "are", "'re", "have get", "'ve getting", "haven't got", "haven't gotten"]);
   });
 
   it("pins the gerund and infinitive choices and gaps, accepting both forms after start", () => {
@@ -174,6 +174,7 @@ describe("B1 grammar, part 3 (modals and verb patterns)", () => {
 
   it("pins every mistake item's wrong token and correction", () => {
     expect(wrongToken(modalsOfPossibilityAndDeduction.quiz)).toEqual(["mustn't", "can't"]);
+    expect(modalsOfPossibilityAndDeduction.quiz.find((q) => q.kind === "mistake")).toMatchObject({ tokens: ["This", "mustn't", "be", "your", "coat.", "It's", "far", "too", "small", "for", "you."] });
     expect(wrongToken(beUsedToAndGetUsedTo.quiz)).toEqual(["use", "used"]);
     expect(wrongToken(gerundsVsInfinitives.quiz)).toEqual(["see", "seeing"]);
     expect(wrongToken(transitiveAndIntransitiveVerbs.quiz)).toEqual(["arrived", "arrived at"]);
@@ -184,6 +185,9 @@ describe("B1 grammar, part 3 (modals and verb patterns)", () => {
     expect(modalsOfPossibilityAndDeduction.explanation).toContain("American English");
     expect(modalsOfPossibilityAndDeduction.explanation).toContain("not mustn't");
     expect(beUsedToAndGetUsedTo.explanation).toContain("gotten");
+    expect(beUsedToAndGetUsedTo.explanation).toContain("in be used to and get used to, we always write");
+    expect(thePassive.explanation).toContain("verbs with no object at all");
+    expect(thePassive.explanation).not.toContain("Only transitive verbs");
     expect(gerundsVsInfinitives.explanation).toContain("little or no difference");
     expect(transitiveAndIntransitiveVerbs.explanation).toContain("both");
     expect(thePassive.explanation).toContain("only when");

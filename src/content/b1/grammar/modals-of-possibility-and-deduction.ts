@@ -104,11 +104,11 @@ export const modalsOfPossibilityAndDeduction: RuleTopic = {
     },
     {
       kind: "mistake",
-      tokens: ["That", "mustn't", "be", "Maria", "at", "the", "door.", "She's", "in", "Japan", "this", "week."],
+      tokens: ["This", "mustn't", "be", "your", "coat.", "It's", "far", "too", "small", "for", "you."],
       wrongIndex: 1,
       correction: "can't",
       feedback:
-        "Maria is in Japan, so we are sure that it isn't her at the door: That can't be Maria. Couldn't is also possible. Mustn't means that something is not allowed, so we don't use it for this.",
+        "The coat is far too small for you, so we are sure that it isn't yours: This can't be your coat. Couldn't is also possible. Mustn't means that something is not allowed, so we don't use it for this.",
     },
   ],
 

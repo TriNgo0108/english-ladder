@@ -16,7 +16,7 @@ export const beUsedToAndGetUsedTo: RuleTopic = {
     "In these phrases, <b>to</b> is a preposition, not part of an infinitive. Remember: a preposition is a small word, like in, on or under, that goes before a noun. So after be used to and get used to, we use a <b>noun</b>, a pronoun like it or them, or the <b>-ing</b> form of a verb: I'm used to <b>the cold</b>. I'm used to <b>it</b>. I'm used to <b>getting up</b> early. Not I'm used to get up early. Remember: when the -ing form of a verb works like a noun, as the name of an activity, we call it the gerund.",
     "Be and get change for the tense and the subject, but used stays the same: I <b>wasn't used to</b> the food at first. You<b>'ll</b> soon <b>get used to</b> it. We<b>'ve got used to</b> the noise. In American English, people say we've <b>gotten</b> used to it. To say no, use not with be: I<b>'m not used to</b> it. To ask a question, put be before the subject: <b>Are</b> you <b>used to</b> the weather here?",
     "Don't confuse this with <b>used to</b> and the base form (A2), for a past habit that is not true now: I <b>used to live</b> in a village. (I don't now.) I<b>'m used to living</b> in a city. (It is normal for me now.)",
-    "When we speak, we don't hear the d in used to: it sounds like use to. But we always write <b>used</b>.",
+    "When we speak, we don't hear the d in used to: it sounds like use to. But in be used to and get used to, we always write <b>used</b>.",
   ].join("\n\n"),
 
   form: [
@@ -94,7 +94,7 @@ export const beUsedToAndGetUsedTo: RuleTopic = {
     },
     {
       kind: "gap",
-      stem: "We've lived in Japan for a year now, and we ___ used to the food. (get, present perfect)",
+      stem: "We've lived in Japan for a year now, so we ___ used to the food. (get, present perfect)",
       answers: ["'ve got", "have got", "'ve gotten", "have gotten"],
       feedback:
         "The food has become normal for us, so we use the present perfect of get: We've got used to the food. In American English, people say we've gotten used to it. We have got and we have gotten are also correct.",

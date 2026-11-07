@@ -16,7 +16,7 @@ export const thePassive: RuleTopic = {
     "To make the passive, use <b>be</b> and the <b>past participle</b> of the verb. Remember: the past participle is the form of a verb that comes after have: seen, gone, finished. In the passive, it comes after be. The tense is in be: present simple <b>am / is / are</b> + past participle: Cars <b>are made</b> in this factory. Past simple <b>was / were</b> + past participle: The windows <b>were cleaned</b> yesterday. Present perfect <b>has / have been</b> + past participle: The room <b>has been booked</b>. Will: <b>will be</b> + past participle: Your parcel <b>will be delivered</b> tomorrow.",
     "To say no, put not after the first word (is, was, has or will): The letter <b>wasn't sent</b>. The work <b>hasn't been finished</b>. To ask a question, put that first word before the subject: <b>Was</b> your car <b>damaged</b>? <b>Where were</b> these shoes <b>made</b>?",
     "To say who did the action, use <b>by</b>. Use it <b>only when</b> the person is important or new information: Hamlet <b>was written by</b> Shakespeare. We don't use by when the person is not known or not important: My bike was stolen, not My bike was stolen by someone.",
-    "Only transitive verbs have a passive (order 14). Intransitive verbs, like happen, arrive and die, have no object, so they have no passive: The accident <b>happened</b> at night, not The accident was happened. Our train <b>arrived</b> late, not was arrived.",
+    "A passive needs an object in the active sentence: the object becomes the subject. So verbs with no object at all, like happen, arrive and die (intransitive verbs, order 14), have no passive: The accident <b>happened</b> at night, not The accident was happened. Our train <b>arrived</b> late, not was arrived.",
     "In informal English, people sometimes use <b>get</b> instead of be: My phone <b>got stolen</b>. In this topic, we use be.",
   ].join("\n\n"),
 
@@ -27,7 +27,7 @@ export const thePassive: RuleTopic = {
     "present perfect: has / have been + past participle · The room has been booked.",
     "will: will be + past participle · Your parcel will be delivered tomorrow.",
     "by + the person, only when it is important · Hamlet was written by Shakespeare.",
-    "intransitive verbs (happen, arrive) → no passive",
+    "verbs with no object at all (happen, arrive, die) → no passive",
   ].join("\n"),
 
   examples: [
@@ -132,8 +132,8 @@ export const thePassive: RuleTopic = {
   ],
 
   levelRationale:
-    "English Grammar Profile: the present simple and past simple passive are B1 points, and the present perfect and will passive appear at B1 too. The spec (section 8) places the passive at B1 and makes it the family's first topic; more passive forms (the passive with modals and continuous tenses, It is said that …) are left to B2, the family's next level. It builds on the past participle (order 1) and transitive and intransitive verbs (order 14), because only transitive verbs have a passive. Every gap gives the subject in the stem, so the active is not possible, and the gaps name the tense where two tenses could fit. Get + past participle is mentioned as informal, and the past simple gap accepts got stolen.",
+    "English Grammar Profile: the present simple and past simple passive are B1 points, and the present perfect and will passive appear at B1 too. The spec (section 8) places the passive at B1 and makes it the family's first topic; more passive forms (the passive with modals and continuous tenses, It is said that …) are left to B2, the family's next level. It builds on the past participle (order 1) and transitive and intransitive verbs (order 14), because verbs with no object at all have no passive. Verbs with a preposition, like laugh at and listen to, can have a passive (I was laughed at), as Swan notes, but that is not taught here, so the explanation speaks only of verbs with no object at all. Every gap gives the subject in the stem, so the active is not possible, and the gaps name the tense where two tenses could fit. Get + past participle is mentioned as informal, and the past simple gap accepts got stolen.",
 
   sourceNotes:
-    "english_grammar.txt, # The passive: the passive when the person who does the action is not important or not known, and be in the right tense with a past participle of a transitive verb, agree with Swan. The note says past participant; this topic says past participle, as order 1 does. The note's passive + infinitive (He is said to be …) and passives with two objects (You are given your seat number) are above B1 and left to B2. The four tenses, negatives and questions, by for the person, intransitive verbs with no passive and get in informal English are authored from Swan, Practical English Usage.",
+    "english_grammar.txt, # The passive: the passive when the person who does the action is not important or not known, and be in the right tense with a past participle of a transitive verb, agree with Swan, who adds that verbs with a preposition (laugh at) can also be passive. The note says past participant; this topic says past participle, as order 1 does. The note's passive + infinitive (He is said to be …) and passives with two objects (You are given your seat number) are above B1 and left to B2. The four tenses, negatives and questions, by for the person, verbs with no object having no passive, and get in informal English are authored from Swan, Practical English Usage.",
 };
