@@ -77,9 +77,9 @@ export const determiners: RuleTopic = {
     {
       kind: "gap",
       stem: "___ my parents are from Italy, so I speak Italian at home. (both, either or neither)",
-      answers: ["Both"],
+      answers: ["Both", "Both of"],
       feedback:
-        "Parents are two people, and this is true of the two together, so we use both with a plural noun: Both my parents are from Italy.",
+        "Parents are two people, and this is true of the two together, so we use both with a plural noun: Both my parents are from Italy. Both of my parents is also correct.",
     },
     {
       kind: "gap",

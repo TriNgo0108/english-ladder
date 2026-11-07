@@ -161,8 +161,8 @@ describe("B1 grammar, part 4 (reporting, clauses, questions, noun phrases)", () 
     expect(choiceAnswer(determiners.quiz, "end of the table")).toBe("either");
     expect(choiceAnswer(determiners.quiz, "before the train")).toBe("a little");
     const both = gap(determiners.quiz, "from Italy");
-    expect(both).toEqual(["Both"]);
-    expectGap(both, ["Both", "both"], ["All", "Either", "Neither", "Each", "Every"]);
+    expect(both).toEqual(["Both", "Both of"]);
+    expectGap(both, ["Both", "both", "both of"], ["All", "Either", "Neither", "Each", "Every"]);
     const neither = gap(determiners.quiz, "two lifts");
     expect(neither).toEqual(["Neither"]);
     expectGap(neither, ["Neither", "neither"], ["None", "Both", "Either", "No", "Each"]);

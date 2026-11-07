@@ -17,7 +17,7 @@ export const reportedSpeech: RuleTopic = {
     "The people change too, so pronouns and words like my and your change to fit the new speaker: \"I like your dress,\" Tom said to me. → Tom said he liked <b>my</b> dress. Remember: a pronoun is a short word that we use in place of a noun.",
     "When we report at a different time or in a different place, words for time and place often change: now → <b>then</b>, today → <b>that day</b>, tomorrow → <b>the next day</b> or <b>the following day</b>, yesterday → <b>the day before</b> or <b>the previous day</b>, next week → <b>the following week</b>, here → <b>there</b>. If we report on the same day, tomorrow can stay tomorrow: This morning she said she would call me tomorrow.",
     "To report a question, we usually use <b>asked</b>. A reported question has the word order of a normal sentence: the subject comes before the verb, there is no do, does or did, and there is no question mark. For a question with a question word, keep the question word: \"Where <b>do you live</b>?\" → She asked me where <b>I lived</b>, not where did I live. For a yes/no question, use <b>if</b> or <b>whether</b>: \"<b>Are you</b> hungry?\" → He asked me <b>if I was</b> hungry.",
-    "Say and tell are the most common reporting verbs. Tell needs a person after it: He told <b>me</b> he was busy. The next topic shows the difference.",
+    "Say and tell are the most common reporting verbs. When we report what someone said, tell usually needs a person after it: He told <b>me</b> he was busy. The next topic shows the difference.",
   ].join("\n\n"),
 
   form: [
