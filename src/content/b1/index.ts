@@ -26,6 +26,9 @@ import { timeClauses } from "./grammar/time-clauses";
 import { transitiveAndIntransitiveVerbs } from "./grammar/transitive-and-intransitive-verbs";
 import { wishAndIfOnly } from "./grammar/wish-and-if-only";
 import { wordBuildingSuffixes } from "./grammar/word-building-suffixes";
+import { abbreviations } from "./mechanics/abbreviations";
+import { colonsAndSemicolons } from "./mechanics/colons-and-semicolons";
+import { commas } from "./mechanics/commas";
 import { collocations } from "./phrases/collocations";
 import { idioms } from "./phrases/idioms";
 import { inTimeAndOnTime } from "./phrases/in-time-and-on-time";
@@ -82,4 +85,7 @@ export const b1Topics: Topic[] = [
   agreeingAndDisagreeing,
   indirectAndPoliteQuestions,
   introducingYourselfAndInterruptingAtWork,
+  commas,
+  colonsAndSemicolons,
+  abbreviations,
 ];
