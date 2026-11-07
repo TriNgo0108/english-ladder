@@ -115,11 +115,11 @@ export const secondConditional: RuleTopic = {
     },
     {
       kind: "mistake",
-      tokens: ["If", "I", "were", "you,", "I", "will", "call", "her", "today."],
-      wrongIndex: 5,
-      correction: "would",
+      tokens: ["If", "I", "am", "you,", "I'd", "call", "her", "today."],
+      wrongIndex: 2,
+      correction: "were",
       feedback:
-        "If I were you is a second conditional, so the result clause needs would, not will: If I were you, I would call her today, or I'd call her today. Will goes with the first conditional.",
+        "I can't really be you, so this is a second conditional, and the if clause uses the past form of be: If I were you, I'd call her today. If I was you is also heard in informal English. Am is the present simple, which goes with the first conditional and will.",
     },
   ],
 

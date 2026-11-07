@@ -74,9 +74,9 @@ export const wishAndIfOnly: RuleTopic = {
     {
       kind: "gap",
       stem: "I'm quite short. I wish I ___ taller. (be)",
-      answers: ["were", "was"],
+      answers: ["were", "was", "could be"],
       feedback:
-        "After wish, we use the past form of be for a present meaning: I wish I were taller. Were is often preferred, especially in writing, and I wish I was taller is also correct in informal English.",
+        "After wish, we use the past form of be for a present meaning: I wish I were taller. Were is often preferred, especially in writing, and I wish I was taller is also correct in informal English. I wish I could be taller is also correct.",
     },
     {
       kind: "gap",

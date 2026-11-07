@@ -145,8 +145,8 @@ describe("B1 grammar, part 2 (narrative and future)", () => {
     expect(choiceAnswer(wishAndIfOnly.quiz, "have a car")).toBe("had");
     expect(choiceAnswer(wishAndIfOnly.quiz, "exam tomorrow")).toBe("I hope you pass your exam.");
     const were = gap(wishAndIfOnly.quiz, "quite short");
-    expect(were).toEqual(["were", "was"]);
-    expectGap(were, ["were", "was"], ["am", "'m", "would be", "will be"]);
+    expect(were).toEqual(["were", "was", "could be"]);
+    expectGap(were, ["were", "was", "could be"], ["am", "'m", "would be", "will be", "can be"]);
     const could = gap(wishAndIfOnly.quiz, "can't swim");
     expect(could).toEqual(["could", "was able to", "were able to"]);
     expectGap(could, ["could", "was able to"], ["can", "would", "could to", "am able to"]);
@@ -167,7 +167,7 @@ describe("B1 grammar, part 2 (narrative and future)", () => {
     expect(wrongToken(pastPerfectAndNarrativeTenses.quiz)).toEqual(["have", "had"]);
     expect(wrongToken(timeClauses.quiz)).toEqual(["got", "get"]);
     expect(wrongToken(futureContinuousAndFuturePerfect.quiz)).toEqual(["live", "lived"]);
-    expect(wrongToken(secondConditional.quiz)).toEqual(["will", "would"]);
+    expect(wrongToken(secondConditional.quiz)).toEqual(["am", "were"]);
     expect(wrongToken(wishAndIfOnly.quiz)).toEqual(["is", "were"]);
   });
 
