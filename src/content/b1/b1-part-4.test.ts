@@ -52,7 +52,7 @@ describe("B1 grammar, part 4 (reporting, clauses, questions, noun phrases)", () 
     expect(adjectiveOrder.family).toBe("adjective-order");
   });
 
-  it("links the determiners, question-forms and adjective-order chains A1 <-> B1 both ways, and gives the rest no siblings", () => {
+  it("links the determiners, question-forms and adjective-order chains A1 <-> B1 both ways, reported speech and defining relative clauses to B2, and gives the rest no siblings", () => {
     expect(ids("a1", "grammar", "this-that-these-those")).toEqual(["b1/determiners"]);
     expect(ids("b1", "grammar", "determiners")).toEqual(["a1/this-that-these-those"]);
     expect(ids("a1", "grammar", "question-words")).toEqual(["a2/subject-questions", "b1/question-tags"]);
@@ -61,7 +61,7 @@ describe("B1 grammar, part 4 (reporting, clauses, questions, noun phrases)", () 
     expect(ids("b1", "grammar", "adjective-order")).toEqual(["a1/adjectives-before-the-noun"]);
     expect(ids("b1", "grammar", "reported-speech")).toEqual(["b2/reported-commands-advice-and-requests"]);
     expect(ids("b1", "grammar", "say-and-tell")).toEqual([]);
-    expect(ids("b1", "grammar", "defining-relative-clauses")).toEqual([]);
+    expect(ids("b1", "grammar", "defining-relative-clauses")).toEqual(["b2/non-defining-relative-clauses"]);
   });
 
   it("gives each topic about five questions, at least 3 examples, a summary, and scrambles every wordbank", () => {
