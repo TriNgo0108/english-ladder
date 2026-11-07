@@ -65,10 +65,10 @@ export const countableAndUncountableNouns: RuleTopic = {
     {
       kind: "choice",
       stem: "Which noun is uncountable?",
-      options: ["egg", "chair", "banana", "information"],
+      options: ["car", "chair", "table", "information"],
       answer: 3,
       feedback:
-        "Information is uncountable: some information, not an information or informations. Egg, chair and banana are countable: an egg, two eggs.",
+        "Information is uncountable: some information, not an information or informations. Car, chair and table are countable: a car, two cars.",
     },
     {
       kind: "gap",

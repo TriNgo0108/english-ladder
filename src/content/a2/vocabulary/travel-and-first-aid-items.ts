@@ -76,9 +76,9 @@ export const travelAndFirstAidItems: SetTopic = {
     },
     {
       kind: "mistake",
-      tokens: ["I", "took", "my", "temperature", "with", "the", "tweezers."],
-      wrongIndex: 6,
-      correction: "thermometer.",
+      tokens: ["I", "need", "the", "tweezers", "to", "take", "my", "temperature."],
+      wrongIndex: 3,
+      correction: "thermometer",
       feedback:
         "A thermometer tells you your temperature. To take your temperature means to find out how hot your body is. Tweezers are for taking out very small things from your skin.",
     },

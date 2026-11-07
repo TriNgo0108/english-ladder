@@ -17,7 +17,7 @@ export const presentContinuousForFuture: RuleTopic = {
     "Negatives and questions are the same as for now: I<b>'m not working</b> tomorrow. What <b>are</b> you <b>doing</b> on Saturday? <b>Are</b> you <b>coming</b> to the party? Yes, I am. No, I'm not.",
     "Present continuous or going to? Often both are correct: I'm meeting Sam tomorrow, or I'm going to meet Sam tomorrow. We usually use the present continuous when the plan is arranged, with a time, a place, other people or a ticket. We usually use <b>going to</b> for a plan that is only in our head and is not arranged yet: One day I'm going to write a book.",
     "We do not usually use <b>will</b> for an arrangement: I'm seeing the doctor at ten, not usually I'll see the doctor at ten. Will is more for a decision that we make at the moment we speak.",
-    "We use the present continuous usually for things that people can arrange. For the weather, use going to or will: It's going to snow tomorrow, not It's snowing tomorrow.",
+    "We usually use the present continuous for things that people can arrange. For the weather, use going to or will: It's going to snow tomorrow, not It's snowing tomorrow.",
   ].join("\n\n"),
 
   form: [

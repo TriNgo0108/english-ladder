@@ -108,11 +108,11 @@ export const haveTo: RuleTopic = {
     },
     {
       kind: "mistake",
-      tokens: ["Does", "he", "has", "to", "wear", "a", "suit?"],
-      wrongIndex: 2,
+      tokens: ["Why", "does", "he", "has", "to", "wear", "a", "suit?"],
+      wrongIndex: 3,
       correction: "have",
       feedback:
-        "After does, we use have, not has. The -s is already in does: Does he have to wear a suit?",
+        "After does, we use have, not has. The -s is already in does: Why does he have to wear a suit?",
     },
   ],
 

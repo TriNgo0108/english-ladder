@@ -143,6 +143,7 @@ describe("A2 grammar, part 3", () => {
   it("pins every mistake item's wrong token and correction", () => {
     expect(wrongToken(shouldAndMust.quiz)).toEqual(["musts", "must"]);
     expect(wrongToken(haveTo.quiz)).toEqual(["has", "have"]);
+    expect(haveTo.quiz.find((q) => q.kind === "mistake")).toMatchObject({ tokens: ["Why", "does", "he", "has", "to", "wear", "a", "suit?"], wrongIndex: 3 });
     expect(wrongToken(infinitiveOfPurpose.quiz)).toEqual(["for", "to"]);
     expect(wrongToken(tooAndEnough.quiz)).toEqual(["many", "much"]);
     expect(wrongToken(articlesTheAndZeroArticle.quiz)).toEqual(["A", "The"]);

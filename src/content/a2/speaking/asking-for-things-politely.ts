@@ -30,7 +30,7 @@ export const askingForThingsPolitely: PhraseTopic = {
     },
     {
       situation: "Asking someone to do something",
-      phrases: ["Could you help me, please?", "Can you open the door, please?", "Could you say that again, please?"],
+      phrases: ["Could you help me, please?", "Can you open the door, please?", "Could you say that again, please?", "Excuse me, could you tell me the time, please?"],
       register: "neutral",
     },
     {
@@ -40,7 +40,7 @@ export const askingForThingsPolitely: PhraseTopic = {
     },
     {
       situation: "Asking a stranger or someone at work",
-      phrases: ["Excuse me, could you tell me the time, please?", "May I come in?", "May I ask a question?"],
+      phrases: ["May I come in?", "May I ask a question?"],
       register: "formal",
     },
     {

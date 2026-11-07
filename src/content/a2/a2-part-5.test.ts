@@ -168,10 +168,17 @@ describe("A2 vocabulary, writing and speaking (part 5)", () => {
     expect(wordbankAnswer(askingForThingsPolitely.quiz)).toBe("Could you open the window, please?");
   });
 
+  it("keeps the time request neutral, and only May I phrases formal", () => {
+    const sit = askingForThingsPolitely.situations;
+    const find = (ph: string) => sit.find((x) => x.phrases.includes(ph));
+    expect(find("Excuse me, could you tell me the time, please?")?.register).toBe("neutral");
+    expect(sit.filter((x) => x.register === "formal").flatMap((x) => x.phrases)).toEqual(["May I come in?", "May I ask a question?"]);
+  });
+
   it("pins every mistake item's wrong token and correction", () => {
     expect(wrongToken(holidaysAndOutdoorActivities.quiz)).toEqual(["picnic", "tent"]);
     expect(wrongToken(theBodyAndSymptoms.quiz)).toEqual(["foots", "feet"]);
-    expect(wrongToken(travelAndFirstAidItems.quiz)).toEqual(["tweezers.", "thermometer."]);
+    expect(wrongToken(travelAndFirstAidItems.quiz)).toEqual(["tweezers", "thermometer"]);
     expect(wrongToken(houseAndHome.quiz)).toEqual(["fridge.", "wardrobe."]);
     expect(wrongToken(anInformalEmail.quiz)).toEqual(["you", "your"]);
     expect(wrongToken(askingForThingsPolitely.quiz)).toEqual(["borrow", "lend"]);
