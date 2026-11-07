@@ -4,7 +4,7 @@ export const commas: RuleTopic = {
   slug: "commas",
   family: "punctuation",
   title: "Commas: lists, linking words, extra information",
-  summary: "Put commas in lists, after However or an opening clause, before but and so, and around extra information. Never between a subject and its verb.",
+  summary: "Put commas in lists, after However or an opening clause, before but and so, and around extra information. Not one alone between a subject and verb.",
   level: "b1",
   category: "mechanics",
   shape: "rule",
@@ -15,8 +15,8 @@ export const commas: RuleTopic = {
     "<b>Lists.</b> Put a comma between the items in a list, and use and or or before the last item: We need tomatoes<b>,</b> onions<b>,</b> garlic and olive oil. In British English, writers usually leave out the comma before and. Many writers, especially in American English, put one there too: red<b>,</b> white<b>,</b> and blue. This is called the <b>Oxford comma</b>. Both styles are correct. Choose one and use it every time.",
     "<b>At the start of a sentence.</b> After a linking word or phrase at the start, like <b>However,</b> For example, In addition or As a result (order 25), we put a comma: The café was busy. <b>Unfortunately,</b> there were no free tables. When a time clause or an if clause comes first (orders 7 and 9), we usually put a comma after it: When the film ended<b>,</b> we went for pizza. After a short phrase about time or place, like On Monday or In 2020, the comma is often left out: On Monday<b>,</b> I start work at eight and On Monday I start work at eight are both correct.",
     "<b>Two clauses joined by but or so.</b> When but or so joins two clauses, we usually put a comma before it: I wanted to go out<b>,</b> but I was too tired. With two very short clauses, the comma is often left out. A comma alone can't join two sentences. Use a full stop, or add a joining word like but or so: I was hungry<b>,</b> so I made a sandwich, not I was hungry, I made a sandwich.",
-    "<b>Extra information.</b> Put commas around extra information in the middle of a sentence. It is extra if you can take it out and the sentence still makes sense, with the same main meaning: Our new manager<b>,</b> Ms Kaur<b>,</b> starts on Monday. Use a pair of commas, one before and one after. A relative clause with commas (who or which) is a different kind, which you'll meet at a later level (order 18).",
-    "<b>Never</b> put a comma between the subject and its verb, even when the subject is long: The man in the blue coat is my uncle, not The man in the blue coat, is my uncle. Don't put one between a verb and its object either: I bought bread, not I bought, bread.",
+    "<b>Extra information.</b> Put commas around extra information in the middle of a sentence. It is extra if you can take it out and the sentence still makes sense, with the same main meaning: Our new manager<b>,</b> Ms Kaur<b>,</b> starts on Monday. Use a pair of commas, one before and one after. A relative clause with commas (who or which) is a different kind, which you'll meet at a later level, as order 18 says.",
+    "<b>Never</b> put a single comma between the subject and its verb, even when the subject is long: The man in the blue coat is my uncle, not The man in the blue coat, is my uncle. A pair of commas around extra information is fine, as in Our new manager, Ms Kaur, starts on Monday. Don't put one between a verb and its object either: I bought bread, not I bought, bread.",
   ].join("\n\n"),
 
   form: [
@@ -25,7 +25,7 @@ export const commas: RuleTopic = {
     "time clause or if clause first → usually a comma: When the film ended, we went for pizza.",
     "clause, but / so + clause: I wanted to go out, but I was too tired.",
     "extra information: Our new manager, Ms Kaur, starts on Monday.",
-    "never: subject, verb · not: verb, object",
+    "never one comma alone: subject, verb · not: verb, object · a pair around extra information is fine",
   ].join("\n"),
 
   examples: [
@@ -76,11 +76,11 @@ export const commas: RuleTopic = {
     },
     {
       kind: "mistake",
-      tokens: ["The", "people", "in", "the", "flat", "upstairs,", "are", "very", "friendly."],
-      wrongIndex: 5,
-      correction: "upstairs",
+      tokens: ["Learning", "a", "new", "language,", "takes", "a", "long", "time."],
+      wrongIndex: 3,
+      correction: "language",
       feedback:
-        "The subject is The people in the flat upstairs, and its verb is are. Never put a comma between a subject and its verb, even a long one: The people in the flat upstairs are very friendly.",
+        "The subject is Learning a new language, and its verb is takes. Never put a single comma between a subject and its verb, even a long one: Learning a new language takes a long time.",
     },
     {
       kind: "choice",

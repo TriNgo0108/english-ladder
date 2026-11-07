@@ -80,7 +80,9 @@ describe("B1 Mechanics, orders 41-43 (commas, colons and semicolons, abbreviatio
     expect(commas.explanation).toContain("a clause is a group of words with a subject and a verb");
     expect(commas.explanation).toContain("we usually put a comma after it");
     expect(commas.explanation).toContain("<b>However,</b>");
-    expect(commas.explanation.replace(/<\/?b>/g, "")).toMatch(/never put a comma between the subject and its verb/i);
+    expect(commas.explanation.replace(/<\/?b>/g, "")).toMatch(/never put a single comma between the subject and its verb/i);
+    expect(commas.explanation).toContain("A pair of commas around extra information is fine");
+    expect(commas.form).toContain("never one comma alone: subject, verb");
   });
 
   it("writes British Mr, Mrs, Ms, Dr and St with no full stop, and names the US difference in one sentence", () => {
@@ -113,7 +115,7 @@ describe("B1 Mechanics, orders 41-43 (commas, colons and semicolons, abbreviatio
 
   it("pins every mistake item's wrong token and correction", () => {
     expect(mistakes(commas.quiz)).toEqual([
-      ["upstairs,", "upstairs"],
+      ["language,", "language"],
       ["However", "However,"],
     ]);
     expect(mistakes(colonsAndSemicolons.quiz)).toEqual([
