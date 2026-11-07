@@ -11,7 +11,7 @@ export const phrasalVerbsInseparable: SetTopic = {
 
   explanation: [
     "Remember: a phrasal verb is a verb and a small word, like up, off, on or out, that we use together, often with a new meaning. The small word after the verb is called the particle. With the phrasal verbs in order 27, the object can go between the verb and the particle: turn the light off, turn it off.",
-    "With the phrasal verbs in this topic, the object <b>always</b> comes after the particle, and that is true for a pronoun too: My grandmother looks after my brother. She looks after him. Not She looks him after. We can't put anything between the verb and the particle.",
+    "With the phrasal verbs in this topic, the object <b>always</b> comes after the particle, and that is true for a pronoun too: My grandmother looks after my brother. She looks after him. Not She looks him after. We can't put the object between the verb and the particle.",
     "Some of them have <b>two particles</b>, like get on with, look forward to and run out of. The object comes after both: I get on with my neighbours. We've run out of coffee. Get on with is British English. American English usually says get along with, and British speakers use it too.",
     "In look forward to, to is a preposition, so the verb after it takes -ing, as you learned in order 13: I'm looking forward to seeing my cousins. Not looking forward to see. Remember: when the -ing form of a verb works like a noun, as the name of an activity, we call it the gerund.",
     "You usually can't tell from the words if a phrasal verb can be separated, so learn each one with an example. A good dictionary shows it: look after somebody, but turn something off.",

@@ -23,7 +23,7 @@ export const collocations: SetTopic = {
     { headword: "make a decision", gloss: "choose what to do after you think about it. British English also says take a decision.", inUse: "We need to <b>make a decision</b> about the holiday today." },
     { headword: "make friends", gloss: "meet people and start to be their friend", inUse: "It's easy to <b>make friends</b> at university." },
     { headword: "make a noise", gloss: "produce a sound, often a loud one that people don't want", inUse: "Please don't <b>make a noise</b>. The baby's asleep." },
-    { headword: "make your bed", gloss: "put the covers on your bed tidy after you sleep", inUse: "I <b>make my bed</b> as soon as I get up." },
+    { headword: "make your bed", gloss: "make the sheets and covers on your bed neat after you sleep", inUse: "I <b>make my bed</b> as soon as I get up." },
     { headword: "do your homework", gloss: "do the work that a teacher gives you for after school", inUse: "She always <b>does her homework</b> on the bus." },
     { headword: "do the shopping", gloss: "buy the food and other things that a home needs, often every week", inUse: "We usually <b>do the shopping</b> on Saturday mornings." },
     { headword: "do the washing-up", gloss: "wash the plates, cups and pans after a meal. American English says do the dishes.", inUse: "I cooked, so you can <b>do the washing-up</b>." },

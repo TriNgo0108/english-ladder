@@ -56,6 +56,27 @@ describe("SetTopicView", () => {
     expect(scroller.className).toContain("focus-visible:outline-accent");
   });
 
+  it("shows the Sounds like column when any entry has IPA, with header and cell counts matching", () => {
+    const { container } = render(<SetTopicView topic={topic} />);
+    expect(screen.getByRole("columnheader", { name: "Sounds like" })).toBeInTheDocument();
+    const headers = container.querySelectorAll("thead th").length;
+    expect(headers).toBe(4);
+    for (const row of container.querySelectorAll("tbody tr")) {
+      expect(row.querySelectorAll("th, td").length).toBe(headers);
+    }
+  });
+
+  it("hides the Sounds like header and cells when no entry has IPA", () => {
+    const noIpa: SetTopic = { ...topic, entries: topic.entries.map((e) => ({ headword: e.headword, gloss: e.gloss, inUse: e.inUse })) };
+    const { container } = render(<SetTopicView topic={noIpa} />);
+    expect(screen.queryByRole("columnheader", { name: "Sounds like" })).toBeNull();
+    const headers = [...container.querySelectorAll("thead th")].map((th) => th.textContent);
+    expect(headers).toEqual(["Word", "Meaning", "In use"]);
+    for (const row of container.querySelectorAll("tbody tr")) {
+      expect(row.querySelectorAll("th, td").length).toBe(3);
+    }
+  });
+
   it("makes the scrollable table a named, keyboard-focusable region", () => {
     render(<SetTopicView topic={topic} />);
     const region = screen.getByRole("region", { name: "Word list, scrolls sideways" });

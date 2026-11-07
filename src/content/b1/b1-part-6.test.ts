@@ -195,6 +195,8 @@ describe("B1 Phrases & Expressions (part 6)", () => {
     expect(on).toEqual(["on", "along"]);
     expectGap(on, ["on", "along", "On"], ["in", "up", "off", "together"]);
     expect(phrasalVerbsInseparable.explanation).toContain("looking forward to");
+    expect(phrasalVerbsInseparable.explanation).toContain("We can't put the object between the verb and the particle.");
+    expect(phrasalVerbsInseparable.explanation).not.toContain("can't put anything");
   });
 
   it("pins the collocation choices and gaps, and never tests make or take a decision", () => {
@@ -215,9 +217,9 @@ describe("B1 Phrases & Expressions (part 6)", () => {
     expect(choiceAnswer(idioms.quiz, "driving test")).toBe("a piece of cake");
     expect(choiceAnswer(idioms.quiz, "Italian or Chinese")).toBe("It's up to you.");
     expect(choiceAnswer(idioms.quiz, "Make yourself at home")).toBe("Relax and feel comfortable here.");
-    const changed = gap(idioms.quiz, "my mind");
+    const changed = gap(idioms.quiz, "ordered the fish");
     expect(changed).toEqual(["changed"]);
-    expectGap(changed, ["changed", "Changed"], ["change", "made", "turned", "changed up"]);
+    expectGap(changed, ["changed", "Changed"], ["change", "made", "made up", "turned", "changed up"]);
     const hand = gap(idioms.quiz, "boxes");
     expect(hand).toEqual(["hand"]);
     expectGap(hand, ["hand", "Hand"], ["help", "lift", "hands", "arm"]);
@@ -240,9 +242,10 @@ describe("B1 Phrases & Expressions (part 6)", () => {
     expect(choiceAnswer(inTimeAndOnTime.quiz, "concert")).toBe("on time");
     expect(choiceAnswer(inTimeAndOnTime.quiz, "on the phone")).toBe("at the moment");
     expect(choiceAnswer(inTimeAndOnTime.quiz, "for an hour")).toBe("At last");
+    expect(JSON.stringify(inTimeAndOnTime.quiz)).not.toContain("needs of");
     const inTime = gap(inTimeAndOnTime.quiz, "popcorn");
-    expect(inTime).toEqual(["in"]);
-    expectGap(inTime, ["in", "In"], ["on", "at", "in a"]);
+    expect(inTime).toEqual(["in", "in good", "in plenty of", "in good time", "in plenty of time"]);
+    expectGap(inTime, ["in", "In", "in good", "in plenty of", "in good time", "in plenty of time"], ["on", "at", "in a", "in plenty"]);
     const inTheEnd = gap(inTimeAndOnTime.quiz, "flats");
     expect(inTheEnd).toEqual(["in"]);
     expectGap(inTheEnd, ["in", "In"], ["at", "on", "by"]);

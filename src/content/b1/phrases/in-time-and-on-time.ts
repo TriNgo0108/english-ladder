@@ -45,9 +45,9 @@ export const inTimeAndOnTime: SetTopic = {
     {
       kind: "gap",
       stem: "We got to the cinema ten minutes before the film started, so we were ___ time to buy some popcorn.",
-      answers: ["in"],
+      answers: ["in", "in good", "in plenty of", "in good time", "in plenty of time"],
       feedback:
-        "In time to + a verb means early enough to do something: we were in time to buy some popcorn. On time means at the planned time, and we don't use it with to + a verb like this.",
+        "In time to + a verb means early enough to do something: we were in time to buy some popcorn. In good time and in plenty of time mean early, with time to spare, so they are correct too. On time means at the planned time, and we don't use it with to + a verb like this.",
     },
     {
       kind: "gap",
@@ -70,7 +70,7 @@ export const inTimeAndOnTime: SetTopic = {
       options: ["At last", "At the end", "On time"],
       answer: 0,
       feedback:
-        "At last means finally, after a long wait, and we often say it when we are happy. At the end needs of and something after it, and the bus was late, so it didn't come on time.",
+        "At last means finally, after a long wait, and we often say it when we are happy. At the end is for the last part of something, usually with of, and the bus was late, so it didn't come on time.",
     },
     {
       kind: "mistake",

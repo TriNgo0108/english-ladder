@@ -4,6 +4,8 @@ import { renderRichText } from "@/lib/rich-text";
 import { TopicHeader } from "./TopicHeader";
 
 export function SetTopicView({ topic }: { topic: SetTopic }) {
+  // B1 and later sets have no IPA; drop the whole column rather than show it empty.
+  const showIpa = topic.entries.some((e) => e.ipa !== undefined);
   return (
     <article>
       <TopicHeader topic={topic} />
@@ -24,9 +26,11 @@ export function SetTopicView({ topic }: { topic: SetTopic }) {
                 <th scope="col" className="p-3 font-semibold">
                   Word
                 </th>
-                <th scope="col" className="p-3 font-semibold">
-                  Sounds like
-                </th>
+                {showIpa && (
+                  <th scope="col" className="p-3 font-semibold">
+                    Sounds like
+                  </th>
+                )}
                 <th scope="col" className="p-3 font-semibold">
                   Meaning
                 </th>
@@ -41,7 +45,7 @@ export function SetTopicView({ topic }: { topic: SetTopic }) {
                   <th scope="row" className="p-3 font-serif text-lg font-semibold">
                     {e.headword}
                   </th>
-                  <td className="p-3 font-sans text-muted">{e.ipa ?? ""}</td>
+                  {showIpa && <td className="p-3 font-sans text-muted">{e.ipa ?? ""}</td>}
                   <td className="p-3">{e.gloss}</td>
                   <td className="p-3 font-serif">{renderRichText(e.inUse)}</td>
                 </tr>

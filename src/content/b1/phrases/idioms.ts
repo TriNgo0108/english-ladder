@@ -40,10 +40,10 @@ export const idioms: SetTopic = {
     },
     {
       kind: "gap",
-      stem: "I was going to stay at home, but then I ___ my mind and went to the party.",
+      stem: "I'd already ordered the fish, but then I ___ my mind and had the chicken.",
       answers: ["changed"],
       feedback:
-        "Change your mind means decide something different. The story is in the past, so we use changed: I changed my mind.",
+        "Change your mind means decide something different from before. I had already decided on the fish, so I changed my mind. The story is in the past, so we use changed. Made up my mind is not right here, because it means decide for the first time.",
     },
     {
       kind: "choice",
