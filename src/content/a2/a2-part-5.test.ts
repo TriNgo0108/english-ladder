@@ -22,13 +22,13 @@ const setTopics = [holidaysAndOutdoorActivities, theBodyAndSymptoms, travelAndFi
 const phraseTopics = [anInformalEmail, askingForThingsPolitely];
 
 describe("A2 vocabulary, writing and speaking (part 5)", () => {
-  it("registers orders 22-27 in sequence, each passing the schema", () => {
+  it("registers orders 23-28 in sequence, each passing the schema", () => {
     ordered.forEach(([category, slug], i) => {
       const found = findTopic("a2", category, slug);
-      expect(found?.order).toBe(i + 22);
+      expect(found?.order).toBe(i + 23);
       expect(() => parseTopic(found)).not.toThrow();
     });
-    expect(a2Topics.slice(21).map((t) => t.slug)).toEqual(ordered.map(([, slug]) => slug));
+    expect(a2Topics.slice(22).map((t) => t.slug)).toEqual(ordered.map(([, slug]) => slug));
   });
 
   it("pins each topic's quiz length", () => {
@@ -42,10 +42,10 @@ describe("A2 vocabulary, writing and speaking (part 5)", () => {
     });
   });
 
-  it("completes A2 at 27 topics: 21 grammar, 4 vocabulary, 1 writing, 1 speaking", () => {
-    expect(topicsByLevel("a2").map((t) => t.order)).toEqual(Array.from({ length: 27 }, (_, i) => i + 1));
+  it("completes A2 at 28 topics: 22 grammar, 4 vocabulary, 1 writing, 1 speaking", () => {
+    expect(topicsByLevel("a2").map((t) => t.order)).toEqual(Array.from({ length: 28 }, (_, i) => i + 1));
     const count = (c: string) => a2Topics.filter((t) => t.category === c).length;
-    expect([count("grammar"), count("vocabulary"), count("writing"), count("speaking")]).toEqual([21, 4, 1, 1]);
+    expect([count("grammar"), count("vocabulary"), count("writing"), count("speaking")]).toEqual([22, 4, 1, 1]);
     expect(count("phrases") + count("mechanics")).toBe(0);
   });
 
@@ -61,7 +61,7 @@ describe("A2 vocabulary, writing and speaking (part 5)", () => {
   });
 
   it("gives each topic about five questions, and scrambles every wordbank", () => {
-    for (const t of a2Topics.slice(21)) {
+    for (const t of a2Topics.slice(22)) {
       expect(t.quiz.length, t.slug).toBeGreaterThanOrEqual(5);
       for (const q of t.quiz) {
         if (q.kind === "wordbank") expect(q.words.join(" ")).not.toBe(q.answer);

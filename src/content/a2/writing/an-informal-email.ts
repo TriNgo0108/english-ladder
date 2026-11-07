@@ -8,7 +8,7 @@ export const anInformalEmail: PhraseTopic = {
   level: "a2",
   category: "writing",
   shape: "phrases",
-  order: 26,
+  order: 27,
 
   explanation: [
     "An informal email is an email to a person you know well: a friend, someone in your family, or a classmate. It is friendly, like talking. A formal email is for people you do not know, or for work, and it uses different phrases.",

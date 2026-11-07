@@ -8,7 +8,7 @@ export const askingForThingsPolitely: PhraseTopic = {
   level: "a2",
   category: "speaking",
   shape: "phrases",
-  order: 27,
+  order: 28,
 
   explanation: [
     "At A1, you learnt <b>I'd like…, please</b> to ask for something, and <b>Would you like…?</b> to offer something to another person. This topic adds more ways to ask: for a thing, for help, and for permission. Permission means that someone says you can do something.",

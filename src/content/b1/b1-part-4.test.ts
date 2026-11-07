@@ -55,8 +55,8 @@ describe("B1 grammar, part 4 (reporting, clauses, questions, noun phrases)", () 
   it("links the determiners, question-forms and adjective-order chains A1 <-> B1 both ways, and gives the rest no siblings", () => {
     expect(ids("a1", "grammar", "this-that-these-those")).toEqual(["b1/determiners"]);
     expect(ids("b1", "grammar", "determiners")).toEqual(["a1/this-that-these-those"]);
-    expect(ids("a1", "grammar", "question-words")).toEqual(["b1/question-tags"]);
-    expect(ids("b1", "grammar", "question-tags")).toEqual(["a1/question-words"]);
+    expect(ids("a1", "grammar", "question-words")).toEqual(["a2/subject-questions", "b1/question-tags"]);
+    expect(ids("b1", "grammar", "question-tags")).toEqual(["a1/question-words", "a2/subject-questions"]);
     expect(ids("a1", "grammar", "adjectives-before-the-noun")).toEqual(["b1/adjective-order"]);
     expect(ids("b1", "grammar", "adjective-order")).toEqual(["a1/adjectives-before-the-noun"]);
     expect(ids("b1", "grammar", "reported-speech")).toEqual([]);

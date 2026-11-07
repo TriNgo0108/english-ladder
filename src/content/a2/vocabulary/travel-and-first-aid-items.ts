@@ -7,7 +7,7 @@ export const travelAndFirstAidItems: SetTopic = {
   level: "a2",
   category: "vocabulary",
   shape: "set",
-  order: 24,
+  order: 25,
 
   explanation: [
     "This topic has words for the things you take on a trip. The table shows them in this order: first things for travelling, then things for the sun and the dark, and last the things in a first-aid kit. <b>First aid</b> is the help you give to a person who is hurt or ill before a doctor comes.",

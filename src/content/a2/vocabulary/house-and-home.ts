@@ -7,7 +7,7 @@ export const houseAndHome: SetTopic = {
   level: "a2",
   category: "vocabulary",
   shape: "set",
-  order: 25,
+  order: 26,
 
   explanation: [
     "This topic has words for the place where you live. The table shows them in this order: first kinds of home and the parts of a house, then the rooms, then the furniture and machines in them. <b>Furniture</b> means the big things in a room, like a sofa, a bed or a cupboard. It has no plural: some furniture, not furnitures.",

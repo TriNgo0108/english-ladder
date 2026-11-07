@@ -7,7 +7,7 @@ export const theBodyAndSymptoms: SetTopic = {
   level: "a2",
   category: "vocabulary",
   shape: "set",
-  order: 23,
+  order: 24,
 
   explanation: [
     "This topic has words for the parts of the body, and words to say how you feel when you are ill. A <b>symptom</b> is something that shows you are ill, like a headache or a cough. The table shows the body from the head down, and then the symptoms.",

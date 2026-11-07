@@ -7,7 +7,7 @@ export const holidaysAndOutdoorActivities: SetTopic = {
   level: "a2",
   category: "vocabulary",
   shape: "set",
-  order: 22,
+  order: 23,
 
   explanation: [
     "This topic has words for holidays and for things people do outside: at the beach, in the mountains, on a lake or in the countryside. The table shows them in this order: first holiday words and places, then water activities, then activities on land, and last camping and eating outside.",

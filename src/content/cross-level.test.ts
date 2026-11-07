@@ -15,7 +15,7 @@ describe("cross-level family links between A1 and A2", () => {
   it("finds A1 counterparts for exactly the families A1 and A2 share", () => {
     const shared = a2WithFamily.filter((t) => a1Counterpart(t) !== undefined).map(key).sort();
     expect(shared).toEqual(
-      ["articles", "nouns", "past-simple", "polite-requests", "present-continuous", "present-simple"].sort(),
+      ["articles", "nouns", "past-simple", "polite-requests", "present-continuous", "present-simple", "question-forms"].sort(),
     );
   });
 

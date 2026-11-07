@@ -17,7 +17,7 @@
  *   adjective-order        A1 adjectives-before-the-noun -> B1 adjective order
  *   prepositions-of-place  A1 prepositions-of-place -> B1 prepositions of movement
  *   prepositions-of-time   A1 prepositions-of-time -> B1 in time vs on time
- *   question-forms         A1 question-words -> B1 question tags; B2 declarative and rhetorical questions
+ *   question-forms         A1 question-words -> A2 subject questions -> B1 question tags; B2 declarative and rhetorical questions
  *   polite-requests        A1 would-you-like -> A2 asking for things politely; B1 indirect and polite questions
  *   introductions          A1 greetings-and-introducing-yourself -> B1 introducing yourself at work
  *   conditionals           A2 first conditional -> B1 second conditional -> B2 third and mixed conditionals

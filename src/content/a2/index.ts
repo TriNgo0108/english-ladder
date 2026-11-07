@@ -17,6 +17,7 @@ import { presentContinuousForFuture } from "./grammar/present-continuous-for-fut
 import { presentSimpleForFuture } from "./grammar/present-simple-for-future";
 import { shouldAndMust } from "./grammar/should-and-must";
 import { someAnyMuchMany } from "./grammar/some-any-much-many";
+import { subjectQuestions } from "./grammar/subject-questions";
 import { tooAndEnough } from "./grammar/too-and-enough";
 import { usedToAndWould } from "./grammar/used-to-and-would";
 import { verbPlusGerundOrInfinitive } from "./grammar/verb-plus-gerund-or-infinitive";
@@ -50,6 +51,7 @@ export const a2Topics: Topic[] = [
   firstConditional,
   edAndIngAdjectives,
   verbPlusGerundOrInfinitive,
+  subjectQuestions,
   holidaysAndOutdoorActivities,
   theBodyAndSymptoms,
   travelAndFirstAidItems,
