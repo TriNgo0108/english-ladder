@@ -100,11 +100,11 @@ export const mixedConditionals: RuleTopic = {
     },
     {
       kind: "mistake",
-      tokens: ["If", "Maria", "isn't", "so", "shy,", "she", "would", "have", "spoken", "to", "him", "at", "the", "party", "yesterday."],
-      wrongIndex: 2,
+      tokens: ["Maria", "is", "very", "shy.", "If", "she", "isn't", "so", "shy,", "she", "would", "have", "spoken", "to", "him", "at", "the", "party", "yesterday."],
+      wrongIndex: 6,
       correction: "weren't",
       feedback:
-        "Maria is shy: that is true now, so we imagine the opposite with the past simple: If Maria weren't so shy, she would have spoken to him at the party yesterday. If Maria wasn't so shy is also correct, especially in informal English, and If Maria hadn't been so shy is correct too, as a third conditional. Isn't is the present, and it doesn't go with would have.",
+        "Maria is shy: that is true now, so we imagine the opposite with the past simple: If she weren't so shy, she would have spoken to him at the party yesterday. If she wasn't so shy is also correct, especially in informal English, and If she hadn't been so shy is correct too, as a third conditional. Isn't is the present, and it doesn't go with would have.",
     },
   ],
 

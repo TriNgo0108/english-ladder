@@ -143,8 +143,29 @@ describe("B2 grammar, part 1 (conditionals, regrets and past modals)", () => {
     expect(pay).toEqual(["didn't need to pay", "did not need to pay", "didn't have to pay", "did not have to pay"]);
     expectGap(pay, ["didn't need to pay", "did not need to pay", "didn’t have to pay"], ["needn't have paid", "didn't need pay", "didn't needed to pay", "mustn't pay"]);
     const got = gap(needntHaveAndDidntNeedTo.quiz, "so early this morning");
-    expect(got).toEqual(["needn't have got up", "need not have got up", "needn't have gotten up", "need not have gotten up"]);
-    expectGap(got, ["needn't have got up", "need not have got up", "needn’t have gotten up"], ["needn't get up", "needn't have get up", "mustn't have got up", "needn't to have got up"]);
+    expect(got).toEqual([
+      "needn't have got up",
+      "need not have got up",
+      "needn't have gotten up",
+      "need not have gotten up",
+      "didn't need to get up",
+      "did not need to get up",
+    ]);
+    expectGap(
+      got,
+      ["needn't have got up", "need not have got up", "needn’t have gotten up", "didn’t need to get up", "did not need to get up"],
+      ["needn't get up", "needn't have get up", "mustn't have got up", "needn't to have got up", "didn't need get up"],
+    );
+  });
+
+  it("pins the reworked mistake sentences: a past fact in the needn't item, a stated fact in the mixed item", () => {
+    const sentences = (quiz: typeof mixedConditionals.quiz) => quiz.flatMap((q) => (q.kind === "mistake" ? [q.tokens.join(" ")] : []));
+    expect(sentences(needntHaveAndDidntNeedTo.quiz)).toContain(
+      "You needn't have buy me such an expensive present for my birthday last week.",
+    );
+    expect(sentences(mixedConditionals.quiz)).toContain(
+      "Maria is very shy. If she isn't so shy, she would have spoken to him at the party yesterday.",
+    );
   });
 
   it("pins the could, was able to and could have gaps: general, single success and a chance not taken", () => {

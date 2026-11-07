@@ -81,17 +81,24 @@ export const needntHaveAndDidntNeedTo: RuleTopic = {
     {
       kind: "gap",
       stem: "I ___ so early this morning. When I got to work, the meeting had been cancelled! (get up, needn't)",
-      answers: ["needn't have got up", "need not have got up", "needn't have gotten up", "need not have gotten up"],
+      answers: [
+        "needn't have got up",
+        "need not have got up",
+        "needn't have gotten up",
+        "need not have gotten up",
+        "didn't need to get up",
+        "did not need to get up",
+      ],
       feedback:
-        "I got up early, but it wasn't necessary, so we use needn't have and the past participle: I needn't have got up so early. Gotten is the American past participle of get, so I needn't have gotten up is also correct.",
+        "I got up early, but it wasn't necessary, so we use needn't have and the past participle: I needn't have got up so early. Gotten is the American past participle of get, so I needn't have gotten up is also correct. I didn't need to get up so early is also correct, because didn't need to fits whether or not the action happened.",
     },
     {
       kind: "mistake",
-      tokens: ["You", "needn't", "have", "buy", "me", "a", "present,", "but", "thank", "you!"],
+      tokens: ["You", "needn't", "have", "buy", "me", "such", "an", "expensive", "present", "for", "my", "birthday", "last", "week."],
       wrongIndex: 3,
       correction: "bought",
       feedback:
-        "After needn't have, we need the past participle: You needn't have bought me a present, but thank you! Buy is irregular: buy → bought → bought.",
+        "Last week is in the past, and you bought the present, so we use needn't have and the past participle: You needn't have bought me such an expensive present for my birthday last week. Buy is irregular: buy → bought → bought.",
     },
     {
       kind: "mistake",
