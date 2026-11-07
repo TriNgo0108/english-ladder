@@ -7,6 +7,9 @@ import { definingRelativeClauses } from "./grammar/defining-relative-clauses";
 import { determiners } from "./grammar/determiners";
 import { futureContinuousAndFuturePerfect } from "./grammar/future-continuous-and-future-perfect";
 import { gerundsVsInfinitives } from "./grammar/gerunds-vs-infinitives";
+import { gradableAndNonGradableAdjectives } from "./grammar/gradable-and-non-gradable-adjectives";
+import { intensifiers } from "./grammar/intensifiers";
+import { linkingWords } from "./grammar/linking-words";
 import { modalsOfPossibilityAndDeduction } from "./grammar/modals-of-possibility-and-deduction";
 import { pastPerfectAndNarrativeTenses } from "./grammar/past-perfect-and-narrative-tenses";
 import { presentPerfectAndPastSimple } from "./grammar/present-perfect-and-past-simple";
@@ -16,11 +19,13 @@ import { reportedSpeech } from "./grammar/reported-speech";
 import { sayAndTell } from "./grammar/say-and-tell";
 import { secondConditional } from "./grammar/second-conditional";
 import { sinceAndFor } from "./grammar/since-and-for";
+import { soAndSuch } from "./grammar/so-and-such";
 import { stativeVerbs } from "./grammar/stative-verbs";
 import { thePassive } from "./grammar/the-passive";
 import { timeClauses } from "./grammar/time-clauses";
 import { transitiveAndIntransitiveVerbs } from "./grammar/transitive-and-intransitive-verbs";
 import { wishAndIfOnly } from "./grammar/wish-and-if-only";
+import { wordBuildingSuffixes } from "./grammar/word-building-suffixes";
 
 export const b1Topics: Topic[] = [
   presentPerfectAndPastSimple,
@@ -44,4 +49,9 @@ export const b1Topics: Topic[] = [
   questionTags,
   determiners,
   adjectiveOrder,
+  gradableAndNonGradableAdjectives,
+  intensifiers,
+  soAndSuch,
+  linkingWords,
+  wordBuildingSuffixes,
 ];
