@@ -21,6 +21,12 @@ import { tooAndEnough } from "./grammar/too-and-enough";
 import { usedToAndWould } from "./grammar/used-to-and-would";
 import { verbPlusGerundOrInfinitive } from "./grammar/verb-plus-gerund-or-infinitive";
 import { will } from "./grammar/will";
+import { askingForThingsPolitely } from "./speaking/asking-for-things-politely";
+import { holidaysAndOutdoorActivities } from "./vocabulary/holidays-and-outdoor-activities";
+import { houseAndHome } from "./vocabulary/house-and-home";
+import { theBodyAndSymptoms } from "./vocabulary/the-body-and-symptoms";
+import { travelAndFirstAidItems } from "./vocabulary/travel-and-first-aid-items";
+import { anInformalEmail } from "./writing/an-informal-email";
 
 export const a2Topics: Topic[] = [
   pastSimpleRegularAndIrregular,
@@ -44,4 +50,10 @@ export const a2Topics: Topic[] = [
   firstConditional,
   edAndIngAdjectives,
   verbPlusGerundOrInfinitive,
+  holidaysAndOutdoorActivities,
+  theBodyAndSymptoms,
+  travelAndFirstAidItems,
+  houseAndHome,
+  anInformalEmail,
+  askingForThingsPolitely,
 ];
