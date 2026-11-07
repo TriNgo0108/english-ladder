@@ -37,12 +37,14 @@ describe("cross-level family links between A1 and A2", () => {
     expect(siblingsAcrossLevels(a2Articles)).toEqual([a1Articles]);
   });
 
-  it("pins Would you like…? and asking for things politely as siblings both ways", () => {
+  it("pins Would you like…?, asking for things politely and B1 indirect questions as one polite-requests chain, in CEFR order", () => {
     const offers = findTopic("a1", "speaking", "would-you-like");
     const requests = findTopic("a2", "speaking", "asking-for-things-politely");
-    if (!offers || !requests) throw new Error("polite-requests topics missing");
-    expect(siblingsAcrossLevels(offers)).toEqual([requests]);
-    expect(siblingsAcrossLevels(requests)).toEqual([offers]);
+    const indirect = findTopic("b1", "speaking", "indirect-and-polite-questions");
+    if (!offers || !requests || !indirect) throw new Error("polite-requests topics missing");
+    expect(siblingsAcrossLevels(offers)).toEqual([requests, indirect]);
+    expect(siblingsAcrossLevels(requests)).toEqual([offers, indirect]);
+    expect(siblingsAcrossLevels(indirect)).toEqual([offers, requests]);
   });
 
   it("keeps every A2 family in FAMILY_KEYS, and gives A2-first families no A1 sibling yet", () => {

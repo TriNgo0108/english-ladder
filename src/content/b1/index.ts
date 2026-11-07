@@ -32,6 +32,14 @@ import { inTimeAndOnTime } from "./phrases/in-time-and-on-time";
 import { phrasalVerbsInseparable } from "./phrases/phrasal-verbs-inseparable";
 import { phrasalVerbsSeparable } from "./phrases/phrasal-verbs-separable";
 import { prepositionsOfMovement } from "./phrases/prepositions-of-movement";
+import { agreeingAndDisagreeing } from "./speaking/agreeing-and-disagreeing";
+import { givingAdvice } from "./speaking/giving-advice";
+import { indirectAndPoliteQuestions } from "./speaking/indirect-and-polite-questions";
+import { introducingYourselfAndInterruptingAtWork } from "./speaking/introducing-yourself-and-interrupting-at-work";
+import { likesAndDislikes } from "./speaking/likes-and-dislikes";
+import { aProfessionalEmail } from "./writing/a-professional-email";
+import { formalAndInformalRegister } from "./writing/formal-and-informal-register";
+import { letterStructure } from "./writing/letter-structure";
 
 export const b1Topics: Topic[] = [
   presentPerfectAndPastSimple,
@@ -66,4 +74,12 @@ export const b1Topics: Topic[] = [
   idioms,
   prepositionsOfMovement,
   inTimeAndOnTime,
+  formalAndInformalRegister,
+  letterStructure,
+  aProfessionalEmail,
+  givingAdvice,
+  likesAndDislikes,
+  agreeingAndDisagreeing,
+  indirectAndPoliteQuestions,
+  introducingYourselfAndInterruptingAtWork,
 ];
