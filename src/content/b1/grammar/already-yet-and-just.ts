@@ -14,7 +14,7 @@ export const alreadyYetAndJust: RuleTopic = {
     "<b>Just</b> means a very short time ago. It goes between have or has and the past participle: I<b>'ve just had</b> lunch, so I'm not hungry. The train <b>has just left</b>. Sorry, you've missed it.",
     "<b>Already</b> means before now, often sooner than someone thinks. It usually goes between have or has and the past participle: I<b>'ve already paid</b> for the tickets. She<b>'s already finished</b> her homework. Already can also go at the end, especially when we speak: I've paid for the tickets <b>already</b>.",
     "<b>Yet</b> means up to now. We use it in questions and in sentences with not, and it usually goes at the end. In a question, we want to know if something has happened: Have you finished <b>yet</b>? In a sentence with not, it hasn't happened, but we think it will: I <b>haven't finished yet</b>. The bus <b>hasn't come yet</b>.",
-    "In a sentence without not, use already, not yet: I've <b>already</b> booked the hotel, not I've booked the hotel yet.",
+    "In a positive statement, use already, not yet: I've <b>already</b> booked the hotel, not I've booked the hotel yet.",
     "In American English, people often use the past simple with just, already and yet: I <b>just had</b> lunch. Did you eat <b>yet</b>? In British English, the present perfect is more usual, and this site uses it in its examples.",
   ].join("\n\n"),
 
@@ -53,7 +53,7 @@ export const alreadyYetAndJust: RuleTopic = {
   pitfall: {
     wrong: "I've finished my homework yet.",
     right: "I've <b>already</b> finished my homework.",
-    why: "<b>Yet</b> is for questions and sentences with not. In a sentence without not, use <b>already</b>.",
+    why: "<b>Yet</b> is for questions and sentences with not. In a positive statement, use <b>already</b>.",
   },
 
   quiz: [
@@ -70,7 +70,7 @@ export const alreadyYetAndJust: RuleTopic = {
       stem: "I haven't finished the report ___, so I can't send it to you. (already or yet)",
       answers: ["yet"],
       feedback:
-        "The sentence has not, and the report isn't finished, so we use yet: I haven't finished the report yet. Already is for sentences without not.",
+        "The sentence has not, and the report isn't finished, so we use yet: I haven't finished the report yet. Already is for positive statements.",
     },
     {
       kind: "gap",
@@ -96,11 +96,11 @@ export const alreadyYetAndJust: RuleTopic = {
     },
     {
       kind: "mistake",
-      tokens: ["We've", "finished", "the", "project", "yet."],
-      wrongIndex: 4,
+      tokens: ["The", "client", "is", "happy.", "We've", "finished", "the", "project", "yet."],
+      wrongIndex: 8,
       correction: "already",
       feedback:
-        "This sentence has no not, and it isn't a question, so we can't use yet. Use already: We've finished the project already, or We've already finished the project.",
+        "The client is happy, so the project is done. This is a positive statement, not a question, so we can't use yet. Use already: We've finished the project already, or We've already finished the project.",
     },
   ],
 

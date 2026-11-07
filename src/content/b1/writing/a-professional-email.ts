@@ -19,7 +19,7 @@ export const aProfessionalEmail: PhraseTopic = {
     "To send a file with the email, write <b>I've attached</b>… or, more formally, <b>Please find attached</b>…",
     "In a neutral work email, short forms like I'm and I've are common. In a formal email, people usually write the full forms: I am, I have.",
     "End with a line about the next step: Let me know if you need anything else. I look forward to hearing from you is more formal.",
-    "<b>Kind regards</b>, <b>Best regards</b> and <b>Best wishes</b> are good sign-offs for most work emails. Regards alone is shorter and a little less warm. In a very formal email, British English uses Yours sincerely or Yours faithfully, as in a letter (order 34). Don't use Love or Cheers at work: as you learnt at A2, they are for family and friends.",
+    "<b>Kind regards</b>, <b>Best regards</b> and <b>Best wishes</b> are good sign-offs for most work emails. Regards alone is shorter and a little less warm. In a very formal email, British English uses Yours sincerely or Yours faithfully, as in a letter (order 34). Don't use Love or Cheers at work: as you learned at A2, they are for family and friends.",
   ].join("\n\n"),
 
   situations: [

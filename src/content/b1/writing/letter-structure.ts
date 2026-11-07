@@ -17,7 +17,7 @@ export const letterStructure: PhraseTopic = {
     "We usually put a comma after the greeting and after the sign-off, and write the full name on the next line. Start each paragraph on a new line.",
     "Give the reason for writing in the first sentence, so the reader knows at once what the letter is about. Keep each main point short, in its own paragraph. Linking words (order 25) help the reader follow you: Firstly, In addition, However. Furthermore is a formal way to say in addition.",
     "Near the end, say clearly what you want: I would be grateful if you could… If you put a document in the envelope with a paper letter, write I enclose a copy of… Then finish with a closing line before the sign-off.",
-    "For a less formal letter, or a letter to someone you know, people often end with <b>Kind regards</b> or <b>Best wishes</b> instead. Best wishes is fine for most people, as you learnt at A2.",
+    "For a less formal letter, or a letter to someone you know, people often end with <b>Kind regards</b> or <b>Best wishes</b> instead. Best wishes is fine for most people, as you learned at A2.",
   ].join("\n\n"),
 
   situations: [
@@ -102,7 +102,7 @@ export const letterStructure: PhraseTopic = {
       stem: "You are writing a formal letter to your son's teacher, Anna Kowalski. Dear Ms ___,",
       answers: ["Kowalski"],
       feedback:
-        "After Mr, Mrs, Ms or Dr, use the family name: Dear Ms Kowalski. Don't use the first name (Dear Ms Anna), and don't use the full name after Ms. In British English, a letter that starts Dear Ms Kowalski usually ends Yours sincerely.",
+        "In a greeting, after Mr, Mrs, Ms or Dr, use the family name: Dear Ms Kowalski. Don't use the first name (Dear Ms Anna), and don't use the full name after Ms. In British English, a letter that starts Dear Ms Kowalski usually ends Yours sincerely.",
     },
     {
       kind: "gap",

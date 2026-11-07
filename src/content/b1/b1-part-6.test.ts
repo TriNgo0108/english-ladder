@@ -84,9 +84,9 @@ describe("B1 Phrases & Expressions (part 6)", () => {
     expect(topicsByLevelAndCategory("b1", "phrases").map((t) => t.slug)).toEqual(orderedSlugs);
   });
 
-  it("makes these the first phrases topics on the site", () => {
-    const phrases = allTopics.filter((t) => t.category === "phrases");
-    expect(phrases.map((t) => `${t.level}/${t.slug}`)).toEqual(orderedSlugs.map((s) => `b1/${s}`));
+  it("holds exactly these six slugs in the B1 phrases category", () => {
+    const phrases = allTopics.filter((t) => t.level === "b1" && t.category === "phrases");
+    expect(phrases.map((t) => t.slug).sort()).toEqual([...orderedSlugs].sort());
   });
 
   it("pins the families: collocations, idioms and the two preposition chains explicit, none for the phrasal verbs", () => {

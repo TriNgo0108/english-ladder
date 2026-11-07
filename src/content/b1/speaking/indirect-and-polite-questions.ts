@@ -11,7 +11,7 @@ export const indirectAndPoliteQuestions: PhraseTopic = {
   order: 39,
 
   explanation: [
-    "At A2, you learnt to ask for things with Can I…?, Could you…? and May I…? This topic adds <b>indirect questions</b>. An indirect question starts with a polite opening, like <b>Could you tell me</b>…? or <b>Do you know</b>…? It is softer than a direct question, so we use it a lot with people we don't know, in shops and at work.",
+    "At A2, you learned to ask for things with Can I…?, Could you…? and May I…? This topic adds <b>indirect questions</b>. An indirect question starts with a polite opening, like <b>Could you tell me</b>…? or <b>Do you know</b>…? It is softer than a direct question, so we use it a lot with people we don't know, in shops and at work.",
     "Compare. Direct: Where <b>is</b> the station? Indirect: Could you tell me where the station <b>is</b>? After the opening, the rest of the question has the order of a normal sentence: the subject, then the verb. Remember: the subject is the person or thing that the sentence is about. It is the same order as in a reported question (order 16).",
     "There is no do, does or did after the opening. Direct: What time <b>does</b> the bank <b>open</b>? Indirect: Do you know what time the bank <b>opens</b>? Without does, the verb itself takes -s. Direct: Where did she go? Indirect: Do you know where she went?",
     "For a yes/no question, use <b>if</b> or <b>whether</b>: Is there a lift? → Do you know if there is a lift? Does this bus go to the airport? → Could you tell me whether this bus goes to the airport?",

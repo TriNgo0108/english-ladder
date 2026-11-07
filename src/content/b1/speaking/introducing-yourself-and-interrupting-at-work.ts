@@ -11,7 +11,7 @@ export const introducingYourselfAndInterruptingAtWork: PhraseTopic = {
   order: 40,
 
   explanation: [
-    "At A1, you learnt to say hello and introduce yourself: Hello, my name's Ana. Nice to meet you. At work, people also want to know your job or your team, so add it: Hello, I'm Ana. I work in marketing. I'm the new sales assistant. I've just started in the IT department.",
+    "At A1, you learned to say hello and introduce yourself: Hello, my name's Ana. Nice to meet you. At work, people also want to know your job or your team, so add it: Hello, I'm Ana. I work in marketing. I'm the new sales assistant. I've just started in the IT department.",
     "To introduce another person, say <b>This is</b> + the name, and add something about them: Tom, this is Maria. She's joining our team. You can also say Can I introduce you to…? or Have you two met? The answer is still Nice to meet you, and the other person says Nice to meet you, too, as at A1.",
     "With a client or a senior manager, be more formal: Good morning. Let me introduce myself. My name is Ana Silva. Use Mr, Mrs or Ms + the family name, as at A1. Pleased to meet you and It's a pleasure to meet you are a little more formal than Nice to meet you.",
     "To get someone's attention before you ask something, say <b>Excuse me</b>, <b>Sorry to bother you, but</b>… or <b>Have you got a minute?</b> Do you have a moment? means the same.",

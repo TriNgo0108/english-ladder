@@ -116,15 +116,15 @@ describe("B1 grammar, part 2 (narrative and future)", () => {
     expectGap(are, ["are", "’re"], ["will be", "were", "be", "'ll be"]);
   });
 
-  it("pins the future continuous and future perfect gaps, with contractions", () => {
+  it("pins the future continuous and future perfect gaps, with contractions and British shall", () => {
     expect(choiceAnswer(futureContinuousAndFuturePerfect.quiz, "at eight tonight")).toBe("I'll be watching");
     expect(choiceAnswer(futureContinuousAndFuturePerfect.quiz, "before 5 pm")).toBe("By 5 pm, I'll have finished the work.");
     const finished = gap(futureContinuousAndFuturePerfect.quiz, "all my exams");
-    expect(finished).toEqual(["will have finished", "'ll have finished"]);
-    expectGap(finished, ["will have finished", "’ll have finished"], ["will finish", "will have finish", "will be finishing", "have finished"]);
+    expect(finished).toEqual(["will have finished", "'ll have finished", "shall have finished"]);
+    expectGap(finished, ["will have finished", "’ll have finished", "shall have finished"], ["will finish", "will have finish", "will be finishing", "have finished"]);
     const lying = gap(futureContinuousAndFuturePerfect.quiz, "beach in Greece");
-    expect(lying).toEqual(["will be lying", "'ll be lying"]);
-    expectGap(lying, ["will be lying", "’ll be lying"], ["will lie", "will be lieing", "will be lie", "will have lain"]);
+    expect(lying).toEqual(["will be lying", "'ll be lying", "shall be lying"]);
+    expectGap(lying, ["will be lying", "’ll be lying", "Shall be lying"], ["will lie", "will be lieing", "will be lie", "will have lain"]);
   });
 
   it("pins the second conditional gaps, accepting were and was", () => {

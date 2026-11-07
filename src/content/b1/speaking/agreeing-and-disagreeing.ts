@@ -94,7 +94,7 @@ export const agreeingAndDisagreeing: PhraseTopic = {
     },
     {
       kind: "gap",
-      stem: "A: I can't swim very well. B: Neither ___ I. I never learnt.",
+      stem: "A: I can't swim very well. B: Neither ___ I. I never learned.",
       answers: ["can"],
       feedback:
         "Use the same auxiliary as the other person: I can't swim. → Neither can I. After Neither, the verb is positive, can, not can't, because neither already means not.",

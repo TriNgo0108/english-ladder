@@ -30,6 +30,11 @@ function wordbankAnswers(questions: Question[]) {
   return questions.flatMap((x) => (x.kind === "wordbank" ? [x.answer] : []));
 }
 
+function mistakeSentence(questions: Question[]) {
+  const q = questions.find((x) => x.kind === "mistake");
+  return q?.kind === "mistake" ? q.tokens.join(" ") : undefined;
+}
+
 function wrongToken(questions: Question[]) {
   const q = questions.find((x) => x.kind === "mistake");
   return q?.kind === "mistake" ? [q.tokens[q.wrongIndex], q.correction] : undefined;
@@ -193,6 +198,7 @@ describe("B1 grammar, part 4 (reporting, clauses, questions, noun phrases)", () 
     expect(wrongToken(reportedSpeech.quiz)).toEqual(["am", "was"]);
     expect(wrongToken(sayAndTell.quiz)).toEqual(["say", "tell"]);
     expect(wrongToken(definingRelativeClauses.quiz)).toEqual(["what", "that"]);
+    expect(mistakeSentence(definingRelativeClauses.quiz)).toBe("This is the song what I love.");
     expect(wrongToken(questionTags.quiz)).toEqual(["doesn't", "won't"]);
     expect(wrongToken(determiners.quiz)).toEqual(["students", "student"]);
     expect(wrongToken(adjectiveOrder.quiz)).toBeUndefined();

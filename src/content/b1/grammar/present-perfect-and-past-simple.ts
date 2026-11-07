@@ -29,7 +29,7 @@ export const presentPerfectAndPastSimple: RuleTopic = {
     "Have you seen …? · Has she seen …?",
     "Yes, I have. · No, she hasn't.",
     "finished time (yesterday, last week, in 2019, two days ago) → past simple: I saw",
-    "no time, ever, never, today, this week, so far → present perfect: I've seen",
+    "no time, ever, never, today, this week, so far → usually present perfect: I've seen",
   ].join("\n"),
 
   examples: [

@@ -73,16 +73,16 @@ export const futureContinuousAndFuturePerfect: RuleTopic = {
     {
       kind: "gap",
       stem: "By Friday, I ___ all my exams, so we can celebrate at the weekend. (finish, future perfect)",
-      answers: ["will have finished", "'ll have finished"],
+      answers: ["will have finished", "'ll have finished", "shall have finished"],
       feedback:
-        "The exams will be done before Friday, so we use the future perfect, will have and the past participle: By Friday, I will have finished, or I'll have finished, all my exams.",
+        "The exams will be done before Friday, so we use the future perfect, will have and the past participle: By Friday, I will have finished, or I'll have finished, all my exams. With I and we, shall have finished is also correct in British English.",
     },
     {
       kind: "gap",
       stem: "This time next week, we ___ on a beach in Greece. (lie, future continuous)",
-      answers: ["will be lying", "'ll be lying"],
+      answers: ["will be lying", "'ll be lying", "shall be lying"],
       feedback:
-        "The future continuous is will be and the -ing verb: This time next week, we'll be lying on a beach in Greece. Lie ends in -ie, so the -ing form is lying.",
+        "The future continuous is will be and the -ing verb: This time next week, we'll be lying on a beach in Greece. Lie ends in -ie, so the -ing form is lying. With I and we, shall be lying is also correct in British English.",
     },
     {
       kind: "choice",

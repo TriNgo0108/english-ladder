@@ -127,11 +127,11 @@ export const definingRelativeClauses: RuleTopic = {
     },
     {
       kind: "mistake",
-      tokens: ["Is", "this", "the", "book", "what", "you", "wanted?"],
+      tokens: ["This", "is", "the", "song", "what", "I", "love."],
       wrongIndex: 4,
       correction: "that",
       feedback:
-        "We don't use what after a noun. Use that or which, or leave the pronoun out: Is this the book that you wanted?",
+        "We don't use what after a noun. Use that or which, or leave the pronoun out: This is the song that I love.",
     },
   ],
 

@@ -29,6 +29,11 @@ function wordbankAnswer(questions: Question[]) {
   return q?.kind === "wordbank" ? q.answer : undefined;
 }
 
+function mistakeSentence(questions: Question[]) {
+  const q = questions.find((x) => x.kind === "mistake");
+  return q?.kind === "mistake" ? q.tokens.join(" ") : undefined;
+}
+
 function wrongToken(questions: Question[]) {
   const q = questions.find((x) => x.kind === "mistake");
   return q?.kind === "mistake" ? [q.tokens[q.wrongIndex], q.correction] : undefined;
@@ -156,6 +161,7 @@ describe("B1 grammar, part 1 (the present perfect group)", () => {
     expect(wrongToken(presentPerfectAndPastSimple.quiz)).toEqual(["saw", "seen"]);
     expect(wrongToken(sinceAndFor.quiz)).toEqual(["since", "for"]);
     expect(wrongToken(alreadyYetAndJust.quiz)).toEqual(["yet.", "already"]);
+    expect(mistakeSentence(alreadyYetAndJust.quiz)).toBe("The client is happy. We've finished the project yet.");
     expect(wrongToken(stativeVerbs.quiz)).toBeUndefined();
     expect(wrongToken(presentPerfectContinuous.quiz)).toEqual(["live", "living"]);
   });
