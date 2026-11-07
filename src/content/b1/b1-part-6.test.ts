@@ -58,7 +58,7 @@ describe("B1 Phrases & Expressions (part 6)", () => {
 
   it("pins the families: collocations, idioms and the two preposition chains explicit, none for the phrasal verbs", () => {
     expect(phrasalVerbsSeparable.family).toBeUndefined();
-    expect(phrasalVerbsInseparable.family).toBeUndefined();
+    expect(phrasalVerbsInseparable.family).toBe("phrasal-verbs");
     expect(collocations.family).toBe("collocations");
     expect(idioms.family).toBe("idioms");
     expect(prepositionsOfMovement.family).toBe("prepositions-of-place");

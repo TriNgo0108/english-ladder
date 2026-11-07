@@ -8,9 +8,9 @@
  *   articles               A1 articles-a-an -> A2 the / zero article; B2 articles with abstract and general nouns
  *   nouns                  A1 nouns-singular-and-plural -> A2 countable and uncountable nouns
  *   determiners            A1 this-that-these-those -> B1 determiners
- *   modal-ability          A1 can-for-ability -> later ability / permission forms
- *   modal-obligation       A2 should and must (Task 7); later obligation forms reuse this key
- *   modal-deduction        B1 modals of possibility and deduction; B2 must have / can't have / needn't have
+ *   modal-ability          A1 can-for-ability -> B2 could, was able to and could have
+ *   modal-obligation       A2 should and must -> B2 needn't have and didn't need to
+ *   modal-deduction        B1 modals of possibility and deduction; B2 describing-certainty-in-the-past (must have / can't have)
  *   present-simple         A1 present-simple -> A2 present simple for future
  *   present-continuous     A1 present-continuous -> A2 present continuous for future
  *   past-simple            A1 was-were -> A2 past simple; B1 present perfect vs past simple
@@ -20,7 +20,7 @@
  *   question-forms         A1 question-words -> A2 subject questions -> B1 question tags; B2 declarative and rhetorical questions
  *   polite-requests        A1 would-you-like -> A2 asking for things politely; B1 indirect and polite questions
  *   introductions          A1 greetings-and-introducing-yourself -> B1 introducing yourself at work
- *   conditionals           A2 first conditional -> B1 second conditional -> B2 third and mixed conditionals
+ *   conditionals           A2 first conditional -> B1 second conditional -> B2 third conditional only (mixed conditionals unkeyed)
  *   gerunds-and-infinitives A2 verb + gerund / verb + infinitive (introductory) -> B1 gerunds vs infinitives
  *   linking-words          A2 conjunctions and, but, so, because -> B1 linking words -> B2 advanced linkers
  *   comparison             A2 comparatives and superlatives -> C1 advanced comparison structures
@@ -37,6 +37,9 @@
  *   register               B1 formal and informal register -> C1 register and formality shifts
  *   agreeing-and-disagreeing B1 agreeing and disagreeing -> C1 handling pushback
  *   intonation             B1 question intonation -> C1 stress and intonation for emphasis
+ *   phrasal-verbs          B1 phrasal verbs, inseparable -> B2 advanced phrasal verbs
+ *   letters                B1 letter structure -> B2 letters of complaint
+ *   inversion              B2 inversion after negative adverbials -> C1 advanced inversion and fronting
  */
 export const FAMILY_KEYS = [
   "articles",
@@ -71,4 +74,7 @@ export const FAMILY_KEYS = [
   "register",
   "agreeing-and-disagreeing",
   "intonation",
+  "phrasal-verbs",
+  "letters",
+  "inversion",
 ] as const;

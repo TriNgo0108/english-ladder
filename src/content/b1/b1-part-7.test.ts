@@ -63,7 +63,7 @@ describe("B1 Writing and Speaking (part 7)", () => {
 
   it("pins the families: register, emails, agreeing-and-disagreeing, polite-requests and introductions explicit, none for the rest", () => {
     expect(formalAndInformalRegister.family).toBe("register");
-    expect(letterStructure.family).toBeUndefined();
+    expect(letterStructure.family).toBe("letters");
     expect(aProfessionalEmail.family).toBe("emails");
     expect(givingAdvice.family).toBeUndefined();
     expect(likesAndDislikes.family).toBeUndefined();

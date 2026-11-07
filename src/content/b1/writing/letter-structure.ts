@@ -8,6 +8,7 @@ export const letterStructure: PhraseTopic = {
   category: "writing",
   shape: "phrases",
   order: 34,
+  family: "letters",
 
   explanation: [
     "A formal letter, on paper or in an email, is easier to read when its parts come in the usual order. Letters to companies, schools and offices usually use a formal register (order 33). Remember: register means how formal or informal your words are.",

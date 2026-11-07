@@ -8,6 +8,7 @@ export const phrasalVerbsInseparable: SetTopic = {
   category: "phrases",
   shape: "set",
   order: 28,
+  family: "phrasal-verbs",
 
   explanation: [
     "Remember: a phrasal verb is a verb and a small word, like up, off, on or out, that we use together, often with a new meaning. The small word after the verb is called the particle. With the phrasal verbs in order 27, the object can go between the verb and the particle: turn the light off, turn it off.",

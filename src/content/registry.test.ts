@@ -8,6 +8,7 @@ import {
 import { FAMILY_KEYS } from "./families";
 import { a2Topics } from "./a2";
 import { b1Topics } from "./b1";
+import { b2Topics } from "./b2";
 import type { CategorySlug, Level, Topic } from "./schema";
 
 const quizItem = {
@@ -323,6 +324,26 @@ describe("B1 barrel and family keys", () => {
     for (const key of ["used-to", "wish", "passive", "reported-speech", "relative-clauses", "collocations", "idioms", "register", "agreeing-and-disagreeing", "intonation"]) {
       expect(FAMILY_KEYS).toContain(key);
     }
+    expect(new Set(FAMILY_KEYS).size).toBe(FAMILY_KEYS.length);
+  });
+});
+
+describe("B2 barrel and family keys", () => {
+  it("gives B1 phrasal-verbs-inseparable and letter-structure their families", () => {
+    expect(findTopic("b1", "phrases", "phrasal-verbs-inseparable")?.family).toBe("phrasal-verbs");
+    expect(findTopic("b1", "writing", "letter-structure")?.family).toBe("letters");
+  });
+  it("loads B2 topics into the corpus", () => {
+    const b1 = topic({ slug: "phrasal-verbs-inseparable", family: "phrasal-verbs", level: "b1", category: "phrases", order: 1 });
+    const b2 = topic({ slug: "advanced-phrasal-verbs", family: "phrasal-verbs", level: "b2", category: "phrases", order: 1 });
+    const reg = createRegistry([b1, b2]);
+    expect(reg.siblingsAcrossLevels(b1)).toEqual([b2]);
+    expect(reg.siblingsAcrossLevels(b2)).toEqual([b1]);
+    expect(Array.isArray(b2Topics)).toBe(true);
+    for (const t of b2Topics) expect(allTopics).toContainEqual(t);
+  });
+  it("lists the new B2 family keys", () => {
+    for (const key of ["phrasal-verbs", "letters", "inversion"]) expect(FAMILY_KEYS).toContain(key);
     expect(new Set(FAMILY_KEYS).size).toBe(FAMILY_KEYS.length);
   });
 });
