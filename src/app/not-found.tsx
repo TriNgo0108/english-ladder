@@ -11,7 +11,7 @@ const link =
 // A static-export 404 gets no route params, so offer every level instead of guessing one.
 export default function NotFound() {
   return (
-    <main className="mx-auto w-full max-w-3xl px-4 py-8">
+    <main className="mx-auto w-full max-w-screen-2xl px-4 py-8 lg:px-8">
       <h1 className="font-serif text-4xl">We cannot find this page</h1>
       <p className="mt-2 max-w-[65ch] text-base text-muted">
         The link may be old, or the page may not exist yet. Choose a level to keep going.

@@ -15,8 +15,19 @@ export function TopicTree({ groups, onNavigate }: { groups: NavGroup[]; onNaviga
   const { category, topicHref } = locateNav(usePathname());
   const currentRef = useRef<HTMLAnchorElement>(null);
 
+  // Bring the current topic into view inside the list's own scroll box only:
+  // scrollIntoView would also scroll the page under the sticky top bar.
   useEffect(() => {
-    currentRef.current?.scrollIntoView({ block: "nearest" });
+    const link = currentRef.current;
+    const box = link?.closest<HTMLElement>(
+      '[data-slot="scroll-area-viewport"], [data-slot="sheet-content"]',
+    );
+    if (!link || !box) return;
+    const b = box.getBoundingClientRect();
+    const l = link.getBoundingClientRect();
+    if (l.top < b.top || l.bottom > b.bottom) {
+      box.scrollTop += l.top - b.top - (b.height - l.height) / 2;
+    }
   }, [topicHref]);
 
   return (

@@ -28,7 +28,7 @@ describe("TopicTree", () => {
     }
   });
 
-  it("marks the current topic and scrolls it into view", () => {
+  it("marks the current topic", () => {
     mockPath = current.href;
     render(<TopicTree groups={groups} />);
     const marked = screen
@@ -36,7 +36,28 @@ describe("TopicTree", () => {
       .filter((a) => a.getAttribute("aria-current") === "page");
     expect(marked).toHaveLength(1);
     expect(marked[0]).toHaveTextContent(current.title);
-    expect(Element.prototype.scrollIntoView).toHaveBeenCalled();
+  });
+
+  it("scrolls the current topic into view inside its own list, never the page", () => {
+    mockPath = current.href;
+    const rect = (top: number, height: number) => ({ top, bottom: top + height, height }) as DOMRect;
+    const spy = vi
+      .spyOn(HTMLElement.prototype, "getBoundingClientRect")
+      .mockImplementation(function (this: HTMLElement) {
+        if (this.dataset.slot === "scroll-area-viewport") return rect(100, 500);
+        if (this.getAttribute("aria-current") === "page") return rect(1000, 44);
+        return rect(0, 0);
+      });
+    render(
+      <div data-slot="scroll-area-viewport">
+        <TopicTree groups={groups} />
+      </div>,
+    );
+    const viewport = document.querySelector<HTMLElement>('[data-slot="scroll-area-viewport"]')!;
+    // Centred: 1000 - 100 - (500 - 44) / 2
+    expect(viewport.scrollTop).toBe(672);
+    expect(Element.prototype.scrollIntoView).not.toHaveBeenCalled();
+    spy.mockRestore();
   });
 
   it("starts with every group closed on a level page", () => {

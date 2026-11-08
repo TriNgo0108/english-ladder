@@ -94,7 +94,7 @@ export function Search() {
           setActive(-1);
         }}
         onKeyDown={onKeyDown}
-        className="min-h-11 w-56 rounded border border-border bg-surface px-3 text-text transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+        className="min-h-11 w-36 rounded-md border border-border bg-surface px-3 sm:w-56 text-text transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
       />
       <div className="absolute right-0 z-10 mt-1 w-80 max-w-[90vw]">
         {open && results.length > 0 && (
@@ -116,7 +116,7 @@ export function Search() {
                   href={r.href}
                   tabIndex={-1}
                   onClick={reset}
-                  className={`flex min-h-11 items-center gap-2 px-3 py-2 transition-colors duration-200 hover:bg-border/40 ${
+                  className={`flex min-h-11 items-center gap-2 px-3 py-2 transition-colors duration-200 hover:bg-subtle ${
                     i === active ? "bg-border/40 outline-2 -outline-offset-2 outline-accent" : ""
                   }`}
                 >
