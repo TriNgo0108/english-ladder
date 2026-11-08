@@ -156,3 +156,79 @@ describe("cross-level family links from B1 to A1 and A2", () => {
     expect(new Set(keys).size).toBe(keys.length);
   });
 });
+
+describe("cross-level family links from B2 to A1, A2 and B1", () => {
+  const b2 = topicsByLevel("b2");
+  const b2WithFamily = b2.filter((t) => t.family !== undefined);
+  const lowerSiblings = (t: Topic) => [...a1, ...a2, ...b1].filter((x) => key(x) === key(t));
+  const chain = (level: "a1" | "a2" | "b1" | "b2", category: Topic["category"], slug: string) => {
+    const found = findTopic(level, category, slug);
+    if (!found) throw new Error(`${level}/${slug} missing`);
+    return siblingsAcrossLevels(found).map((t) => `${t.level}/${t.slug}`);
+  };
+
+  it("links every B2 topic with a family to every A1, A2 and B1 topic sharing its key, and each of those back", () => {
+    for (const t of b2WithFamily) {
+      const below = siblingsAcrossLevels(t).filter((s) => s.level !== "b2");
+      expect(below.map(id), id(t)).toEqual(lowerSiblings(t).map(id));
+      for (const s of below) expect(siblingsAcrossLevels(s).map(id), id(s)).toContain(id(t));
+    }
+  });
+
+  it("shares exactly these families with A1, A2 and B1, and inversion has no earlier sibling", () => {
+    const shared = b2WithFamily.filter((t) => lowerSiblings(t).length > 0).map(key).sort();
+    expect(shared).toEqual(
+      [
+        "conditionals",
+        "wish",
+        "modal-deduction",
+        "modal-obligation",
+        "modal-ability",
+        "future-forms",
+        "passive",
+        "reported-speech",
+        "relative-clauses",
+        "gerunds-and-infinitives",
+        "articles",
+        "linking-words",
+        "question-forms",
+        "phrasal-verbs",
+        "collocations",
+        "letters",
+        "emails",
+      ].sort(),
+    );
+    const inversion = b2.find((t) => t.family === "inversion");
+    if (!inversion) throw new Error("inversion topic missing");
+    expect(siblingsAcrossLevels(inversion)).toEqual([]);
+  });
+
+  it("pins the four-level question-forms chain in CEFR order on every page", () => {
+    expect(chain("a1", "grammar", "question-words")).toEqual(["a2/subject-questions", "b1/question-tags", "b2/declarative-and-rhetorical-questions"]);
+    expect(chain("a2", "grammar", "subject-questions")).toEqual(["a1/question-words", "b1/question-tags", "b2/declarative-and-rhetorical-questions"]);
+    expect(chain("b1", "grammar", "question-tags")).toEqual(["a1/question-words", "a2/subject-questions", "b2/declarative-and-rhetorical-questions"]);
+    expect(chain("b2", "grammar", "declarative-and-rhetorical-questions")).toEqual(["a1/question-words", "a2/subject-questions", "b1/question-tags"]);
+  });
+
+  it("pins the conditionals chain A2 -> B1 -> B2 in CEFR order", () => {
+    expect(chain("a2", "grammar", "first-conditional")).toEqual(["b1/second-conditional", "b2/third-conditional"]);
+    expect(chain("b1", "grammar", "second-conditional")).toEqual(["a2/first-conditional", "b2/third-conditional"]);
+    expect(chain("b2", "grammar", "third-conditional")).toEqual(["a2/first-conditional", "b1/second-conditional"]);
+  });
+
+  it("pins the emails chain A2 -> B1 -> B2 in CEFR order", () => {
+    expect(chain("a2", "writing", "an-informal-email")).toEqual(["b1/a-professional-email", "b2/follow-up-emails"]);
+    expect(chain("b1", "writing", "a-professional-email")).toEqual(["a2/an-informal-email", "b2/follow-up-emails"]);
+    expect(chain("b2", "writing", "follow-up-emails")).toEqual(["a2/an-informal-email", "b1/a-professional-email"]);
+  });
+
+  it("keeps every B2 family in FAMILY_KEYS, gives B2 topics without a family no siblings, and has one topic per family", () => {
+    for (const t of b2WithFamily) expect(FAMILY_KEYS as readonly string[], t.slug).toContain(t.family);
+    for (const t of b2.filter((x) => x.family === undefined)) {
+      expect(FAMILY_KEYS as readonly string[], t.slug).not.toContain(t.slug);
+      expect(siblingsAcrossLevels(t), id(t)).toEqual([]);
+    }
+    const keys = b2.map(key);
+    expect(new Set(keys).size).toBe(keys.length);
+  });
+});

@@ -24,6 +24,11 @@ import { wishForPastRegrets } from "./grammar/wish-for-past-regrets";
 import { advancedPhrasalVerbs } from "./phrases/advanced-phrasal-verbs";
 import { easilyConfusedWords } from "./phrases/easily-confused-words";
 import { workplaceCollocations } from "./phrases/workplace-collocations";
+import { answeringDifficultQuestions } from "./speaking/answering-difficult-questions";
+import { breakingBadNews } from "./speaking/breaking-bad-news";
+import { checkingForApproval } from "./speaking/checking-for-approval";
+import { givingAPresentation } from "./speaking/giving-a-presentation";
+import { givingAndReceivingFeedback } from "./speaking/giving-and-receiving-feedback";
 import { aCoverLetter } from "./writing/a-cover-letter";
 import { followUpEmails } from "./writing/follow-up-emails";
 import { lettersOfComplaint } from "./writing/letters-of-complaint";
@@ -58,4 +63,9 @@ export const b2Topics: Topic[] = [
   aCoverLetter,
   followUpEmails,
   summarisingAndAddingPoints,
+  givingAPresentation,
+  givingAndReceivingFeedback,
+  breakingBadNews,
+  answeringDifficultQuestions,
+  checkingForApproval,
 ];
