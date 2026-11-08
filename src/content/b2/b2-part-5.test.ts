@@ -71,7 +71,7 @@ describe("B2 Phrases & Expressions and Writing (part 5)", () => {
     expect(summarisingAndAddingPoints.family).toBe("summarising");
   });
 
-  it("links each B2 topic to exactly its lower-level siblings (and C1 collocations) in CEFR order, and each of those back", () => {
+  it("links each B2 topic to exactly its lower-level siblings (and C1 collocations and summarising) in CEFR order, and each of those back", () => {
     expect(ids("b2", "phrases", "advanced-phrasal-verbs")).toEqual(["b1/phrasal-verbs-inseparable"]);
     expect(ids("b1", "phrases", "phrasal-verbs-inseparable")).toEqual(["b2/advanced-phrasal-verbs"]);
     expect(ids("b2", "phrases", "workplace-collocations")).toEqual(["b1/collocations", "c1/collocational-precision-and-near-synonyms"]);
@@ -83,7 +83,7 @@ describe("B2 Phrases & Expressions and Writing (part 5)", () => {
     expect(ids("b1", "writing", "a-professional-email")).toEqual(["a2/an-informal-email", "b2/follow-up-emails"]);
     expect(ids("b2", "phrases", "easily-confused-words")).toEqual([]);
     expect(ids("b2", "writing", "a-cover-letter")).toEqual([]);
-    expect(ids("b2", "writing", "summarising-and-adding-points")).toEqual([]);
+    expect(ids("b2", "writing", "summarising-and-adding-points")).toEqual(["c1/formal-reports-and-executive-summaries"]);
   });
 
   it("gives every topic a short summary, no IPA, and scrambles every wordbank", () => {

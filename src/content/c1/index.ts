@@ -14,6 +14,12 @@ import { theSubjunctiveAndUnrealPast } from "./grammar/the-subjunctive-and-unrea
 import { advancedIdioms } from "./phrases/advanced-idioms";
 import { collocationalPrecisionAndNearSynonyms } from "./phrases/collocational-precision-and-near-synonyms";
 import { figurativeLanguage } from "./phrases/figurative-language";
+import { chairingAMeeting } from "./speaking/chairing-a-meeting";
+import { diplomaticLanguageAndNegotiating } from "./speaking/diplomatic-language-and-negotiating";
+import { handlingPushback } from "./speaking/handling-pushback";
+import { rhetoricalDevices } from "./speaking/rhetorical-devices";
+import { discursiveAndArgumentativeWriting } from "./writing/discursive-and-argumentative-writing";
+import { formalReportsAndExecutiveSummaries } from "./writing/formal-reports-and-executive-summaries";
 
 export const c1Topics: Topic[] = [
   advancedModality,
@@ -30,4 +36,10 @@ export const c1Topics: Topic[] = [
   advancedIdioms,
   figurativeLanguage,
   collocationalPrecisionAndNearSynonyms,
+  discursiveAndArgumentativeWriting,
+  formalReportsAndExecutiveSummaries,
+  chairingAMeeting,
+  diplomaticLanguageAndNegotiating,
+  handlingPushback,
+  rhetoricalDevices,
 ];
