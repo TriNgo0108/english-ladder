@@ -410,6 +410,29 @@ describe("C1 Writing and Speaking (part 5)", () => {
     expect(mistakes(t.quiz)).toEqual([]);
   });
 
+  it("fuses movable words into multi-word tiles so every wordbank has exactly one order", () => {
+    const tiles = (t: PhraseTopic) => t.quiz.flatMap((q) => (q.kind === "wordbank" ? q.words : []));
+    expect(tiles(discursiveAndArgumentativeWriting)).toEqual(expect.arrayContaining(["often argued", "local communities."]));
+    expect(tiles(formalReportsAndExecutiveSummaries)).toContain("staff absence.");
+    expect(tiles(chairingAMeeting)).toContain("a new supplier.");
+    expect(tiles(rhetoricalDevices)).toEqual(expect.arrayContaining(["a school", "where every child", "feels safe."]));
+    for (const t of topics) {
+      for (const w of tiles(t)) expect(w, t.slug).not.toMatch(/^(often|local|staff|new|every)$/);
+    }
+  });
+
+  it("names the form in every one-word gap cue, and no feedback accepts a word the gap rejects", () => {
+    const d = diplomaticLanguageAndNegotiating;
+    expect(d.quiz.some((q) => q.kind === "gap" && q.stem.endsWith("(a form of the word prepare, one word)"))).toBe(true);
+    expect(d.quiz.some((q) => q.kind === "gap" && q.stem.endsWith("(a form of the word slight, one word)"))).toBe(true);
+    expect(JSON.stringify(d.quiz)).not.toMatch(/also possible in this sentence/);
+    for (const t of [discursiveAndArgumentativeWriting, formalReportsAndExecutiveSummaries]) {
+      expect(t.explanation, t.slug).not.toContain("impersonal passive");
+      expect(plain(t.explanation), t.slug).toContain("it + a passive verb + a that clause, as in order 3");
+    }
+    expect(plain(findTopic("c1", "grammar", "impersonal-and-passive-constructions")?.explanation ?? "")).toContain("it + a passive verb + a that clause");
+  });
+
   it("names its sources and level evidence", () => {
     for (const t of topics) {
       expect(t.sourceNotes, t.slug).toContain("Swan");

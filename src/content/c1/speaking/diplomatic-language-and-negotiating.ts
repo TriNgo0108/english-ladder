@@ -100,14 +100,14 @@ export const diplomaticLanguageAndNegotiating: PhraseTopic = {
     },
     {
       kind: "gap",
-      stem: "If you could sign the contract this week, we'd be ___ to cover the cost of training. (prepare, one word)",
+      stem: "If you could sign the contract this week, we'd be ___ to cover the cost of training. (a form of the word prepare, one word)",
       answers: ["prepared"],
       feedback:
-        "Be prepared to + the base form means be willing to: we'd be prepared to cover the cost of training. Willing and happy are also possible in this sentence, with the same pattern.",
+        "Be prepared to + the base form means be willing to: we'd be prepared to cover the cost of training. Use the adjective prepared, not the verb prepare or the noun preparation.",
     },
     {
       kind: "gap",
-      stem: "Your price is ___ higher than our budget, so we'd need a small discount. (slight, one word)",
+      stem: "Your price is ___ higher than our budget, so we'd need a small discount. (a form of the word slight, one word)",
       answers: ["slightly"],
       feedback:
         "Slightly is the adverb: it goes before the comparative higher and makes the difference sound small. Slight is the adjective, as in a slight difference.",

@@ -121,7 +121,7 @@ export const chairingAMeeting: PhraseTopic = {
     {
       kind: "wordbank",
       prompt: "Put the words in order to open the meeting and give its purpose.",
-      words: ["is", "new", "The", "to", "meeting", "of", "a", "choose", "today's", "purpose", "supplier."],
+      words: ["is", "The", "to", "meeting", "of", "a new supplier.", "choose", "today's", "purpose"],
       answer: "The purpose of today's meeting is to choose a new supplier.",
       feedback:
         "The purpose of today's meeting is to + the base form tells everyone at the start why they are there: The purpose of today's meeting is to choose a new supplier.",

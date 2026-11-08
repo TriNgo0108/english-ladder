@@ -113,7 +113,7 @@ export const rhetoricalDevices: PhraseTopic = {
     {
       kind: "wordbank",
       prompt: "You are opening a talk about education. Put the words in order to ask the audience to picture something.",
-      words: ["school", "safe.", "a", "every", "Imagine", "feels", "where", "child"],
+      words: ["feels safe.", "a school", "Imagine", "where every child"],
       answer: "Imagine a school where every child feels safe.",
       feedback:
         "Imagine + a situation is direct address: it invites the audience to picture a school where every child feels safe.",
