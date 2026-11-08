@@ -11,6 +11,8 @@ import { impersonalAndPassiveConstructions } from "./grammar/impersonal-and-pass
 import { nominalisation } from "./grammar/nominalisation";
 import { registerAndFormalityShifts } from "./grammar/register-and-formality-shifts";
 import { theSubjunctiveAndUnrealPast } from "./grammar/the-subjunctive-and-unreal-past";
+import { punctuationForRhetoricalEffect } from "./mechanics/punctuation-for-rhetorical-effect";
+import { stressAndIntonationForEmphasis } from "./mechanics/stress-and-intonation-for-emphasis";
 import { advancedIdioms } from "./phrases/advanced-idioms";
 import { collocationalPrecisionAndNearSynonyms } from "./phrases/collocational-precision-and-near-synonyms";
 import { figurativeLanguage } from "./phrases/figurative-language";
@@ -42,4 +44,6 @@ export const c1Topics: Topic[] = [
   diplomaticLanguageAndNegotiating,
   handlingPushback,
   rhetoricalDevices,
+  punctuationForRhetoricalEffect,
+  stressAndIntonationForEmphasis,
 ];

@@ -233,3 +233,89 @@ describe("cross-level family links from B2 to A1, A2 and B1", () => {
     expect(new Set(keys).size).toBe(keys.length);
   });
 });
+
+describe("cross-level family links from C1 to A1, A2, B1 and B2", () => {
+  const c1 = topicsByLevel("c1");
+  const c1WithFamily = c1.filter((t) => t.family !== undefined);
+  const lowerSiblings = (t: Topic) => allTopics.filter((x) => x.level !== "c1" && key(x) === key(t));
+  const chain = (level: "a1" | "a2" | "b1" | "b2" | "c1", category: Topic["category"], slug: string) => {
+    const found = findTopic(level, category, slug);
+    if (!found) throw new Error(`${level}/${slug} missing`);
+    return siblingsAcrossLevels(found).map((t) => `${t.level}/${t.slug}`);
+  };
+
+  it("links every C1 topic with a family to every A1-B2 topic sharing its key, and each of those back", () => {
+    for (const t of c1WithFamily) {
+      const below = siblingsAcrossLevels(t).filter((s) => s.level !== "c1");
+      expect(below.map(id), id(t)).toEqual(lowerSiblings(t).map(id));
+      expect(below.length, id(t)).toBeGreaterThan(0);
+      for (const s of below) expect(siblingsAcrossLevels(s).map(id), id(s)).toContain(id(t));
+    }
+  });
+
+  it("shares exactly these families with A1-B2", () => {
+    const shared = c1WithFamily.filter((t) => lowerSiblings(t).length > 0).map(key).sort();
+    expect(shared).toEqual(
+      [
+        "modal-deduction",
+        "wish",
+        "passive",
+        "comparison",
+        "inversion",
+        "linking-words",
+        "register",
+        "idioms",
+        "collocations",
+        "summarising",
+        "agreeing-and-disagreeing",
+        "punctuation",
+        "intonation",
+      ].sort(),
+    );
+    expect(c1WithFamily.map(key).sort()).toEqual(shared);
+  });
+
+  it("pins the punctuation chain A1 -> B1 -> C1 in CEFR order on every page", () => {
+    expect(chain("a1", "mechanics", "capital-letters-and-full-stops")).toEqual(["b1/commas", "c1/punctuation-for-rhetorical-effect"]);
+    expect(chain("b1", "mechanics", "commas")).toEqual(["a1/capital-letters-and-full-stops", "c1/punctuation-for-rhetorical-effect"]);
+    expect(chain("c1", "mechanics", "punctuation-for-rhetorical-effect")).toEqual(["a1/capital-letters-and-full-stops", "b1/commas"]);
+  });
+
+  it("pins the inversion chain B2 -> C1, the register chain B1 -> C1 and the summarising chain B2 -> C1, both ways", () => {
+    expect(chain("b2", "grammar", "inversion-after-negative-adverbials")).toEqual(["c1/advanced-inversion-and-fronting"]);
+    expect(chain("c1", "grammar", "advanced-inversion-and-fronting")).toEqual(["b2/inversion-after-negative-adverbials"]);
+    expect(chain("b1", "writing", "formal-and-informal-register")).toEqual(["c1/register-and-formality-shifts"]);
+    expect(chain("c1", "grammar", "register-and-formality-shifts")).toEqual(["b1/formal-and-informal-register"]);
+    expect(chain("b2", "writing", "summarising-and-adding-points")).toEqual(["c1/formal-reports-and-executive-summaries"]);
+    expect(chain("c1", "writing", "formal-reports-and-executive-summaries")).toEqual(["b2/summarising-and-adding-points"]);
+  });
+
+  it("pins the comparison chain A2 -> C1, which skips B1 and B2", () => {
+    expect(chain("a2", "grammar", "comparatives-and-superlatives")).toEqual(["c1/advanced-comparison-structures"]);
+    expect(chain("c1", "grammar", "advanced-comparison-structures")).toEqual(["a2/comparatives-and-superlatives"]);
+  });
+
+  it("keeps every C1 family in FAMILY_KEYS, gives C1 topics without a family no siblings, and has one topic per family", () => {
+    for (const t of c1WithFamily) expect(FAMILY_KEYS as readonly string[], t.slug).toContain(t.family);
+    for (const t of c1.filter((x) => x.family === undefined)) {
+      expect(FAMILY_KEYS as readonly string[], t.slug).not.toContain(t.slug);
+      expect(siblingsAcrossLevels(t), id(t)).toEqual([]);
+    }
+    const keys = c1.map(key);
+    expect(new Set(keys).size).toBe(keys.length);
+  });
+});
+
+describe("family corpus", () => {
+  it("uses every key in FAMILY_KEYS for at least two topics, so every family promised in families.ts has its later level", () => {
+    const lonely = FAMILY_KEYS.filter((k) => allTopics.filter((t) => key(t) === k).length < 2);
+    expect(lonely).toEqual([]);
+  });
+
+  it("uses each key at two or more different levels", () => {
+    for (const k of FAMILY_KEYS) {
+      const levels = new Set(allTopics.filter((t) => key(t) === k).map((t) => t.level));
+      expect(levels.size, k).toBeGreaterThanOrEqual(2);
+    }
+  });
+});

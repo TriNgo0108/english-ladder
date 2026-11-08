@@ -45,9 +45,9 @@ describe("B1 Mechanics, orders 41-43 (commas, colons and semicolons, abbreviatio
     expect(abbreviations.family).toBeUndefined();
   });
 
-  it("links the punctuation chain A1 <-> B1 both ways, and gives the other two no siblings", () => {
-    expect(ids("a1", "mechanics", "capital-letters-and-full-stops")).toEqual(["b1/commas"]);
-    expect(ids("b1", "mechanics", "commas")).toEqual(["a1/capital-letters-and-full-stops"]);
+  it("links the punctuation chain A1 -> B1 -> C1 on every page, and gives the other two no siblings", () => {
+    expect(ids("a1", "mechanics", "capital-letters-and-full-stops")).toEqual(["b1/commas", "c1/punctuation-for-rhetorical-effect"]);
+    expect(ids("b1", "mechanics", "commas")).toEqual(["a1/capital-letters-and-full-stops", "c1/punctuation-for-rhetorical-effect"]);
     expect(ids("b1", "mechanics", "colons-and-semicolons")).toEqual([]);
     expect(ids("b1", "mechanics", "abbreviations")).toEqual([]);
   });
@@ -141,9 +141,9 @@ describe("B1 Mechanics, order 44 (question intonation)", () => {
     expect(b1Topics.map((x) => x.order)).toEqual(Array.from({ length: 44 }, (_, i) => i + 1));
   });
 
-  it("pins the intonation family key, with no sibling at any level", () => {
+  it("pins the intonation family key, with its C1 sibling as the only one", () => {
     expect(t.family).toBe("intonation");
-    expect(ids("b1", "mechanics", "question-intonation")).toEqual([]);
+    expect(ids("b1", "mechanics", "question-intonation")).toEqual(["c1/stress-and-intonation-for-emphasis"]);
   });
 
   it("gives the topic about five questions, at least 3 examples and a short summary", () => {

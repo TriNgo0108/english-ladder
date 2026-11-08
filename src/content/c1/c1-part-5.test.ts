@@ -53,7 +53,7 @@ describe("C1 Writing and Speaking (part 5)", () => {
     expect(c1Topics.slice(14, 20).map((t) => t.slug)).toEqual([...writingSlugs, ...speakingSlugs]);
     expect(topicsByLevelAndCategory("c1", "writing").map((t) => t.slug)).toEqual(writingSlugs);
     expect(topicsByLevelAndCategory("c1", "speaking").map((t) => t.slug)).toEqual(speakingSlugs);
-    expect(topicsByLevel("c1").map((t) => t.order)).toEqual(Array.from({ length: 20 }, (_, i) => i + 1));
+    expect(topicsByLevel("c1").slice(0, 20).map((t) => t.order)).toEqual(Array.from({ length: 20 }, (_, i) => i + 1));
     expect(allTopics.filter((t) => t.level === "c1" && t.category === "vocabulary")).toHaveLength(0);
   });
 
