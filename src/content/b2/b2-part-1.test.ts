@@ -96,8 +96,8 @@ describe("B2 grammar, part 1 (conditionals, regrets and past modals)", () => {
     expect(missed).toEqual(["wouldn't have missed", "would not have missed", "'d not have missed"]);
     expectGap(missed, ["wouldn't have missed", "would not have missed", "’d not have missed"], ["won't have missed", "wouldn't miss", "hadn't missed", "wouldn't have miss"]);
     const studied = gap(thirdConditional.quiz, "passed the exam");
-    expect(studied).toEqual(["had studied", "'d studied"]);
-    expectGap(studied, ["had studied", "’d studied"], ["studied", "would have studied", "has studied", "had study"]);
+    expect(studied).toEqual(["had studied", "'d studied", "had been studying", "'d been studying"]);
+    expectGap(studied, ["had studied", "’d studied", "had been studying", "’d been studying"], ["studied", "would have studied", "has studied", "had study"]);
   });
 
   it("pins the mixed conditionals: now and today force the present result", () => {
@@ -150,10 +150,12 @@ describe("B2 grammar, part 1 (conditionals, regrets and past modals)", () => {
       "need not have gotten up",
       "didn't need to get up",
       "did not need to get up",
+      "didn't have to get up",
+      "did not have to get up",
     ]);
     expectGap(
       got,
-      ["needn't have got up", "need not have got up", "needn’t have gotten up", "didn’t need to get up", "did not need to get up"],
+      ["needn't have got up", "need not have got up", "needn’t have gotten up", "didn’t need to get up", "did not need to get up", "didn’t have to get up", "did not have to get up"],
       ["needn't get up", "needn't have get up", "mustn't have got up", "needn't to have got up", "didn't need get up"],
     );
   });

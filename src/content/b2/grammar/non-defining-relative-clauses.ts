@@ -4,7 +4,7 @@ export const nonDefiningRelativeClauses: RuleTopic = {
   slug: "non-defining-relative-clauses",
   family: "relative-clauses",
   title: "Non-defining relative clauses: My mother, who is a nurse, …",
-  summary: "My mother, who is a nurse, works at night. Add extra information with who, which, whose or where between commas, and never with that.",
+  summary: "My mother, who is a nurse, works at night. Add extra information with who, which, whose or where between commas, and not normally with that.",
   level: "b2",
   category: "grammar",
   shape: "rule",
@@ -25,7 +25,7 @@ export const nonDefiningRelativeClauses: RuleTopic = {
     "extra information about a person or thing that is already clear → commas",
     "in the middle: noun, who / which …, rest of the sentence · at the end: …, who / which ….",
     "who → people · which → things and animals · whose → his / her / their · where → places",
-    "never that · never leave the pronoun out",
+    "not normally that · never leave the pronoun out",
     "which for a whole clause: He was late, which annoyed everyone.",
   ].join("\n"),
 
@@ -55,7 +55,7 @@ export const nonDefiningRelativeClauses: RuleTopic = {
   pitfall: {
     wrong: "The Colosseum, that is almost 2,000 years old, is in Rome.",
     right: "The Colosseum, <b>which</b> is almost 2,000 years old, is in Rome.",
-    why: "We never use <b>that</b> in a non-defining clause. For a thing, use <b>which</b>.",
+    why: "We don't normally use <b>that</b> in a non-defining clause. For a thing, use <b>which</b>.",
   },
 
   quiz: [
@@ -70,7 +70,7 @@ export const nonDefiningRelativeClauses: RuleTopic = {
       ],
       answer: 2,
       feedback:
-        "I have only one father, so who is a pilot is extra information. In the middle of a sentence, it needs a pair of commas, one before and one after: My father, who is a pilot, flies to Tokyo every week. We never use that in a non-defining clause.",
+        "I have only one father, so who is a pilot is extra information. In the middle of a sentence, it needs a pair of commas, one before and one after: My father, who is a pilot, flies to Tokyo every week. We don't normally use that in a non-defining clause.",
     },
     {
       kind: "gap",
@@ -100,7 +100,7 @@ export const nonDefiningRelativeClauses: RuleTopic = {
       wrongIndex: 1,
       correction: "which",
       feedback:
-        "We never use that in a non-defining clause. Here the pronoun is the subject of is, so we use which, not where: Tokyo, which is the capital of Japan, is a huge city.",
+        "We don't normally use that in a non-defining clause. Tokyo is a thing, not a person, and the pronoun is the subject of is, so we use which: Tokyo, which is the capital of Japan, is a huge city.",
     },
     {
       kind: "mistake",

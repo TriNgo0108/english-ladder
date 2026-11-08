@@ -235,7 +235,8 @@ describe("B2 grammar, part 3 (clauses and verb patterns)", () => {
     expect(reducedRelativeClauses.explanation).toContain("Remember: the past participle is the form of a verb that comes after have: seen, gone, finished.");
     expect(reducedRelativeClauses.explanation).toContain("Both are correct");
     expect(participleClauses.explanation).toContain("<b>participle clause</b>");
-    expect(participleClauses.explanation).not.toContain("Remember: a clause is a group of words with a subject and a verb.");
+    expect(participleClauses.explanation).toContain("Remember: a clause is a group of words with a subject and a verb.");
+    expect(participleClauses.explanation).toContain("A participle clause is a short kind of clause with no subject of its own: its subject comes from the rest of the sentence");
     expect(verbObjectInfinitiveAndGerundPatterns.explanation).toContain("Remember: the object is the person or thing that the action goes to.");
     expect(verbObjectInfinitiveAndGerundPatterns.explanation).toContain("Remember: to and the base form together, like to buy or to see, are called the infinitive.");
     expect(verbObjectInfinitiveAndGerundPatterns.explanation).toContain("from is often left out");

@@ -82,7 +82,7 @@ export const givingAPresentation: PhraseTopic = {
       options: ["By the way, the timetable.", "Let's move on to the timetable.", "As I was saying, the timetable.", "Thank you for your attention."],
       answer: 1,
       feedback:
-        "Let's move on to… tells the audience that one point has finished and the next one is starting. As I was saying goes back to your talk after an interruption. By the way changes the subject to something you have just remembered, and it is informal. Thank you for your attention closes a formal talk.",
+        "Let's move on to… tells the audience that one point has finished and the next one is starting. As I was saying goes back to your talk after an interruption. By the way changes the subject to something you have just remembered. Thank you for your attention closes a formal talk.",
     },
     {
       kind: "choice",

@@ -76,9 +76,9 @@ export const thirdConditional: RuleTopic = {
     {
       kind: "gap",
       stem: "If she ___ harder last term, she would have passed the exam. (study)",
-      answers: ["had studied", "'d studied"],
+      answers: ["had studied", "'d studied", "had been studying", "'d been studying"],
       feedback:
-        "Last term is in the past, so this is the if clause of a third conditional, and we use had and the past participle: If she had studied harder last term, she would have passed the exam. She didn't study hard, and she didn't pass. She'd studied is also correct.",
+        "Last term is in the past, so this is the if clause of a third conditional, and we use had and the past participle: If she had studied harder last term, she would have passed the exam. She didn't study hard, and she didn't pass. She'd studied is also correct, and so is had been studying (she'd been studying), for a longer activity.",
     },
     {
       kind: "choice",

@@ -16,7 +16,7 @@ export const couldWasAbleToAndCouldHave: RuleTopic = {
     "In negative sentences, <b>couldn't is fine</b> for one time too. It means the same as wasn't able to: I tried for an hour, but I <b>couldn't</b> open the jar. We <b>weren't able to</b> find tickets for the concert.",
     "With verbs of the senses and of thinking, like see, hear, smell, understand and remember, we often use could for one time: When I opened the window, I <b>could see</b> the sea. I <b>could</b> hear voices in the next room.",
     "For a past ability or chance that someone <b>didn't use</b>, we use <b>could have</b> and the past participle: I <b>could have taken</b> the job, but the salary was too low. (I had the chance, but I didn't take the job.) This is a past modal (order 4): a modal verb, then have, then the past participle. We also use it to complain that someone didn't do something: You <b>could have told</b> me! In speaking, we often say <b>could've</b>.",
-    "<b>Couldn't have</b> and the past participle means that something was not possible, even if we had tried: I <b>couldn't have done</b> it without your help. (You helped, and I did it.)",
+    "<b>Couldn't have</b> and the past participle means that something would not have been possible in a different past: I <b>couldn't have done</b> it without your help. (You helped, and I did it.)",
   ].join("\n\n"),
 
   form: [

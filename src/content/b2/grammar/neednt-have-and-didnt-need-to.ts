@@ -88,9 +88,11 @@ export const needntHaveAndDidntNeedTo: RuleTopic = {
         "need not have gotten up",
         "didn't need to get up",
         "did not need to get up",
+        "didn't have to get up",
+        "did not have to get up",
       ],
       feedback:
-        "I got up early, but it wasn't necessary, so we use needn't have and the past participle: I needn't have got up so early. Gotten is the American past participle of get, so I needn't have gotten up is also correct. I didn't need to get up so early is also correct, because didn't need to fits whether or not the action happened.",
+        "I got up early, but it wasn't necessary, so we use needn't have and the past participle: I needn't have got up so early. Gotten is the American past participle of get, so I needn't have gotten up is also correct. I didn't need to get up so early is also correct, because didn't need to fits whether or not the action happened, and so is I didn't have to get up so early.",
     },
     {
       kind: "mistake",

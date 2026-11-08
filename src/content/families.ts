@@ -21,7 +21,7 @@
  *   polite-requests        A1 would-you-like -> A2 asking for things politely; B1 indirect and polite questions
  *   introductions          A1 greetings-and-introducing-yourself -> B1 introducing yourself at work
  *   conditionals           A2 first conditional -> B1 second conditional -> B2 third conditional only (mixed conditionals unkeyed)
- *   gerunds-and-infinitives A2 verb + gerund / verb + infinitive (introductory) -> B1 gerunds vs infinitives
+ *   gerunds-and-infinitives A2 verb + gerund / verb + infinitive (introductory) -> B1 gerunds vs infinitives -> B2 verb + object + infinitive / gerund patterns
  *   linking-words          A2 conjunctions and, but, so, because -> B1 linking words -> B2 advanced linkers
  *   comparison             A2 comparatives and superlatives -> C1 advanced comparison structures
  *   future-forms           A2 will -> B1 future continuous and future perfect -> B2 future in the past

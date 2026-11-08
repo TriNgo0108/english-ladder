@@ -3,7 +3,7 @@ import type { PhraseTopic } from "../../schema";
 export const givingAndReceivingFeedback: PhraseTopic = {
   slug: "giving-and-receiving-feedback",
   title: "Giving and receiving feedback: Well done!, You might want to…",
-  summary: "Praise a colleague's work, accept praise with Thank you. I appreciate that., and make a soft suggestion with You might want to… or It might be worth…",
+  summary: "Praise a colleague's work, make a soft suggestion with You might want to… or It might be worth…, and accept praise with Thank you. I appreciate that.",
   level: "b2",
   category: "speaking",
   shape: "phrases",

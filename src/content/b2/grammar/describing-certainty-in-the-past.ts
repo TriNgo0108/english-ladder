@@ -14,7 +14,7 @@ export const describingCertaintyInThePast: RuleTopic = {
     "In B1, we used must, might, may, could and can't to guess about now: She must be tired. Remember: a guess like this is called a <b>deduction</b>. To make a deduction about the <b>past</b>, we use a <b>past modal</b>: a modal verb, then <b>have</b>, then the past participle. Remember: a modal verb is a small verb that goes before the base form of another verb and adds a meaning to it, and the past participle is the form of a verb that comes after have: seen, gone, finished. The modal and have don't change with the subject: she must have, they must have.",
     "Use <b>must have</b> when you are <b>sure that something was true</b>, because there is a good reason: The streets are wet. It <b>must have rained</b> in the night. You <b>must have been</b> very tired after the flight.",
     "Use <b>may have</b>, <b>might have</b> or <b>could have</b> when you think that something was <b>possible</b>, but you are not sure: Tom is late. He <b>may have missed</b> the bus. He <b>might have missed</b> it. He <b>could have missed</b> it. The three have almost the same meaning here. Some speakers feel that might have is a little less sure than may have, but the difference is small.",
-    "Use <b>can't have</b> or <b>couldn't have</b> when you are <b>sure that something was not true</b>: She <b>can't have seen</b> us. She didn't even look up. They <b>couldn't have</b> walked here: it's twenty kilometres. Both mean the same. As in B1, the opposite of must is can't, so say can't have, <b>not mustn't have</b>.",
+    "Use <b>can't have</b> or <b>couldn't have</b> when you are <b>sure that something was not true</b>: She <b>can't have seen</b> us. She didn't even look up. They <b>couldn't have</b> walked here: it's twenty kilometres. Both mean the same. As in B1, the opposite of must is can't, so say can't have, <b>not mustn't have</b>. In American English, must not have is sometimes heard, but can't have is the form to learn.",
     "To say that it is possible that something did <b>not</b> happen, use <b>might not have</b> or <b>may not have</b>: She <b>might not have got</b> my message. You may also hear mightn't have. Don't use couldn't have for this, because couldn't have means that you are sure, like can't have.",
     "In speaking, have is usually short: <b>must've</b>, <b>might've</b>, <b>could've</b>. It can sound like must of, but we never write of: write must have or must've. For something that was in progress, use <b>have been</b> and the -ing form: The lights were on all night. She <b>must have been working</b> late.",
     "Could have has another use too: for something that was possible but did not happen. You <b>could have</b> hurt yourself! (You didn't hurt yourself.) The situation shows which meaning is meant.",
@@ -40,7 +40,7 @@ export const describingCertaintyInThePast: RuleTopic = {
     },
     {
       sentence: "She <b>can't have seen</b> us. She didn't even look up.",
-      why: "We are sure that it is not true, so we use <b>can't have</b>. Couldn't have is also correct, but mustn't have is not.",
+      why: "We are sure that it is not true, so we use <b>can't have</b>. Couldn't have is also correct. We use can't have, not mustn't have (in American English, must not have is sometimes heard, but can't have is the form to learn).",
     },
     {
       sentence: "I'm not sure Ana knows about the party. She <b>may not have got</b> my message.",
@@ -65,7 +65,7 @@ export const describingCertaintyInThePast: RuleTopic = {
       options: ["must have", "can't have", "mustn't have", "must"],
       answer: 0,
       feedback:
-        "The wet grass and the puddles are a good reason to be sure, so we use must have and the past participle: It must have rained in the night. Can't have means that we are sure it didn't happen, mustn't have is not used for deductions, and must needs have before a past participle.",
+        "The wet grass and the puddles are a good reason to be sure, so we use must have and the past participle: It must have rained in the night. Can't have means that we are sure it didn't happen, and must needs have before a past participle. For deductions we use can't have, not mustn't have (in American English, must not have is sometimes heard, but can't have is the form to learn).",
     },
     {
       kind: "choice",
@@ -103,7 +103,7 @@ export const describingCertaintyInThePast: RuleTopic = {
       wrongIndex: 1,
       correction: "can't",
       feedback:
-        "He didn't even say hello, so we are fairly sure that he didn't see us: He can't have seen us. Couldn't have is also correct, and might not have is correct if you are less sure. Mustn't have is not used for deductions.",
+        "He didn't even say hello, so we are fairly sure that he didn't see us: He can't have seen us. Couldn't have is also correct, and might not have is correct if you are less sure. We use can't have, not mustn't have (in American English, must not have is sometimes heard, but can't have is the form to learn).",
     },
     {
       kind: "mistake",
