@@ -72,15 +72,18 @@ describe("B1 Writing and Speaking (part 7)", () => {
     expect(introducingYourselfAndInterruptingAtWork.family).toBe("introductions");
   });
 
-  it("lists every sibling in CEFR order on every page of the polite-requests, introductions and emails chains", () => {
+  it("lists every sibling in CEFR order on every page of the polite-requests, introductions, emails and letters chains", () => {
     expect(ids("a1", "speaking", "would-you-like")).toEqual(["a2/asking-for-things-politely", "b1/indirect-and-polite-questions"]);
     expect(ids("a2", "speaking", "asking-for-things-politely")).toEqual(["a1/would-you-like", "b1/indirect-and-polite-questions"]);
     expect(ids("b1", "speaking", "indirect-and-polite-questions")).toEqual(["a1/would-you-like", "a2/asking-for-things-politely"]);
     expect(ids("a1", "speaking", "greetings-and-introducing-yourself")).toEqual(["b1/introducing-yourself-and-interrupting-at-work"]);
     expect(ids("b1", "speaking", "introducing-yourself-and-interrupting-at-work")).toEqual(["a1/greetings-and-introducing-yourself"]);
-    expect(ids("a2", "writing", "an-informal-email")).toEqual(["b1/a-professional-email"]);
-    expect(ids("b1", "writing", "a-professional-email")).toEqual(["a2/an-informal-email"]);
-    for (const [category, slug] of ordered.filter(([, s]) => ["formal-and-informal-register", "letter-structure", "giving-advice", "likes-and-dislikes", "agreeing-and-disagreeing"].includes(s))) {
+    expect(ids("a2", "writing", "an-informal-email")).toEqual(["b1/a-professional-email", "b2/follow-up-emails"]);
+    expect(ids("b1", "writing", "a-professional-email")).toEqual(["a2/an-informal-email", "b2/follow-up-emails"]);
+    expect(ids("b2", "writing", "follow-up-emails")).toEqual(["a2/an-informal-email", "b1/a-professional-email"]);
+    expect(ids("b1", "writing", "letter-structure")).toEqual(["b2/letters-of-complaint"]);
+    expect(ids("b2", "writing", "letters-of-complaint")).toEqual(["b1/letter-structure"]);
+    for (const [category, slug] of ordered.filter(([, s]) => ["formal-and-informal-register", "giving-advice", "likes-and-dislikes", "agreeing-and-disagreeing"].includes(s))) {
       expect(ids("b1", category, slug), slug).toEqual([]);
     }
   });

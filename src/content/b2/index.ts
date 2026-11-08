@@ -21,6 +21,13 @@ import { theCausative } from "./grammar/the-causative";
 import { thirdConditional } from "./grammar/third-conditional";
 import { verbObjectInfinitiveAndGerundPatterns } from "./grammar/verb-object-infinitive-and-gerund-patterns";
 import { wishForPastRegrets } from "./grammar/wish-for-past-regrets";
+import { advancedPhrasalVerbs } from "./phrases/advanced-phrasal-verbs";
+import { easilyConfusedWords } from "./phrases/easily-confused-words";
+import { workplaceCollocations } from "./phrases/workplace-collocations";
+import { aCoverLetter } from "./writing/a-cover-letter";
+import { followUpEmails } from "./writing/follow-up-emails";
+import { lettersOfComplaint } from "./writing/letters-of-complaint";
+import { summarisingAndAddingPoints } from "./writing/summarising-and-adding-points";
 
 export const b2Topics: Topic[] = [
   thirdConditional,
@@ -44,4 +51,11 @@ export const b2Topics: Topic[] = [
   cleftSentences,
   inversionAfterNegativeAdverbials,
   hedgingAndDegreesOfCertainty,
+  advancedPhrasalVerbs,
+  workplaceCollocations,
+  easilyConfusedWords,
+  lettersOfComplaint,
+  aCoverLetter,
+  followUpEmails,
+  summarisingAndAddingPoints,
 ];
