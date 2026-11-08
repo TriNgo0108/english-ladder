@@ -169,7 +169,7 @@ describe("cross-level family links from B2 to A1, A2 and B1", () => {
 
   it("links every B2 topic with a family to every A1, A2 and B1 topic sharing its key, and each of those back", () => {
     for (const t of b2WithFamily) {
-      const below = siblingsAcrossLevels(t).filter((s) => s.level !== "b2");
+      const below = siblingsAcrossLevels(t).filter((s) => s.level !== "b2" && s.level !== "c1");
       expect(below.map(id), id(t)).toEqual(lowerSiblings(t).map(id));
       for (const s of below) expect(siblingsAcrossLevels(s).map(id), id(s)).toContain(id(t));
     }

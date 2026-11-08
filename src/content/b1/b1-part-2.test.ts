@@ -53,7 +53,7 @@ describe("B1 grammar, part 2 (narrative and future)", () => {
     expect(ids("b1", "grammar", "future-continuous-and-future-perfect")).toEqual(["a2/will", "b2/future-in-the-past"]);
     expect(ids("a2", "grammar", "first-conditional")).toEqual(["b1/second-conditional", "b2/third-conditional"]);
     expect(ids("b1", "grammar", "second-conditional")).toEqual(["a2/first-conditional", "b2/third-conditional"]);
-    expect(ids("b1", "grammar", "wish-and-if-only")).toEqual(["b2/wish-for-past-regrets"]);
+    expect(ids("b1", "grammar", "wish-and-if-only")).toEqual(["b2/wish-for-past-regrets", "c1/the-subjunctive-and-unreal-past"]);
     expect(ids("b1", "grammar", "past-perfect-and-narrative-tenses")).toEqual([]);
     expect(ids("b1", "grammar", "time-clauses")).toEqual([]);
   });

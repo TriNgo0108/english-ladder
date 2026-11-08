@@ -64,10 +64,10 @@ describe("B2 grammar, part 1 (conditionals, regrets and past modals)", () => {
     expect(ids("a2", "grammar", "first-conditional")).toEqual(["b1/second-conditional", "b2/third-conditional"]);
     expect(ids("b1", "grammar", "second-conditional")).toEqual(["a2/first-conditional", "b2/third-conditional"]);
     expect(ids("b2", "grammar", "mixed-conditionals")).toEqual([]);
-    expect(ids("b2", "grammar", "wish-for-past-regrets")).toEqual(["b1/wish-and-if-only"]);
-    expect(ids("b1", "grammar", "wish-and-if-only")).toEqual(["b2/wish-for-past-regrets"]);
-    expect(ids("b2", "grammar", "describing-certainty-in-the-past")).toEqual(["b1/modals-of-possibility-and-deduction"]);
-    expect(ids("b1", "grammar", "modals-of-possibility-and-deduction")).toEqual(["b2/describing-certainty-in-the-past"]);
+    expect(ids("b2", "grammar", "wish-for-past-regrets")).toEqual(["b1/wish-and-if-only", "c1/the-subjunctive-and-unreal-past"]);
+    expect(ids("b1", "grammar", "wish-and-if-only")).toEqual(["b2/wish-for-past-regrets", "c1/the-subjunctive-and-unreal-past"]);
+    expect(ids("b2", "grammar", "describing-certainty-in-the-past")).toEqual(["b1/modals-of-possibility-and-deduction", "c1/advanced-modality"]);
+    expect(ids("b1", "grammar", "modals-of-possibility-and-deduction")).toEqual(["b2/describing-certainty-in-the-past", "c1/advanced-modality"]);
     expect(ids("b2", "grammar", "neednt-have-and-didnt-need-to")).toEqual(["a2/should-and-must"]);
     expect(ids("a2", "grammar", "should-and-must")).toEqual(["b2/neednt-have-and-didnt-need-to"]);
     expect(ids("b2", "grammar", "could-was-able-to-and-could-have")).toEqual(["a1/can-for-ability"]);

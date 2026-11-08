@@ -48,8 +48,8 @@ describe("B2 grammar, part 2 (future in the past, passives, the causative, repor
     expect(ids("b2", "grammar", "future-in-the-past")).toEqual(["a2/will", "b1/future-continuous-and-future-perfect"]);
     expect(ids("a2", "grammar", "will")).toEqual(["b1/future-continuous-and-future-perfect", "b2/future-in-the-past"]);
     expect(ids("b1", "grammar", "future-continuous-and-future-perfect")).toEqual(["a2/will", "b2/future-in-the-past"]);
-    expect(ids("b2", "grammar", "advanced-passive-and-reporting-verbs")).toEqual(["b1/the-passive"]);
-    expect(ids("b1", "grammar", "the-passive")).toEqual(["b2/advanced-passive-and-reporting-verbs"]);
+    expect(ids("b2", "grammar", "advanced-passive-and-reporting-verbs")).toEqual(["b1/the-passive", "c1/impersonal-and-passive-constructions"]);
+    expect(ids("b1", "grammar", "the-passive")).toEqual(["b2/advanced-passive-and-reporting-verbs", "c1/impersonal-and-passive-constructions"]);
     expect(ids("b2", "grammar", "the-causative")).toEqual([]);
     expect(ids("b2", "grammar", "reported-commands-advice-and-requests")).toEqual(["b1/reported-speech"]);
     expect(ids("b1", "grammar", "reported-speech")).toEqual(["b2/reported-commands-advice-and-requests"]);

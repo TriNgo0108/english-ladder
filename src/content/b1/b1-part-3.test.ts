@@ -59,9 +59,9 @@ describe("B1 grammar, part 3 (modals and verb patterns)", () => {
     expect(ids("b1", "grammar", "be-used-to-and-get-used-to")).toEqual(["a2/used-to-and-would"]);
     expect(ids("a2", "grammar", "verb-plus-gerund-or-infinitive")).toEqual(["b1/gerunds-vs-infinitives", "b2/verb-object-infinitive-and-gerund-patterns"]);
     expect(ids("b1", "grammar", "gerunds-vs-infinitives")).toEqual(["a2/verb-plus-gerund-or-infinitive", "b2/verb-object-infinitive-and-gerund-patterns"]);
-    expect(ids("b1", "grammar", "modals-of-possibility-and-deduction")).toEqual(["b2/describing-certainty-in-the-past"]);
+    expect(ids("b1", "grammar", "modals-of-possibility-and-deduction")).toEqual(["b2/describing-certainty-in-the-past", "c1/advanced-modality"]);
     expect(ids("b1", "grammar", "transitive-and-intransitive-verbs")).toEqual([]);
-    expect(ids("b1", "grammar", "the-passive")).toEqual(["b2/advanced-passive-and-reporting-verbs"]);
+    expect(ids("b1", "grammar", "the-passive")).toEqual(["b2/advanced-passive-and-reporting-verbs", "c1/impersonal-and-passive-constructions"]);
   });
 
   it("gives each topic about five questions, at least 3 examples, a summary, and scrambles every wordbank", () => {
