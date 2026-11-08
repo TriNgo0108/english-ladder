@@ -57,7 +57,7 @@ export const figurativeLanguage: SetTopic = {
     },
     {
       kind: "gap",
-      stem: "The two ministers had a ___ debate on live TV, and one of them walked out. (heat, one word)",
+      stem: "The two ministers had a ___ debate on live TV, and one of them walked out. (a form of the word heat, one word)",
       answers: ["heated"],
       feedback:
         "A heated debate is a discussion with strong, often angry feelings. The adjective is heated, made from heat, as in heated water, but here it is figurative.",

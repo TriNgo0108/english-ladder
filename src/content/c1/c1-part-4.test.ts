@@ -128,8 +128,11 @@ describe("C1 Phrases & Expressions (part 4: advanced idioms, figurative language
     }
     for (const e of advancedIdioms.entries) expect(e.gloss, e.headword).toMatch(/(Informal|Neutral)[,.]/);
     const informal = advancedIdioms.entries.filter((e) => /Informal/.test(e.gloss)).map((e) => e.headword);
-    expect(informal).toEqual(["move the goalposts", "on the back burner", "bite the bullet", "be barking up the wrong tree", "back to square one", "hit the nail on the head"]);
+    expect(informal).toEqual(["move the goalposts", "on the back burner", "bite the bullet", "be barking up the wrong tree", "back to square one"]);
     expect(advancedIdioms.explanation).toContain("shift the goalposts are both correct");
+    expect(advancedIdioms.entries.find((e) => e.headword === "hit the nail on the head")?.gloss).toMatch(/Neutral\.$/);
+    expect(advancedIdioms.explanation).toContain("you often say it about yourself");
+    expect(advancedIdioms.explanation).not.toContain("opposite: you say it about yourself");
   });
 
   it("pins the idiom choices, with real idioms of the wrong meaning as distractors", () => {
@@ -175,6 +178,7 @@ describe("C1 Phrases & Expressions (part 4: advanced idioms, figurative language
     expect(choiceOptions(t, "Which metaphor from water fits?")).not.toContain("a storm");
     expect(choiceAnswer(t.quiz, "What does sheds light on mean here?")).toBe("helps people understand");
     expect(choiceAnswer(t.quiz, "uses bright in a figurative way")).toBe("The company has a bright future.");
+    expect(t.quiz.some((q) => q.kind === "gap" && q.stem.endsWith("(a form of the word heat, one word)"))).toBe(true);
     const heated = gap(t.quiz, "debate on live TV");
     expect(heated).toEqual(["heated"]);
     expectGap(heated, ["heated", "Heated"], ["heat", "heating", "heats", "warm"]);
