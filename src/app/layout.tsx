@@ -44,7 +44,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className="min-h-full flex flex-col font-sans">
+      {/* Extensions (e.g. VPN/ad-block) inject attributes on <body> before hydration. */}
+      <body suppressHydrationWarning className="min-h-full flex flex-col font-sans">
         <NavProvider navByLevel={buildAllNav()}>
           <SiteHeader />
           {children}
