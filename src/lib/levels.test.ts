@@ -9,8 +9,8 @@ describe("LEVELS", () => {
   it("does not include C2", () => {
     expect(LEVELS.map((l) => l.slug)).not.toContain("c2");
   });
-  it("uses the spec ramp, deepening A1 to C1", () => {
-    expect(LEVELS.map((l) => l.ramp)).toEqual(["#DBEAFE", "#BFDBFE", "#93C5FD", "#60A5FA", "#2563EB"]);
+  it("uses the warm ramp, deepening A1 to C1", () => {
+    expect(LEVELS.map((l) => l.ramp)).toEqual(["#FBE7D3", "#F6CDA4", "#EEA86E", "#D9773A", "#9A3412"]);
   });
   it("gives every level a learner-facing blurb", () => {
     for (const l of LEVELS) expect(l.blurb.length).toBeGreaterThan(0);

@@ -9,7 +9,7 @@ describe("LevelBadge", () => {
   it("uses the level ramp and foreground colours", () => {
     render(<LevelBadge level="c1" />);
     const el = screen.getByText("C1");
-    expect(el).toHaveStyle({ backgroundColor: "#2563EB", color: "#FFFFFF" });
+    expect(el).toHaveStyle({ backgroundColor: "#9A3412", color: "#FFFFFF" });
   });
   it("is announced by default", () => {
     render(<LevelBadge level="a1" />);
