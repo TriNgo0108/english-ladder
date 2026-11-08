@@ -18,13 +18,13 @@ export function SiteHeader() {
           className="inline-flex min-h-11 items-center gap-2 rounded-md pr-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
           <LadderMark className="size-7 shrink-0" />
-          <span className="hidden font-serif text-xl font-semibold sm:inline">{SITE_NAME}</span>
+          <span className="hidden font-serif text-xl font-semibold whitespace-nowrap sm:inline">{SITE_NAME}</span>
           <span className="sr-only sm:hidden">{SITE_NAME}</span>
         </Link>
-        <nav aria-label="Levels" className="mx-auto hidden md:block">
+        <nav aria-label="Levels" className="mx-auto hidden lg:block">
           <LevelLinks orientation="row" />
         </nav>
-        <div className="ml-auto flex items-center gap-2 md:ml-0">
+        <div className="ml-auto flex items-center gap-2 lg:ml-0">
           <Search />
           <ThemeToggle />
         </div>
