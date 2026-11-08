@@ -11,7 +11,7 @@ export function CrossLevelLinks(props: Props) {
   const siblings = props.siblings ?? siblingsAcrossLevels(props.topic);
   if (siblings.length === 0) return null;
   return (
-    <section aria-labelledby="cross-level-heading" className="mt-12 font-sans">
+    <section aria-labelledby="cross-level-heading" className="font-sans">
       <h2 id="cross-level-heading" className="text-lg font-semibold">
         This topic at other levels
       </h2>
@@ -21,7 +21,7 @@ export function CrossLevelLinks(props: Props) {
             <Link
               href={topicPath(s)}
               aria-label={`${levelMeta(s.level).label}: ${s.title}`}
-              className="flex min-h-11 items-center gap-2 rounded border border-border bg-surface px-3 transition-colors duration-200 hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              className="flex min-h-11 items-center gap-2 rounded-md border border-border bg-surface px-3 transition-colors duration-200 hover:border-accent hover:bg-subtle focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             >
               <LevelBadge level={s.level} />
               <span>{s.title}</span>

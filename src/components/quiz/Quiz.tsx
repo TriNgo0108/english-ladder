@@ -6,6 +6,7 @@ import { ChoiceQuestion } from "./ChoiceQuestion";
 import { GapQuestion } from "./GapQuestion";
 import { MistakeQuestion } from "./MistakeQuestion";
 import { WordbankQuestion } from "./WordbankQuestion";
+import { PANEL, SECTION_HEADING } from "@/components/Section";
 import { PRIMARY_BUTTON } from "./shared";
 
 function renderQuestion(q: Question, onAnswered: (correct: boolean) => void) {
@@ -44,16 +45,16 @@ export function Quiz({ questions }: { questions: Question[] }) {
   }
 
   return (
-    <section aria-labelledby="quiz-heading" className="mt-12">
+    <section aria-labelledby="quiz-heading" className={PANEL}>
       <h2
         id="quiz-heading"
         ref={headingRef}
         tabIndex={-1}
-        className="font-serif text-2xl focus:outline-none"
+        className={`${SECTION_HEADING} focus:outline-none`}
       >
         Quiz
       </h2>
-      <ol key={run} className="mt-4 grid max-w-[65ch] list-decimal gap-8 pl-6">
+      <ol key={run} className="mt-6 grid max-w-[65ch] list-decimal gap-8 pl-6">
         {questions.map((q, i) => (
           <li key={i}>{renderQuestion(q, record)}</li>
         ))}
@@ -61,7 +62,7 @@ export function Quiz({ questions }: { questions: Question[] }) {
       <div
         role="status"
         className={
-          done ? "mt-8 max-w-[65ch] rounded border border-border bg-surface p-4" : undefined
+          done ? "mt-8 max-w-[65ch] rounded border border-border bg-subtle p-4" : undefined
         }
       >
         {done && (

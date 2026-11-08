@@ -53,7 +53,7 @@ export default async function TopicPage({ params }: PageProps<"/[level]/[categor
   const { prev, next } = adjacentTopics(topic);
 
   return (
-    <main className="mx-auto w-full max-w-3xl px-4 py-8">
+    <main className="mx-auto grid w-full max-w-3xl gap-10 px-4 py-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serialiseJsonLd(topicJsonLd(topic)) }}

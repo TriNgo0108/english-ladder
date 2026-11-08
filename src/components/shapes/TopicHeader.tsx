@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LevelBadge } from "@/components/LevelBadge";
 import type { Topic } from "@/content/schema";
+import { PANEL } from "@/components/Section";
 import { categoryMeta } from "@/lib/categories";
 import { levelMeta } from "@/lib/levels";
 import { renderRichText } from "@/lib/rich-text";
@@ -52,10 +53,12 @@ export function TopicHeader({ topic }: { topic: Topic }) {
       <div className="mt-4 flex flex-wrap items-center gap-3">
         <LevelBadge level={topic.level} /> <h1 className="font-serif text-4xl">{topic.title}</h1>
       </div>
-      <div className="mt-4 grid max-w-[65ch] gap-3 text-base leading-relaxed">
-        {paragraphs.map((p, i) => (
-          <p key={i}>{renderRichText(p)}</p>
-        ))}
+      <div className={`mt-6 ${PANEL}`}>
+        <div className="grid max-w-[65ch] gap-3 text-base leading-relaxed [&_b]:font-semibold [&_b]:text-accent">
+          {paragraphs.map((p, i) => (
+            <p key={i}>{renderRichText(p)}</p>
+          ))}
+        </div>
       </div>
     </header>
   );

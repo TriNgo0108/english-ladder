@@ -3,7 +3,7 @@ import type { Topic } from "@/content/schema";
 import { topicPath } from "@/lib/seo";
 
 const link =
-  "flex min-h-11 items-center gap-3 rounded border border-border bg-surface p-3 font-sans transition-colors duration-200 hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
+  "flex min-h-11 items-center gap-3 rounded-md border border-border bg-surface p-3 font-sans transition-colors duration-200 hover:border-accent hover:bg-subtle focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 
 function Arrow({ dir }: { dir: "left" | "right" }) {
   return (
@@ -27,7 +27,7 @@ function Arrow({ dir }: { dir: "left" | "right" }) {
 export function TopicNav({ prev, next }: { prev?: Topic; next?: Topic }) {
   if (!prev && !next) return null;
   return (
-    <nav aria-label="More topics" className="mt-12 grid gap-4 sm:grid-cols-2">
+    <nav aria-label="More topics" className="grid gap-4 sm:grid-cols-2">
       {prev && (
         <Link href={topicPath(prev)} className={link}>
           <Arrow dir="left" />

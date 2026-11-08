@@ -4,9 +4,9 @@ import { renderRichText } from "@/lib/rich-text";
 export const FOCUS =
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 
-export const BUTTON_BASE = `min-h-11 min-w-11 rounded border border-border bg-surface px-4 py-2 text-base text-text transition-colors duration-200 not-aria-disabled:hover:border-accent aria-disabled:cursor-default ${FOCUS}`;
+export const BUTTON_BASE = `min-h-11 min-w-11 rounded border border-border bg-surface px-4 py-2 text-base text-text transition-colors duration-200 not-aria-disabled:hover:border-accent not-aria-disabled:hover:bg-subtle aria-disabled:cursor-default ${FOCUS}`;
 
-export const PRIMARY_BUTTON = `min-h-11 min-w-11 rounded border border-accent bg-surface px-5 py-2 text-base font-semibold text-accent transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-60 ${FOCUS}`;
+export const PRIMARY_BUTTON = `min-h-11 min-w-11 rounded border border-accent bg-accent px-5 py-2 text-base font-semibold text-on-accent transition-opacity hover:opacity-90 duration-200 disabled:cursor-not-allowed disabled:opacity-60 ${FOCUS}`;
 
 function CheckIcon() {
   return (
