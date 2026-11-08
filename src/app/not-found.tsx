@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LevelBadge } from "@/components/LevelBadge";
+import { LinkCard } from "@/components/LinkCard";
 import { LEVELS } from "@/lib/levels";
 
 export const metadata: Metadata = { title: "Page not found" };
@@ -19,16 +20,13 @@ export default function NotFound() {
       <Link href="/" className={`mt-4 ${link}`}>
         Go to all levels
       </Link>
-      <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+      <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {LEVELS.map((l) => (
           <li key={l.slug}>
-            <Link
-              href={`/${l.slug}/`}
-              className="flex min-h-11 items-center gap-3 rounded border border-border bg-surface p-4 transition-colors duration-200 hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-            >
+            <LinkCard href={`/${l.slug}/`} className="flex items-center gap-3">
               <LevelBadge level={l.slug} />
               <span className="text-base font-semibold">Level {l.label}</span>
-            </Link>
+            </LinkCard>
           </li>
         ))}
       </ul>

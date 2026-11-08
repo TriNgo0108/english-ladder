@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LevelBadge } from "@/components/LevelBadge";
+import { LinkCard } from "@/components/LinkCard";
 import { populatedCategoryPairs, topicsByLevelAndCategory } from "@/content/registry";
 import { LevelSchema, type Level } from "@/content/schema";
 import { categoryMeta } from "@/lib/categories";
@@ -49,15 +50,15 @@ export default async function LevelPage({ params }: PageProps<"/[level]">) {
             <LevelBadge level={level} decorative /> <span>Level {meta.label}</span>
           </h1>
           <p className="mt-2 max-w-[65ch] text-base text-muted">{meta.blurb}</p>
-          <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+          <ul className="mt-10 grid gap-6 sm:grid-cols-2">
             {categories.map((c) => (
               <li key={c.slug}>
-                <Link href={`/${level}/${c.slug}/`} className="rounded border border-border bg-surface p-4 min-h-11 block transition-colors duration-200 hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+                <LinkCard href={`/${level}/${c.slug}/`}>
                   <span className="text-base font-semibold">{c.label}</span>
                   <span className="block text-base text-muted">
                     {c.count} {c.count === 1 ? "topic" : "topics"}
                   </span>
-                </Link>
+                </LinkCard>
               </li>
             ))}
           </ul>

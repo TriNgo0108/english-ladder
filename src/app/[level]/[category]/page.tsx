@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { LevelBadge } from "@/components/LevelBadge";
+import { LinkCard } from "@/components/LinkCard";
 import { populatedCategoryPairs, topicsByLevelAndCategory } from "@/content/registry";
 import { CategorySlugSchema, LevelSchema } from "@/content/schema";
 import { categoryMeta } from "@/lib/categories";
@@ -41,13 +42,13 @@ export default async function CategoryPage({ params }: PageProps<"/[level]/[cate
       <div className="flex items-center gap-2">
         <LevelBadge level={level} /> <h1 className="font-serif text-4xl">{cat.label}</h1>
       </div>
-      <ol className="mt-6 grid gap-4">
+      <ol className="mt-10 grid gap-4">
         {topics.map((t) => (
           <li key={t.slug}>
-            <Link href={`/${level}/${category}/${t.slug}/`} className="rounded border border-border bg-surface p-4 min-h-11 block transition-colors duration-200 hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+            <LinkCard href={`/${level}/${category}/${t.slug}/`}>
               <span className="mr-2 font-sans tabular-nums text-base text-muted">{t.order}.</span>
               <span className="text-base font-semibold">{t.title}</span>
-            </Link>
+            </LinkCard>
           </li>
         ))}
       </ol>
