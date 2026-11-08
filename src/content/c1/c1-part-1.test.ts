@@ -190,7 +190,7 @@ describe("C1 grammar, part 1 (modality, the subjunctive, impersonal passives, co
   it("pins every mistake item's wrong token and correction", () => {
     expect(mistakes(advancedModality.quiz)).toEqual([
       ["came", "come"],
-      ["forgetting", "forget"],
+      ["forgets", "forget"],
     ]);
     expect(mistakes(theSubjunctiveAndUnrealPast.quiz)).toEqual([
       ["don't", "didn't"],
@@ -210,10 +210,10 @@ describe("C1 grammar, part 1 (modality, the subjunctive, impersonal passives, co
     const sentences = (t: (typeof topics)[number]) => t.quiz.flatMap((q) => (q.kind === "mistake" ? [q.tokens.join(" ")] : []));
     expect(sentences(advancedModality)).toEqual([
       "You should have came with us. The party was great.",
-      "Don't lend him money. He's bound to forgetting to pay you back.",
+      "Don't lend him money. He's bound to forgets to pay you back.",
     ]);
     expect(sentences(theSubjunctiveAndUnrealPast)).toEqual([
-      "I'd rather you don't smoke in the house.",
+      "I'd much rather you don't smoke in the house.",
       "The judge insisted that the prisoner be release at once.",
     ]);
     expect(sentences(impersonalAndPassiveConstructions)).toEqual([

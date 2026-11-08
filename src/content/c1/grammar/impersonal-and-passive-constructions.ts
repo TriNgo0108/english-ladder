@@ -87,10 +87,10 @@ export const impersonalAndPassiveConstructions: RuleTopic = {
     },
     {
       kind: "gap",
-      stem: "The letter is very old. It seems ___ by hand about two hundred years ago. (write, passive)",
+      stem: "This old letter seems ___ by hand about two hundred years ago. (write: passive infinitive)",
       answers: ["to have been written"],
       feedback:
-        "The writing happened long before now, the time of seeming, and the letter didn't write anything, so we use to have been + past participle: It seems to have been written by hand. Write is irregular: write → wrote → written.",
+        "The writing happened long before now, the time of seeming, and the letter didn't write anything, so we use to have been + past participle: This old letter seems to have been written by hand. Write is irregular: write → wrote → written.",
     },
     {
       kind: "gap",

@@ -104,11 +104,11 @@ export const theSubjunctiveAndUnrealPast: RuleTopic = {
     },
     {
       kind: "mistake",
-      tokens: ["I'd", "rather", "you", "don't", "smoke", "in", "the", "house."],
-      wrongIndex: 3,
+      tokens: ["I'd", "much", "rather", "you", "don't", "smoke", "in", "the", "house."],
+      wrongIndex: 4,
       correction: "didn't",
       feedback:
-        "After I'd rather + another person, we use the past simple for the present or future: I'd rather you didn't smoke in the house.",
+        "After I'd rather + another person, we use the past simple for the present or future: I'd much rather you didn't smoke in the house. Much makes would rather stronger, and doesn't change the rule.",
     },
     {
       kind: "mistake",

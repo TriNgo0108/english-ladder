@@ -112,11 +112,11 @@ export const advancedModality: RuleTopic = {
     },
     {
       kind: "mistake",
-      tokens: ["Don't", "lend", "him", "money.", "He's", "bound", "to", "forgetting", "to", "pay", "you", "back."],
+      tokens: ["Don't", "lend", "him", "money.", "He's", "bound", "to", "forgets", "to", "pay", "you", "back."],
       wrongIndex: 7,
       correction: "forget",
       feedback:
-        "Be bound to goes with the base form, not the -ing form: He's bound to forget to pay you back.",
+        "Be bound to goes with the base form, with no -s: He's bound to forget to pay you back. After to, the verb doesn't change with the subject.",
     },
   ],
 
