@@ -127,9 +127,9 @@ describe("C1 grammar, part 2 (inversion and fronting, ellipsis and substitution,
 
   it("pins the ellipsis and substitution gaps with every defensible filler (Review Focus 2)", () => {
     const q = ellipsisAndSubstitution.quiz;
-    const can = gap(q, "I can't speak Spanish");
-    expect(can).toEqual(["can"]);
-    expectGap(can, ["can", "Can"], ["is", "has", "do", "can't"]);
+    const is = gap(q, "afraid of spiders");
+    expect(is).toEqual(["is"]);
+    expectGap(is, ["is", "Is"], ["does", "do", "has", "'s", "are", "isn't"]);
     const so = gap(q, "She's never missed one");
     expect(so).toEqual(["so"]);
     expectGap(so, ["so", "So"], ["it", "yes", "that", "not"]);
@@ -210,7 +210,7 @@ describe("C1 grammar, part 2 (inversion and fronting, ellipsis and substitution,
   it("pins the mistake sentences", () => {
     const sentences = (t: (typeof topics)[number]) => t.quiz.flatMap((q) => (q.kind === "mistake" ? [q.tokens.join(" ")] : []));
     expect(sentences(advancedInversionAndFronting)).toEqual([
-      "Had I know how expensive it was, I wouldn't have ordered it.",
+      "Had she know about the traffic, she would have left earlier.",
       "Not until the next morning did we saw how bad the damage was.",
       "So was his anger that he couldn't say a word.",
     ]);
