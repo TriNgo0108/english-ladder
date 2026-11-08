@@ -29,7 +29,7 @@ export default async function LevelPage({ params }: PageProps<"/[level]">) {
     }));
 
   return (
-    <main className="mx-auto w-full max-w-3xl px-4 py-8">
+    <main className="min-w-0">
       {categories.length === 0 ? (
         <>
           <h1 className="font-serif text-4xl">Nothing here yet</h1>
