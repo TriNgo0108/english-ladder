@@ -303,6 +303,14 @@ describe("C1 stress and intonation for emphasis (order 22)", () => {
   });
 });
 
+describe("form strings corpus", () => {
+  it("keeps every form string in the corpus plain text, because form lines render as text, not markup", () => {
+    const withForm = allTopics.flatMap((t) => (t.shape === "rule" && t.form ? [[t.slug, t.form] as const] : []));
+    expect(withForm.length).toBeGreaterThan(50);
+    expect(withForm.filter(([, f]) => /<[^>]*>/.test(f)).map(([slug]) => slug)).toEqual([]);
+  });
+});
+
 describe("C1 arrows corpus", () => {
   it("has no rising or falling arrow glyph anywhere in C1", () => {
     const strings = c1Topics.flatMap((topic) => stringsIn(topic, topic.slug));

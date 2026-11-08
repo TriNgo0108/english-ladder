@@ -25,7 +25,7 @@ export const stressAndIntonationForEmphasis: RuleTopic = {
   form: [
     "neutral sentence → main stress usually on the last important word · I've lost my keys. (falling)",
     "new information → stressed · words the listener already knows → usually not stressed",
-    "contrastive stress → any word, even a small one · I didn't say <b>he</b> took it. · I didn't <b>say</b> he took it.",
+    "contrastive stress → any word, even a small one · I didn't say he took it. (stress on he) · I didn't say he took it. (stress on say)",
     "emphatic do: do / does / did (stressed) + base form · I do like it. · He does know. · We did go.",
     "be or an auxiliary → stress it, no do · I am sure. · She has finished.",
     "fall-rise → a hidden but · The room was clean… (fall-rise)",
