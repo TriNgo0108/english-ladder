@@ -61,14 +61,14 @@ describe("B2 Phrases & Expressions and Writing (part 5)", () => {
     });
   });
 
-  it("pins the families: phrasal-verbs, collocations, letters and emails explicit, none for the other three", () => {
+  it("pins the families: phrasal-verbs, collocations, letters, emails and summarising explicit, none for the other two", () => {
     expect(advancedPhrasalVerbs.family).toBe("phrasal-verbs");
     expect(workplaceCollocations.family).toBe("collocations");
     expect(easilyConfusedWords.family).toBeUndefined();
     expect(lettersOfComplaint.family).toBe("letters");
     expect(aCoverLetter.family).toBeUndefined();
     expect(followUpEmails.family).toBe("emails");
-    expect(summarisingAndAddingPoints.family).toBeUndefined();
+    expect(summarisingAndAddingPoints.family).toBe("summarising");
   });
 
   it("links each B2 topic to exactly its lower-level siblings in CEFR order, and each of those back", () => {

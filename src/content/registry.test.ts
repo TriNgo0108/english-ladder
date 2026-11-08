@@ -9,6 +9,7 @@ import { FAMILY_KEYS } from "./families";
 import { a2Topics } from "./a2";
 import { b1Topics } from "./b1";
 import { b2Topics } from "./b2";
+import { c1Topics } from "./c1";
 import type { CategorySlug, Level, Topic } from "./schema";
 
 const quizItem = {
@@ -345,5 +346,23 @@ describe("B2 barrel and family keys", () => {
   it("lists the new B2 family keys", () => {
     for (const key of ["phrasal-verbs", "letters", "inversion"]) expect(FAMILY_KEYS).toContain(key);
     expect(new Set(FAMILY_KEYS).size).toBe(FAMILY_KEYS.length);
+  });
+});
+
+describe("C1 barrel and family keys", () => {
+  it("loads C1 topics into the corpus", () => {
+    const b1 = topic({ slug: "formal-and-informal-register", family: "register", level: "b1", order: 1 });
+    const c1 = topic({ slug: "register-and-formality-shifts", family: "register", level: "c1", order: 11 });
+    const reg = createRegistry([b1, c1]);
+    expect(reg.siblingsAcrossLevels(b1)).toEqual([c1]);
+    expect(reg.siblingsAcrossLevels(c1)).toEqual([b1]);
+    expect(Array.isArray(c1Topics)).toBe(true);
+    for (const t of c1Topics) expect(allTopics).toContainEqual(t);
+  });
+  it("lists the summarising family key once", () => {
+    expect(FAMILY_KEYS.filter((k) => k === "summarising")).toHaveLength(1);
+  });
+  it("gives B2 summarising-and-adding-points the summarising family", () => {
+    expect(findTopic("b2", "writing", "summarising-and-adding-points")?.family).toBe("summarising");
   });
 });

@@ -10,7 +10,7 @@
  *   determiners            A1 this-that-these-those -> B1 determiners
  *   modal-ability          A1 can-for-ability -> B2 could, was able to and could have
  *   modal-obligation       A2 should and must -> B2 needn't have and didn't need to
- *   modal-deduction        B1 modals of possibility and deduction; B2 describing-certainty-in-the-past (must have / can't have)
+ *   modal-deduction        B1 modals of possibility and deduction; B2 describing-certainty-in-the-past (must have / can't have) -> C1 advanced-modality
  *   present-simple         A1 present-simple -> A2 present simple for future
  *   present-continuous     A1 present-continuous -> A2 present continuous for future
  *   past-simple            A1 was-were -> A2 past simple; B1 present perfect vs past simple
@@ -22,24 +22,25 @@
  *   introductions          A1 greetings-and-introducing-yourself -> B1 introducing yourself at work
  *   conditionals           A2 first conditional -> B1 second conditional -> B2 third conditional only (mixed conditionals unkeyed)
  *   gerunds-and-infinitives A2 verb + gerund / verb + infinitive (introductory) -> B1 gerunds vs infinitives -> B2 verb + object + infinitive / gerund patterns
- *   linking-words          A2 conjunctions and, but, so, because -> B1 linking words -> B2 advanced linkers
- *   comparison             A2 comparatives and superlatives -> C1 advanced comparison structures
+ *   linking-words          A2 conjunctions and, but, so, because -> B1 linking words -> B2 advanced linkers -> C1 discourse-markers-and-cohesion
+ *   comparison             A2 comparatives and superlatives -> C1 advanced-comparison-structures
  *   future-forms           A2 will -> B1 future continuous and future perfect -> B2 future in the past
  *   emails                 A2 an informal email -> B1 a professional email -> B2 follow-up emails
- *   punctuation            A1 capital-letters-and-full-stops -> B1 commas; C1 punctuation for rhetorical effect
+ *   punctuation            A1 capital-letters-and-full-stops -> B1 commas; C1 punctuation-for-rhetorical-effect
  *   used-to                A2 used-to-and-would -> B1 be used to and get used to
- *   wish                   B1 wish and if only -> B2 wish for past regrets
- *   passive                B1 the passive -> B2 advanced passive
+ *   wish                   B1 wish and if only -> B2 wish for past regrets -> C1 the-subjunctive-and-unreal-past
+ *   passive                B1 the passive -> B2 advanced passive -> C1 impersonal-and-passive-constructions
  *   reported-speech        B1 reported speech -> B2 reported commands
  *   relative-clauses       B1 defining relative clauses -> B2 non-defining
- *   collocations           B1 collocations -> B2 workplace collocations -> C1 collocational precision
- *   idioms                 B1 idioms -> C1 advanced idioms
- *   register               B1 formal and informal register -> C1 register and formality shifts
- *   agreeing-and-disagreeing B1 agreeing and disagreeing -> C1 handling pushback
- *   intonation             B1 question intonation -> C1 stress and intonation for emphasis
+ *   collocations           B1 collocations -> B2 workplace collocations -> C1 collocational-precision-and-near-synonyms
+ *   idioms                 B1 idioms -> C1 advanced-idioms
+ *   register               B1 formal and informal register -> C1 register-and-formality-shifts
+ *   agreeing-and-disagreeing B1 agreeing and disagreeing -> C1 handling-pushback
+ *   intonation             B1 question intonation -> C1 stress-and-intonation-for-emphasis
  *   phrasal-verbs          B1 phrasal verbs, inseparable -> B2 advanced phrasal verbs
  *   letters                B1 letter structure -> B2 letters of complaint
- *   inversion              B2 inversion after negative adverbials -> C1 advanced inversion and fronting
+ *   inversion              B2 inversion after negative adverbials -> C1 advanced-inversion-and-fronting
+ *   summarising            B2 summarising-and-adding-points -> C1 formal-reports-and-executive-summaries
  */
 export const FAMILY_KEYS = [
   "articles",
@@ -77,4 +78,5 @@ export const FAMILY_KEYS = [
   "phrasal-verbs",
   "letters",
   "inversion",
+  "summarising",
 ] as const;

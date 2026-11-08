@@ -8,6 +8,7 @@ export const summarisingAndAddingPoints: PhraseTopic = {
   category: "writing",
   shape: "phrases",
   order: 28,
+  family: "summarising",
 
   explanation: [
     "When you finish a talk, a report or a long email, it helps to give the main idea again in a few words. This is called <b>summarising</b>. When you want to give one more point, you use a phrase for <b>adding</b>. These phrases usually go at the start of a sentence, with a comma after them (B1 commas). Remember: register means how formal or informal your words are. Each group below has its register.",
