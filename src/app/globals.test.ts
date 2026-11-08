@@ -30,7 +30,9 @@ const osDark = tokens(
 );
 const dark = tokens(blockAfter(css, ':root[data-theme="dark"]'));
 
-const REQUIRED = ["ground", "surface", "subtle", "border", "text", "muted", "accent", "on-accent", "correct", "incorrect"];
+const REQUIRED = [
+  "ground", "surface", "subtle", "border", "control", "text", "muted", "accent", "on-accent", "correct", "incorrect",
+];
 const FOREGROUNDS = ["text", "muted", "accent", "correct", "incorrect"];
 const BACKGROUNDS = ["ground", "surface", "subtle"];
 
@@ -51,6 +53,15 @@ describe("globals.css palette", () => {
   it.each(pairs)("%s %s on %s is at least 4.5:1", (theme, fg, bg) => {
     const set = theme === "light" ? light : dark;
     expect(contrastRatio(set[fg], set[bg])).toBeGreaterThanOrEqual(4.5);
+  });
+
+  // WCAG 1.4.11: the edge of a form control or button must reach 3:1 against what is around it.
+  const controlPairs = (["light", "dark"] as const).flatMap((theme) =>
+    BACKGROUNDS.map((bg) => [theme, bg] as const),
+  );
+  it.each(controlPairs)("%s control border on %s is at least 3:1", (theme, bg) => {
+    const set = theme === "light" ? light : dark;
+    expect(contrastRatio(set.control, set[bg])).toBeGreaterThanOrEqual(3);
   });
 
   it("keeps on-accent text readable on the accent", () => {

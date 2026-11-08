@@ -55,7 +55,7 @@ export default async function TopicPage({ params }: PageProps<"/[level]/[categor
   const { prev, next } = adjacentTopics(topic);
 
   return (
-    <main className="grid min-w-0 gap-10 xl:grid-cols-[minmax(0,1fr)_15rem]">
+    <main id="content" className="grid min-w-0 gap-10 xl:grid-cols-[minmax(0,1fr)_15rem]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serialiseJsonLd(topicJsonLd(topic)) }}
@@ -69,7 +69,7 @@ export default async function TopicPage({ params }: PageProps<"/[level]/[categor
         </div>
       </div>
       <aside className="hidden xl:block">
-        <div className="sticky top-24 grid gap-10">
+        <div className="sticky top-24 grid max-h-[calc(100dvh-7rem)] gap-10 overflow-y-auto pr-1">
           <OnThisPage sections={topicSections(topic)} />
           <CrossLevelLinks topic={topic} headingId="cross-level-heading-rail" stacked />
         </div>

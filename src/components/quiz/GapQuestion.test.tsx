@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { GapQuestion } from "./GapQuestion";
+import { BUTTON_BASE } from "./shared";
 
 const q = {
   kind: "gap" as const,
@@ -15,6 +16,14 @@ async function submit(text: string) {
 }
 
 describe("GapQuestion", () => {
+  it("gives the answer field a visible control border", () => {
+    render(<GapQuestion question={q} onAnswered={vi.fn()} />);
+    expect(screen.getByRole("textbox")).toHaveClass("border-control");
+  });
+  // Check is the filled accent button; its edge is the accent fill itself.
+  it("gives outline answer buttons a visible control border", () => {
+    expect(BUTTON_BASE.split(" ")).toContain("border-control");
+  });
   it("accepts the stored answer", async () => {
     const onAnswered = vi.fn();
     render(<GapQuestion question={q} onAnswered={onAnswered} />);

@@ -49,7 +49,7 @@ export function GapQuestion({
               submit();
             }
           }}
-          className={`min-h-11 w-48 rounded border border-border bg-surface px-3 py-2 text-base text-text ${FOCUS}`}
+          className={`min-h-11 w-48 rounded border border-control bg-surface px-3 py-2 text-base text-text ${FOCUS}`}
         />
         <button
           type="button"

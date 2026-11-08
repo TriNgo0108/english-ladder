@@ -30,7 +30,7 @@ export default async function LevelPage({ params }: PageProps<"/[level]">) {
     }));
 
   return (
-    <main className="min-w-0">
+    <main id="content" className="min-w-0">
       {categories.length === 0 ? (
         <>
           <h1 className="font-serif text-4xl">Nothing here yet</h1>

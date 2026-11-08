@@ -89,7 +89,7 @@ export function ThemeToggle() {
         applyMode(next);
         setMode(next);
       }}
-      className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-border bg-surface text-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+      className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-control bg-surface text-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
     >
       <Icon mode={mode} />
     </button>

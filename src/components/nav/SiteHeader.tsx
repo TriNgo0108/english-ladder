@@ -4,15 +4,20 @@ import { LevelLinks } from "@/components/nav/LevelLinks";
 import { MobileNav } from "@/components/nav/MobileNav";
 import { Search } from "@/components/Search";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { buildAllNav } from "@/lib/nav";
 import { SITE_NAME } from "@/lib/site";
 
 /** The sticky top bar on every page. */
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-30 border-b border-border bg-ground/95 backdrop-blur">
+      <a
+        href="#content"
+        className="sr-only rounded-md bg-accent px-4 py-2 font-semibold text-on-accent focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+      >
+        Skip to content
+      </a>
       <div className="relative mx-auto flex h-16 w-full max-w-screen-2xl items-center gap-2 px-4 lg:px-8">
-        <MobileNav navByLevel={buildAllNav()} />
+        <MobileNav />
         <Link
           href="/"
           className="inline-flex min-h-11 items-center gap-2 rounded-md pr-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"

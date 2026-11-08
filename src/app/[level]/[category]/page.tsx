@@ -32,7 +32,7 @@ export default async function CategoryPage({ params }: PageProps<"/[level]/[cate
   const cat = categoryMeta(category);
 
   return (
-    <main className="min-w-0">
+    <main id="content" className="min-w-0">
       <Link
         href={`/${level}/`}
         className="inline-flex min-h-11 items-center text-base text-accent underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"

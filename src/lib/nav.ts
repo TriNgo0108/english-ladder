@@ -1,12 +1,11 @@
+// Server-only: imports the content registry. Client components use
+// `@/lib/nav-location` and NavProvider instead (see client-imports.test.ts).
 import { topicsByLevel } from "@/content/registry";
-import { CategorySlugSchema, LevelSchema, type CategorySlug, type Level } from "@/content/schema";
+import type { Level } from "@/content/schema";
 import { CATEGORIES } from "@/lib/categories";
 import { LEVELS } from "@/lib/levels";
+import type { NavGroup } from "@/lib/nav-location";
 import { topicPath } from "@/lib/seo";
-
-export type NavTopic = { title: string; href: string };
-export type NavGroup = { category: CategorySlug; label: string; topics: NavTopic[] };
-export type NavLocation = { level?: Level; category?: CategorySlug; topicHref?: string };
 
 /** A level's topics grouped by category, in CATEGORIES order, empty groups left out. */
 export function buildLevelNav(level: Level): NavGroup[] {
@@ -25,19 +24,4 @@ export function buildAllNav(): Record<Level, NavGroup[]> {
     Level,
     NavGroup[]
   >;
-}
-
-/** Where a pathname (basePath already stripped, trailing slash optional) sits in the site. */
-export function locateNav(pathname: string): NavLocation {
-  const [levelSeg, categorySeg, topicSeg] = pathname.split("/").filter(Boolean);
-  const level = LevelSchema.safeParse(levelSeg);
-  if (!level.success) return {};
-  const category = CategorySlugSchema.safeParse(categorySeg);
-  if (!category.success) return { level: level.data };
-  if (!topicSeg) return { level: level.data, category: category.data };
-  return {
-    level: level.data,
-    category: category.data,
-    topicHref: `/${level.data}/${category.data}/${topicSeg}/`,
-  };
 }

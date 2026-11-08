@@ -19,4 +19,9 @@ describe("Home", () => {
     render(<Home />);
     expect(screen.getAllByRole("list")[0]).toHaveClass("lg:grid-cols-3");
   });
+
+  it("is the skip link's target", () => {
+    render(<Home />);
+    expect(screen.getByRole("main")).toHaveAttribute("id", "content");
+  });
 });

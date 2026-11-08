@@ -2,18 +2,29 @@
 
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useNavByLevel, useNavLocation } from "@/components/nav/NavContext";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { locateNav, type NavGroup } from "@/lib/nav";
+import type { CategorySlug, Level } from "@/content/schema";
 import { cn } from "@/lib/utils";
 
 const FOCUS = "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 
 /** A level's topics, one collapsible group per category. Open state is never stored. */
-export function TopicTree({ groups, onNavigate }: { groups: NavGroup[]; onNavigate?: () => void }) {
-  const { category, topicHref } = locateNav(usePathname());
+export function TopicTree({ level, onNavigate }: { level: Level; onNavigate?: () => void }) {
+  const groups = useNavByLevel()[level] ?? [];
+  const { category, topicHref } = useNavLocation();
   const currentRef = useRef<HTMLAnchorElement>(null);
+
+  // The [level] layout stays mounted while the reader moves around a level, so the
+  // current category's group is opened whenever the category changes, not only on mount.
+  // Groups the reader opened stay open.
+  const [open, setOpen] = useState<CategorySlug[]>(category ? [category] : []);
+  const [seenCategory, setSeenCategory] = useState(category);
+  if (category !== seenCategory) {
+    setSeenCategory(category);
+    if (category && !open.includes(category)) setOpen([...open, category]);
+  }
 
   // Bring the current topic into view inside the list's own scroll box only:
   // scrollIntoView would also scroll the page under the sticky top bar.
@@ -35,7 +46,14 @@ export function TopicTree({ groups, onNavigate }: { groups: NavGroup[]; onNaviga
       <ul className="grid gap-1">
         {groups.map((g) => (
           <li key={g.category}>
-            <Collapsible defaultOpen={g.category === category}>
+            <Collapsible
+              open={open.includes(g.category)}
+              onOpenChange={(isOpen) =>
+                setOpen((cur) =>
+                  isOpen ? [...cur, g.category] : cur.filter((c) => c !== g.category),
+                )
+              }
+            >
               <CollapsibleTrigger
                 className={cn(
                   "group flex min-h-11 w-full items-center gap-2 rounded-md px-2 text-left text-base font-semibold transition-colors duration-200 hover:bg-subtle",

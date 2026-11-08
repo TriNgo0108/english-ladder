@@ -94,7 +94,7 @@ export function Search() {
           setActive(-1);
         }}
         onKeyDown={onKeyDown}
-        className="min-h-11 w-36 rounded-md border border-border bg-surface px-3 sm:w-56 text-text transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+        className="min-h-11 w-36 rounded-md border border-control bg-surface px-3 sm:w-56 text-text transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
       />
       <div className="absolute right-0 z-10 mt-1 w-80 max-w-[90vw]">
         {open && results.length > 0 && (

@@ -11,4 +11,10 @@ describe("LevelPage", () => {
     expect(heading).toContainElement(badge);
     expect(badge).toHaveAttribute("aria-hidden", "true");
   });
+
+  it("is the skip link's target", async () => {
+    const ui = await LevelPage({ params: Promise.resolve({ level: "a1" }) } as PageProps<"/[level]">);
+    render(ui);
+    expect(screen.getByRole("main")).toHaveAttribute("id", "content");
+  });
 });

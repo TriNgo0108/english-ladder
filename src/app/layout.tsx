@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans, Newsreader } from "next/font/google";
+import { NavProvider } from "@/components/nav/NavContext";
 import { SiteHeader } from "@/components/nav/SiteHeader";
+import { buildAllNav } from "@/lib/nav";
 import { BASE_PATH, SITE_NAME, SITE_ORIGIN } from "@/lib/site";
 import "./globals.css";
 
@@ -43,8 +45,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="min-h-full flex flex-col font-sans">
-        <SiteHeader />
-        {children}
+        <NavProvider navByLevel={buildAllNav()}>
+          <SiteHeader />
+          {children}
+        </NavProvider>
       </body>
     </html>
   );

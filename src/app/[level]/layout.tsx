@@ -1,7 +1,6 @@
 import { TopicTree } from "@/components/nav/TopicTree";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { LevelSchema } from "@/content/schema";
-import { buildLevelNav } from "@/lib/nav";
 
 /** Level, category and topic pages: the level's topic list beside the content from lg up. */
 export default async function LevelLayout({ children, params }: LayoutProps<"/[level]">) {
@@ -12,7 +11,7 @@ export default async function LevelLayout({ children, params }: LayoutProps<"/[l
         {/* Sticky on a wrapper: ScrollArea's own `relative` would turn top-24 into an offset. */}
         <div className="sticky top-24">
           <ScrollArea className="h-[calc(100dvh-7rem)] pr-3">
-            <TopicTree key={level} groups={buildLevelNav(level)} />
+            <TopicTree key={level} level={level} />
           </ScrollArea>
         </div>
       </aside>

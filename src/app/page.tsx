@@ -5,7 +5,7 @@ import { LEVELS } from "@/lib/levels";
 
 export default function Home() {
   return (
-    <main className="mx-auto grid w-full max-w-screen-2xl gap-10 px-4 py-8 lg:px-8">
+    <main id="content" className="mx-auto grid w-full max-w-screen-2xl gap-10 px-4 py-8 lg:px-8">
       <div>
         <h1 className="font-serif text-4xl">English Ladder</h1>
         <p className="mt-2 max-w-[65ch] text-base text-muted">

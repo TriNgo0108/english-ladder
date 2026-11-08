@@ -1,9 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useNavLocation } from "@/components/nav/NavContext";
 import { LEVELS } from "@/lib/levels";
-import { locateNav } from "@/lib/nav";
 import { cn } from "@/lib/utils";
 
 /** The five levels as links; the level being read is marked current. */
@@ -14,7 +13,7 @@ export function LevelLinks({
   orientation: "row" | "column";
   onNavigate?: () => void;
 }) {
-  const { level } = locateNav(usePathname());
+  const { level } = useNavLocation();
   return (
     <ul className={cn("flex", orientation === "row" ? "items-center gap-1" : "flex-wrap gap-2")}>
       {LEVELS.map((l) => {
