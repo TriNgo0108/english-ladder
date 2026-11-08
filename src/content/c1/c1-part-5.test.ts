@@ -339,7 +339,7 @@ describe("C1 Writing and Speaking (part 5)", () => {
     expect(slightly).toEqual(["slightly"]);
     expectGap(slightly, ["slightly", "Slightly"], ["slight", "slighter", "slightest", "much"]);
     expect(wordbankAnswers(t.quiz)).toEqual(["Would it be possible to move the deadline to Friday?"]);
-    expect(mistakes(t.quiz)).toEqual([["will", "is"]]);
+    expect(mistakes(t.quiz)).toEqual([["will be", "is"]]);
   });
 
   it("pins handling pushback: acknowledge, stand your ground, concede part, move forward", () => {
@@ -415,6 +415,7 @@ describe("C1 Writing and Speaking (part 5)", () => {
     expect(tiles(discursiveAndArgumentativeWriting)).toEqual(expect.arrayContaining(["often argued", "local communities."]));
     expect(tiles(formalReportsAndExecutiveSummaries)).toContain("staff absence.");
     expect(tiles(chairingAMeeting)).toContain("a new supplier.");
+    expect(tiles(handlingPushback)).toEqual(["feel", "that way.", "you", "I can", "understand why"]);
     expect(tiles(rhetoricalDevices)).toEqual(expect.arrayContaining(["a school", "where every child", "feels safe."]));
     for (const t of topics) {
       for (const w of tiles(t)) expect(w, t.slug).not.toMatch(/^(often|local|staff|new|every)$/);

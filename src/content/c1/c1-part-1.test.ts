@@ -102,7 +102,7 @@ describe("C1 grammar, part 1 (modality, the subjunctive, impersonal passives, co
     expect(choiceAnswer(q, "the courier always comes at ten")).toBe("That'll be the courier.");
     expect(choiceAnswer(q, "the speaker is certain")).toBe("She's bound to get the job.");
     expect(distractors(advancedModality)).toEqual(
-      expect.arrayContaining(["That may well be the courier.", "She may well get the job.", "She could well get the job."]),
+      ["That might be the courier.", "That may well be the courier.", "That could be the courier.", "She might get the job.", "She may well get the job.", "She could well get the job."],
     );
     const expect1 = gap(q, "arrive by Thursday");
     expect(expect1).toEqual(["should", "ought to"]);
@@ -136,7 +136,7 @@ describe("C1 grammar, part 1 (modality, the subjunctive, impersonal passives, co
     expectGap(went, ["went", "were going"], ["go", "will go", "should go", "had gone", "are going"]);
     const tell = gap(q, "until Friday");
     expect(tell).toEqual(["didn't tell", "did not tell"]);
-    expectGap(tell, ["didn't tell", "did not tell"], ["don't tell", "won't tell", "not tell", "didn't told"]);
+    expectGap(tell, ["didn't tell", "did not tell"], ["don't tell", "won't tell", "didn't told"]);
     expect(choiceAnswer(q, "the only one near the station")).toBe("Be that as it may");
   });
 

@@ -106,7 +106,10 @@ describe("C1 Mechanics, orders 21-22 (part 6)", () => {
     expect(findTopic("b1", "mechanics", "question-intonation")?.explanation).toContain(
       "<b>Intonation</b> is the way your voice goes up and down when you speak.",
     );
-    expect(punct.explanation).toContain("A <b>dash</b> (–) is a short line between two words.");
+    expect(punct.explanation).toContain("A <b>dash</b> (–) is a short line between two words, longer than the hyphen in a three-year contract (order 8).");
+    expect(findTopic("c1", "grammar", "complex-noun-phrases")?.explanation).toContain(
+      "A <b>hyphen</b> (-) is a very short line that joins two words into one, with no space on either side: three-year.",
+    );
     expect(punct.explanation).toContain("an <b>aside</b>: an extra comment that interrupts the sentence");
     expect(stress.explanation).toContain("Saying a word more strongly than the words around it, a little louder and longer, is called <b>stress</b>.");
     expect(stress.explanation).toContain("it is called <b>contrastive stress</b>");

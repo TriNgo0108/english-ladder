@@ -17,7 +17,7 @@ export const advancedComparisonStructures: RuleTopic = {
     "<b>As</b> + adjective + <b>as</b> says that two things are the same: My bag is as heavy as yours. Not as … as says that the first is less: It isn't as cold as yesterday. To make the difference big, use <b>nowhere near as</b> … as or <b>not nearly as</b> … as: The sequel is <b>nowhere near as good as</b> the first film. It's <b>not nearly as</b> hot as last summer. To make it small, use <b>almost as</b> or <b>nearly as</b>.",
     "For multiples, put <b>twice</b>, <b>three times</b> and so on before as … as: Their house is <b>twice as big as</b> ours. Or use the + a noun like size, price, height or number + of: It's <b>three times the size of</b> ours. Tickets are now <b>twice the price</b>. With nouns, use as much or as many: The new stadium holds <b>twice as many</b> people <b>as</b> the old one. Use as, not than, after as … as.",
     "<b>Not so much</b> X <b>as</b> Y says that Y describes something better than X: It's <b>not so much</b> a job <b>as</b> a way of life. She's not so much shy as careful. <b>As</b> … <b>as ever</b> says that something hasn't changed: He's <b>as busy as ever</b>. (He is still very busy.)",
-    "<b>As</b> + auxiliary + subject means and so did, in formal English: She became a doctor, <b>as did</b> her father. He loves jazz, <b>as does</b> his wife. This uses inversion, as in B2: the auxiliary comes before the subject. Remember: the subject is the person or thing that the sentence is about. As her father did is also correct, and less formal. Order 5 looks at inversion more closely.",
+    "<b>As</b> + auxiliary or be + subject means and so did, in formal English: She became a doctor, <b>as did</b> her father. He loves jazz, <b>as does</b> his wife. This uses inversion, as in B2: the auxiliary, or be when it is the verb, comes before the subject. Remember: the subject is the person or thing that the sentence is about. As her father did is also correct, and less formal. Order 5 looks at inversion more closely.",
   ].join("\n\n"),
 
   form: [
@@ -27,7 +27,7 @@ export const advancedComparisonStructures: RuleTopic = {
     "nowhere near as / not nearly as + adjective + as → much less",
     "twice / three times as + adjective + as · three times the size of",
     "not so much X as Y · as + adjective + as ever",
-    "as + auxiliary + subject (formal): as did her father · less formal: as her father did",
+    "as + auxiliary or be + subject (formal): as did her father · less formal: as her father did",
   ].join("\n"),
 
   examples: [
@@ -53,7 +53,7 @@ export const advancedComparisonStructures: RuleTopic = {
     },
     {
       sentence: "My grandfather was a teacher, <b>as was</b> my mother.",
-      why: "<b>As</b> + auxiliary + subject is formal and means and so was. The auxiliary, was, comes before the subject. As my mother was is also correct.",
+      why: "<b>As</b> + auxiliary or be + subject is formal and means and so was. The verb, was, comes before the subject. As my mother was is also correct.",
     },
   ],
 
@@ -131,7 +131,7 @@ export const advancedComparisonStructures: RuleTopic = {
   ],
 
   levelRationale:
-    "The spec (section 8) places advanced comparison structures at C1, and the plan makes it the C1 topic of the comparison family, after A2 comparatives-and-superlatives, whose spelling rules it keeps and whose definition of the comparative it reuses. The English Grammar Profile records much and far with comparatives from A2 and B1, the + comparative, the + comparative and twice as … as at B2, and nowhere near as, not so much … as, three times the size of and as + auxiliary + subject at C1, so the topic brings them together at C1. As … as was left out of A2 and has no topic of its own, so it is introduced in one paragraph here. As did her father is named and taught briefly, with as her father did as the less formal choice; inversion is taught in order 5. The modifier gap accepts every big-difference modifier the topic teaches. No item uses a word bank, because as did her father uses inversion.",
+    "The spec (section 8) places advanced comparison structures at C1, and the plan makes it the C1 topic of the comparison family, after A2 comparatives-and-superlatives, whose spelling rules it keeps and whose definition of the comparative it reuses. The English Grammar Profile records much and far with comparatives from A2 and B1, the + comparative, the + comparative and twice as … as at B2, and nowhere near as, not so much … as, three times the size of and as + auxiliary or be + subject at C1, so the topic brings them together at C1. As … as was left out of A2 and has no topic of its own, so it is introduced in one paragraph here. As did her father is named and taught briefly, with as her father did as the less formal choice; inversion is taught in order 5. The modifier gap accepts every big-difference modifier the topic teaches. No item uses a word bank, because as did her father uses inversion.",
 
   sourceNotes:
     "english_grammar.txt, # Comparsions lists only contrast linkers (even though, but, On the one hand, However, as well as), not comparison structures, so it doesn't support this topic; those linkers belong to the linking-words family. # Comparatives and superlatives is the A2 material, and its spelling rules are kept. The topic is authored from Swan, Practical English Usage, entries comparison: modification of comparatives (much, far, a lot, slightly; not very), the … the … (including The sooner the better), as … as (not as / not so, nowhere near as, not nearly as), comparison: twice, three times (as … as, and the size of), not so much … as, and inversion after as (as did his father, formal).",

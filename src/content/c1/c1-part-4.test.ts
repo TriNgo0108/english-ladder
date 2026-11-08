@@ -200,7 +200,8 @@ describe("C1 Phrases & Expressions (part 4: advanced idioms, figurative language
     for (const real of ["big", "deeply", "very", "extremely", "life"]) expect(distractors(t), real).not.toContain(real);
     const high = gap(q, "the old bridge will collapse");
     expect(high).toEqual(["high"]);
-    expectGap(high, ["high", "High"], ["heavy", "heavily", "highly"]);
+    expectGap(high, ["high", "High"], ["heavy", "thick", "heavily", "highly"]);
+    expect(q.some((x) => x.kind === "gap" && x.stem.endsWith("(heavy, thick or high)"))).toBe(true);
     const risen = gap(q, "House prices have ___");
     expect(risen).toEqual(["risen", "increased"]);
     expectGap(risen, ["risen", "increased", "Risen"], ["raised", "rose", "rised", "rise", "increase"]);

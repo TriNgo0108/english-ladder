@@ -19,7 +19,7 @@ export const advancedInversionAndFronting: RuleTopic = {
     "Use the right verb form after the auxiliary. After had, use the past participle: Had I known, not Had I know. After did, should or to, use the base form: Little did I know, not Little did I knew. Remember: the past participle is the form of a verb that comes after have: seen, gone, finished. Remember: the base form is the verb as you see it in a dictionary, with nothing added. And don't forget the inversion: So severe was the damage, not So severe the damage was.",
     "Putting a word or phrase at the start of the sentence, when it would usually come later, is called <b>fronting</b>. After a fronted phrase of place or direction, the whole verb can come before the subject, with no auxiliary and no do: <b>On the hill stood</b> an old castle. <b>Into the room walked</b> a tall man. This is common in stories and descriptions, with verbs like be, stand, lie, sit, come and go. The normal order is also correct: An old castle stood on the hill.",
     "In everyday speech, we do the same after <b>here</b> and <b>there</b>: <b>Here comes</b> the bus! <b>There goes</b> my train. When the subject is a pronoun, it comes before the verb: <b>Here it comes</b>, not Here comes it. There she goes, not There goes she. Remember: a pronoun is a short word that we use in place of a noun.",
-    "We can also front an object, for emphasis or to contrast two things, with no inversion: the rest of the sentence keeps the normal order. <b>That I can't accept.</b> (= I can't accept that.) Most of the book I enjoyed, but <b>the ending I hated</b>. Remember: emphasis means making one part of what you say stand out, so that the listener notices it. This kind of fronting is used in speech as well as in writing. Don't add an auxiliary before the subject: That I can't accept, not That can I not accept. Inversion with an auxiliary comes only after the words in this topic and in B2.",
+    "We can also front an object, for emphasis or to contrast two things, with no inversion: the rest of the sentence keeps the normal order. <b>That I can't accept.</b> (= I can't accept that.) Most of the book I enjoyed, but <b>the ending I hated</b>. Remember: emphasis means making one part of what you say stand out, so that the listener notices it. This kind of fronting is used in speech as well as in writing. Don't add an auxiliary before the subject: That I can't accept, not That can I not accept. In statements like these, inversion with an auxiliary comes only after the words in this topic and in B2.",
   ].join("\n\n"),
 
   form: [
@@ -30,7 +30,7 @@ export const advancedInversionAndFronting: RuleTopic = {
     "Little did I know · Not until … did I realise · Under no circumstances should you … · At no time did they …",
     "place or direction + verb + noun subject: On the hill stood a castle. · Here comes the bus. · pronoun: Here it comes.",
     "fronting with no inversion: That I can't accept.",
-    "formal or literary, except Here comes / There goes · the normal order is always correct",
+    "formal or literary, except Here comes / There goes and fronting an object (That I can't accept.) · the normal order is always correct",
   ].join("\n"),
 
   examples: [

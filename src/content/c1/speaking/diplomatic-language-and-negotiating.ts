@@ -12,7 +12,7 @@ export const diplomaticLanguageAndNegotiating: PhraseTopic = {
   explanation: [
     "In a <b>negotiation</b>, two sides talk until they reach an agreement, for example about a price, a deadline or a contract. <b>Diplomatic</b> language says difficult things in a way that keeps a good relationship. It is clear about the main point, but soft in the way it says it. Remember: register means how formal or informal your words are. Most of these phrases are neutral. In a letter, an email or a meeting with an important client, the formal ones are better.",
     "<b>Soften a problem with a modal verb.</b> Remember: a modal verb is a small verb that goes before the base form of another verb and adds a meaning to it. That will be difficult. → <b>That might be difficult.</b> That's a problem. → <b>That could be a problem for us.</b> As in order 1, might and could say that something is possible, not sure, so the problem sounds smaller. Both sides usually understand that it is a real problem.",
-    "<b>Soften it with a hedge.</b> Remember: making a statement less strong or less sure is called hedging. Use the hedges from B2 hedging, and small words like <b>slightly</b>, <b>a little</b> and <b>a bit</b>: The price is <b>slightly</b> higher than we expected. <b>It seems to me that</b> the deadline is rather tight. A negative with a positive word is softer than a negative word: The delivery date <b>isn't ideal</b> (= it's bad). We're <b>not very happy</b> with the terms.",
+    "<b>Soften it with a hedge.</b> Remember: making a statement less strong or less sure is called hedging. Use the hedges from B2 hedging, and small words like <b>slightly</b>, <b>a little</b> and <b>a bit</b> (informal): The price is <b>slightly</b> higher than we expected. <b>It seems to me that</b> the deadline is rather tight. A negative with a positive word is softer than a negative word: The delivery date <b>isn't ideal</b> (= it's bad). We're <b>not very happy</b> with the terms.",
     "<b>Ask, don't demand.</b> Use the polite questions from B1 indirect and polite questions: <b>Would it be possible to</b> extend the deadline? <b>Could you possibly</b> bring the price down a little? These are neutral. As in B1, <b>I was wondering if</b> you could … is very polite, for a manager or a client, and it is not a question, so it ends with a full stop: I was wondering if you could send us a revised offer.",
     "<b>Make a conditional offer.</b> Offer something, but only in return for something: <b>If you could</b> + the base form, <b>we'd be prepared to</b> + the base form: If you could pay within thirty days, we'd be prepared to offer a five per cent discount. This is like the second conditional (B1): could means would be able to, and prepared to means willing to. <b>As long as</b> and <b>provided that</b> + the present simple set a condition for the future: We could offer free delivery, as long as you buy 500 units. Provided that is more formal. <b>What if we</b> + the past simple (order 2) suggests an idea without pushing it: What if we extended the contract to two years?",
     "<b>Say no politely.</b> A direct no can end a negotiation. Say it softly, and leave room to keep talking: <b>I'm not sure we can go that far.</b> That would be quite difficult for us. We'd struggle to meet that deadline. In formal English: <b>I'm afraid that is not something we can agree to.</b> Unfortunately, we are not in a position to accept those terms.",
@@ -36,7 +36,7 @@ export const diplomaticLanguageAndNegotiating: PhraseTopic = {
       register: "neutral",
     },
     {
-      situation: "Asking very politely, for example an important client",
+      situation: "Asking very politely, for example to an important client",
       phrases: ["I was wondering if you could send us a revised offer.", "I was wondering whether you might consider a longer contract."],
       register: "formal",
     },
@@ -122,7 +122,7 @@ export const diplomaticLanguageAndNegotiating: PhraseTopic = {
     },
     {
       kind: "mistake",
-      tokens: ["We", "can", "offer", "free", "delivery,", "as", "long", "as", "payment", "will", "be", "received", "by", "1", "June."],
+      tokens: ["We", "can", "offer", "free", "delivery,", "as", "long", "as", "payment", "will be", "received", "by", "1", "June."],
       wrongIndex: 9,
       correction: "is",
       feedback:

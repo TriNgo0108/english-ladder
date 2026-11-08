@@ -61,6 +61,17 @@ describe("C1 grammar, part 3 (concessive clauses, discourse markers and cohesion
     });
   });
 
+  it("quotes the B1 linking-words However sentence exactly", () => {
+    const quoted = "The town is small. However, it has a great cinema.";
+    expect(plain(concessiveClauses.explanation)).toContain(plain(quoted));
+    expect(plain(findTopic("b1", "grammar", "linking-words")?.explanation ?? "")).toContain(plain(quoted));
+  });
+
+  it("never calls it + a passive verb + a that clause an impersonal passive in any C1 topic", () => {
+    for (const t of c1Topics) expect(JSON.stringify(t).toLowerCase(), t.slug).not.toContain("impersonal passive");
+    expect(plain(registerAndFormalityShifts.explanation)).toContain("it + a passive verb + a that clause (order 3)");
+  });
+
   it("pins the families: none for order 9, linking-words for order 10, register for order 11", () => {
     expect(concessiveClauses.family).toBeUndefined();
     expect(discourseMarkersAndCohesion.family).toBe("linking-words");
@@ -150,7 +161,7 @@ describe("C1 grammar, part 3 (concessive clauses, discourse markers and cohesion
     expect(choiceAnswer(q, "I suppose the film was boring")).toBe("On the contrary,");
     expect(choiceAnswer(q, "rent a flat in the city")).toBe("problem");
     expect(distractors(discourseMarkersAndCohesion)).toEqual(
-      expect.arrayContaining(["On the other hand,", "In other words,", "That said,", "advantage", "decision", "success"]),
+      ["On the other hand,", "In other words,", "That said,", "advantage", "decision", "success"],
     );
   });
 

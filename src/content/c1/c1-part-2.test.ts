@@ -121,7 +121,17 @@ describe("C1 grammar, part 2 (inversion and fronting, ellipsis and substitution,
     expect(choiceAnswer(q, "from a story")).toBe("Into the room walked a tall man.");
     expect(choiceAnswer(q, "cancelling the project")).toBe("That I can't accept.");
     expect(distractors(advancedInversionAndFronting)).toEqual(
-      expect.arrayContaining(["Little I knew that she was watching me.", "Into the room walked he.", "Into the room did a tall man walk.", "That can I not accept."]),
+      [
+        "Little I knew that she was watching me.",
+        "Little knew I that she was watching me.",
+        "Little did I knew that she was watching me.",
+        "Into the room did walk a tall man.",
+        "Into the room walked he.",
+        "Into the room did a tall man walk.",
+        "That can I not accept.",
+        "That do I not accept.",
+        "That I don't can accept.",
+      ],
     );
   });
 
@@ -145,7 +155,7 @@ describe("C1 grammar, part 2 (inversion and fronting, ellipsis and substitution,
     const q = ellipsisAndSubstitution.quiz;
     expect(choiceAnswer(q, "planned everything outside")).toBe("I hope not.");
     expect(choiceAnswer(q, "If you fail to")).toBe("do so");
-    expect(distractors(ellipsisAndSubstitution)).toEqual(expect.arrayContaining(["I don't hope so.", "I hope no.", "do"]));
+    expect(distractors(ellipsisAndSubstitution)).toEqual(["I don't hope so.", "I hope no.", "I'm not hoping so.", "do", "make so", "so do"]);
   });
 
   it("pins the nominalisation gaps: a determiner or of fixes the slot to one noun (sweep risk)", () => {

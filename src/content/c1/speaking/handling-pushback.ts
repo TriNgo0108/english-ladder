@@ -108,7 +108,7 @@ export const handlingPushback: PhraseTopic = {
     {
       kind: "wordbank",
       prompt: "Put the words in order to show that you understand the other person's worry.",
-      words: ["feel", "understand", "you", "way.", "I", "that", "why", "can"],
+      words: ["feel", "that way.", "you", "I can", "understand why"],
       answer: "I can understand why you feel that way.",
       feedback:
         "I can understand why … shows that you understand the other person's feelings, before you answer their point. After why, use the order of a normal sentence: why you feel, not why do you feel.",

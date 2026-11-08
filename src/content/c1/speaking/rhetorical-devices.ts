@@ -15,7 +15,7 @@ export const rhetoricalDevices: PhraseTopic = {
     "<b>The rule of three.</b> Ideas in a group of three sound complete and are easy to remember: The new system is <b>faster, cheaper and safer</b>. We need to plan, prepare and deliver. Two ideas can sound unfinished, and four or more can be hard to follow.",
     "<b>Repetition.</b> Repeating a key word or phrase at the start of several sentences makes it stick: <b>Every</b> customer matters. <b>Every</b> call matters. <b>Every</b> complaint matters. Repetition that is planned like this sounds strong; repetition by accident sounds careless.",
     "<b>Contrast pairs.</b> Two opposite ideas side by side make the second one stronger. Use <b>not</b> … <b>but</b> …: This is <b>not</b> a problem <b>but</b> an opportunity. Or use two short sentences with the same shape: It's not about working longer. It's about working smarter. The idea after but, or in the second sentence, is the one you want people to remember.",
-    "<b>Direct address.</b> Speak to the audience, not just about the subject. <b>Imagine</b> + a situation asks them to picture it: Imagine a city with no traffic jams. Think about the last time you waited in a queue. You and we bring the audience into the talk: We've all been there. Imagine and think are imperatives, as at A1: We use the imperative to tell someone to do something, but here it is an invitation, not an order.",
+    "<b>Direct address.</b> Speak to the audience, not just about the subject. <b>Imagine</b> + a situation asks them to picture it: Imagine a city with no traffic jams. Think about the last time you waited in a queue. You and we bring the audience into the talk: We've all been there. Imagine and think are imperatives, as at A1. We use the imperative to tell someone to do something, but here it is an invitation, not an order.",
     "<b>Ending strongly.</b> The last words of a talk are the ones people remember. End with a contrast, a group of three or a call to act, not with So, that's it, really: The question is not whether we can afford to change. It's whether we can afford not to. Let's make this the year we finally get it right. In a presentation, this strong last line can come after To sum up (B2 giving a presentation) and before Thank you for listening.",
   ].join("\n\n"),
 
@@ -124,7 +124,7 @@ export const rhetoricalDevices: PhraseTopic = {
       options: ["a contrast pair with not … but …", "a rhetorical question", "direct address with Imagine", "repetition"],
       answer: 3,
       feedback:
-        "We came to … is repeated at the start of the sentences, so the ending uses repetition, in a group of three. There is no not … but …, no question, and no Imagine.",
+        "We came to … / have come to … is repeated in each sentence, so the ending uses repetition, in a group of three. There is no not … but …, no question, and no Imagine.",
     },
   ],
 
