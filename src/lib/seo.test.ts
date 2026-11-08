@@ -28,7 +28,7 @@ describe("topicDescription", () => {
 
 describe("topicUrl", () => {
   it("is absolute, includes the base path, and ends with a slash", () => {
-    expect(topicUrl(topic)).toBe("https://tringo.github.io/english-ladder/a1/grammar/verb-to-be/");
+    expect(topicUrl(topic)).toBe("https://tringo0108.github.io/english-ladder/a1/grammar/verb-to-be/");
   });
 });
 
@@ -39,14 +39,14 @@ describe("topicJsonLd", () => {
       "@type": "LearningResource",
       name: "The verb be",
       description: "How to use am, is and are.",
-      url: "https://tringo.github.io/english-ladder/a1/grammar/verb-to-be/",
+      url: "https://tringo0108.github.io/english-ladder/a1/grammar/verb-to-be/",
       educationalLevel: "A1",
       inLanguage: "en",
       learningResourceType: "Grammar",
       isPartOf: {
         "@type": "WebSite",
         name: "English Ladder",
-        url: "https://tringo.github.io/english-ladder/",
+        url: "https://tringo0108.github.io/english-ladder/",
       },
     });
   });
