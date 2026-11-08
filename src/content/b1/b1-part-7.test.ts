@@ -83,7 +83,8 @@ describe("B1 Writing and Speaking (part 7)", () => {
     expect(ids("b2", "writing", "follow-up-emails")).toEqual(["a2/an-informal-email", "b1/a-professional-email"]);
     expect(ids("b1", "writing", "letter-structure")).toEqual(["b2/letters-of-complaint"]);
     expect(ids("b2", "writing", "letters-of-complaint")).toEqual(["b1/letter-structure"]);
-    for (const [category, slug] of ordered.filter(([, s]) => ["formal-and-informal-register", "giving-advice", "likes-and-dislikes", "agreeing-and-disagreeing"].includes(s))) {
+    expect(ids("b1", "writing", "formal-and-informal-register")).toEqual(["c1/register-and-formality-shifts"]);
+    for (const [category, slug] of ordered.filter(([, s]) => ["giving-advice", "likes-and-dislikes", "agreeing-and-disagreeing"].includes(s))) {
       expect(ids("b1", category, slug), slug).toEqual([]);
     }
   });

@@ -49,8 +49,8 @@ describe("B1 grammar, part 5 (adjectives, emphasis, linking, word building)", ()
   });
 
   it("links the linking-words chain A2 <-> B1 <-> B2 both ways, and gives the rest no siblings", () => {
-    expect(ids("a2", "grammar", "and-but-so-because")).toEqual(["b1/linking-words", "b2/advanced-linkers"]);
-    expect(ids("b1", "grammar", "linking-words")).toEqual(["a2/and-but-so-because", "b2/advanced-linkers"]);
+    expect(ids("a2", "grammar", "and-but-so-because")).toEqual(["b1/linking-words", "b2/advanced-linkers", "c1/discourse-markers-and-cohesion"]);
+    expect(ids("b1", "grammar", "linking-words")).toEqual(["a2/and-but-so-because", "b2/advanced-linkers", "c1/discourse-markers-and-cohesion"]);
     for (const slug of orderedSlugs.filter((s) => s !== "linking-words")) expect(ids("b1", "grammar", slug), slug).toEqual([]);
   });
 

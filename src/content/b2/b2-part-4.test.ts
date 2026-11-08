@@ -66,9 +66,9 @@ describe("B2 grammar, part 4 (articles, linkers, questions, emphasis and hedging
     expect(ids("b2", "grammar", "articles-with-abstract-and-general-nouns")).toEqual(["a1/articles-a-an", "a2/articles-the-and-zero-article"]);
     expect(ids("a1", "grammar", "articles-a-an")).toEqual(["a2/articles-the-and-zero-article", "b2/articles-with-abstract-and-general-nouns"]);
     expect(ids("a2", "grammar", "articles-the-and-zero-article")).toEqual(["a1/articles-a-an", "b2/articles-with-abstract-and-general-nouns"]);
-    expect(ids("b2", "grammar", "advanced-linkers")).toEqual(["a2/and-but-so-because", "b1/linking-words"]);
-    expect(ids("a2", "grammar", "and-but-so-because")).toEqual(["b1/linking-words", "b2/advanced-linkers"]);
-    expect(ids("b1", "grammar", "linking-words")).toEqual(["a2/and-but-so-because", "b2/advanced-linkers"]);
+    expect(ids("b2", "grammar", "advanced-linkers")).toEqual(["a2/and-but-so-because", "b1/linking-words", "c1/discourse-markers-and-cohesion"]);
+    expect(ids("a2", "grammar", "and-but-so-because")).toEqual(["b1/linking-words", "b2/advanced-linkers", "c1/discourse-markers-and-cohesion"]);
+    expect(ids("b1", "grammar", "linking-words")).toEqual(["a2/and-but-so-because", "b2/advanced-linkers", "c1/discourse-markers-and-cohesion"]);
     expect(ids("b2", "grammar", "declarative-and-rhetorical-questions")).toEqual(["a1/question-words", "a2/subject-questions", "b1/question-tags"]);
     expect(ids("a1", "grammar", "question-words")).toEqual(["a2/subject-questions", "b1/question-tags", "b2/declarative-and-rhetorical-questions"]);
     expect(ids("a2", "grammar", "subject-questions")).toEqual(["a1/question-words", "b1/question-tags", "b2/declarative-and-rhetorical-questions"]);

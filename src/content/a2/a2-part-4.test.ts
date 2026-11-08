@@ -49,7 +49,7 @@ describe("A2 grammar, part 4", () => {
     };
     expect(siblings("a2", "first-conditional")).toEqual(["b1/second-conditional", "b2/third-conditional"]);
     expect(siblings("a2", "verb-plus-gerund-or-infinitive")).toEqual(["b1/gerunds-vs-infinitives", "b2/verb-object-infinitive-and-gerund-patterns"]);
-    expect(siblings("a2", "and-but-so-because")).toEqual(["b1/linking-words", "b2/advanced-linkers"]);
+    expect(siblings("a2", "and-but-so-because")).toEqual(["b1/linking-words", "b2/advanced-linkers", "c1/discourse-markers-and-cohesion"]);
     const linked = ["first-conditional", "verb-plus-gerund-or-infinitive", "and-but-so-because"];
     for (const slug of orderedSlugs.filter((s) => !linked.includes(s))) {
       expect(siblings("a2", slug)).toEqual([]);
