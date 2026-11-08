@@ -65,18 +65,18 @@ describe("B1 Phrases & Expressions (part 6)", () => {
     expect(inTimeAndOnTime.family).toBe("prepositions-of-time");
   });
 
-  it("links A1 prepositions of place and time to their B1 topics, the phrasal verbs and collocations to B2, both ways, and gives the rest no siblings yet", () => {
+  it("links A1 prepositions of place and time to their B1 topics, the phrasal verbs to B2, collocations to B2 and C1, idioms to C1, both ways, and gives the separable phrasal verbs no siblings", () => {
     expect(ids("a1", "grammar", "prepositions-of-place")).toEqual(["b1/prepositions-of-movement"]);
     expect(ids("b1", "phrases", "prepositions-of-movement")).toEqual(["a1/prepositions-of-place"]);
     expect(ids("a1", "grammar", "prepositions-of-time")).toEqual(["b1/in-time-and-on-time"]);
     expect(ids("b1", "phrases", "in-time-and-on-time")).toEqual(["a1/prepositions-of-time"]);
     expect(ids("b1", "phrases", "phrasal-verbs-inseparable")).toEqual(["b2/advanced-phrasal-verbs"]);
     expect(ids("b2", "phrases", "advanced-phrasal-verbs")).toEqual(["b1/phrasal-verbs-inseparable"]);
-    expect(ids("b1", "phrases", "collocations")).toEqual(["b2/workplace-collocations"]);
-    expect(ids("b2", "phrases", "workplace-collocations")).toEqual(["b1/collocations"]);
-    for (const slug of ["phrasal-verbs-separable", "idioms"]) {
-      expect(ids("b1", "phrases", slug), slug).toEqual([]);
-    }
+    expect(ids("b1", "phrases", "collocations")).toEqual(["b2/workplace-collocations", "c1/collocational-precision-and-near-synonyms"]);
+    expect(ids("b2", "phrases", "workplace-collocations")).toEqual(["b1/collocations", "c1/collocational-precision-and-near-synonyms"]);
+    expect(ids("b1", "phrases", "idioms")).toEqual(["c1/advanced-idioms"]);
+    expect(ids("c1", "phrases", "advanced-idioms")).toEqual(["b1/idioms"]);
+    expect(ids("b1", "phrases", "phrasal-verbs-separable")).toEqual([]);
   });
 
   it("gives each topic about five questions, a short summary, and scrambles every wordbank", () => {

@@ -71,11 +71,11 @@ describe("B2 Phrases & Expressions and Writing (part 5)", () => {
     expect(summarisingAndAddingPoints.family).toBe("summarising");
   });
 
-  it("links each B2 topic to exactly its lower-level siblings in CEFR order, and each of those back", () => {
+  it("links each B2 topic to exactly its lower-level siblings (and C1 collocations) in CEFR order, and each of those back", () => {
     expect(ids("b2", "phrases", "advanced-phrasal-verbs")).toEqual(["b1/phrasal-verbs-inseparable"]);
     expect(ids("b1", "phrases", "phrasal-verbs-inseparable")).toEqual(["b2/advanced-phrasal-verbs"]);
-    expect(ids("b2", "phrases", "workplace-collocations")).toEqual(["b1/collocations"]);
-    expect(ids("b1", "phrases", "collocations")).toEqual(["b2/workplace-collocations"]);
+    expect(ids("b2", "phrases", "workplace-collocations")).toEqual(["b1/collocations", "c1/collocational-precision-and-near-synonyms"]);
+    expect(ids("b1", "phrases", "collocations")).toEqual(["b2/workplace-collocations", "c1/collocational-precision-and-near-synonyms"]);
     expect(ids("b2", "writing", "letters-of-complaint")).toEqual(["b1/letter-structure"]);
     expect(ids("b1", "writing", "letter-structure")).toEqual(["b2/letters-of-complaint"]);
     expect(ids("b2", "writing", "follow-up-emails")).toEqual(["a2/an-informal-email", "b1/a-professional-email"]);

@@ -11,6 +11,9 @@ import { impersonalAndPassiveConstructions } from "./grammar/impersonal-and-pass
 import { nominalisation } from "./grammar/nominalisation";
 import { registerAndFormalityShifts } from "./grammar/register-and-formality-shifts";
 import { theSubjunctiveAndUnrealPast } from "./grammar/the-subjunctive-and-unreal-past";
+import { advancedIdioms } from "./phrases/advanced-idioms";
+import { collocationalPrecisionAndNearSynonyms } from "./phrases/collocational-precision-and-near-synonyms";
+import { figurativeLanguage } from "./phrases/figurative-language";
 
 export const c1Topics: Topic[] = [
   advancedModality,
@@ -24,4 +27,7 @@ export const c1Topics: Topic[] = [
   concessiveClauses,
   discourseMarkersAndCohesion,
   registerAndFormalityShifts,
+  advancedIdioms,
+  figurativeLanguage,
+  collocationalPrecisionAndNearSynonyms,
 ];
