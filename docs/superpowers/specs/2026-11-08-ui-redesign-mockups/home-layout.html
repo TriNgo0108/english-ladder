@@ -1,0 +1,112 @@
+<h2>Home page: three directions</h2>
+<p class="subtitle">All three use the new top bar and give each section its own clear space. Click the ones you like. Below them is an idea for the level page.</p>
+
+<style>
+  .wf { font-size:11px; line-height:1.35; }
+  .wf .topbar { border:1px dashed rgba(127,127,127,.45); border-radius:6px; padding:6px 8px; margin-bottom:14px; display:flex; justify-content:space-between; }
+  .wf .sec { border:1px dashed rgba(127,127,127,.45); border-radius:8px; padding:10px; margin-bottom:14px; }
+  .wf .t { font-weight:600; margin-bottom:6px; }
+  .wf .muted { opacity:.6; }
+  .wf .h1 { font-family:Georgia,serif; font-size:18px; margin:2px 0 4px; }
+  .wf .box { border:1px solid rgba(127,127,127,.35); border-radius:6px; padding:6px; }
+  .wf .badge { display:inline-block; font-size:9px; padding:1px 5px; border-radius:3px; background:rgba(37,99,235,.2); font-weight:600; }
+  .wf .row { display:grid; gap:8px; }
+  .wf .c5 { grid-template-columns:repeat(5,1fr); }
+  .wf .c3 { grid-template-columns:repeat(3,1fr); }
+  .wf .c2 { grid-template-columns:1.3fr 1fr; }
+  .wf .step { border:1px solid rgba(127,127,127,.35); border-radius:6px; padding:6px; }
+  .wf .btn { display:inline-block; padding:3px 8px; border-radius:4px; background:rgba(37,99,235,.75); color:#fff; font-size:10px; margin-top:6px; }
+  .wf .stair { display:flex; align-items:flex-end; gap:6px; height:110px; }
+  .wf .stair .step { flex:1; }
+</style>
+
+<div class="cards">
+
+  <div class="card" data-choice="ladder" onclick="toggleSelect(this)">
+    <div class="card-image wf">
+      <div class="topbar"><b>English Ladder</b><span>A1 · A2 · B1 · B2 · C1</span><span>Search · Theme</span></div>
+      <div class="sec">
+        <div class="h1">English Ladder</div>
+        <div class="muted">Free English lessons from A1 to C1. Pick the level that sounds like you.</div>
+      </div>
+      <div class="sec">
+        <div class="stair">
+          <div class="step" style="height:35%"><span class="badge">A1</span><div class="muted">27 topics</div></div>
+          <div class="step" style="height:50%"><span class="badge">A2</span><div class="muted">29 topics</div></div>
+          <div class="step" style="height:65%"><span class="badge">B1</span><div class="muted">45 topics</div></div>
+          <div class="step" style="height:80%"><span class="badge">B2</span><div class="muted">34 topics</div></div>
+          <div class="step" style="height:100%"><span class="badge">C1</span><div class="muted">23 topics</div></div>
+        </div>
+        <div class="muted" style="margin-top:6px">Hover or tap a step to see its "You can…" description</div>
+      </div>
+      <div class="sec"><div class="t">How each lesson works</div>
+        <div class="row c3"><div class="box">Explanation</div><div class="box">Examples &amp; mistakes</div><div class="box">Quiz, instant feedback</div></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A. The ladder</h3>
+      <p>The five levels drawn as rising steps, which plays on the name. A short intro on top and a "how a lesson works" strip below.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="overview" onclick="toggleSelect(this)">
+    <div class="card-image wf">
+      <div class="topbar"><b>English Ladder</b><span>A1 · A2 · B1 · B2 · C1</span><span>Search · Theme</span></div>
+      <div class="sec row c2">
+        <div><div class="h1">English Ladder</div><div class="muted">Free lessons from A1 to C1 with quizzes.</div><span class="btn">Not sure? Start at A1</span></div>
+        <div class="box"><div class="t">Popular topics</div><div class="muted">Present perfect · Articles · Conditionals · Phrasal verbs</div></div>
+      </div>
+      <div class="sec">
+        <div class="row c5">
+          <div class="box"><span class="badge">A1</span><div class="muted" style="margin-top:4px">Grammar 12<br>Vocabulary 8<br>Phrases 4<br>…</div></div>
+          <div class="box"><span class="badge">A2</span><div class="muted" style="margin-top:4px">Grammar 13<br>Vocabulary 7<br>Phrases 5<br>…</div></div>
+          <div class="box"><span class="badge">B1</span><div class="muted" style="margin-top:4px">Grammar 18<br>Vocabulary 10<br>Writing 6<br>…</div></div>
+          <div class="box"><span class="badge">B2</span><div class="muted" style="margin-top:4px">Grammar 14<br>Vocabulary 8<br>Writing 5<br>…</div></div>
+          <div class="box"><span class="badge">C1</span><div class="muted" style="margin-top:4px">Grammar 9<br>Vocabulary 6<br>Speaking 4<br>…</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B. Whole site at a glance</h3>
+      <p>Five level columns showing their categories and counts, so you can jump straight to "B1 Writing". A small intro plus a few popular topics on top.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="cards" onclick="toggleSelect(this)">
+    <div class="card-image wf">
+      <div class="topbar"><b>English Ladder</b><span>A1 · A2 · B1 · B2 · C1</span><span>Search · Theme</span></div>
+      <div class="sec">
+        <div class="h1">English Ladder</div>
+        <div class="muted">Pick the level that sounds like you.</div>
+      </div>
+      <div class="sec row c3">
+        <div class="box"><span class="badge">A1</span><div style="margin-top:4px">You can introduce yourself…</div><div class="muted">27 topics · e.g. To be, Plurals</div></div>
+        <div class="box"><span class="badge">A2</span><div style="margin-top:4px">You can talk about your past…</div><div class="muted">29 topics · e.g. Past simple</div></div>
+        <div class="box"><span class="badge">B1</span><div style="margin-top:4px">You can handle most travel…</div><div class="muted">45 topics · e.g. Present perfect</div></div>
+        <div class="box"><span class="badge">B2</span><div style="margin-top:4px">You can follow detailed…</div><div class="muted">34 topics · e.g. Inversion</div></div>
+        <div class="box"><span class="badge">C1</span><div style="margin-top:4px">You can use English flexibly…</div><div class="muted">23 topics · e.g. Hedging</div></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C. Today's cards, wider and richer</h3>
+      <p>The same level cards you have now, three across instead of two, each with a few sample topics. The smallest change.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="section" style="margin-top:28px">
+  <h3>Idea for the level page (e.g. B1)</h3>
+  <p class="subtitle">Right now: B1, then a list of categories, then a page listing that category's topics. With the topic list now in the sidebar, the level page could show every topic at once, one block per category:</p>
+  <div class="mockup">
+    <div class="mockup-header">Preview: Level B1</div>
+    <div class="mockup-body wf">
+      <div class="sec"><span class="badge">B1</span> <span class="h1">Level B1</span><div class="muted">You can handle most travel situations and explain your opinions and experiences.</div></div>
+      <div class="row c3">
+        <div class="sec"><div class="t">Grammar · 18</div><div class="muted">1. Present perfect<br>2. Past continuous<br>3. Used to<br>…</div></div>
+        <div class="sec"><div class="t">Vocabulary · 10</div><div class="muted">1. Travel<br>2. Feelings<br>…</div></div>
+        <div class="sec"><div class="t">Writing · 6</div><div class="muted">1. Informal emails<br>…</div></div>
+      </div>
+    </div>
+  </div>
+</div>

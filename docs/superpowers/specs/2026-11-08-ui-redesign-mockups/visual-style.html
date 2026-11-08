@@ -1,0 +1,120 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap" rel="stylesheet">
+
+<h2>Which look feels right?</h2>
+<p class="subtitle">The same piece of a lesson (a heading, two examples, one quiz question) in three styles. Fonts stay Newsreader + IBM Plex in all three. Click the ones you like, and say what you'd take from each.</p>
+
+<style>
+  .sty { font-family:'IBM Plex Sans',system-ui,sans-serif; font-size:13px; line-height:1.5; border-radius:10px; padding:18px; }
+  .sty h4 { font-family:'Newsreader',Georgia,serif; font-weight:600; font-size:22px; margin:6px 0 10px; }
+  .sty .lbl { font-size:11px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; }
+  .sty .ex { padding:8px 10px; margin:6px 0; }
+  .sty .opt { padding:7px 10px; margin:5px 0; }
+
+  /* 1: Current, refined */
+  .s1 { background:#fcfcfd; color:#1b1f2a; }
+  .s1 .panel { background:#fff; border:1px solid #dfe3ec; border-radius:8px; padding:14px; margin-bottom:14px; box-shadow:0 1px 2px rgba(16,24,40,.06); }
+  .s1 .badge { background:#1d4ed8; color:#fff; padding:1px 7px; border-radius:4px; font-size:11px; font-weight:600; }
+  .s1 .ex { border-left:3px solid #1d4ed8; background:#f5f7fb; border-radius:0 6px 6px 0; }
+  .s1 .opt { border:1px solid #dfe3ec; border-radius:6px; background:#fff; }
+  .s1 .opt.ok { border-color:#15803d; background:#f0fdf4; }
+  .s1 .lbl { color:#5a6173; }
+
+  /* 2: Warm editorial */
+  .s2 { background:#f8f4ec; color:#2a2520; }
+  .s2 .panel { background:#fffdf8; border:1px solid #e7dfcf; border-radius:4px; padding:16px; margin-bottom:16px; }
+  .s2 .badge { background:#9a3412; color:#fff; padding:1px 7px; border-radius:2px; font-size:11px; font-weight:600; }
+  .s2 h4 { font-size:24px; border-bottom:1px solid #e7dfcf; padding-bottom:6px; }
+  .s2 .ex { font-family:'Newsreader',Georgia,serif; font-size:15px; font-style:italic; padding-left:0; }
+  .s2 .ex b { font-style:normal; color:#9a3412; }
+  .s2 .opt { border:1px solid #e7dfcf; border-radius:3px; background:#fffdf8; }
+  .s2 .opt.ok { border-color:#3f6212; background:#f4f7ec; }
+  .s2 .lbl { color:#7c6f5f; }
+
+  /* 3: Colourful, per-level */
+  .s3 { background:#f6f7fb; color:#111827; }
+  .s3 .panel { background:#fff; border-radius:14px; padding:16px; margin-bottom:14px; box-shadow:0 4px 14px rgba(17,24,39,.07); }
+  .s3 .badge { background:#d1fae5; color:#065f46; padding:2px 9px; border-radius:999px; font-size:11px; font-weight:600; }
+  .s3 .head { display:flex; align-items:center; gap:8px; }
+  .s3 .icon { width:28px; height:28px; border-radius:8px; background:#10b981; display:grid; place-items:center; }
+  .s3 .ex { background:#ecfdf5; border-radius:10px; }
+  .s3 .opt { border:2px solid #e5e7eb; border-radius:10px; background:#fff; font-weight:500; }
+  .s3 .opt.ok { border-color:#10b981; background:#ecfdf5; }
+  .s3 .lbl { color:#6b7280; }
+</style>
+
+<div class="cards">
+
+  <div class="card" data-choice="refined" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="sty s1">
+        <div class="panel">
+          <span class="badge">B1</span>
+          <h4>Present perfect</h4>
+          <div class="lbl">Examples</div>
+          <div class="ex">I <b>have lived</b> here since 2019.</div>
+          <div class="ex">She <b>has</b> never <b>been</b> to Japan.</div>
+        </div>
+        <div class="panel">
+          <div class="lbl">Quiz · 2 of 8</div>
+          <div style="margin:6px 0">They ___ the film already.</div>
+          <div class="opt">saw</div>
+          <div class="opt ok">have seen ✓</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>1. Today's look, refined</h3>
+      <p>Same blue and neutrals. Sections become soft white panels with a faint shadow, and examples get an accent bar. Calm and safe.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="editorial" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="sty s2">
+        <div class="panel">
+          <span class="badge">B1</span>
+          <h4>Present perfect</h4>
+          <div class="lbl">Examples</div>
+          <div class="ex">I <b>have lived</b> here since 2019.</div>
+          <div class="ex">She <b>has</b> never <b>been</b> to Japan.</div>
+        </div>
+        <div class="panel">
+          <div class="lbl">Quiz · 2 of 8</div>
+          <div style="margin:6px 0">They ___ the film already.</div>
+          <div class="opt">saw</div>
+          <div class="opt ok">have seen ✓</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>2. Warm, book-like</h3>
+      <p>Paper-coloured background, rust accent, examples set in italic serif like a good grammar book. Feels like a crafted reference.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="colourful" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="sty s3">
+        <div class="panel">
+          <div class="head"><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/></svg></span><span class="badge">B1 · Grammar</span></div>
+          <h4>Present perfect</h4>
+          <div class="lbl">Examples</div>
+          <div class="ex">I <b>have lived</b> here since 2019.</div>
+          <div class="ex">She <b>has</b> never <b>been</b> to Japan.</div>
+        </div>
+        <div class="panel">
+          <div class="lbl">Quiz · 2 of 8</div>
+          <div style="margin:6px 0">They ___ the film already.</div>
+          <div class="opt">saw</div>
+          <div class="opt ok">have seen ✓</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>3. Colourful, one colour per level</h3>
+      <p>Rounder cards, bigger shadows, icons, and each level gets its own colour (B1 green here, A1 another, etc.) that tints the whole page. More app-like and lively.</p>
+    </div>
+  </div>
+
+</div>

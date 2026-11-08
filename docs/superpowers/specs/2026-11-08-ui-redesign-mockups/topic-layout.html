@@ -1,0 +1,132 @@
+<h2>Topic page on a wide screen: what should fill the space?</h2>
+<p class="subtitle">Same lesson ("Present simple", A1), three ways to use a 1440px screen. On a phone, all three collapse back to one column. Click the ones you like.</p>
+
+<style>
+  .wf { display:flex; gap:8px; font-size:11px; line-height:1.35; min-height:300px; }
+  .wf .col { border:1px dashed rgba(127,127,127,.45); border-radius:6px; padding:8px; }
+  .wf .side { width:22%; }
+  .wf .main { flex:1; }
+  .wf .rail { width:24%; }
+  .wf .t { font-weight:600; margin-bottom:4px; }
+  .wf .muted { opacity:.6; }
+  .wf .item { padding:3px 6px; border-radius:4px; margin:2px 0; }
+  .wf .on { background:rgba(37,99,235,.18); font-weight:600; }
+  .wf .box { border:1px solid rgba(127,127,127,.35); border-radius:5px; padding:6px; margin-top:6px; }
+  .wf .h1 { font-family:Georgia,serif; font-size:17px; margin:4px 0 6px; }
+  .wf .badge { display:inline-block; font-size:9px; padding:1px 5px; border-radius:3px; background:rgba(37,99,235,.2); }
+  .wf .bar { height:6px; border-radius:3px; background:rgba(127,127,127,.25); margin-top:4px; }
+  .wf .bar i { display:block; height:100%; width:40%; border-radius:3px; background:rgba(37,99,235,.7); }
+  .wf .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+  .topbar { font-size:11px; border:1px dashed rgba(127,127,127,.45); border-radius:6px; padding:6px 8px; margin-bottom:8px; display:flex; justify-content:space-between; }
+</style>
+
+<div class="cards">
+
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="topbar"><b>English Ladder</b><span>A1 · A2 · B1 · B2 · C1</span><span>Search · Theme</span></div>
+      <div class="wf">
+        <div class="col side">
+          <div class="t">A1 · Grammar</div>
+          <div class="item">To be</div>
+          <div class="item on">Present simple</div>
+          <div class="item">Present continuous</div>
+          <div class="item">Articles</div>
+          <div class="item">Plurals</div>
+          <div class="t" style="margin-top:8px">A1 · Vocabulary</div>
+          <div class="item muted">Family</div>
+          <div class="item muted">Numbers</div>
+        </div>
+        <div class="col main">
+          <span class="badge">A1</span>
+          <div class="h1">Present simple</div>
+          <div class="muted">Explanation paragraphs, kept at a readable width…</div>
+          <div class="box">Examples</div>
+          <div class="box">Common mistakes</div>
+          <div class="box">Quiz</div>
+        </div>
+        <div class="col rail">
+          <div class="t">On this page</div>
+          <div class="item">Explanation</div>
+          <div class="item">Examples</div>
+          <div class="item">Mistakes</div>
+          <div class="item">Quiz</div>
+          <div class="t" style="margin-top:8px">Same topic, other levels</div>
+          <div class="item muted">A2 · Present simple vs continuous</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A. Course layout (three columns)</h3>
+      <p>Topic list on the left so you can jump around a level, the lesson in the middle, a "jump to section" list on the right. Similar to documentation sites and online courses.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="topbar"><b>English Ladder</b><span>A1 · A2 · B1 · B2 · C1</span><span>Search · Theme</span></div>
+      <div class="wf">
+        <div class="col main" style="flex:1.1">
+          <span class="badge">A1</span>
+          <div class="h1">Present simple</div>
+          <div class="muted">Explanation…</div>
+          <div class="grid2">
+            <div class="box">✓ She works here.</div>
+            <div class="box">✗ She work here.</div>
+            <div class="box">Form: I / you / we</div>
+            <div class="box">Form: he / she / it + s</div>
+          </div>
+          <div class="box">Examples (in a table)</div>
+        </div>
+        <div class="col rail" style="width:38%">
+          <div class="t">Practice</div>
+          <div class="muted">Stays in view while you read</div>
+          <div class="box">Q3 of 8: She ___ (live) in Hanoi.</div>
+          <div class="box">lives · live · living</div>
+          <div class="bar"><i></i></div>
+          <div class="muted" style="margin-top:4px">3 of 8 answered</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B. Learn + practice side by side</h3>
+      <p>The lesson on the left, the quiz pinned on the right, so you can look back at the rule while you answer. Examples go into a grid instead of a long list.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="topbar"><b>English Ladder</b><span>A1 · A2 · B1 · B2 · C1</span><span>Search · Theme</span></div>
+      <div class="wf">
+        <div class="col side" style="width:20%">
+          <div class="t">A1 · Grammar</div>
+          <div class="item">To be</div>
+          <div class="item on">Present simple</div>
+          <div class="item">Present continuous</div>
+          <div class="item">Articles</div>
+          <div class="item">Plurals</div>
+        </div>
+        <div class="col main">
+          <span class="badge">A1</span>
+          <div class="h1">Present simple</div>
+          <div class="muted">Explanation…</div>
+          <div class="grid2">
+            <div class="box">Rule card</div>
+            <div class="box">Rule card</div>
+          </div>
+          <div class="box">Examples</div>
+        </div>
+        <div class="col rail" style="width:30%">
+          <div class="t">Practice</div>
+          <div class="box">Q3 of 8 …</div>
+          <div class="bar"><i></i></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C. Both: topic list + pinned practice</h3>
+      <p>Topic list on the left, lesson in the middle, quiz on the right. Uses the most space, but it's the busiest of the three.</p>
+    </div>
+  </div>
+
+</div>
