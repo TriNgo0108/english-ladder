@@ -5,17 +5,23 @@ import type { Topic } from "@/content/schema";
 import { levelMeta } from "@/lib/levels";
 import { topicPath } from "@/lib/seo";
 
-type Props = { topic: Topic; siblings?: undefined } | { siblings: Topic[]; topic?: undefined };
+type Props = ({ topic: Topic; siblings?: undefined } | { siblings: Topic[]; topic?: undefined }) & {
+  /** Distinct id when the links render twice (under the lesson and in the rail). */
+  headingId?: string;
+  /** One link per line, for the narrow rail. */
+  stacked?: boolean;
+};
 
 export function CrossLevelLinks(props: Props) {
   const siblings = props.siblings ?? siblingsAcrossLevels(props.topic);
+  const headingId = props.headingId ?? "cross-level-heading";
   if (siblings.length === 0) return null;
   return (
-    <section aria-labelledby="cross-level-heading" className="font-sans">
-      <h2 id="cross-level-heading" className="text-lg font-semibold">
+    <section aria-labelledby={headingId} className="font-sans">
+      <h2 id={headingId} className="text-lg font-semibold">
         This topic at other levels
       </h2>
-      <ul className="mt-3 flex flex-wrap gap-3">
+      <ul className={props.stacked ? "mt-3 grid gap-2" : "mt-3 flex flex-wrap gap-3"}>
         {siblings.map((s) => (
           <li key={`${s.level}/${s.category}/${s.slug}`}>
             <Link

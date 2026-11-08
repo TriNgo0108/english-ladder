@@ -4,10 +4,12 @@ import { CrossLevelLinks } from "@/components/CrossLevelLinks";
 import { PhraseTopicView } from "@/components/shapes/PhraseTopicView";
 import { RuleTopicView } from "@/components/shapes/RuleTopicView";
 import { SetTopicView } from "@/components/shapes/SetTopicView";
+import { OnThisPage } from "@/components/nav/OnThisPage";
 import { TopicNav } from "@/components/TopicNav";
 import { adjacentTopics, allTopics, findTopic } from "@/content/registry";
 import { CategorySlugSchema, LevelSchema, type Topic } from "@/content/schema";
 import { serialiseJsonLd, topicDescription, topicJsonLd, topicUrl } from "@/lib/seo";
+import { topicSections } from "@/lib/topic-sections";
 
 export const dynamicParams = false;
 
@@ -53,14 +55,25 @@ export default async function TopicPage({ params }: PageProps<"/[level]/[categor
   const { prev, next } = adjacentTopics(topic);
 
   return (
-    <main className="grid min-w-0 gap-10">
+    <main className="grid min-w-0 gap-10 xl:grid-cols-[minmax(0,1fr)_15rem]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serialiseJsonLd(topicJsonLd(topic)) }}
       />
-      <TopicBody topic={topic} />
-      <TopicNav prev={prev} next={next} />
-      <CrossLevelLinks topic={topic} />
+      <div className="grid min-w-0 gap-10">
+        <TopicBody topic={topic} />
+        <TopicNav prev={prev} next={next} />
+        {/* Below xl the rail is hidden, so the other-level links stay under the lesson. */}
+        <div className="empty:hidden xl:hidden">
+          <CrossLevelLinks topic={topic} />
+        </div>
+      </div>
+      <aside className="hidden xl:block">
+        <div className="sticky top-24 grid gap-10">
+          <OnThisPage sections={topicSections(topic)} />
+          <CrossLevelLinks topic={topic} headingId="cross-level-heading-rail" stacked />
+        </div>
+      </aside>
     </main>
   );
 }
