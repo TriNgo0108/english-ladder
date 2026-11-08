@@ -107,6 +107,9 @@ describe("B2 grammar, part 3 (clauses and verb patterns)", () => {
     const whose = gap(nonDefiningRelativeClauses.quiz, "house is by the sea");
     expect(whose).toEqual(["whose"]);
     expectGap(whose, ["whose"], ["who's", "who", "which", "that", "her"]);
+    // Hedged, as in B1: that is not normally used here, but some speakers do.
+    expect(nonDefiningRelativeClauses.explanation).toContain("we <b>don't normally use that</b> in a non-defining clause");
+    expect(nonDefiningRelativeClauses.explanation).not.toContain("<b>don't use that</b>");
   });
 
   it("pins the reduced relative clauses: -ing for an active meaning, the past participle for a passive one", () => {

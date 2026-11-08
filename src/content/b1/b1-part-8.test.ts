@@ -1,16 +1,12 @@
 import { findTopic } from "@/content/registry";
-import { parseTopic, type Question, type RuleTopic } from "@/content/schema";
+import { parseTopic, type RuleTopic } from "@/content/schema";
 import { b1Topics } from ".";
 import { abbreviations } from "./mechanics/abbreviations";
 import { colonsAndSemicolons } from "./mechanics/colons-and-semicolons";
 import { commas } from "./mechanics/commas";
 import { questionIntonation } from "./mechanics/question-intonation";
 import { questionTags } from "./grammar/question-tags";
-import { choiceAnswer, expectGap, gap, ids, mistakes, quizLengths, stringsIn } from "@/content/test-helpers";
-
-function distractors(t: { quiz: Question[] }) {
-  return t.quiz.flatMap((x) => (x.kind === "choice" ? x.options.filter((_, i) => i !== x.answer) : []));
-}
+import { choiceAnswer, distractors, expectGap, gap, ids, mistakes, quizLengths, stringsIn } from "@/content/test-helpers";
 
 /** U+2197 (north east arrow) or U+2198 (south east arrow). A screen reader reads them by those names, so each must be named in words. */
 const ARROW = /[\u2197\u2198]/;
@@ -145,7 +141,7 @@ describe("B1 Mechanics, order 44 (question intonation)", () => {
     expect(b1Topics.map((x) => x.order)).toEqual(Array.from({ length: 44 }, (_, i) => i + 1));
   });
 
-  it("pins the intonation family, with no A1 or A2 sibling yet", () => {
+  it("pins the intonation family key, with no sibling at any level", () => {
     expect(t.family).toBe("intonation");
     expect(ids("b1", "mechanics", "question-intonation")).toEqual([]);
   });

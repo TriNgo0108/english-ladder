@@ -77,6 +77,17 @@ describe("SetTopicView", () => {
     }
   });
 
+  it("labels the first column Expression for phrases topics", () => {
+    const phrases: SetTopic = {
+      ...topic,
+      category: "phrases",
+      entries: topic.entries.map((e) => ({ headword: e.headword, gloss: e.gloss, inUse: e.inUse })),
+    };
+    const { container } = render(<SetTopicView topic={phrases} />);
+    const headers = [...container.querySelectorAll("thead th")].map((th) => th.textContent);
+    expect(headers).toEqual(["Expression", "Meaning", "In use"]);
+  });
+
   it("makes the scrollable table a named, keyboard-focusable region", () => {
     render(<SetTopicView topic={topic} />);
     const region = screen.getByRole("region", { name: "Word list, scrolls sideways" });

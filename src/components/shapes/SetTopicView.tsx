@@ -24,7 +24,7 @@ export function SetTopicView({ topic }: { topic: SetTopic }) {
             <thead>
               <tr className="border-b border-border text-base text-muted">
                 <th scope="col" className="p-3 font-semibold">
-                  Word
+                  {topic.category === "phrases" ? "Expression" : "Word"}
                 </th>
                 {showIpa && (
                   <th scope="col" className="p-3 font-semibold">

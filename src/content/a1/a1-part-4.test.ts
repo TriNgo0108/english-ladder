@@ -1,7 +1,8 @@
 import { a1Topics } from "@/content/a1";
 import { findTopic } from "@/content/registry";
-import { parseTopic, type Question } from "@/content/schema";
+import { parseTopic } from "@/content/schema";
 import { matchesGap } from "@/lib/gap-match";
+import { gap } from "@/content/test-helpers";
 import { capitalLettersAndFullStops } from "./mechanics/capital-letters-and-full-stops";
 import { greetingsAndIntroducingYourself } from "./speaking/greetings-and-introducing-yourself";
 import { orderingFood } from "./speaking/ordering-food";
@@ -21,12 +22,6 @@ const ordered = [
 ] as const;
 
 const setTopics = [numbers, tellingTheTime, daysMonthsFamilyFoodAndColours];
-
-function gap(questions: Question[], stemPart: string) {
-  const q = questions.find((x) => x.kind === "gap" && x.stem.includes(stemPart));
-  if (q?.kind !== "gap") throw new Error(`gap containing "${stemPart}" missing`);
-  return q.answers;
-}
 
 describe("A1 vocabulary, speaking and mechanics (part 4)", () => {
   it("registers orders 20-26 in sequence, each passing the schema", () => {

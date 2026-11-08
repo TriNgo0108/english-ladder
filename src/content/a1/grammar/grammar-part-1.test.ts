@@ -1,7 +1,8 @@
 import { a1Topics } from "@/content/a1";
 import { findTopic } from "@/content/registry";
-import { parseTopic, type Question } from "@/content/schema";
+import { parseTopic } from "@/content/schema";
 import { matchesGap } from "@/lib/gap-match";
+import { gap } from "@/content/test-helpers";
 import { haveGot } from "./have-got";
 import { possessiveAdjectivesAndS } from "./possessive-adjectives-and-s";
 import { presentSimple } from "./present-simple";
@@ -16,12 +17,6 @@ const orderedSlugs = [
   "possessive-adjectives-and-s",
   "present-simple",
 ];
-
-function gap(questions: Question[], stemPart: string) {
-  const q = questions.find((x) => x.kind === "gap" && x.stem.includes(stemPart));
-  if (q?.kind !== "gap") throw new Error(`gap containing "${stemPart}" missing`);
-  return q.answers;
-}
 
 describe("A1 grammar, part 1", () => {
   it("registers orders 1-8 in sequence, each passing the schema", () => {

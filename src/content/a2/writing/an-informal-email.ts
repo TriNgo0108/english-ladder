@@ -23,7 +23,7 @@ export const anInformalEmail: PhraseTopic = {
   situations: [
     {
       situation: "Starting the email",
-      phrases: ["Hi Sam,", "Hello Maria,", "Hi everyone,"],
+      phrases: ["Hi Sam,", "Hey Maria,", "Hi everyone,"],
       register: "informal",
     },
     {

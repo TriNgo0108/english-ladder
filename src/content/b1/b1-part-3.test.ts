@@ -54,7 +54,7 @@ describe("B1 grammar, part 3 (modals and verb patterns)", () => {
     expect(thePassive.family).toBe("passive");
   });
 
-  it("links the used-to chain A2 <-> B1 both ways, the gerunds-and-infinitives chain A2 <-> B1 <-> B2, modal deduction to B2, and gives the rest no siblings", () => {
+  it("links the used-to chain A2 <-> B1 both ways, the gerunds-and-infinitives chain A2 <-> B1 <-> B2, modal deduction and the passive to B2, and gives the rest no siblings", () => {
     expect(ids("a2", "grammar", "used-to-and-would")).toEqual(["b1/be-used-to-and-get-used-to"]);
     expect(ids("b1", "grammar", "be-used-to-and-get-used-to")).toEqual(["a2/used-to-and-would"]);
     expect(ids("a2", "grammar", "verb-plus-gerund-or-infinitive")).toEqual(["b1/gerunds-vs-infinitives", "b2/verb-object-infinitive-and-gerund-patterns"]);

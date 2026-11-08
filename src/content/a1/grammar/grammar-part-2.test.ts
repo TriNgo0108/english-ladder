@@ -1,7 +1,8 @@
 import { a1Topics } from "@/content/a1";
 import { findTopic } from "@/content/registry";
-import { parseTopic, type Question } from "@/content/schema";
+import { parseTopic } from "@/content/schema";
 import { matchesGap } from "@/lib/gap-match";
+import { gap } from "@/content/test-helpers";
 import { tokeniseAnswer } from "@/lib/wordbank";
 import { canForAbility } from "./can-for-ability";
 import { imperatives } from "./imperatives";
@@ -19,12 +20,6 @@ const orderedSlugs = [
   "prepositions-of-place",
   "prepositions-of-time",
 ];
-
-function gap(questions: Question[], stemPart: string) {
-  const q = questions.find((x) => x.kind === "gap" && x.stem.includes(stemPart));
-  if (q?.kind !== "gap") throw new Error(`gap containing "${stemPart}" missing`);
-  return q.answers;
-}
 
 describe("A1 grammar, part 2", () => {
   it("registers orders 9-15 in sequence, each passing the schema", () => {

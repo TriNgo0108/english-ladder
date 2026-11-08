@@ -177,6 +177,8 @@ describe("A2 vocabulary, writing and speaking (part 5)", () => {
   it("marks the email registers: informal for friends, neutral for Best wishes, formal only for the contrast group", () => {
     const reg = (phrase: string) => anInformalEmail.situations.find((s) => s.phrases.includes(phrase))?.register;
     expect(reg("Hi Sam,")).toBe("informal");
+    expect(reg("Hey Maria,")).toBe("informal");
+    expect(anInformalEmail.situations[0].phrases).toEqual(["Hi Sam,", "Hey Maria,", "Hi everyone,"]);
     expect(reg("Love,")).toBe("informal");
     expect(reg("Cheers,")).toBe("informal");
     expect(reg("Best wishes,")).toBe("neutral");

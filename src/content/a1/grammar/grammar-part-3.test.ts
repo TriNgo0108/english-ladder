@@ -2,6 +2,7 @@ import { a1Topics } from "@/content/a1";
 import { findTopic } from "@/content/registry";
 import { parseTopic, type Question } from "@/content/schema";
 import { matchesGap } from "@/lib/gap-match";
+import { gap } from "@/content/test-helpers";
 import { objectAndPossessivePronouns } from "./object-and-possessive-pronouns";
 import { questionWords } from "./question-words";
 import { wasWere } from "./was-were";
@@ -13,12 +14,6 @@ const orderedSlugs = [
   "was-were",
   "object-and-possessive-pronouns",
 ];
-
-function gap(questions: Question[], stemPart: string) {
-  const q = questions.find((x) => x.kind === "gap" && x.stem.includes(stemPart));
-  if (q?.kind !== "gap") throw new Error(`gap containing "${stemPart}" missing`);
-  return q.answers;
-}
 
 function wordbankAnswer(questions: Question[]) {
   const q = questions.find((x) => x.kind === "wordbank");

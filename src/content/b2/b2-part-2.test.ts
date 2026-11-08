@@ -190,6 +190,8 @@ describe("B2 grammar, part 2 (future in the past, passives, the causative, repor
     expect(advancedPassiveAndReportingVerbs.explanation).toContain("mean the same");
     expect(theCausative.explanation).toContain("<b>causative</b>");
     expect(theCausative.explanation).toContain("a little more informal");
+    expect(theCausative.form).toContain("I had cut my hair is the past perfect of cut, so you did it yourself: it is not the causative");
+    expect(theCausative.form).not.toContain("not: I had cut my hair");
     expect(reportedCommandsAdviceAndRequests.explanation).toContain("Remember: a reporting verb is a verb that we use to report what people say or think");
     expect(reportedCommandsAdviceAndRequests.explanation).toContain("usually");
     expect(reportedCommandsAdviceAndRequests.explanation).toContain("never put the person just after said");

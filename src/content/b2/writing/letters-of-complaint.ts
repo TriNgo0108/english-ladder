@@ -37,9 +37,13 @@ export const lettersOfComplaint: PhraseTopic = {
       register: "neutral",
     },
     {
-      situation: "Saying what you want",
+      situation: "Saying what you want, simply and politely",
+      phrases: ["I would like a full refund."],
+      register: "neutral",
+    },
+    {
+      situation: "Saying what you want, formally",
       phrases: [
-        "I would like a full refund.",
         "I would be grateful if you could repair or replace the machine.",
         "I would appreciate it if you could look into this matter.",
       ],
@@ -96,7 +100,7 @@ export const lettersOfComplaint: PhraseTopic = {
       options: ["I would like a full refund.", "I want my money now!", "Maybe you could give me some money, or something?"],
       answer: 0,
       feedback:
-        "I would like a full refund is clear, polite and formal. I want my money now! sounds rude, and Maybe… or something? is informal and not clear about what you want.",
+        "I would like a full refund is clear and polite, and it fits a letter or a shop counter. I want my money now! sounds rude, and Maybe… or something? is informal and not clear about what you want.",
     },
     {
       kind: "gap",

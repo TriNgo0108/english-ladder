@@ -225,6 +225,8 @@ describe("B2 grammar, part 1 (conditionals, regrets and past modals)", () => {
     expect(thirdConditional.explanation).toContain("don't usually use would");
     expect(mixedConditionals.explanation).toContain("both are correct");
     expect(describingCertaintyInThePast.explanation).toContain("not mustn't have");
+    const sara = describingCertaintyInThePast.quiz.find((q) => q.kind === "choice" && q.stem.startsWith("Sara"));
+    expect(sara?.kind === "choice" ? sara.feedback : "").toContain("We don't usually use mustn't have for this (in American English, must not have is sometimes heard)");
     expect(describingCertaintyInThePast.sourceNotes).toContain("unlikely");
     expect(needntHaveAndDidntNeedTo.explanation).toContain("whether or not");
     expect(couldWasAbleToAndCouldHave.explanation).toContain("couldn't is fine");

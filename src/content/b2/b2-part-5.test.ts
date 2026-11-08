@@ -221,6 +221,13 @@ describe("B2 Phrases & Expressions and Writing (part 5)", () => {
     expect(reg(t, "I am writing to complain about a delay to my order.")).toBe("formal");
     expect(reg(t, "Excuse me, I'm afraid there's a problem with this jacket.")).toBe("neutral");
     expect(reg(t, "Unfortunately, it arrived two weeks late, and the door was broken.")).toBe("neutral");
+    // I would like… is neutral (A1 would-you-like, ordering-food); I would be grateful… is B1's formal request.
+    expect(reg(t, "I would like a full refund.")).toBe("neutral");
+    expect(reg(t, "I would be grateful if you could repair or replace the machine.")).toBe("formal");
+    expect(reg(t, "I would appreciate it if you could look into this matter.")).toBe("formal");
+    for (const s of t.situations) {
+      if (s.phrases.some((p) => p.startsWith("I would like"))) expect(s.register, s.situation).toBe("neutral");
+    }
     expect(t.explanation).toContain("the sign-off usually matches the greeting");
     expect(choiceAnswer(t.quiz, "firm but polite close")).toBe("If the problem is not solved by the end of the month, I will take the matter further.");
     expect(choiceAnswer(t.quiz, "want your money back")).toBe("I would like a full refund.");
@@ -240,6 +247,7 @@ describe("B2 Phrases & Expressions and Writing (part 5)", () => {
     expect(reg(t, "I am familiar with online booking systems.")).toBe("neutral");
     expect(reg(t, "I'm really into marketing!")).toBe("informal");
     expect(reg(t, "Yours sincerely,")).toBe("formal");
+    expect(reg(t, "I would welcome the opportunity to discuss my application at an interview.")).toBe("formal");
     expect(t.situations.filter((s) => s.register === "informal").map((s) => s.situation)).toEqual(["Not for a cover letter"]);
     expect(choiceAnswer(t.quiz, "best first sentence")).toBe(
       "I am writing to apply for the position of hotel receptionist, as advertised on your website.",

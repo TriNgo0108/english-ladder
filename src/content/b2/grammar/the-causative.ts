@@ -25,7 +25,7 @@ export const theCausative: RuleTopic = {
     "have in any tense: I'm having / I've had / I'll have / I should have … the car checked",
     "questions and negatives with do: Where do you have your hair cut? I didn't have it cleaned.",
     "something bad that happened: She had her bag stolen.",
-    "not: I had cut my hair (= past perfect, I did it myself)",
+    "I had cut my hair is the past perfect of cut, so you did it yourself: it is not the causative",
   ].join("\n"),
 
   examples: [

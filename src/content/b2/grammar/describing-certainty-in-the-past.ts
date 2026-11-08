@@ -73,7 +73,7 @@ export const describingCertaintyInThePast: RuleTopic = {
       options: ["must have read", "mustn't have read", "can't have read"],
       answer: 2,
       feedback:
-        "Her phone was off all day, so we are sure that she didn't read it: Sara can't have read the message. Couldn't have read is also correct. We don't use mustn't have for this, and must have read means that we are sure she did.",
+        "Her phone was off all day, so we are sure that she didn't read it: Sara can't have read the message. Couldn't have read is also correct. We don't usually use mustn't have for this (in American English, must not have is sometimes heard), and must have read means that we are sure she did.",
     },
     {
       kind: "gap",
