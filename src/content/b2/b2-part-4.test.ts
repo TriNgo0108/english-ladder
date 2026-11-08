@@ -73,7 +73,7 @@ describe("B2 grammar, part 4 (articles, linkers, questions, emphasis and hedging
     expect(ids("a1", "grammar", "question-words")).toEqual(["a2/subject-questions", "b1/question-tags", "b2/declarative-and-rhetorical-questions"]);
     expect(ids("a2", "grammar", "subject-questions")).toEqual(["a1/question-words", "b1/question-tags", "b2/declarative-and-rhetorical-questions"]);
     expect(ids("b1", "grammar", "question-tags")).toEqual(["a1/question-words", "a2/subject-questions", "b2/declarative-and-rhetorical-questions"]);
-    expect(ids("b2", "grammar", "inversion-after-negative-adverbials")).toEqual([]);
+    expect(ids("b2", "grammar", "inversion-after-negative-adverbials")).toEqual(["c1/advanced-inversion-and-fronting"]);
     expect(ids("b2", "grammar", "cleft-sentences")).toEqual([]);
     expect(ids("b2", "grammar", "hedging-and-degrees-of-certainty")).toEqual([]);
   });

@@ -175,7 +175,7 @@ describe("cross-level family links from B2 to A1, A2 and B1", () => {
     }
   });
 
-  it("shares exactly these families with A1, A2 and B1, and inversion has no earlier sibling", () => {
+  it("shares exactly these families with A1, A2 and B1, and inversion has no earlier sibling (only its C1 one)", () => {
     const shared = b2WithFamily.filter((t) => lowerSiblings(t).length > 0).map(key).sort();
     expect(shared).toEqual(
       [
@@ -200,7 +200,8 @@ describe("cross-level family links from B2 to A1, A2 and B1", () => {
     );
     const inversion = b2.find((t) => t.family === "inversion");
     if (!inversion) throw new Error("inversion topic missing");
-    expect(siblingsAcrossLevels(inversion)).toEqual([]);
+    expect(siblingsAcrossLevels(inversion).filter((s) => s.level !== "c1")).toEqual([]);
+    expect(siblingsAcrossLevels(inversion).map(id)).toEqual(["c1/grammar/advanced-inversion-and-fronting"]);
   });
 
   it("pins the four-level question-forms chain in CEFR order on every page", () => {
