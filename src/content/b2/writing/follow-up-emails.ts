@@ -4,7 +4,7 @@ export const followUpEmails: PhraseTopic = {
   slug: "follow-up-emails",
   family: "emails",
   title: "Follow-up emails: after a meeting, chasing a reply, after an interview",
-  summary: "It was good to talk to you just now. Confirm what you agreed, chase a reply politely and thank an interviewer, in the right register for each reader.",
+  summary: "It was good to talk to you this afternoon. Confirm what you agreed, chase a reply politely and thank an interviewer, in the right register for each reader.",
   level: "b2",
   category: "writing",
   shape: "phrases",
@@ -13,8 +13,8 @@ export const followUpEmails: PhraseTopic = {
   explanation: [
     "A follow-up email comes after something else: a meeting, a phone call, a job interview, or an email that got no answer. It is short, and it reminds the reader what happened and what happens next. Remember: register means how formal or informal your words are. Like most work emails (B1), most follow-up emails are neutral. After a job interview, or to a client you don't know well, they are more formal.",
     "<b>After a meeting or a call</b>, start with a line about it: It was good to talk to you this morning. Thank you for your time today. Then confirm what you agreed: I'm writing to confirm what we agreed at the meeting. As discussed, … is shorter and more formal. Finish with the next step: who does what, and when. We'll send you the final plan by 4 p.m. our time. Our time is useful when the reader is in a different country.",
-    "After say, we don't put a person: As I said on the phone, not As I told on the phone. Tell needs a person after it: As I told you on the phone.",
-    "If something went wrong, say sorry clearly and say what you will do: I'm sorry I didn't check with you before booking the venue. We'll send you a list of other venues. After a preposition like before, use the gerund (B1): before booking, not before book. Remember: when the -ing form of a verb works like a noun, as the name of an activity, we call it the gerund.",
+    "We don't put the person just after say, as you learned at B1: As I said on the phone, not As I told on the phone. Tell needs a person after it: As I told you on the phone.",
+    "If something went wrong, say sorry clearly and say what you will do: I'm sorry I didn't check with you before booking the venue. We'll send you a list of other venues. When before is followed by a verb with no subject, use the gerund (B1): before booking, not before book. Before I booked is also correct, with a subject and a past verb. Remember: when the -ing form of a verb works like a noun, as the name of an activity, we call it the gerund.",
     "<b>Chasing a reply</b> means writing again because someone hasn't answered. Be polite, and suppose that the reader is busy, not rude: I'm just following up on my email of 3 May. Have you had a chance to look at the proposal? If you need an answer soon, give a reason and a date: We need to confirm the order by Friday. In a formal email, I was wondering whether you had received my email of 12 June is softer. To a colleague you know well, Just a quick reminder about… is informal, because it leaves out the first words (It's just…).",
     "<b>After a job interview</b>, a short formal email helps the employer remember you. Thank the interviewer, say that you are still interested, and offer more information: I would like to thank you for meeting me yesterday. I remain very interested in the position.",
     "Use a clear subject line (B1), often the old subject with Re: in front, like Re: Meeting on Monday, or a new one, like Following up: invoice 2041. Sign off as in any work email: Kind regards or Best regards.",
@@ -111,17 +111,17 @@ export const followUpEmails: PhraseTopic = {
     },
     {
       kind: "gap",
-      stem: "It was good to ___ to you just now. As we agreed, I'll send the contract tomorrow. (one word)",
+      stem: "It was good to ___ to you this afternoon. As we agreed, I'll send the contract tomorrow. (one word)",
       answers: ["talk", "speak", "chat"],
       feedback:
         "It was good to talk to you, or to speak to you, is a friendly first line after a call or a meeting. Chat to you is also correct, and a little less formal. After to, use the base form. Say and tell don't fit here: we say something, and we tell someone something.",
     },
     {
       kind: "gap",
-      stem: "I'm sorry for not checking with you before ___ the hotel. (book)",
-      answers: ["booking", "having booked"],
+      stem: "I'm sorry for not checking with you before ___ the hotel. (book, one word)",
+      answers: ["booking"],
       feedback:
-        "Before is a preposition here, so the verb after it takes -ing, the gerund: before booking the hotel. Before having booked is also correct, but before booking is much more usual.",
+        "With one word and no subject after before, use the -ing form, the gerund: before booking the hotel. Before book is not correct. With a subject, before I booked the hotel is also correct, but that needs two words.",
     },
     {
       kind: "choice",

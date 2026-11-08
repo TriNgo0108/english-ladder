@@ -159,6 +159,8 @@ describe("B2 Phrases & Expressions and Writing (part 5)", () => {
     const t = advancedPhrasalVerbs;
     expect(t.explanation).toContain("Most three-part phrasal verbs, including all the ones in this table, can't be separated");
     expect(t.explanation).toContain("not put it up with");
+    expect(t.explanation).toContain("It usually has no object, or just the phone");
+    expect(t.explanation).not.toContain("and it has no object");
     const heads = t.entries.map((e) => e.headword);
     for (const h of ["put up with", "come up with", "get away with", "look down on", "catch up with", "hang up on"]) expect(heads).toContain(h);
     expect(choiceAnswer(t.quiz, "barks all night")).toBe("put up with");
@@ -274,8 +276,13 @@ describe("B2 Phrases & Expressions and Writing (part 5)", () => {
     expect(talk).toEqual(["talk", "speak", "chat"]);
     expectGap(talk, ["talk", "speak", "chat", "Talk"], ["say", "tell", "talking", "talked"]);
     const booking = gap(t.quiz, "before ___ the hotel");
-    expect(booking).toEqual(["booking", "having booked"]);
-    expectGap(booking, ["booking", "Booking", "having booked"], ["book", "booked", "to book", "I booked"]);
+    expect(booking).toEqual(["booking"]);
+    expectGap(booking, ["booking", "Booking"], ["book", "booked", "to book", "having"]);
+    expect(t.quiz.some((q) => q.kind === "gap" && q.stem.includes("(book, one word)"))).toBe(true);
+    expect(JSON.stringify(t.quiz)).not.toContain("Before is a preposition here");
+    expect(t.explanation).toContain("We don't put the person just after say");
+    expect(t.summary).not.toContain("just now");
+    for (const q of t.quiz) if (q.kind === "gap") expect(q.stem).not.toContain("just now");
     expect(wordbankAnswers(t.quiz)).toEqual(["Have you had a chance to look at my report?"]);
     expect(mistakes(t.quiz)).toEqual([["told", "said"]]);
     expect(t.explanation).toContain("As I said on the phone, not As I told on the phone");
